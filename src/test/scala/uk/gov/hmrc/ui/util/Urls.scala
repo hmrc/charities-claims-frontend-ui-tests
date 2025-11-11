@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package uk.gov.hmrc.ui.util
 
-object ExampleRadioPage extends BasePage {
+object Urls extends Enumeration {
+  val LOCAL   =
+    "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:10911/stamp-duty-land-tax-agent"
+  val QA      = "https://www.qa.tax.service.gov.uk"
+  val DEV     = "https://www.development.tax.service.gov.uk"
+  val STAGING = "https://www.staging.tax.service.gov.uk/auth-login-stub/gg-sign-in"
 
-  override def pageUrl: String = "/charities/example-radio"
-
-  override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
-
-  def pageHeader: String =
-    "Question related to one of the below radio button options?"  
-
-  val yes: String = "#value"
-  val no: String  = "#value-2"
 }

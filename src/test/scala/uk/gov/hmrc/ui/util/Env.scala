@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package uk.gov.hmrc.ui.util
 
-object ExampleRadioPage extends BasePage {
+object Env {
+  val baseUrl: String = Option(System.getProperty("environment")).map(_.toLowerCase) match {
+    case Some("dev")     => Urls.DEV
+    case Some("local")   => Urls.LOCAL
+    case Some("qa")      => Urls.QA
+    case Some("staging") => Urls.STAGING
+    case _               => Urls.LOCAL
 
-  override def pageUrl: String = "/charities/example-radio"
-
-  override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
-
-  def pageHeader: String =
-    "Question related to one of the below radio button options?"  
-
-  val yes: String = "#value"
-  val no: String  = "#value-2"
+  }
 }

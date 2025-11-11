@@ -38,6 +38,7 @@ class InitialSpec
     Scenario("Agent navigates to **service name**") {
       Given("Agent navigates to **page name** page")
       //CODE LINE - e.g. ExampleRadioPage.verifyPageTitle(ExampleRadioPage.pageTitle)
+      //CODE LINE - e.g. ExampleRadioPage.verifyPageHeader(ExampleRadioPage.pageHeader)
       And("Agent clicks 'Yes' radio button option")
       //CODE LINE - e.g. ExampleRadioPage.clickYesRadio()
       And("Agent clicks 'Continue' button")
