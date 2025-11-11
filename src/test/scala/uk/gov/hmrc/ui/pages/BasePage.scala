@@ -61,7 +61,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   def pageUrl: String
   def pageTitle: String
-
+  
   /** Wait for visibility of an element */
   def waitForVisibilityOfElement(selector: By): WebElement =
     w.until(ExpectedConditions.visibilityOfElementLocated(selector))
