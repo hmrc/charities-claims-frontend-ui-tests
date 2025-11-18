@@ -20,12 +20,13 @@ import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.verbs.ShouldVerb
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
+import uk.gov.hmrc.ui.pages.*
 //import uk.gov.hmrc.ui.pages.{#PAGE OBJECT NAMES HERE# e.g. ExampleRadioPage}
 //import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 //import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class ExampleSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -34,17 +35,51 @@ class ExampleSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Agent - Gift Aid frontend Journeys") {
-    Scenario("Agent navigates to **service name**") {
-      Given("Agent navigates to **page name** page")
-      //CODE LINE - e.g. ExampleRadioPage.verifyPageTitle(ExampleRadioPage.pageTitle)
-      //CODE LINE - e.g. ExampleRadioPage.verifyPageHeader(ExampleRadioPage.pageHeader)
-      And("Agent clicks 'Yes' radio button option")
-      //CODE LINE - e.g. ExampleRadioPage.clickYesRadio()
-      And("Agent clicks 'Continue' button")
-      //CODE LINE - e.g. ExampleRadioPage.clickSubmitButton()
-      And("User navigates to **next page** page")
-      //CODE LINE - e.g. AnotherPage.verifyPageTitle(AnotherPage.pageTitle)
+  Feature("Charities - Organisation - Gift Aid frontend Journeys") {
+    Scenario("User navigates to Gift Aid") {
+      Given("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
+      AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
+      And("User clicks 'Yes' radio button option")
+      AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
+      And("User clicks 'Continue' button")
+      AreYouClaimingGiftAidPage.clickSubmitButton()
+      And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
+      AreYouClaminingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaminingTaxDeductedFromOtherIncomePage.pageTitle)
+      AreYouClaminingTaxDeductedFromOtherIncomePage.verifyPageHeader(AreYouClaminingTaxDeductedFromOtherIncomePage.pageHeader)
+      And("User clicks 'Yes' radio button option")
+      AreYouClaminingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaminingTaxDeductedFromOtherIncomePage.yes)
+      And("User clicks 'Continue' button")
+      AreYouClaminingTaxDeductedFromOtherIncomePage.clickSubmitButton()
+      And("User navigates to 'Gift Aid Small Donations Scheme' page")
+      GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
+      GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
+      And("User clicks 'Yes' radio button option")
+      GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.yes)
+      And("User clicks 'Continue' button")
+      GiftAidSmallDonationsSchemePage.clickSubmitButton()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+      DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
+      And("User clicks 'Yes' radio button option")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      And("User clicks 'Continue' button")
+      DoYouHaveAClaimReferenceNumberPage.clickSubmitButton()
+      And("User navigates to 'Your claim reference number?' page")
+      YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageTitle)
+      YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
+      And("User enters their claim reference number")
+      YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
+      And("User clicks 'Continue' button")
+      YourClaimReferenceNumberPage.clickSubmitButton()
+      And("User navigates to 'Declaration' page")
+      DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
+      DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
+      And("User clicks 'Continue' button")
+      DeclarationPage.clickSubmitButton()
+      And("User navigates to 'Check your answers' page")
+//      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
+//      CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
     }
   }
 }

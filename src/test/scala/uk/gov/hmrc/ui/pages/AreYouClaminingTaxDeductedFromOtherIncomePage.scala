@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.driver
+package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.selenium.webdriver.Driver
+object AreYouClaminingTaxDeductedFromOtherIncomePage extends BasePage {
 
-trait BrowserDriver {
+  override def pageUrl: String = "/charities/example-radio"
 
-  implicit def driver: WebDriver = Driver.instance
+  override def pageTitle: String =
+    " – Section Name - Service Name - GOV.UK"
 
+  def pageHeader: String =
+    "Are you claiming UK tax deducted from other income?"
+
+  val yes: String = "#value"
+  val no: String = "#value-2"
 }
