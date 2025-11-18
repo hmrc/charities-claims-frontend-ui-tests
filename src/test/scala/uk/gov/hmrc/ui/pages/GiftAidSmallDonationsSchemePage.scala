@@ -18,10 +18,10 @@ package uk.gov.hmrc.ui.pages
 
 object GiftAidSmallDonationsSchemePage extends BasePage {
 
-  override def pageUrl: String = "/charities/example-radio"
+  override def pageUrl: String = "/claiming-for-gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
+    "Gift Aid Small Donations Scheme - Charities - GOV.UK"
 
   def pageHeader: String =
     "Gift Aid Small Donations Scheme"

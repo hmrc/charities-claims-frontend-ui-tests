@@ -70,6 +70,7 @@ class ExampleSpec
       YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
       And("User enters their claim reference number")
       YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
+      //uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
       And("User clicks 'Continue' button")
       YourClaimReferenceNumberPage.clickSubmitButton()
       And("User navigates to 'Declaration' page")

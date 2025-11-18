@@ -18,10 +18,10 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingGiftAidPage extends BasePage {
 
-  override def pageUrl: String = "/charities/example-radio"
+  override def pageUrl: String = "/claim-gift-aid"
 
   override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
+    "Claiming Gift Aid - Charities - GOV.UK"
 
   def pageHeader: String =
     "Are you claiming Gift Aid?"
