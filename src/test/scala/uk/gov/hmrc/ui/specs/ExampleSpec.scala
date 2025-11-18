@@ -78,8 +78,8 @@ class ExampleSpec
       And("User clicks 'Continue' button")
       DeclarationPage.clickSubmitButton()
       And("User navigates to 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
-//      CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
+      CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
     }
   }
 }
