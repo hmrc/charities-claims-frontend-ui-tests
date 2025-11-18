@@ -45,23 +45,25 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val rdoYes              = "#value_0"
     val rdoNo               = "#value_1"
     val txtFileName         = ".govuk-body"
-    val txtBannerTitle      = "#govuk-notification-banner-title"
-    val lnkRemoveFile       = "dd[class='govuk-summary-list__actions'] a[class='govuk-link']"
-    val txtMonth: By        = By.ById("value.month")
-    val txtYear: By         = By.ById("value.year")
-    val txtEmailAddress: By = By.cssSelector("#value")
-    val cbxConfirm          = "#value_0"
+//    val txtBannerTitle      = "#govuk-notification-banner-title"
+//    val lnkRemoveFile       = "dd[class='govuk-summary-list__actions'] a[class='govuk-link']"
+//    val txtMonth: By        = By.ById("value.month")
+//    val txtYear: By         = By.ById("value.year")
+//    val txtEmailAddress: By = By.cssSelector("#value")
+//    val cbxConfirm          = "#value_0"
     val txtHeader: By       = By.xpath("//h1")
-    val lnkAddrManually     = "Enter the address manually"
-    val txtPostCode: By     = By.ById("postcode")
-    val txtAddress1: By     = By.ById("line1")
-    val txtTown: By         = By.ById("town")
-    val txtAddressPostCode  = By.ById("postcode")
+//    val lnkAddrManually     = "Enter the address manually"
+//    val txtPostCode: By     = By.ById("postcode")
+//    val txtAddress1: By     = By.ById("line1")
+//    val txtTown: By         = By.ById("town")
+//    val txtAddressPostCode  = By.ById("postcode")
+    val yourClaimReferenceNumber  = By.ById("claimref?")
+
   }
 
   def pageUrl: String
   def pageTitle: String
-  
+
   /** Wait for visibility of an element */
   def waitForVisibilityOfElement(selector: By): WebElement =
     w.until(ExpectedConditions.visibilityOfElementLocated(selector))
@@ -80,7 +82,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def waitForElementToBeClickable(selector: By): WebElement =
     new WebDriverWait(driver, Duration.ofSeconds(10))
       .until(ExpectedConditions.elementToBeClickable(selector))
-      
+
   /** Generic input method */
   def input(selector: By, value: String): Unit = {
     val element = waitForVisibilityOfElement(selector)
@@ -116,7 +118,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def saveAndContinue(): Unit   = click(By.cssSelector(Locators.btnContinue))
   def acceptAndContinue(): Unit = click(By.cssSelector(Locators.btnContinue))
   def header(): Unit            = click(By.cssSelector(Locators.lnkHeader))
-  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
+//  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
 
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
@@ -127,7 +129,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def isCurrentUrl: Boolean          = getCurrentUrlInBrowser.contains(pageUrl)
   def getCurrentUrlInBrowser: String = driver.getCurrentUrl
   def getPageTitle: String           = driver.getTitle
-  
+
   /** Radio button interaction */
   def radioButton(optionalValue: String): Unit = {
     val element: WebElement    = driver.findElement(By.cssSelector(optionalValue))
@@ -164,7 +166,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
     println("Actual page title is: " + driver.getTitle)
   }
-  
+
   def verifyPageHeader(expectedHeader: String): Unit = {
     waitForVisibilityOfElement(Locators.txtHeader)
     val actualHeader = driver.findElement(Locators.txtHeader).getText

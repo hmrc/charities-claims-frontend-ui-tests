@@ -24,7 +24,7 @@ object ExampleRadioPage extends BasePage {
     " – Section Name - Service Name - GOV.UK"
 
   def pageHeader: String =
-    "Question related to one of the below radio button options?"  
+    "Question related to one of the below radio button options?"
 
   val yes: String = "#value"
   val no: String  = "#value-2"
