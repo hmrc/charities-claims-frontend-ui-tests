@@ -36,7 +36,7 @@ class ExampleSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid frontend Journeys") {
-    Scenario("User navigates to Gift Aid") {
+    Scenario("User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number") {
       Given("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
       AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
@@ -45,12 +45,12 @@ class ExampleSpec
       And("User clicks 'Continue' button")
       AreYouClaimingGiftAidPage.clickSubmitButton()
       And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-      AreYouClaminingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaminingTaxDeductedFromOtherIncomePage.pageTitle)
-      AreYouClaminingTaxDeductedFromOtherIncomePage.verifyPageHeader(AreYouClaminingTaxDeductedFromOtherIncomePage.pageHeader)
+      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
+      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader)
       And("User clicks 'Yes' radio button option")
-      AreYouClaminingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaminingTaxDeductedFromOtherIncomePage.yes)
+      AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.yes)
       And("User clicks 'Continue' button")
-      AreYouClaminingTaxDeductedFromOtherIncomePage.clickSubmitButton()
+      AreYouClaimingTaxDeductedFromOtherIncomePage.clickSubmitButton()
       And("User navigates to 'Gift Aid Small Donations Scheme' page")
       GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
       GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
