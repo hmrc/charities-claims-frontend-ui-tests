@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AreYouClaminingTaxDeductedFromOtherIncomePage extends BasePage {
+object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
   override def pageUrl: String = "/claiming-other-income"
 
