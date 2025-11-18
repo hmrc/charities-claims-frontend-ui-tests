@@ -18,11 +18,11 @@ package uk.gov.hmrc.ui.pages
 
 object CheckYourAnswersPage extends BasePage {
 
-  override def pageUrl: String = "/charities/example-radio"
+  override def pageUrl: String = "/check-your-claim-details"
 
   override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
+    "Check your claim details - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Check your answers"  
+    "Check your answers"
 }

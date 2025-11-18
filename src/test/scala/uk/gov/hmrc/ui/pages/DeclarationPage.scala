@@ -18,10 +18,10 @@ package uk.gov.hmrc.ui.pages
 
 object DeclarationPage extends BasePage {
 
-  override def pageUrl: String = "/charities/example-radio"
+  override def pageUrl: String = "/declaration"
 
   override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
+    "Declaration - Charities - GOV.UK"
 
   def pageHeader: String =
     "Declaration"

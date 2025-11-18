@@ -18,10 +18,10 @@ package uk.gov.hmrc.ui.pages
 
 object YourClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = "/charities/example-radio"
+  override def pageUrl: String = "/check-claim-reference-number"
 
   override def pageTitle: String =
-    " – Section Name - Service Name - GOV.UK"
+    "Check your claim reference number - Charities - GOV.UK"
 
   def pageHeader: String =
     "Your claim reference number"
