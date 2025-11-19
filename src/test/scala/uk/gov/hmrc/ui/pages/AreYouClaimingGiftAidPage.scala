@@ -28,4 +28,9 @@ object AreYouClaimingGiftAidPage extends BasePage {
 
   val yes: String = "#value"
   val no: String  = "#value-2"
+
+  def validateNavigation(): Unit = {
+    AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
+    AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
+  }
 }

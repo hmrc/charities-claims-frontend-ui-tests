@@ -36,17 +36,24 @@ class ExampleSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid frontend Journeys") {
-    Scenario("User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number") {
+    Scenario(
+      "User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number"
+    ) {
       Given("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
-      AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
+//        AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
+//        AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
+      AreYouClaimingGiftAidPage.validateNavigation()
       And("User clicks 'Yes' radio button option")
       AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
       And("User clicks 'Continue' button")
       AreYouClaimingGiftAidPage.clickSubmitButton()
       And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
-      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader)
+      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(
+        AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle
+      )
+      AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
+        AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
+      )
       And("User clicks 'Yes' radio button option")
       AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.yes)
       And("User clicks 'Continue' button")
@@ -70,7 +77,7 @@ class ExampleSpec
       YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
       And("User enters their claim reference number")
       YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
-      //uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
+      // uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
       And("User clicks 'Continue' button")
       YourClaimReferenceNumberPage.clickSubmitButton()
       And("User navigates to 'Declaration' page")
