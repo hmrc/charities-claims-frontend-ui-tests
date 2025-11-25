@@ -58,6 +58,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAddressPostCode            = By.ById("postcode")
     val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
     val hintText                      = By.ById("value-hint")
+    val errorMsg                      = By.ById("value-error")
   }
 
   def pageUrl: String
@@ -85,6 +86,19 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def waitForElementToBeClickable(selector: By): WebElement =
     new WebDriverWait(driver, Duration.ofSeconds(10))
       .until(ExpectedConditions.elementToBeClickable(selector))
+
+  /** Generic trigger error method */
+  def triggerAndValidateGenericPageError(expectedErrorMessage: String): Unit = {
+    val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
+    clickContinue()
+    waitForVisibilityOfElement(Locators.errorMsg)
+    val actualErrorMsg     = driver.findElement(Locators.errorMsg).getText
+    assert(
+      actualErrorMsg == errorMsgWithPrefix,
+      s"Page error message mismatch! Expected: $errorMsgWithPrefix, Actual: $actualErrorMsg"
+    )
+    println("Actual error message is: " + driver.findElement(Locators.errorMsg).getText)
+  }
 
   /** Generic input method */
   def input(selector: By, value: String): Unit = {
@@ -198,6 +212,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page hint is: " + actualText)
+    println("Actual page hint is: " + driver.findElement(Locators.hintText).getText)
   }
 }
