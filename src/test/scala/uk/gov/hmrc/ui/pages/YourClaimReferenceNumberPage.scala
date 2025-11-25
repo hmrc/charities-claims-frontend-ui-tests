@@ -21,13 +21,14 @@ object YourClaimReferenceNumberPage extends BasePage {
   override def pageUrl: String = "/check-claim-reference-number"
 
   override def pageTitle: String =
-    "Check your claim reference number - Charities - GOV.UK"
+//    "Your claim reference number - Charities Claims - GOV.UK"
+    "Your claim reference number - Charities Claims - site.govuk - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Your claim reference number"
 
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.yourClaimReferenceNumber, referenceNo)
-    saveAndContinue()
+    input(Locators.inputYourClaimReferenceNumber, referenceNo)
+    clickContinue()
   }
 }
