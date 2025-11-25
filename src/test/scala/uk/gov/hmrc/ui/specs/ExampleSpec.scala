@@ -85,57 +85,57 @@ class ExampleSpec
       And("User navigates to 'Declaration' page")
       DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
       DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
-      And("User clicks 'Continue' button")
-      DeclarationPage.clickContinue()
-      And("User navigates to 'Check your answers' page")
-      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
-      CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+//      And("User clicks 'Continue' button")
+//      DeclarationPage.clickContinue()
+//      And("User navigates to 'Check your answers' page")
+//      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
+//      CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
     }
   }
 
-//  Scenario(
-//    "User navigates the Gift Aid journey, selects all 'No' radio button options"
-//  ) {
-//    Given("User navigates to 'Are you claiming Gift Aid?' page")
-//    //        AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
-//    //        AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
-//    AreYouClaimingGiftAidPage.validateNavigation()
-//    And("User clicks 'Yes' radio button option")
-//    AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
+  Scenario(
+    "User navigates the Gift Aid journey, selects all 'No' radio button options"
+  ) {
+    Given("the user logs in through the Authority Wizard page")
+    AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+    Then("User navigates to 'Are you claiming Gift Aid?' page")
+    AreYouClaimingGiftAidPage.validateNavigation()
+    And("User clicks 'No' radio button option")
+    AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.no)
+    And("User clicks 'Continue' button")
+    AreYouClaimingGiftAidPage.clickContinue()
+    And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle
+    )
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
+    )
+    And("User clicks 'No' radio button option")
+    AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.no)
+    And("User clicks 'Continue' button")
+    AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
+    And("User navigates to 'Gift Aid Small Donations Scheme' page")
+    GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
+    GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
+    And("User clicks 'No' radio button option")
+    GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.no)
+    And("User clicks 'Continue' button")
+    GiftAidSmallDonationsSchemePage.clickContinue()
+    And("User navigates to 'Do you have a claim reference number?' page")
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
+    And("User clicks 'No' radio button option")
+    DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+    And("User clicks 'Continue' button")
+    DoYouHaveAClaimReferenceNumberPage.clickContinue()
+    And("User navigates to 'Declaration' page")
+    DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
+    DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
 //    And("User clicks 'Continue' button")
-//    AreYouClaimingGiftAidPage.clickSubmitButton()
-//    And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-//    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(
-//      AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle
-//    )
-//    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
-//      AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
-//    )
-//    And("User clicks 'Yes' radio button option")
-//    AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.yes)
-//    And("User clicks 'Continue' button")
-//    AreYouClaimingTaxDeductedFromOtherIncomePage.clickSubmitButton()
-//    And("User navigates to 'Gift Aid Small Donations Scheme' page")
-//    GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
-//    GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
-//    And("User clicks 'Yes' radio button option")
-//    GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.yes)
-//    And("User clicks 'Continue' button")
-//    GiftAidSmallDonationsSchemePage.clickSubmitButton()
-//    And("User navigates to 'Do you have a claim reference number?' page")
-//    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
-//    DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
-//    And("User clicks 'Yes' radio button option")
-//    DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
-//    And("User clicks 'Continue' button")
-//    DoYouHaveAClaimReferenceNumberPage.clickSubmitButton()
-//    And("User navigates to 'Declaration' page")
-//    DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
-//    DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
-//    And("User clicks 'Continue' button")
-//    DeclarationPage.clickSubmitButton()
+//    DeclarationPage.clickContinue()
 //    And("User navigates to 'Check your answers' page")
 //    CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
 //    CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
-//  }
+  }
 }

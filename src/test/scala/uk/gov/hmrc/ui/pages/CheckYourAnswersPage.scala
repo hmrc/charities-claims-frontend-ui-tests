@@ -21,7 +21,7 @@ object CheckYourAnswersPage extends BasePage {
   override def pageUrl: String = "/check-your-claim-details"
 
   override def pageTitle: String =
-    "Check your claim details - Charities - GOV.UK"
+    "Check your claim details - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Check your answers"
