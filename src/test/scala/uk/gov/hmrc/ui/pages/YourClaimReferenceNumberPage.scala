@@ -28,6 +28,6 @@ object YourClaimReferenceNumberPage extends BasePage {
 
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.yourClaimReferenceNumber, referenceNo)
-    clickSubmitButton()
+    saveAndContinue()
   }
 }
