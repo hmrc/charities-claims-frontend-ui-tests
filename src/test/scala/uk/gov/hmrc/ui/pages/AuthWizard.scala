@@ -51,25 +51,25 @@ object AuthWizard extends BasePage {
     val Redirect =
       if (
         Env.baseUrl.equals(
-          "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:10911/stamp-duty-land-tax-agent"
+          "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
         )
-      ) "http://localhost:10911/stamp-duty-land-tax-agent"
-      else s"/stamp-duty-land-tax-agent"
+      ) "http://localhost:8030/charities-claims"
+      else s"/charities-claims"
     Redirect
   }
 
   def fillInputs(enrolmentVal: String): this.type = {
     driver.findElement(affinityGroup).sendKeys("Organisation")
-    driver.findElement(enrolmentKey).sendKeys("IR-SDLT-ORG")
-    driver.findElement(enrolmentId).sendKeys("STORN")
-    driver.findElement(enrolmentValue).sendKeys(enrolmentVal)
+//    driver.findElement(enrolmentKey).sendKeys("IR-SDLT-ORG")
+//    driver.findElement(enrolmentId).sendKeys("STORN")
+//    driver.findElement(enrolmentValue).sendKeys(enrolmentVal)
     this
   }
 
   def login(loginType: LoginTypes, userType: UserTypes, enrolmentVal: String): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
-    fillInputs(enrolmentVal)
+//    fillInputs(enrolmentVal)
     click(btnSubmit)
   }
 

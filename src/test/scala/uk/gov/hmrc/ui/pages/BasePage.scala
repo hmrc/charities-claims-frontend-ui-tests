@@ -38,26 +38,26 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Locator values */
   object Locators {
-    val btnContinue         = ".govuk-button"
-    val lnkBack             = "Back"
-    val btnSubmit           = ".govuk-button"
-    val lnkHeader           = ".govuk-header__link.govuk-header__service-name"
-    val rdoYes              = "#value_0"
-    val rdoNo               = "#value_1"
-    val txtFileName         = ".govuk-body"
+    val btnContinue              = ".govuk-button"
+    val lnkBack                  = "Back"
+    val btnSubmit                = ".govuk-button"
+    val lnkHeader                = ".govuk-header__link.govuk-header__service-name"
+    val rdoYes                   = "#value_0"
+    val rdoNo                    = "#value_1"
+    val txtFileName              = ".govuk-body"
 //    val txtBannerTitle      = "#govuk-notification-banner-title"
 //    val lnkRemoveFile       = "dd[class='govuk-summary-list__actions'] a[class='govuk-link']"
 //    val txtMonth: By        = By.ById("value.month")
 //    val txtYear: By         = By.ById("value.year")
 //    val txtEmailAddress: By = By.cssSelector("#value")
 //    val cbxConfirm          = "#value_0"
-    val txtHeader: By       = By.xpath("//h1")
+    val txtHeader: By            = By.xpath("//h1")
 //    val lnkAddrManually     = "Enter the address manually"
 //    val txtPostCode: By     = By.ById("postcode")
 //    val txtAddress1: By     = By.ById("line1")
 //    val txtTown: By         = By.ById("town")
 //    val txtAddressPostCode  = By.ById("postcode")
-    val yourClaimReferenceNumber  = By.ById("claimref?")
+    val yourClaimReferenceNumber = By.ById("claimref?")
 
   }
 

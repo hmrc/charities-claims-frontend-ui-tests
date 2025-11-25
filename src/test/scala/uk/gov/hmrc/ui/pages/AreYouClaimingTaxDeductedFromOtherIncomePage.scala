@@ -27,5 +27,5 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
     "Are you claiming UK tax deducted from other income?"
 
   val yes: String = "#value"
-  val no: String = "#value-2"
+  val no: String  = "#value-2"
 }

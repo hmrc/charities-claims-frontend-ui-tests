@@ -27,5 +27,5 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
     "Do you have a claim reference number?"
 
   val yes: String = "#value"
-  val no: String = "#value-2"
+  val no: String  = "#value-2"
 }
