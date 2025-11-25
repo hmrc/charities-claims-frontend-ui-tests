@@ -28,4 +28,10 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
 
   val yes: String = "#value"
   val no: String  = "#value-no"
+
+  def validateNavigation(): Unit = {
+    GiftAidSmallDonationsSchemePage.verifyPageUrl(GiftAidSmallDonationsSchemePage.pageUrl)
+    GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
+    GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
+  }
 }
