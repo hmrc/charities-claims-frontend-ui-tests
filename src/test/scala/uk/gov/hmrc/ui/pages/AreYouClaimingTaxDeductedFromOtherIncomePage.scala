@@ -18,14 +18,15 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  override def pageUrl: String = "/claiming-other-income"
+  override def pageUrl: String = "/claiming-tax-relief"
 
   override def pageTitle: String =
-    "Claiming other income - Charities - GOV.UK"
+//    "Are you claiming UK tax deducted from other income? - Charities Claims - GOV.UK"
+    "Are you claiming UK tax deducted from other income? - Charities Claims - site.govuk - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Are you claiming UK tax deducted from other income?"
 
   val yes: String = "#value"
-  val no: String  = "#value-2"
+  val no: String  = "#value-no"
 }
