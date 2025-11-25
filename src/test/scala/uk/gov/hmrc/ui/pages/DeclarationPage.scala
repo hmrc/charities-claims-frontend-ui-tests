@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object DeclarationPage extends BasePage {
 
-  override def pageUrl: String = "/declaration"
+  override def pageUrl: String = "/claim-declaration"
 
   override def pageTitle: String =
     "Declaration - Charities Claims - GOV.UK"
@@ -26,4 +26,9 @@ object DeclarationPage extends BasePage {
   def pageHeader: String =
     "Declaration"
 
+  def validateNavigation(): Unit = {
+    DeclarationPage.verifyPageUrl(DeclarationPage.pageUrl)
+    DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
+    DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
+  }
 }

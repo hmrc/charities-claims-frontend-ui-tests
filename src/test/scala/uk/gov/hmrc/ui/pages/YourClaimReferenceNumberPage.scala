@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object YourClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = "/check-claim-reference-number"
+  override def pageUrl: String = "/claim-reference-number-input"
 
   override def pageTitle: String =
     "Your claim reference number - Charities Claims - GOV.UK"
@@ -29,5 +29,11 @@ object YourClaimReferenceNumberPage extends BasePage {
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputYourClaimReferenceNumber, referenceNo)
     clickContinue()
+  }
+
+  def validateNavigation(): Unit = {
+    YourClaimReferenceNumberPage.verifyPageUrl(YourClaimReferenceNumberPage.pageUrl)
+    YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageTitle)
+    YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
   }
 }

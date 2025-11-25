@@ -28,4 +28,10 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
   val yes: String = "#value"
   val no: String  = "#value-no"
+
+  def validateNavigation(): Unit = {
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
+  }
 }

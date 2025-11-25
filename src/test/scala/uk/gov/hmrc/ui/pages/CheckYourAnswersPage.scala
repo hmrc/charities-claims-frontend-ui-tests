@@ -25,4 +25,10 @@ object CheckYourAnswersPage extends BasePage {
 
   def pageHeader: String =
     "Check your answers"
+
+  def validateNavigation(): Unit = {
+    CheckYourAnswersPage.verifyPageUrl(CheckYourAnswersPage.pageUrl)
+    CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
+    CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+  }
 }

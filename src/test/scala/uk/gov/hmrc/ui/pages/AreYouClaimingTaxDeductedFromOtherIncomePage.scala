@@ -28,4 +28,12 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
   val yes: String = "#value"
   val no: String  = "#value-no"
+
+  def validateNavigation(): Unit = {
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageUrl(AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl)
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
+    )
+  }
 }
