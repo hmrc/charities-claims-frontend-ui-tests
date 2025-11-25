@@ -30,6 +30,7 @@ object AreYouClaimingGiftAidPage extends BasePage {
   val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
+    AreYouClaimingGiftAidPage.verifyPageUrl(AreYouClaimingGiftAidPage.pageUrl)
     AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
     AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
   }

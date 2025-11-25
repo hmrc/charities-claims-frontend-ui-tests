@@ -75,6 +75,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     .pollingEvery(Duration.ofMillis(500))
     .ignoring(classOf[NoSuchElementException])
 
+  /** Wait for the page to load to ensure the URL is ready to check */
+  def waitForUrl(expectedUrl: String): Unit =
+    fluentWait.until(ExpectedConditions.urlContains(expectedUrl))
+
   def waitForPageTitle(expectedTitle: String): Unit =
     fluentWait.until(ExpectedConditions.titleIs(expectedTitle))
 
@@ -156,6 +160,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       case e: Exception =>
         println(s"Failed to click the link with ID: $linkId. Error: ${e.getMessage}")
     }
+
+  /** Verify that the URL Endpoint is a substring of the current URL */
+  def verifyPageUrl(expectedUrl: String): Unit = {
+    waitForUrl(expectedUrl)
+    assert(
+      driver.getCurrentUrl.contains(expectedUrl),
+      s"Page URL mismatch! Expected: $expectedUrl, Actual: ${driver.getCurrentUrl}"
+    )
+    println("Actual URL is: " + driver.getCurrentUrl)
+  }
 
   def verifyPageTitle(expectedTitle: String): Unit = {
     waitForPageTitle(expectedTitle)
