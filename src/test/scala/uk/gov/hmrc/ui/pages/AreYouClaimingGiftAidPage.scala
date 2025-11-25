@@ -21,8 +21,7 @@ object AreYouClaimingGiftAidPage extends BasePage {
   override def pageUrl: String = "/claiming-gift-aid"
 
   override def pageTitle: String =
-//    "Claiming Gift Aid - Charities - GOV.UK"
-    "claimingGiftAid.title - Charities Claims - site.govuk - Charities Claims - GOV.UK"
+    "Are you claiming Gift Aid? - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Are you claiming Gift Aid?"
