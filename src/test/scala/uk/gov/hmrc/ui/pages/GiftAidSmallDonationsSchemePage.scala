@@ -27,5 +27,5 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
     "Gift Aid Small Donations Scheme"
 
   val yes: String = "#value"
-  val no: String = "#value-2"
+  val no: String  = "#value-2"
 }
