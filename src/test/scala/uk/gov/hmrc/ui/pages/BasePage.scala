@@ -57,7 +57,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 //    val txtTown: By         = By.ById("town")
     val txtAddressPostCode            = By.ById("postcode")
     val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
-
+    val hintText                      = By.ById("value-hint")
   }
 
   def pageUrl: String
@@ -188,5 +188,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page header mismatch! Expected: $expectedHeader, Actual: $actualHeader"
     )
     println("Actual page header is: " + driver.findElement(Locators.txtHeader).getText)
+  }
+
+  /** Verify that a hint includes expected message */
+  def verifyHintText(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.hintText)
+    val actualText = driver.findElement(Locators.hintText).getText
+    assert(
+      actualText == expectedText,
+      s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page hint is: " + actualText)
   }
 }
