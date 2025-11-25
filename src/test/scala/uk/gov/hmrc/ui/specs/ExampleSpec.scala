@@ -45,6 +45,7 @@ class ExampleSpec
 //        AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)
 //        AreYouClaimingGiftAidPage.verifyPageHeader(AreYouClaimingGiftAidPage.pageHeader)
       AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage.validateHint()
       And("User clicks 'Yes' radio button option")
       AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
       And("User clicks 'Continue' button")

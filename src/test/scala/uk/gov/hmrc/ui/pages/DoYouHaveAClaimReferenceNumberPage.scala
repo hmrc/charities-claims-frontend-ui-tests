@@ -21,7 +21,7 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   override def pageUrl: String = "/claim-reference-number"
 
   override def pageTitle: String =
-    "Do you have a claim reference number? - Charities Claims - GOV.UK"
+    "Claim reference number - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Do you have a claim reference number?"
