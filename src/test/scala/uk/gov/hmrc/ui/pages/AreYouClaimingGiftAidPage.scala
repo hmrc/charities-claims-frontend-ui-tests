@@ -18,16 +18,17 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingGiftAidPage extends BasePage {
 
-  override def pageUrl: String = "/claim-gift-aid"
+  override def pageUrl: String = "/claiming-gift-aid"
 
   override def pageTitle: String =
-    "Claiming Gift Aid - Charities - GOV.UK"
+//    "Claiming Gift Aid - Charities - GOV.UK"
+    "claimingGiftAid.title - Charities Claims - site.govuk - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Are you claiming Gift Aid?"
 
   val yes: String = "#value"
-  val no: String  = "#value-2"
+  val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
     AreYouClaimingGiftAidPage.verifyPageTitle(AreYouClaimingGiftAidPage.pageTitle)

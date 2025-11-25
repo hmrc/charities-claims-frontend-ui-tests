@@ -69,7 +69,7 @@ object AuthWizard extends BasePage {
   def login(loginType: LoginTypes, userType: UserTypes, enrolmentVal: String): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
-//    fillInputs(enrolmentVal)
+    fillInputs(enrolmentVal)
     click(btnSubmit)
   }
 
