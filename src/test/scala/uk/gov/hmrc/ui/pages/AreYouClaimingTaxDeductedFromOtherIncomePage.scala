@@ -21,10 +21,10 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
   override def pageUrl: String = "/claiming-other-income"
 
   override def pageTitle: String =
-    "Claiming other income - Charities Claims - GOV.UK"
+    "Are you claiming tax deducted from other income? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Are you claiming UK tax deducted from other income?"
+    "Are you claiming tax deducted from other income?"
 
   def pageParagraph: String =
     "Tax relief can include:"
