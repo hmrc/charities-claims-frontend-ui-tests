@@ -18,13 +18,25 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  override def pageUrl: String = "/claiming-tax-relief"
+  override def pageUrl: String = "/claiming-other-income"
 
   override def pageTitle: String =
     "Claiming other income - Charities Claims - GOV.UK"
 
   def pageHeader: String =
     "Are you claiming UK tax deducted from other income?"
+
+  def pageParagraph: String =
+    "Tax relief can include:"
+
+  def pageListItem1: String =
+    "Bank or Building Society interest"
+
+  def pageListItem2: String =
+    "Tax shown on a R185E certificate"
+
+  def pageListItem3: String =
+    "Tax deducted from a Discretionary Trust payment"
 
   val yes: String = "#value"
   val no: String  = "#value-no"
@@ -34,6 +46,19 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
       AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
+    )
+  }
+
+  def validateParagraph(): Unit = {
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyParagraphText(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageParagraph
+    )
+    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyListText(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.createSingleStringFromMany(
+        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem1,
+        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem2,
+        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem3
+      )
     )
   }
 }
