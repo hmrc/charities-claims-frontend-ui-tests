@@ -59,6 +59,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
     val hintText                      = By.ById("value-hint")
     val paragraphText                 = By.ByClassName("govuk-body")
+    val errorSummary                  = By.ByClassName("govuk-error-summary__body")
     val errorMsg                      = By.ById("value-error")
     val listText                      = By.ByClassName("govuk-list")
   }
@@ -91,16 +92,23 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Trigger a generic error message by trying to bypass required components / data */
   def validateGenericPageError(expectedErrorMessage: String): Unit = {
+    val errorSummary       = s"$expectedErrorMessage"
     val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
     clickContinue()
     waitForVisibilityOfElement(Locators.errorMsg)
-    //Error title indicator - not implemented, uncomment when dev fix applied
+    // Error title indicator - not implemented, uncomment when dev fix applied
 //    assert(
 //      driver.getCurrentUrl.contains("Error:"),
 //      s"Page URL mismatch! Expected: Error: ${driver.getCurrentUrl} , Actual: ${driver.getCurrentUrl}"
 //    )
-    //TODO Error summary - top of page
-    //Error message - above erroring field
+    // Error summary - top of page
+    val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
+    assert(
+      actualErrorSummary == errorSummary,
+      s"Page error message mismatch! Expected: $errorSummary, Actual: $actualErrorSummary"
+    )
+    println("Actual error summary is: " + driver.findElement(Locators.errorSummary).getText)
+    // Error message - above erroring field
     val actualErrorMsg     = driver.findElement(Locators.errorMsg).getText
     assert(
       actualErrorMsg == errorMsgWithPrefix,
