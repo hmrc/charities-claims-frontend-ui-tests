@@ -43,6 +43,8 @@ class ExampleSpec
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage.validateHint()
+      AreYouClaimingGiftAidPage.validateErrorMessage()
       And("User clicks 'Yes' radio button option")
       AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
       And("User clicks 'Continue' button")
