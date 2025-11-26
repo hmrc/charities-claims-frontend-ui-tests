@@ -104,7 +104,6 @@ class ExampleSpec
       YourClaimReferenceNumberPage.validateParagraph()
       Then("User validates the 'no input' error on the 'What is your reference number?' page")
       YourClaimReferenceNumberPage.validateErrorMessage()
-      // TODO input and validate other error messages
     }
 
     Scenario(
