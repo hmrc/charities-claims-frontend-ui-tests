@@ -34,6 +34,12 @@ object YourClaimReferenceNumberPage extends BasePage {
   def pageErrorMsg: String =
     "Enter your claim reference number"
 
+  def pageErrorMsgTooManyChars =
+    "Claim reference number must be 20 characters or less"
+
+  def pageErrorMsgNonWesternChar =
+    "Include characters from Western European alphabets"
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputYourClaimReferenceNumber, referenceNo)
     clickContinue()
@@ -49,6 +55,11 @@ object YourClaimReferenceNumberPage extends BasePage {
     YourClaimReferenceNumberPage.verifyParagraphText(YourClaimReferenceNumberPage.pageParagraph)
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit =
+  def validateErrorMessage(): Unit = {
     YourClaimReferenceNumberPage.validateGenericPageError(YourClaimReferenceNumberPage.pageErrorMsg)
+    YourClaimReferenceNumberPage.triggerTooManyCharInputtedError(YourClaimReferenceNumberPage.pageErrorMsgTooManyChars)
+    YourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
+      YourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
+    )
+  }
 }
