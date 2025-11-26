@@ -28,6 +28,9 @@ object YourClaimReferenceNumberPage extends BasePage {
   def pageHeader: String =
     "Your claim reference number"
 
+  def pageParagraph: String =
+    "You do not have to complete this box but you can use it to show your claim reference if you use one. The reference that you quote will appear on the payment advice note you receive from us when we pay the claim."
+
   def pageErrorMsg: String =
     "Enter your claim reference number"
 
@@ -41,6 +44,9 @@ object YourClaimReferenceNumberPage extends BasePage {
     YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageTitle)
     YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
   }
+
+  def validateParagraph(): Unit =
+    YourClaimReferenceNumberPage.verifyParagraphText(YourClaimReferenceNumberPage.pageParagraph)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
