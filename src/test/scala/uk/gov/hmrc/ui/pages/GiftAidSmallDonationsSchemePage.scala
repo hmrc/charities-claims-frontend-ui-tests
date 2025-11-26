@@ -28,6 +28,12 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
   def pageHeader: String =
     "Gift Aid Small Donations Scheme"
 
+  def pageParagraph: String =
+    "This is separate to a Gift Aid claim. The Gift Aid Small Donation Scheme (GASDS) is for donations of £20 or less and does not need declaring."
+
+  def pageLegend: String =
+    "Are you claiming for the Gift Aid Small Donations Scheme?"
+
   def pageErrorMsg: String =
     "Select ‘Yes’ if you are claiming for the Gift Aid Small Donations Scheme."
 
@@ -38,6 +44,11 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
     GiftAidSmallDonationsSchemePage.verifyPageUrl(GiftAidSmallDonationsSchemePage.pageUrl)
     GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
     GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
+  }
+
+  def validateParagraph(): Unit = {
+    GiftAidSmallDonationsSchemePage.verifyParagraphText(GiftAidSmallDonationsSchemePage.pageParagraph)
+    GiftAidSmallDonationsSchemePage.verifyLegendText(GiftAidSmallDonationsSchemePage.pageLegend)
   }
 
   def validateErrorMessage(): Unit =
