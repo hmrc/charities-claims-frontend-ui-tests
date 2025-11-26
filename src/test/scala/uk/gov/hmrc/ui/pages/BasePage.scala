@@ -26,6 +26,7 @@ import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
 
 import java.time.Duration
+import scala.util.Random
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
 
@@ -116,6 +117,24 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page error message mismatch! Expected: $errorMsgWithPrefix, Actual: $actualErrorMsg"
     )
     println("Actual error message is: " + driver.findElement(Locators.errorMsg).getText)
+  }
+
+  /** Trigger too many characters error message */
+  def triggerTooManyCharInputtedError(expectedMessage: String): Unit = {
+    val randomString: String = Random.alphanumeric.take(64).mkString
+    val element              = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+    element.clear()
+    element.sendKeys(randomString)
+    validateGenericPageError(expectedMessage)
+  }
+
+  /** Trigger non Western European Alphabet error message */
+  def triggerNonWesternEuropeanAlphabetError(expectedMessage: String): Unit = {
+    val heartCharacter = "\u2665"
+    val element        = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+    element.clear()
+    element.sendKeys(heartCharacter)
+    validateGenericPageError(expectedMessage)
   }
 
   /** Generic input method */
