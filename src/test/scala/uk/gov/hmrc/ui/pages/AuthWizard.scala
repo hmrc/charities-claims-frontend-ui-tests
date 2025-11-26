@@ -29,7 +29,7 @@ object AuthWizard extends BasePage {
 
   override def pageTitle: String = "auth login stub"
 
-  val url: String = s"${Env.baseUrl}"
+  val url: String = s"${Env.baseUrl}/auth-login-stub/gg-sign-in"
 
   val redirectUrl: By     = By.id("redirectionUrl")
   val affinityGroup: By   = By.id("affinityGroupSelect")
