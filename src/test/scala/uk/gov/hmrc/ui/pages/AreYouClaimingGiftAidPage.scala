@@ -47,5 +47,5 @@ object AreYouClaimingGiftAidPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    AreYouClaimingGiftAidPage.triggerAndValidateGenericPageError(AreYouClaimingGiftAidPage.pageErrorMsg)
+    AreYouClaimingGiftAidPage.validateGenericPageError(AreYouClaimingGiftAidPage.pageErrorMsg)
 }

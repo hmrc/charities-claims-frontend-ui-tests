@@ -58,7 +58,9 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAddressPostCode            = By.ById("postcode")
     val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
     val hintText                      = By.ById("value-hint")
+    val paragraphText                 = By.ByClassName("govuk-body")
     val errorMsg                      = By.ById("value-error")
+    val listText                      = By.ByClassName("govuk-list")
   }
 
   def pageUrl: String
@@ -87,8 +89,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     new WebDriverWait(driver, Duration.ofSeconds(10))
       .until(ExpectedConditions.elementToBeClickable(selector))
 
-  /** Generic trigger error method */
-  def triggerAndValidateGenericPageError(expectedErrorMessage: String): Unit = {
+  /** Trigger a generic error message by trying to bypass required components / data */
+  def validateGenericPageError(expectedErrorMessage: String): Unit = {
     val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
     clickContinue()
     waitForVisibilityOfElement(Locators.errorMsg)
@@ -214,4 +216,29 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
     println("Actual page hint is: " + driver.findElement(Locators.hintText).getText)
   }
+
+  /** Verify that a paragraph includes expected message */
+  def verifyParagraphText(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.paragraphText)
+    val actualText = driver.findElement(Locators.paragraphText).getText
+    assert(
+      actualText == expectedText,
+      s"Page paragraph mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
+  }
+
+  /** Verify elements of a list are the expected messages */
+  def verifyListText(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.listText)
+    val actualText = driver.findElement(Locators.listText).getText
+    assert(
+      actualText == expectedText,
+      s"Page list mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page list is: " + driver.findElement(Locators.listText).getText)
+  }
+
+  /** Helper method for passing one string to verify list text instead of multiple */
+  def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
 }

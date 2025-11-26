@@ -26,9 +26,20 @@ object DeclarationPage extends BasePage {
   def pageHeader: String =
     "Declaration"
 
+  def pageParagraph: String =
+    "I declare that:"
+
+  def pageListItem: String =
+    "I will provide accurate information in this claim"
+
   def validateNavigation(): Unit = {
     DeclarationPage.verifyPageUrl(DeclarationPage.pageUrl)
     DeclarationPage.verifyPageTitle(DeclarationPage.pageTitle)
     DeclarationPage.verifyPageHeader(DeclarationPage.pageHeader)
+  }
+
+  def validateParagraph(): Unit = {
+    DeclarationPage.verifyParagraphText(DeclarationPage.pageParagraph)
+    DeclarationPage.verifyListText(DeclarationPage.pageListItem)
   }
 }
