@@ -18,13 +18,18 @@ package uk.gov.hmrc.ui.pages
 
 object YourClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = "/check-claim-reference-number"
+//  override def pageUrl: String = "/check-claim-reference-number"
+
+  override def pageUrl: String = "http://localhost:8030/charities-claims/check-claim-reference-number"
 
   override def pageTitle: String =
     "Check your claim reference number - Charities - GOV.UK"
 
   def pageHeader: String =
     "Your claim reference number"
+
+  def pageErrorMsg: String =
+    "Enter your claim reference number"
 
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputYourClaimReferenceNumber, referenceNo)
@@ -36,4 +41,8 @@ object YourClaimReferenceNumberPage extends BasePage {
     YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageTitle)
     YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
   }
+
+  /** Validate that the error message is correct */
+  def validateErrorMessage(): Unit =
+    YourClaimReferenceNumberPage.validateGenericPageError(YourClaimReferenceNumberPage.pageErrorMsg)
 }

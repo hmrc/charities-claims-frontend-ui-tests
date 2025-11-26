@@ -18,7 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  override def pageUrl: String = "/claiming-other-income"
+//  override def pageUrl: String = "/claiming-other-income"
+
+  override def pageUrl: String = "http://localhost:8030/charities-claims/claiming-other-income"
 
   override def pageTitle: String =
     "Are you claiming tax deducted from other income? - Charities - GOV.UK"
@@ -37,6 +39,9 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
   def pageListItem3: String =
     "Tax deducted from a Discretionary Trust payment"
+
+  def pageErrorMsg: String =
+    "Select Yes if you are claiming UK tax deducted from other income."
 
   val yes: String = "#value"
   val no: String  = "#value-no"
@@ -61,4 +66,10 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
       )
     )
   }
+
+  /** Validate that the error message is correct */
+  def validateErrorMessage(): Unit =
+    AreYouClaimingTaxDeductedFromOtherIncomePage.validateGenericPageError(
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageErrorMsg
+    )
 }
