@@ -94,6 +94,13 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
     clickContinue()
     waitForVisibilityOfElement(Locators.errorMsg)
+    //Error title indicator - not implemented, uncomment when dev fix applied
+//    assert(
+//      driver.getCurrentUrl.contains("Error:"),
+//      s"Page URL mismatch! Expected: Error: ${driver.getCurrentUrl} , Actual: ${driver.getCurrentUrl}"
+//    )
+    //TODO Error summary - top of page
+    //Error message - above erroring field
     val actualErrorMsg     = driver.findElement(Locators.errorMsg).getText
     assert(
       actualErrorMsg == errorMsgWithPrefix,
