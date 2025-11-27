@@ -15,10 +15,6 @@
  */
 
 package uk.gov.hmrc.ui.pages
-import uk.gov.hmrc.ui.pages.hostName.hostname
-import uk.gov.hmrc.ui.pages.AuthWizard
-import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
-import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 

@@ -24,6 +24,9 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
+import uk.gov.hmrc.ui.pages.AuthWizard
+import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
+import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 import java.time.Duration
 
@@ -73,6 +76,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Wait for page to load */
   def waitForPage(): Unit = fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("footer")))
+
+  val hostname: String = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(30))

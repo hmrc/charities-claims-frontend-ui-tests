@@ -19,6 +19,7 @@ package uk.gov.hmrc.ui.pages
 import org.openqa.selenium.By
 import uk.gov.hmrc.ui.pages.AuthWizard.{click, sendKeys}
 import uk.gov.hmrc.ui.util.Env
+import uk.gov.hmrc.ui.util.Env.baseUrl
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 import uk.gov.hmrc.ui.util.Users.{LoginTypes, UserTypes}
@@ -54,7 +55,7 @@ object AuthWizard extends BasePage {
           "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
         )
       ) "http://localhost:8030/charities-claims"
-      else s"/charities-claims"
+      else s"$baseUrl/charities-claims"
     Redirect
   }
 
