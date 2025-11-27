@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object CheckYourAnswersPage extends BasePage {
 
-  override def pageUrl: String = "/check-your-claim-details"
+  override def pageUrl: String = s"$hostname/check-your-claim-details"
 
   override def pageTitle: String =
     "Check your claim details - Charities Claims - GOV.UK"

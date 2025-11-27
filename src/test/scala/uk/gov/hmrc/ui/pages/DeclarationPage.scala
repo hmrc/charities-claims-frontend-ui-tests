@@ -18,9 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object DeclarationPage extends BasePage {
 
-  override def pageUrl: String = "charities-claims/declaration"
-
-//  override def pageUrl: String = "http://localhost:8030/charities-claims/declaration"
+  override def pageUrl: String = s"$hostname/declaration"
 
   override def pageTitle: String =
     "Declaration - Charities - GOV.UK"
