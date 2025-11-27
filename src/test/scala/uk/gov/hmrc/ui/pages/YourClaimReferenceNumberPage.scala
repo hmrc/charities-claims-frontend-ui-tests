@@ -57,7 +57,7 @@ object YourClaimReferenceNumberPage extends BasePage {
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
     YourClaimReferenceNumberPage.validateGenericPageError(YourClaimReferenceNumberPage.pageErrorMsg)
-    YourClaimReferenceNumberPage.triggerTooManyCharInputtedError(YourClaimReferenceNumberPage.pageErrorMsgTooManyChars)
+    YourClaimReferenceNumberPage.triggerTooManyCharactersError(YourClaimReferenceNumberPage.pageErrorMsgTooManyChars)
     YourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
       YourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
     )

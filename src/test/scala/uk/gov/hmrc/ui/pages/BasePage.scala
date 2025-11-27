@@ -120,7 +120,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   }
 
   /** Trigger too many characters error message */
-  def triggerTooManyCharInputtedError(expectedMessage: String): Unit = {
+  def triggerTooManyCharactersError(expectedMessage: String): Unit = {
     val randomString: String = Random.alphanumeric.take(64).mkString
     val element              = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
     element.clear()
