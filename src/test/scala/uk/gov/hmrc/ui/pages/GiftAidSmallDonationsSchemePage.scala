@@ -21,10 +21,10 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
   override def pageUrl: String = s"$hostname/claiming-for-gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
-    "Gift Aid Small Donations Scheme - Charities - GOV.UK"
+    "Are you claiming a top up payment for small cash donations under GASDS? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Gift Aid Small Donations Scheme"
+    "Are you claiming a top up payment for small cash donations under GASDS?"
 
   def pageParagraph: String =
     "This is separate to a Gift Aid claim. The Gift Aid Small Donation Scheme (GASDS) is for donations of £20 or less and does not need declaring."
