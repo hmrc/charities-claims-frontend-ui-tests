@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
-//  override def pageUrl: String = "/claim-reference-number"
+  override def pageUrl: String = "/claim-reference-number"
 
-  override def pageUrl: String = "http://localhost:8030/charities-claims/claim-reference-number"
+//  override def pageUrl: String = "http://localhost:8030/charities-claims/claim-reference-number"
 
   override def pageTitle: String =
     "Claim reference number - Charities - GOV.UK"

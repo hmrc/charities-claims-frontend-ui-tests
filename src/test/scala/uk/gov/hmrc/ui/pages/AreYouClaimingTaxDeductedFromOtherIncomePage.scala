@@ -16,9 +16,14 @@
 
 package uk.gov.hmrc.ui.pages
 
+import uk.gov.hmrc.ui.pages.AuthWizard
+import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
+import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  override def pageUrl: String = "charities-claims/claiming-other-income"
+  val hostname: String         = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
+  override def pageUrl: String = s"$hostname/claiming-other-income"
 
 //  override def pageUrl: String = "http://localhost:8030/charities-claims/claiming-other-income"
 
@@ -46,13 +51,12 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
   val yes: String = "#value"
   val no: String  = "#value-no"
 
-  def validateNavigation(): Unit = {
+  def validateNavigation(): Unit =
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageUrl(AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl)
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
       AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
     )
-  }
 
   def validateParagraph(): Unit = {
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyParagraphText(
