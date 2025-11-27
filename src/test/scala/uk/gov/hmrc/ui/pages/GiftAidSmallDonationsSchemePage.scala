@@ -18,9 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object GiftAidSmallDonationsSchemePage extends BasePage {
 
-//  override def pageUrl: String = "/claiming-for-gift-aid-small-donations-scheme"
-
-  override def pageUrl: String = "http://localhost:8030/charities-claims/claiming-for-gift-aid-small-donations-scheme"
+  override def pageUrl: String = s"$hostname/claiming-for-gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
     "Gift Aid Small Donations Scheme - Charities - GOV.UK"

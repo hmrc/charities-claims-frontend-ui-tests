@@ -18,9 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object AreYouClaimingGiftAidPage extends BasePage {
 
-  override def pageUrl: String = "/charities-claims/claim-gift-aid"
-
-//  override def pageUrl: String = "http://localhost:8030/charities-claims/claim-gift-aid"
+  override def pageUrl: String = s"$hostname/claim-gift-aid"
 
   override def pageTitle: String =
     "Claiming Gift Aid - Charities - GOV.UK"

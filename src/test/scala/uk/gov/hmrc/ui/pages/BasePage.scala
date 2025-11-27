@@ -24,6 +24,9 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
+//import uk.gov.hmrc.ui.pages.AuthWizard
+import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
+import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 import java.time.Duration
 import scala.util.Random
@@ -177,6 +180,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
   def navigateBackToPage(): Unit        = driver.navigate().back()
+  val hostname: String                  = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
 
   /** Page validation methods */
   def isCurrentPage: Boolean         = pageTitle.startsWith(getPageTitle)

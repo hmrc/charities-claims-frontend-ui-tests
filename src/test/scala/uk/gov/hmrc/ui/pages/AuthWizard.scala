@@ -54,7 +54,7 @@ object AuthWizard extends BasePage {
           "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
         )
       ) "http://localhost:8030/charities-claims"
-      else s"/charities-claims"
+      else s"${Env.baseUrl}/charities-claims"
     Redirect
   }
 

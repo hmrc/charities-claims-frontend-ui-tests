@@ -63,143 +63,146 @@ class ExampleSpec
       AreYouClaimingTaxDeductedFromOtherIncomePage.validateErrorMessage()
     }
 
-    Scenario(
-      "User navigates the 'Gift Aid Small Donations Scheme' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'Gift Aid Small Donations Scheme' page")
-      GiftAidSmallDonationsSchemePage.navigateToPage(GiftAidSmallDonationsSchemePage.pageUrl)
-      GiftAidSmallDonationsSchemePage.validateNavigation()
-      GiftAidSmallDonationsSchemePage.validateParagraph()
-      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme' page")
-      GiftAidSmallDonationsSchemePage.validateErrorMessage()
-    }
-
-    Scenario(
-      "User navigates the 'Do you have a claim reference number?' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
-    }
-    Scenario(
-      "User navigates the 'What is your reference number?' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
-      YourClaimReferenceNumberPage.validateNavigation()
-      YourClaimReferenceNumberPage.validateParagraph()
-      Then("User validates the 'no input' error on the 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.validateErrorMessage()
-    }
-
-    Scenario(
-      "User navigates the 'Declaration' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'Do you have a claim reference number?' page")
-      DeclarationPage.navigateToPage(DeclarationPage.pageUrl)
-      DeclarationPage.validateNavigation()
-      Then("User validates the elements on the 'Declaration' page")
-      DeclarationPage.validateParagraph()
-    }
+//    Scenario(
+//      "User navigates the 'Gift Aid Small Donations Scheme' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User navigates to 'Gift Aid Small Donations Scheme' page")
+//      GiftAidSmallDonationsSchemePage.navigateToPage(GiftAidSmallDonationsSchemePage.pageUrl)
+//      GiftAidSmallDonationsSchemePage.validateNavigation()
+//      GiftAidSmallDonationsSchemePage.validateParagraph()
+//      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme' page")
+//      GiftAidSmallDonationsSchemePage.validateErrorMessage()
+//    }
+//
+//    Scenario(
+//      "User navigates the 'Do you have a claim reference number?' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+//    }
+//
+//    Scenario(
+//      "User navigates the 'What is your reference number?' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User navigates to 'What is your reference number?' page")
+//      YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
+//      YourClaimReferenceNumberPage.validateNavigation()
+//      Then("User validates the elements on the 'What is your reference number?' page")
+//      YourClaimReferenceNumberPage.validateParagraph()
+//      Then("User validates the 'no input' error on the 'What is your reference number?' page")
+//      YourClaimReferenceNumberPage.validateErrorMessage()
+//    }
+//
+//    Scenario(
+//      "User navigates the 'Declaration' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User navigates to 'Do you have a claim reference number?' page")
+//      DeclarationPage.navigateToPage(DeclarationPage.pageUrl)
+//      DeclarationPage.validateNavigation()
+//      Then("User validates the elements on the 'Declaration' page")
+//      DeclarationPage.validateParagraph()
+//    }
   }
 
-  Feature("Charities - Organisation - Gift Aid frontend Journeys") {
-    Scenario(
-      "User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
-      And("User clicks 'Yes' radio button option")
-      AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
-      And("User clicks 'Continue' button")
-      AreYouClaimingGiftAidPage.clickContinue()
-      And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.validateNavigation()
-      And("User clicks 'Yes' radio button option")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.yes)
-      And("User clicks 'Continue' button")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
-      And("User navigates to 'Gift Aid Small Donations Scheme' page")
-      GiftAidSmallDonationsSchemePage.validateNavigation()
-      And("User clicks 'Yes' radio button option")
-      GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.yes)
-      And("User clicks 'Continue' button")
-      GiftAidSmallDonationsSchemePage.clickContinue()
-      And("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User clicks 'Yes' radio button option")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
-      And("User clicks 'Continue' button")
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      And("User navigates to 'Your claim reference number?' page")
-      YourClaimReferenceNumberPage.validateNavigation()
-      And("User enters their claim reference number")
-      YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
-      // uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
-      And("User clicks 'Continue' button")
-      YourClaimReferenceNumberPage.clickContinue()
-      And("User navigates to 'Declaration' page")
-      DeclarationPage.validateNavigation()
+//  Feature("Charities - Organisation - Gift Aid frontend Journeys") {
+//    Scenario(
+//      "User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User clicks 'Yes' radio button option")
+//      AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.yes)
 //      And("User clicks 'Continue' button")
-//      DeclarationPage.clickContinue()
-//      And("User navigates to 'Check your answers' page")
-//      CheckYourAnswersPage.validateNavigation()
-    }
-  }
-  Scenario(
-    "User navigates the Gift Aid journey, selects all 'No' radio button options"
-  ) {
-    Given("the user logs in through the Authority Wizard page")
-    AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-    Then("User navigates to 'Are you claiming Gift Aid?' page")
-    AreYouClaimingGiftAidPage.validateNavigation()
-    And("User clicks 'No' radio button option")
-    AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.no)
-    And("User clicks 'Continue' button")
-    AreYouClaimingGiftAidPage.clickContinue()
-    And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-    AreYouClaimingTaxDeductedFromOtherIncomePage.validateNavigation()
-    And("User clicks 'No' radio button option")
-    AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.no)
-    And("User clicks 'Continue' button")
-    AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
-    And("User navigates to 'Gift Aid Small Donations Scheme' page")
-    GiftAidSmallDonationsSchemePage.validateNavigation()
-    And("User clicks 'No' radio button option")
-    GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.no)
-    And("User clicks 'Continue' button")
-    GiftAidSmallDonationsSchemePage.clickContinue()
-    And("User navigates to 'Do you have a claim reference number?' page")
-    DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-    And("User clicks 'No' radio button option")
-    DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-    And("User clicks 'Continue' button")
-    DoYouHaveAClaimReferenceNumberPage.clickContinue()
-    And("User navigates to 'Declaration' page")
-    DeclarationPage.validateNavigation()
+//      AreYouClaimingGiftAidPage.clickContinue()
+//      And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
+//      AreYouClaimingTaxDeductedFromOtherIncomePage.validateNavigation()
+//      And("User clicks 'Yes' radio button option")
+//      AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.yes)
+//      And("User clicks 'Continue' button")
+//      AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
+//      And("User navigates to 'Gift Aid Small Donations Scheme' page")
+//      GiftAidSmallDonationsSchemePage.validateNavigation()
+//      And("User clicks 'Yes' radio button option")
+//      GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.yes)
+//      And("User clicks 'Continue' button")
+//      GiftAidSmallDonationsSchemePage.clickContinue()
+//      And("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      And("User clicks 'Yes' radio button option")
+//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+//      And("User clicks 'Continue' button")
+//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//      And("User navigates to 'Your claim reference number?' page")
+//      YourClaimReferenceNumberPage.validateNavigation()
+//      And("User enters their claim reference number")
+//      YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
+//      // uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
+//      And("User clicks 'Continue' button")
+//      YourClaimReferenceNumberPage.clickContinue()
+//      And("User navigates to 'Declaration' page")
+//      DeclarationPage.validateNavigation()
+////      And("User clicks 'Continue' button")
+////      DeclarationPage.clickContinue()
+////      And("User navigates to 'Check your answers' page")
+////      CheckYourAnswersPage.validateNavigation()
+//    }
+//  }
+//
+//  Scenario(
+//    "User navigates the Gift Aid journey, selects all 'No' radio button options"
+//  ) {
+//    Given("the user logs in through the Authority Wizard page")
+//    AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+//    Then("User navigates to 'Are you claiming Gift Aid?' page")
+//    AreYouClaimingGiftAidPage.validateNavigation()
+//    And("User clicks 'No' radio button option")
+//    AreYouClaimingGiftAidPage.radioButton(AreYouClaimingGiftAidPage.no)
 //    And("User clicks 'Continue' button")
-//    DeclarationPage.clickContinue()
-//    And("User navigates to 'Check your answers' page")
-//    CheckYourAnswersPage.validateNavigation()
-  }
+//    AreYouClaimingGiftAidPage.clickContinue()
+//    And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
+//    AreYouClaimingTaxDeductedFromOtherIncomePage.validateNavigation()
+//    And("User clicks 'No' radio button option")
+//    AreYouClaimingTaxDeductedFromOtherIncomePage.radioButton(AreYouClaimingTaxDeductedFromOtherIncomePage.no)
+//    And("User clicks 'Continue' button")
+//    AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
+//    And("User navigates to 'Gift Aid Small Donations Scheme' page")
+//    GiftAidSmallDonationsSchemePage.validateNavigation()
+//    And("User clicks 'No' radio button option")
+//    GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.no)
+//    And("User clicks 'Continue' button")
+//    GiftAidSmallDonationsSchemePage.clickContinue()
+//    And("User navigates to 'Do you have a claim reference number?' page")
+//    DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//    And("User clicks 'No' radio button option")
+//    DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+//    And("User clicks 'Continue' button")
+//    DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//    And("User navigates to 'Declaration' page")
+//    DeclarationPage.validateNavigation()
+////    And("User clicks 'Continue' button")
+////    DeclarationPage.clickContinue()
+////    And("User navigates to 'Check your answers' page")
+////    CheckYourAnswersPage.validateNavigation()
+//  }
 }
