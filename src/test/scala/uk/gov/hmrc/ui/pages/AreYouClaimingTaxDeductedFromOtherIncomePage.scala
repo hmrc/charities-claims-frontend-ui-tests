@@ -15,14 +15,14 @@
  */
 
 package uk.gov.hmrc.ui.pages
-
+import uk.gov.hmrc.ui.pages.hostName.hostname
 import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  val hostname: String         = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
+  // val hostname: String         = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
   override def pageUrl: String = s"$hostname/claiming-other-income"
 
 //  override def pageUrl: String = "http://localhost:8030/charities-claims/claiming-other-income"
