@@ -39,7 +39,7 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
     "Tax deducted from a Discretionary Trust payment"
 
   def pageErrorMsg: String =
-    "Select Yes if you are claiming UK tax deducted from other income."
+    "Select 'Yes' if you are claiming tax deducted from other income."
 
   val yes: String = "#value"
   val no: String  = "#value-no"
