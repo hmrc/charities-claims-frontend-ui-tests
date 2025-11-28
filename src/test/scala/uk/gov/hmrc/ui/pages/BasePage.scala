@@ -101,7 +101,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
     clickContinue()
     waitForVisibilityOfElement(Locators.errorMsg)
-    // Error title indicator - not implemented, uncomment when dev fix applied
+    // Error title indicator
     assert(
       driver.getTitle.contains("Error:"),
       s"Page title mismatch! Expected: Error: ${driver.getTitle} , Actual: ${driver.getTitle}"
