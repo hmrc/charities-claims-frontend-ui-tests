@@ -99,9 +99,9 @@ class ExampleSpec
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
       Then("User navigates to 'What is your reference number?' page")
       YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
-      YourClaimReferenceNumberPage.validateNavigationToPageNotFound()
+      PageNotFound.validateNavigation()
       Then("User validates the 'page not found' content")
-      YourClaimReferenceNumberPage.validatePageNotFound()
+      PageNotFound.validatePageContent()
     }
 
     Scenario(

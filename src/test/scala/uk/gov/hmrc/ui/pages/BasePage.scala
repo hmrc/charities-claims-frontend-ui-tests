@@ -292,7 +292,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   }
 
   /** Verify that the main error page content is displayed as expected */
-  def verifyErrorPageContent(expectedText: String): Unit = {
+  def verifyPageNotFoundContent(expectedText: String): Unit = {
     waitForVisibilityOfElement(Locators.pageNotFoundContent)
     val actualText = driver.findElement(Locators.pageNotFoundContent).getText
     assert(
