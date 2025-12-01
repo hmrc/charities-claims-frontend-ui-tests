@@ -38,21 +38,6 @@ object YourClaimReferenceNumberPage extends BasePage {
   def pageErrorMsgNonWesternChar =
     "Include characters from Western European alphabets"
 
-  def pageNotFoundTitle: String =
-    "Page not found - Charities - GOV.UK"
-
-  def pageNotFoundHeading: String =
-    "Page not found"
-
-  def pageNotFoundListItem1: String =
-    "If you typed the web address, check it is correct."
-
-  def pageNotFoundListItem2: String =
-    "If you pasted the web address, check you copied the entire address."
-
-  def pageNotFoundListItem3: String =
-    "If the web address is correct or you selected a link or button, contact the HMRC Online Services Helpdesk if you need to speak to someone."
-
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputYourClaimReferenceNumber, referenceNo)
     clickContinue()
@@ -75,22 +60,4 @@ object YourClaimReferenceNumberPage extends BasePage {
       YourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
     )
   }
-
-  /** Validate the user has navigated to the page but has bypassed data guard and will be displayed a '404' page */
-  def validateNavigationToPageNotFound(): Unit = {
-    YourClaimReferenceNumberPage.verifyPageUrl(YourClaimReferenceNumberPage.pageUrl)
-    YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageNotFoundTitle)
-    YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageNotFoundHeading)
-  }
-
-  /** Used to validate that if the user skips to this URL that they're displayed a 'Page Not Found' */
-  def validatePageNotFound(): Unit =
-    YourClaimReferenceNumberPage.verifyErrorPageContent(
-      YourClaimReferenceNumberPage.createSingleStringFromMany(
-        YourClaimReferenceNumberPage.pageNotFoundHeading,
-        YourClaimReferenceNumberPage.pageNotFoundListItem1,
-        YourClaimReferenceNumberPage.pageNotFoundListItem2,
-        YourClaimReferenceNumberPage.pageNotFoundListItem3
-      )
-    )
 }
