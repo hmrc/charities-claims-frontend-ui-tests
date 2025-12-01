@@ -93,12 +93,29 @@ class ExampleSpec
     }
 
     Scenario(
+      "User navigates the 'What is your reference number?' page and validates the user is taken to page not found"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+      Then("User navigates to 'What is your reference number?' page")
+      YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
+      YourClaimReferenceNumberPage.validateNavigationToPageNotFound()
+      Then("User validates the 'page not found' content")
+      YourClaimReferenceNumberPage.validatePageNotFound()
+    }
+
+    Scenario(
       "User navigates the 'What is your reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User clicks 'yes' radio button")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      Then("User clicks 'continue' button")
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
       And("User navigates to 'What is your reference number?' page")
       YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
       YourClaimReferenceNumberPage.validateNavigation()

@@ -67,6 +67,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val errorMsg                      = By.ById("value-error")
     val listText                      = By.ByClassName("govuk-list")
     val legendText                    = By.ByClassName("govuk-fieldset__legend")
+    val checkYouAnswersSummaryList    = By.ByClassName("govuk-summary-list__row")
+    val pageNotFoundContent           = By.ByClassName("govuk-grid-row")
   }
 
   def pageUrl: String
@@ -287,6 +289,17 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page legend mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page legend is: " + driver.findElement(Locators.legendText).getText)
+  }
+
+  /** Verify that the main error page content is displayed as expected */
+  def verifyErrorPageContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.pageNotFoundContent)
+    val actualText = driver.findElement(Locators.pageNotFoundContent).getText
+    assert(
+      actualText == expectedText,
+      s"404 page content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page not found content is: " + driver.findElement(Locators.pageNotFoundContent).getText)
   }
 
   /** Helper method for passing one string to verify list text instead of multiple */
