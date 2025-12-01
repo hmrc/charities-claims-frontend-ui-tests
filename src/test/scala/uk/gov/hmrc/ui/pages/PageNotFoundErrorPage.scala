@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object PageNotFound extends BasePage {
+object PageNotFoundErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/page-not-found"
 
@@ -37,17 +37,17 @@ object PageNotFound extends BasePage {
 
   def validateNavigation(): Unit = {
     // PageNotFound.verifyPageUrl(PageNotFound.pageUrl)
-    PageNotFound.verifyPageTitle(PageNotFound.pageTitle)
-    PageNotFound.verifyPageHeader(PageNotFound.pageHeader)
+    PageNotFoundErrorPage.verifyPageTitle(PageNotFoundErrorPage.pageTitle)
+    PageNotFoundErrorPage.verifyPageHeader(PageNotFoundErrorPage.pageHeader)
   }
 
   def validatePageContent(): Unit =
-    PageNotFound.verifyPageNotFoundContent(
-      PageNotFound.createSingleStringFromMany(
-        PageNotFound.pageHeader,
-        PageNotFound.listItem1,
-        PageNotFound.listItem2,
-        PageNotFound.listItem3
+    PageNotFoundErrorPage.verifyPageNotFoundContent(
+      PageNotFoundErrorPage.createSingleStringFromMany(
+        PageNotFoundErrorPage.pageHeader,
+        PageNotFoundErrorPage.listItem1,
+        PageNotFoundErrorPage.listItem2,
+        PageNotFoundErrorPage.listItem3
       )
     )
 }
