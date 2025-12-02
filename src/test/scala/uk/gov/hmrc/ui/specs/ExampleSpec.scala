@@ -187,10 +187,10 @@ class ExampleSpec
       // uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
       And("User navigates to 'Declaration' page")
       DeclarationPage.validateNavigation()
-//      And("User clicks 'Continue' button")
-//      DeclarationPage.clickContinue()
-//      And("User navigates to 'Check your answers' page")
-//      CheckYourAnswersPage.validateNavigation()
+      And("User clicks 'Continue' button")
+      DeclarationPage.clickConfirm()
+      And("User navigates to 'Check your answers' page")
+      CheckYourAnswersPage.validateNavigation()
     }
   }
 
@@ -225,9 +225,9 @@ class ExampleSpec
     DoYouHaveAClaimReferenceNumberPage.clickContinue()
     And("User navigates to 'Declaration' page")
     DeclarationPage.validateNavigation()
-//    And("User clicks 'Continue' button")
-//    DeclarationPage.clickContinue()
-//    And("User navigates to 'Check your answers' page")
-//    CheckYourAnswersPage.validateNavigation()
+    And("User clicks 'Continue' button")
+    DeclarationPage.clickConfirm()
+    And("User navigates to 'Check your answers' page")
+    CheckYourAnswersPage.validateNavigation()
   }
 }
