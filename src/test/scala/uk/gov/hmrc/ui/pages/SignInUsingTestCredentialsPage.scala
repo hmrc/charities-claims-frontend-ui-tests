@@ -30,11 +30,10 @@ object SignInUsingTestCredentialsPage extends BasePage {
     clickContinue()
   }
 
-  def validateNavigation(): Unit = {
+  def validateNavigation(): Unit =
     SignInUsingTestCredentialsPage.verifyPageHeader(SignInUsingTestCredentialsPage.pageHeader)
-  }
 
   val organisation: String = "#value"
-  val agent: String = "#value-no"
+  val agent: String        = "#value-no"
 
 }

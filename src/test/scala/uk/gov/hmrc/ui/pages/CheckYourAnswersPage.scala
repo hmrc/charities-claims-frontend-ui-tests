@@ -16,19 +16,52 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object CheckYourAnswersPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/check-your-answers"
+  override def pageUrl: String = s"$hostname/check-your-claim-details"
 
   override def pageTitle: String =
-    "Check your answers - Charities - GOV.UK"
+    "Check your claim details - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Check your answers"
+    "Check your claim details"
 
   def validateNavigation(): Unit = {
     CheckYourAnswersPage.verifyPageUrl(CheckYourAnswersPage.pageUrl)
     CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
     CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+  }
+
+  val linkChangeClaimingGiftAid: By     = By.xpath("//a[@href='/charities-claims/change-claim-gift-aid']")
+  val linkChangeClaimingTaxDeducted: By = By.xpath("//a[@href='/charities-claims/change-claiming-other-income']")
+  val linkChangeClaimingGASDS: By       = By.xpath("//a[@href='/charities-claims/change-gift-aid-small-donations-scheme']")
+  val linkChangeDoYouHaveARefNo: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number']")
+  val linkChangeRefNoInput: By          = By.xpath("//a[@href='/charities-claims/change-your-claim-reference-number']")
+
+  def clickChangeAreYouClaimingGiftAid(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeClaimingGiftAid)
+    element.click()
+  }
+
+  def clickChangeAreYouClaimingTaxDeducted(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeClaimingTaxDeducted)
+    element.click()
+  }
+
+  def clickChangeAreYouClaimingForTheGASDS(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeClaimingGASDS)
+    element.click()
+  }
+
+  def clickChangeDoYouHaveAClaimRefNo(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeDoYouHaveARefNo)
+    element.click()
+  }
+
+  def clickChangeWhatIsYourRefNo(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeRefNoInput)
+    element.click()
   }
 }
