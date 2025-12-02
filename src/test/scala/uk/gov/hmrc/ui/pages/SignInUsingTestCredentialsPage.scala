@@ -16,19 +16,25 @@
 
 package uk.gov.hmrc.ui.pages
 
-object CheckYourAnswersPage extends BasePage {
+object SignInUsingTestCredentialsPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/check-your-answers"
+  override def pageUrl: String = s"$hostname"
 
-  override def pageTitle: String =
-    "Check your answers - Charities - GOV.UK"
+  override def pageTitle: String = "???"
 
   def pageHeader: String =
-    "Check your answers"
+    "Sign in using test credentials"
+
+  def enterUserID(userID: String): Unit = {
+    input(Locators.inputYourUserId, userID)
+    clickContinue()
+  }
 
   def validateNavigation(): Unit = {
-    CheckYourAnswersPage.verifyPageUrl(CheckYourAnswersPage.pageUrl)
-    CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
-    CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+    SignInUsingTestCredentialsPage.verifyPageHeader(SignInUsingTestCredentialsPage.pageHeader)
   }
+
+  val organisation: String = "#value"
+  val agent: String = "#value-no"
+
 }
