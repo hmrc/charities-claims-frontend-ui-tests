@@ -18,13 +18,13 @@ package uk.gov.hmrc.ui.pages
 
 object GiftAidSmallDonationsSchemePage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claiming-for-gift-aid-small-donations-scheme"
+  override def pageUrl: String = s"$hostname/gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
-    "Are you claiming a top up payment for small cash donations under GASDS? - Charities - GOV.UK"
+    "Are you claiming for the Gift Aid Small Donations Scheme? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Are you claiming a top up payment for small cash donations under GASDS?"
+    "Are you claiming for the Gift Aid Small Donations Scheme?"
 
   def pageParagraph: String =
     "This is separate to a Gift Aid claim. The Gift Aid Small Donation Scheme (GASDS) is for donations of £20 or less and does not need declaring."
