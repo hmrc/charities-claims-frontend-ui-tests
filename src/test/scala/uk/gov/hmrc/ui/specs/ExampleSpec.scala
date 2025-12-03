@@ -191,7 +191,7 @@ class ExampleSpec
       And("User clicks 'Organisation' radio button option")
       SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
       And("User enters their User ID and clicks continue")
-      SignInUsingTestCredentialsPage.enterUserID("TEST4")
+      SignInUsingTestCredentialsPage.enterUserID("TEST8")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Check your claim details' page")
