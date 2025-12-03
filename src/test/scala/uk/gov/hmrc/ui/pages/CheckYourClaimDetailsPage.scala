@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object CheckYourAnswersPage extends BasePage {
+object CheckYourClaimDetailsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/check-your-claim-details"
 
@@ -29,9 +29,9 @@ object CheckYourAnswersPage extends BasePage {
     "Check your claim details"
 
   def validateNavigation(): Unit = {
-    CheckYourAnswersPage.verifyPageUrl(CheckYourAnswersPage.pageUrl)
-    CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle)
-    CheckYourAnswersPage.verifyPageHeader(CheckYourAnswersPage.pageHeader)
+    CheckYourClaimDetailsPage.verifyPageUrl(CheckYourClaimDetailsPage.pageUrl)
+    CheckYourClaimDetailsPage.verifyPageTitle(CheckYourClaimDetailsPage.pageTitle)
+    CheckYourClaimDetailsPage.verifyPageHeader(CheckYourClaimDetailsPage.pageHeader)
   }
 
   val linkChangeClaimingGiftAid: By     = By.xpath("//a[@href='/charities-claims/change-claim-gift-aid']")

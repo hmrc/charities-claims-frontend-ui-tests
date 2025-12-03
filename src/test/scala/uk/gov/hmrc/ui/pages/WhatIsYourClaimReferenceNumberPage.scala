@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object YourClaimReferenceNumberPage extends BasePage {
+object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/your-claim-reference-number"
 
@@ -44,20 +44,22 @@ object YourClaimReferenceNumberPage extends BasePage {
   }
 
   def validateNavigation(): Unit = {
-    YourClaimReferenceNumberPage.verifyPageUrl(YourClaimReferenceNumberPage.pageUrl)
-    YourClaimReferenceNumberPage.verifyPageTitle(YourClaimReferenceNumberPage.pageTitle)
-    YourClaimReferenceNumberPage.verifyPageHeader(YourClaimReferenceNumberPage.pageHeader)
+    WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
+    WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitle)
+    WhatIsYourClaimReferenceNumberPage.verifyPageHeader(WhatIsYourClaimReferenceNumberPage.pageHeader)
   }
 
   def validateParagraph(): Unit =
-    YourClaimReferenceNumberPage.verifyParagraphText(YourClaimReferenceNumberPage.pageParagraph)
+    WhatIsYourClaimReferenceNumberPage.verifyParagraphText(WhatIsYourClaimReferenceNumberPage.pageParagraph)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    YourClaimReferenceNumberPage.validateGenericPageError(YourClaimReferenceNumberPage.pageErrorMsg)
-    YourClaimReferenceNumberPage.triggerTooManyCharInputtedError(YourClaimReferenceNumberPage.pageErrorMsgTooManyChars)
-    YourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
-      YourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
+    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(WhatIsYourClaimReferenceNumberPage.pageErrorMsg)
+    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputtedError(
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars
+    )
+    WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
     )
   }
 }
