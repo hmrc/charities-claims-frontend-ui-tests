@@ -128,7 +128,7 @@ class ExampleSpec
       And("User enters their User ID and clicks continue")
       SignInUsingTestCredentialsPage.enterUserID("TEST5")
       Then("User navigates to 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
       PageNotFoundErrorPage.validateNavigation()
       Then("User validates the 'page not found' content")
       PageNotFoundErrorPage.validatePageContent()
@@ -153,12 +153,12 @@ class ExampleSpec
       Then("User clicks 'continue' button")
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       And("User navigates to 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.navigateToPage(YourClaimReferenceNumberPage.pageUrl)
-      YourClaimReferenceNumberPage.validateNavigation()
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
       Then("User validates the elements on the 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.validateParagraph()
+      WhatIsYourClaimReferenceNumberPage.validateParagraph()
       Then("User validates the 'no input' error on the 'What is your reference number?' page")
-      YourClaimReferenceNumberPage.validateErrorMessage()
+      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
     }
 
     Scenario(
@@ -180,6 +180,27 @@ class ExampleSpec
       Then("User validates the elements on the 'Declaration' page")
       DeclarationPage.validateParagraph()
     }
+
+    Scenario(
+      "User navigates the 'Check your claim details' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
+      Then("User navigates to 'Sign in using test credentials' page")
+      SignInUsingTestCredentialsPage.validateNavigation()
+      And("User clicks 'Organisation' radio button option")
+      SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
+      And("User enters their User ID and clicks continue")
+      SignInUsingTestCredentialsPage.enterUserID("TEST4")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Check your claim details' page")
+      CheckYourClaimDetailsPage.navigateToPage(CheckYourClaimDetailsPage.pageUrl)
+      CheckYourClaimDetailsPage.validateNavigation()
+//      Then("User validates the 'no input' error on the 'Check your claim details' page")
+//      CheckYourClaimDetailsPage.validateParagraph()
+//      CheckYourClaimDetailsPage.validateErrorMessage()
+    }
   }
 
   Feature("Charities - Organisation - Gift Aid frontend Journeys") {
@@ -193,7 +214,7 @@ class ExampleSpec
       And("User clicks 'Organisation' radio button option")
       SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
       And("User enters their User ID and clicks continue")
-      SignInUsingTestCredentialsPage.enterUserID("TEST1")
+      SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST1")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User clicks 'Yes' radio button option")
@@ -229,16 +250,16 @@ class ExampleSpec
       And("User clicks 'Continue' button")
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       And("User navigates to 'Your claim reference number?' page")
-      YourClaimReferenceNumberPage.validateNavigation()
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
       And("User enters their claim reference number and clicks continue")
-      YourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
+      WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("SOME VALUE HERE")
       // uppercase + 'x', '\' and numbers up to 20 chars ('X' / 'EW' for Eng + Wales, 'CR' scotland, 'CH' ireland)
       And("User navigates to 'Declaration' page")
       DeclarationPage.validateNavigation()
       And("User clicks 'Continue' button")
       DeclarationPage.clickContinue()
       And("User navigates to 'Check your answers' page")
-      CheckYourAnswersPage.validateNavigation()
+      CheckYourClaimDetailsPage.validateNavigation()
     }
   }
 
@@ -252,7 +273,7 @@ class ExampleSpec
     And("User clicks 'Organisation' radio button option")
     SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
     And("User enters their User ID and clicks continue")
-    SignInUsingTestCredentialsPage.enterUserID("TEST1")
+    SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST2")
     Then("User navigates to 'Are you claiming Gift Aid?' page")
     AreYouClaimingGiftAidPage.validateNavigation()
     And("User clicks 'No' radio button option")
@@ -282,6 +303,6 @@ class ExampleSpec
     And("User clicks 'Continue' button")
     DeclarationPage.clickContinue()
     And("User navigates to 'Check your answers' page")
-    CheckYourAnswersPage.validateNavigation()
+    CheckYourClaimDetailsPage.validateNavigation()
   }
 }
