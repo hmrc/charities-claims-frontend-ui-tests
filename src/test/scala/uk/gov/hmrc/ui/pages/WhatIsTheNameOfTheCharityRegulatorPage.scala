@@ -33,13 +33,14 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
     "Select the name of the charity regulator"
 
   val EngWal: String = "#nameOfCharityReg"
-  val Ire: String  = "#nameOfCharityReg-2"
-  val None: String  = "#nameOfCharityReg-3"
-  val Scot: String  = "#nameOfCharityReg-4"
+  val Ire: String    = "#nameOfCharityReg-2"
+  val None: String   = "#nameOfCharityReg-3"
+  val Scot: String   = "#nameOfCharityReg-4"
 
   def validateNavigation(): Unit = {
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageTitle(WhatIsTheNameOfTheCharityRegulatorPage.pageTitle)
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageCaption(WhatIsTheNameOfTheCharityRegulatorPage.pageCaption)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageHeader(WhatIsTheNameOfTheCharityRegulatorPage.pageHeader)
   }
 

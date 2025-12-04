@@ -27,7 +27,7 @@ object AboutTheOrganisationPage extends BasePage {
     "About the organisation"
 
   def pageCaption: String =
-    "Provide organisation details:"
+    "Provide organisation details"
 
   def pageParagraph1: String =
     "You need to provide information about the organisation you are claiming for."
@@ -38,7 +38,7 @@ object AboutTheOrganisationPage extends BasePage {
   def validateNavigation(): Unit = {
     AboutTheOrganisationPage.verifyPageUrl(AboutTheOrganisationPage.pageUrl)
     AboutTheOrganisationPage.verifyPageTitle(AboutTheOrganisationPage.pageTitle)
-    AboutTheOrganisationPage.verifyPageHeader(AboutTheOrganisationPage.pageCaption)
+    AboutTheOrganisationPage.verifyPageCaption(AboutTheOrganisationPage.pageCaption)
     AboutTheOrganisationPage.verifyPageHeader(AboutTheOrganisationPage.pageHeader)
   }
 
