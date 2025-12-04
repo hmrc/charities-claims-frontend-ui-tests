@@ -48,6 +48,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val rdoYes                        = "#value_0"
     val rdoNo                         = "#value_1"
     val txtFileName                   = ".govuk-body"
+    val txtCaption                    = By.ByClassName("govuk-caption-l")
     val txtHeader: By                 = By.xpath("//h1")
     val txtAddressPostCode            = By.ById("postcode")
     val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
@@ -225,6 +226,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page title mismatch! Expected: $expectedTitle, Actual: ${driver.getTitle}"
     )
     println("Actual page title is: " + driver.getTitle)
+  }
+
+  def verifyPageCaption(expectedCaption: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtCaption)
+    val actualCaption = driver.findElement(Locators.txtCaption).getText
+    assert(
+      actualCaption == expectedCaption,
+      s"Page header mismatch! Expected: $expectedCaption, Actual: $actualCaption"
+    )
+    println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
 
   def verifyPageHeader(expectedHeader: String): Unit = {
