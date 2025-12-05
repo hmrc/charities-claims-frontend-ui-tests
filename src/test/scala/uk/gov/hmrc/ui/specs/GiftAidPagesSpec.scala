@@ -36,7 +36,7 @@ class GiftAidPagesSpec
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
     Scenario(
-      "User navigates the 'Are you claiming Gift Aid?' page and validates the page elements and error messages"
+      "User navigates to the 'Are you claiming Gift Aid?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -55,7 +55,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'Are you claiming tax deducted from another income?' page and validates the page elements and error messages"
+      "User navigates to the 'Are you claiming tax deducted from another income?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -76,7 +76,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'Gift Aid Small Donations Scheme' page and validates the page elements and error messages"
+      "User navigates to the 'Gift Aid Small Donations Scheme' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -97,7 +97,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'Do you have a claim reference number?' page and validates the page elements and error messages"
+      "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -117,7 +117,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'What is your reference number?' page and validates the user is taken to page not found"
+      "User navigates to the 'What is your reference number?' page and validates the user is taken to page not found"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -135,7 +135,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'What is your reference number?' page and validates the page elements and error messages"
+      "User navigates to the 'What is your reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -162,7 +162,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'Declaration' page and validates the page elements and error messages"
+      "User navigates to the 'Declaration' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
@@ -182,7 +182,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates the 'Check your claim details' page and validates the page elements and error messages"
+      "User navigates to the 'Check your claim details' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
