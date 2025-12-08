@@ -22,9 +22,9 @@ object SystemErrorPage extends BasePage {
 
   override def pageTitle: String = "Sorry, there is a problem with this service - Charities - GOV.UK"
 
-  def pageHeader : String = "Sorry, there is a problem with this service"
+  def pageHeader: String = "Sorry, there is a problem with this service"
 
-  def listItem : String = "Try again later or contact the HMRC Online Services Helpdesk(opens in a new tab)."
+  def listItem: String = "Try again later or contact the HMRC Online Services Helpdesk(opens in a new tab)."
 
   def validateNavigation(): Unit = {
     SystemErrorPage.verifyPageUrl(SystemErrorPage.pageUrl)
@@ -33,5 +33,5 @@ object SystemErrorPage extends BasePage {
     SystemErrorPage.verifyListText(SystemErrorPage.listItem)
 
   }
-  
+
 }
