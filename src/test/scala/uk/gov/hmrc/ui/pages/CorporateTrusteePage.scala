@@ -18,21 +18,26 @@ package uk.gov.hmrc.ui.pages
 
 object CorporateTrusteePage extends BasePage {
 
-  override def pageUrl : String = "s$hostname/corporate-trustee-claim"
+  override def pageUrl : String = s"$hostname/corporate-trustee-claim"
 
-  override def pageTitle : String = "Is a corporate trustee making this claim? - Charities - GOV.UK"
+  override def pageTitle : String = 
+    "Is a corporate trustee making this claim? - Charities - GOV.UK"
 
-  def pageHeader : String = "Is a corporate trustee making this claim?"
+  def pageHeader : String = 
+    "Is a corporate trustee making this claim?"
 
-  def pageCaption : String = "Provide organisation details"
+  def pageCaption : String = 
+    "Provide organisation details"
 
-  def pageParagraph : String = "This can be the trust department of a bank, a trust company or trust corporation"
+  def pageParagraph : String = 
+    "This can be the trust department of a bank, a trust company or trust corporation"
 
   /* Error Messages To Be Confirmed */
-  
-  def pageErrorMsg : String = "Select if this claim is being made by a corporate trustee"
 
-  /* Error Messages To Be Confirmed */
+  def pageErrorMsg : String = 
+    "Select if this claim is being made by a corporate trustee"
+
+ 
 
   val yes: String = "#value"
   val no: String = "#value-no"
@@ -43,10 +48,8 @@ object CorporateTrusteePage extends BasePage {
    CorporateTrusteePage.verifyPageHeader(CorporateTrusteePage.pageHeader)
    CorporateTrusteePage.verifyPageCaption(CorporateTrusteePage.pageCaption)
  }
-
-  /* Error Messages To Be Confirmed */
  
-def validateErrorMessage () : Unit=
+ def validateErrorMessage () : Unit=
   CorporateTrusteePage.validateGenericPageError(CorporateTrusteePage.pageErrorMsg)
 
 }
