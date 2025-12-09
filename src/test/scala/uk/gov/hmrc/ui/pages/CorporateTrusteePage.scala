@@ -28,11 +28,7 @@ object CorporateTrusteePage extends BasePage {
 
   def pageParagraph: String = "This can be the trust department of a bank, a trust company or trust corporation"
 
-  /* Error Messages To Be Confirmed */
-
   def pageErrorMsg: String = "Select if this claim is being made by a corporate trustee"
-
-  /* Error Messages To Be Confirmed */
 
   val yes: String = "#value"
   val no: String  = "#value-no"
