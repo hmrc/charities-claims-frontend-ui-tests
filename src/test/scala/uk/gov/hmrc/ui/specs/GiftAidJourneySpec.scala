@@ -39,13 +39,13 @@ class GiftAidJourneySpec
       "User navigates the Gift Aid journey, selects all 'Yes' radio button options and enters a valid claim reference number"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-      Then("User navigates to 'Sign in using test credentials' page")
-      SignInUsingTestCredentialsPage.validateNavigation()
-      And("User clicks 'Organisation' radio button option")
-      SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
-      And("User enters their User ID and clicks continue")
-      SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST1")
+//      Then("User navigates to 'Sign in using test credentials' page")
+//      SignInUsingTestCredentialsPage.validateNavigation()
+//      And("User clicks 'Organisation' radio button option")
+//      SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
+//      And("User enters their User ID and clicks continue")
+//      SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST1")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User clicks 'Yes' radio button option")
@@ -91,6 +91,7 @@ class GiftAidJourneySpec
       DeclarationPage.clickContinue()
       And("User navigates to 'Check your answers' page")
       CheckYourClaimDetailsPage.validateNavigation()
+      CheckYourClaimDetailsPage.clickContinue()
     }
   }
 
@@ -98,13 +99,13 @@ class GiftAidJourneySpec
     "User navigates the Gift Aid journey, selects all 'No' radio button options"
   ) {
     Given("the user logs in through the Authority Wizard page")
-    AuthWizard.login(HASDIRECT, Organisation, "TESTTESTTEST")
-    Then("User navigates to 'Sign in using test credentials' page")
-    SignInUsingTestCredentialsPage.validateNavigation()
-    And("User clicks 'Organisation' radio button option")
-    SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
-    And("User enters their User ID and clicks continue")
-    SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST2")
+    AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST2")
+//    Then("User navigates to 'Sign in using test credentials' page")
+//    SignInUsingTestCredentialsPage.validateNavigation()
+//    And("User clicks 'Organisation' radio button option")
+//    SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
+//    And("User enters their User ID and clicks continue")
+//    SignInUsingTestCredentialsPage.enterUserID("JOURNEYTEST2")
     Then("User navigates to 'Are you claiming Gift Aid?' page")
     AreYouClaimingGiftAidPage.validateNavigation()
     And("User clicks 'No' radio button option")
@@ -135,5 +136,6 @@ class GiftAidJourneySpec
     DeclarationPage.clickContinue()
     And("User navigates to 'Check your answers' page")
     CheckYourClaimDetailsPage.validateNavigation()
+    CheckYourClaimDetailsPage.clickContinue()
   }
 }

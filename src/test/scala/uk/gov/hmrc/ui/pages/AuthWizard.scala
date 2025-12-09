@@ -58,18 +58,25 @@ object AuthWizard extends BasePage {
     Redirect
   }
 
-  def fillInputs(enrolmentVal: String): this.type = {
-    driver.findElement(affinityGroup).sendKeys("Organisation")
-//    driver.findElement(enrolmentKey).sendKeys("IR-SDLT-ORG")
-//    driver.findElement(enrolmentId).sendKeys("STORN")
-//    driver.findElement(enrolmentValue).sendKeys(enrolmentVal)
+  def fillInputs(affGrp: String, enrolKey: String, enrolId: String, enrolVal: String): this.type = {
+    driver.findElement(affinityGroup).sendKeys(affGrp)
+    driver.findElement(enrolmentKey).sendKeys(enrolKey)
+    driver.findElement(enrolmentId).sendKeys(enrolId)
+    driver.findElement(enrolmentValue).sendKeys(enrolVal)
     this
   }
 
-  def login(loginType: LoginTypes, userType: UserTypes, enrolmentVal: String): Unit = {
+  def login(
+    loginType: LoginTypes,
+    userType: UserTypes,
+    affGrp: String,
+    enrolKey: String,
+    enrolId: String,
+    enrolmentVal: String
+  ): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
-    fillInputs(enrolmentVal)
+    fillInputs(affGrp, enrolKey, enrolId, enrolmentVal)
     click(btnSubmit)
   }
 
