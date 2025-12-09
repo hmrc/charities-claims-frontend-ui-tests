@@ -18,45 +18,41 @@ package uk.gov.hmrc.ui.pages
 
 object CharityRegulatorNumberPage extends BasePage {
 
-  override def pageUrl : String = "s$hostname/charity-regulator-number"
+  override def pageUrl: String = "s$hostname/charity-regulator-number"
 
-  override def pageTitle : String = "What is the charity regulator number? - Charities - GOV.UK"
+  override def pageTitle: String = "What is the charity regulator number? - Charities - GOV.UK"
 
-  def pageHeader : String = "What is the charity regulator number?"
+  def pageHeader: String = "What is the charity regulator number?"
 
-  def pageCaption : String = "Provide organisation details"
+  def pageCaption: String = "Provide organisation details"
 
-  def pageParagraph : String = "This can be up to 20 numerical characters like 123456789 and does not include letters."
+  def pageParagraph: String = "This can be up to 20 numerical characters like 123456789 and does not include letters."
 
-  def pageErrorMsg : String = "Enter a charity regulator number"
-  
-  /* Error Messages To Be Confirmed */
-  
-  def pageErrorMsgNonNumb : String = "Enter a charity regulator number in the correct format"
+  def pageErrorMsg: String = "Enter a charity regulator number"
 
-  def pageErrorMsgTooManyChars : String = "Enter a charity regulator number in the correct format"
+  def pageErrorMsgNonNumb: String = "Enter a charity regulator number in the correct format"
 
-  /* Error Messages To Be Confirmed */
-  
+  def pageErrorMsgTooManyChars: String = "Enter a charity regulator number in the correct format"
+
   /* def enterYourCharityRegulatorNumberPage(regulatorNo: String): Unit = {
     input(Locators.inputYourCharityRegulatorNumberPage ,regulatorNo )
-    clickContinue()  
+    clickContinue()
   } */
- def validateNavigation (): Unit = {
-   CharityRegulatorNumberPage.verifyPageUrl(CharityRegulatorNumberPage.pageUrl)
-   CharityRegulatorNumberPage.verifyPageTitle(CharityRegulatorNumberPage.pageTitle)
-   CharityRegulatorNumberPage.verifyPageHeader(CharityRegulatorNumberPage.pageHeader)
-   CharityRegulatorNumberPage.verifyPageCaption(CharityRegulatorNumberPage.pageCaption)
-   
- }
-def validateParagraph (): Unit =
-  CharityRegulatorNumberPage.verifyParagraphText(CharityRegulatorNumberPage.pageParagraph)
+
+  def validateNavigation(): Unit = {
+    CharityRegulatorNumberPage.verifyPageUrl(CharityRegulatorNumberPage.pageUrl)
+    CharityRegulatorNumberPage.verifyPageTitle(CharityRegulatorNumberPage.pageTitle)
+    CharityRegulatorNumberPage.verifyPageHeader(CharityRegulatorNumberPage.pageHeader)
+    CharityRegulatorNumberPage.verifyPageCaption(CharityRegulatorNumberPage.pageCaption)
+  }
+
+  def validateParagraph(): Unit =
+    CharityRegulatorNumberPage.verifyParagraphText(CharityRegulatorNumberPage.pageParagraph)
 
   /* Error Messages To Be Confirmed */
-def validateErrorMessage(): Unit = {
-  CharityRegulatorNumberPage.validateGenericPageError(CharityRegulatorNumberPage.pageErrorMsg)
-  CharityRegulatorNumberPage.triggerTooManyCharInputtedError(CharityRegulatorNumberPage.pageErrorMsgTooManyChars)
-  /* CharityRegulatorNumberPage.triggerNonNumbError(CharityRegulatorNumberPage.pageErrorMsgNonNumb) */
-  
-}
+  def validateErrorMessage(): Unit = {
+    CharityRegulatorNumberPage.validateGenericPageError(CharityRegulatorNumberPage.pageErrorMsg)
+    CharityRegulatorNumberPage.triggerTooManyCharInputtedError(CharityRegulatorNumberPage.pageErrorMsgTooManyChars)
+    /* CharityRegulatorNumberPage.triggerNonNumbError(CharityRegulatorNumberPage.pageErrorMsgNonNumb) */
+  }
 }

@@ -39,7 +39,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Are you claiming Gift Aid?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - R1.0")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -58,7 +58,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Are you claiming tax deducted from another income?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST2")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -79,7 +79,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Gift Aid Small Donations Scheme' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.2")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -100,7 +100,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST4")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -120,7 +120,7 @@ class GiftAidPagesSpec
       "User navigates to the 'What is your reference number?' page and validates the user is taken to page not found"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST5")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR2")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -138,7 +138,7 @@ class GiftAidPagesSpec
       "User navigates to the 'What is your reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST6")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -165,7 +165,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Declaration' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST7")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
@@ -174,7 +174,7 @@ class GiftAidPagesSpec
 //      SignInUsingTestCredentialsPage.enterUserID("TEST7")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'Do you have a claim reference number?' page")
+      And("User navigates to 'Declaration' page")
       DeclarationPage.navigateToPage(DeclarationPage.pageUrl)
       DeclarationPage.validateNavigation()
       Then("User validates the elements on the 'Declaration' page")
@@ -185,7 +185,7 @@ class GiftAidPagesSpec
       "User navigates to the 'Check your claim details' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST8")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
 //      Then("User navigates to 'Sign in using test credentials' page")
 //      SignInUsingTestCredentialsPage.validateNavigation()
 //      And("User clicks 'Organisation' radio button option")
