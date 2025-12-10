@@ -18,23 +18,23 @@
 package uk.gov.hmrc.ui.pages
 
 object CorporateTrusteeAddressPage extends BasePage {
-  override def pageUrl : String = s"$hostname/corporate-trustee-address"
+  override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "Corporate Trustee Address - Charities - GOV.UK"
 
-  def pageHeader : String =
+  def pageHeader: String =
     "Corporate trustee address"
 
-  def pageCaption : String =
+  def pageCaption: String =
     "Provide organisation details"
 
   /* Error Messages To Be Confirmed */
-  def pageErrorMsg : String =
+  def pageErrorMsg: String =
     "Select if the corporate trustee has a UK address"
 
-  val yes : String = "#Value"
-  val no : String = "#Value - No"
+  val yes: String = "#Value"
+  val no: String  = "#Value - No"
 
   def validateNavigation(): Unit = {
     CorporateTrusteeAddressPage.verifyPageUrl(CorporateTrusteeAddressPage.pageUrl)

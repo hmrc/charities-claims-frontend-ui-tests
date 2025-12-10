@@ -18,21 +18,20 @@ package uk.gov.hmrc.ui.util
 
 object Users {
 
-  sealed abstract class UserTypes(val affinity: String, val slug: String, val landingPage: String, val slug2: String)
+  sealed abstract class UserTypes(val affinity: String, val enrolKey: String, val enrolId: String, val enrolVal: String)
 
   object UserTypes {
 
-    case object Individual
-        extends UserTypes(affinity = "Individual", slug = "ind", landingPage = "aboutyou", slug2 = "")
-
-    case object Partnership
-        extends UserTypes(affinity = "Organisation", slug = "org/partnership", landingPage = "aboutyourorg", slug2 = "")
-
     case object Organisation
-        extends UserTypes(affinity = "Organisation", slug = "org", landingPage = "aboutyourorg", slug2 = "contact/paye")
+        extends UserTypes(
+          affinity = "Organisation",
+          enrolKey = "HMRC-CHAR-ORG",
+          enrolId = "CHARID",
+          enrolVal = "contact/paye"
+        )
 
     case object Agent_Trust
-        extends UserTypes(affinity = "Agent", slug = "org/trust", landingPage = "aboutyourclient", slug2 = "")
+        extends UserTypes(affinity = "Agent", enrolKey = "org/trust", enrolId = "aboutyourclient", enrolVal = "")
 
   }
 

@@ -28,7 +28,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def pageHeader: String = "Why is the charity not registered with a regulator?"
 
-  def pageError: String = "Select why the charity is not registered with a regulator"
+  def pageErrorMsg: String = "Select why the charity is not registered with a regulator"
 
   val EngWal: String   = "#whyNoCharityReg"
   val Exempt: String   = "#whyNoCharityReg-2"
@@ -42,13 +42,12 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
     WhyIsTheCharityNotRegisteredPage.verifyPageTitle(WhyIsTheCharityNotRegisteredPage.pageTitle)
     WhyIsTheCharityNotRegisteredPage.verifyPageHeader(WhyIsTheCharityNotRegisteredPage.pageHeader)
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
-
   }
 
   /** We want to validate the navigation features of the page and ensure they follow confluence */
 
-  def validateError(): Unit =
-    WhyIsTheCharityNotRegisteredPage.validateGenericPageError(WhyIsTheCharityNotRegisteredPage.pageError)
+  def validateErrorMessage(): Unit =
+    WhyIsTheCharityNotRegisteredPage.validateGenericPageError(WhyIsTheCharityNotRegisteredPage.pageErrorMsg)
 
   /** We want to validate that the error message is correct and follows confluence page */
 }
