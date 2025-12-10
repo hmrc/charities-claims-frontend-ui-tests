@@ -35,17 +35,53 @@ class AboutTheOrgPagesSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
+//    Scenario(
+//      "User navigates to the 'About the organisation' page and validates the page elements"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.0")
+//      Then("User navigates to 'Are you claiming Gift Aid?' page")
+//      AreYouClaimingGiftAidPage.validateNavigation()
+//      And("User navigates to 'About the organisation' page")
+//      AboutTheOrganisationPage.navigateToPage(AboutTheOrganisationPage.pageUrl)
+//      AboutTheOrganisationPage.validateNavigation()
+//      Then("User validates the elements on the 'About the organisation' page")
+//      AboutTheOrganisationPage.validateParagraph()
+//    }
+
     Scenario(
-      "User navigates to the 'Are you claiming Gift Aid?' page and validates the page elements and error messages"
+      "User navigates to the 'What is the name of the charity regulator?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.1")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'What is the name of the charity regulator?' page")
+      WhatIsTheNameOfTheCharityRegulatorPage.navigateToPage(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
+      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'What is the name of the charity regulator?' page")
+      WhatIsTheNameOfTheCharityRegulatorPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Why is the charity not registered with a regulator?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.2")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Why is the charity not registered with a regulator?' page")
+      WhyIsTheCharityNotRegisteredPage.navigateToPage(WhyIsTheCharityNotRegisteredPage.pageUrl)
+      WhyIsTheCharityNotRegisteredPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Why is the charity not registered with a regulator?' page")
+      WhyIsTheCharityNotRegisteredPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Your charity is excepted' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.3")
-      //      Then("User navigates to 'Sign in using test credentials' page")
-      //      SignInUsingTestCredentialsPage.validateNavigation()
-      //      And("User clicks 'Organisation' radio button option")
-      //      SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
-      //      And("User enters their User ID and clicks continue")
-      //      SignInUsingTestCredentialsPage.enterUserID("TEST7")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Your charity is excepted' page")
@@ -55,4 +91,32 @@ class AboutTheOrgPagesSpec
       YourCharityIsExceptedPage.validateParagraph()
     }
   }
+
+  Scenario(
+    "User navigates to the 'Your charity is exempt' page and validates the page elements"
+  ) {
+    Given("the user logs in through the Authority Wizard page")
+    AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.4")
+    Then("User navigates to 'Are you claiming Gift Aid?' page")
+    AreYouClaimingGiftAidPage.validateNavigation()
+    And("User navigates to 'Your charity is exempt' page")
+    YourCharityIsExemptPage.navigateToPage(YourCharityIsExemptPage.pageUrl)
+    YourCharityIsExemptPage.validateNavigation()
+    Then("User validates the elements on the 'Your charity is exempt' page")
+    YourCharityIsExemptPage.validateParagraph()
+  }
+
+//  Scenario(
+//    "User navigates to the 'What is the charity regulator number?' page and validates the page elements and error messages"
+//  ) {
+//    Given("the user logs in through the Authority Wizard page")
+//    AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.5")
+//    Then("User navigates to 'Are you claiming Gift Aid?' page")
+//    AreYouClaimingGiftAidPage.validateNavigation()
+//    And("User navigates to 'Your charity is excepted' page")
+//    YourCharityIsExceptedPage.navigateToPage(YourCharityIsExceptedPage.pageUrl)
+//    YourCharityIsExceptedPage.validateNavigation()
+//    Then("User validates the elements on the 'Your charity is excepted' page")
+//    YourCharityIsExceptedPage.validateParagraph()
+//  }
 }

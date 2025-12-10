@@ -18,23 +18,23 @@
 package uk.gov.hmrc.ui.pages
 
 object AuthorisedOfficialAddressPage extends BasePage {
-  override def pageUrl : String = s"$hostname/authorised-official-address"
+  override def pageUrl: String = s"$hostname/authorised-official-address"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "Authorised official address - Charities - GOV.UK"
 
-  def pageHeader : String =
+  def pageHeader: String =
     "Authorised official address"
 
-  def pageCaption : String =
+  def pageCaption: String =
     "Provide organisation details"
 
   /* Error Messages To Be Confirmed */
-  def pageErrorMsg : String =
+  def pageErrorMsg: String =
     "Select if the authorised official has a UK address"
 
-  val yes : String = "#Value"
-  val no : String = "#Value - No"
+  val yes: String = "#Value"
+  val no: String  = "#Value - No"
 
   def validateNavigation(): Unit = {
     AuthorisedOfficialAddressPage.verifyPageUrl(AuthorisedOfficialAddressPage.pageUrl)

@@ -72,12 +72,11 @@ object AuthWizard extends BasePage {
     affGrp: String,
     enrolKey: String,
     enrolId: String,
-    enrolmentVal: String
+    enrolVal: String
   ): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
-    fillInputs(affGrp, enrolKey, enrolId, enrolmentVal)
+    fillInputs(affGrp, enrolKey, enrolId, enrolVal)
     click(btnSubmit)
   }
-
 }
