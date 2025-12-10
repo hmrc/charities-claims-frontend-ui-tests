@@ -33,7 +33,7 @@ object ErrorPageNotFoundPage extends BasePage {
     "If you pasted the web address, check you copied the entire address."
 
   def listItem3: String =
-    "If the web address is correct or you selected a link or button, contact the HMRC Online Services Helpdesk if you need to speak to someone."
+    "If the web address is correct or you selected a link or button, contact the HMRC Online Services Helpdesk (opens in new tab) if you need to speak to someone."
 
   def validateNavigation(): Unit = {
     // PageNotFound.verifyPageUrl(PageNotFound.pageUrl)

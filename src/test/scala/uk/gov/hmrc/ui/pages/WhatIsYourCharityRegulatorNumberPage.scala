@@ -24,7 +24,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     "What is the charity regulator number? - Charities - GOV.UK"
 
   def pageCaption: String =
-    "Provide organisation details"  
+    "Provide organisation details"
 
   def pageHeader: String =
     "What is the charity regulator number?"
