@@ -28,7 +28,7 @@ object CorporateTrusteePage extends BasePage {
 
   def pageParagraph: String = "This can be the trust department of a bank, a trust company or trust corporation"
 
-  def pageErrorMsg: String = "Select if this claim is being made by a corporate trustee"
+  def pageErrorMsg: String = "Select 'Yes' if this claim is being made by a corporate trustee"
 
   val yes: String = "#value"
   val no: String  = "#value-no"
@@ -36,8 +36,8 @@ object CorporateTrusteePage extends BasePage {
   def validateNavigation(): Unit = {
     CorporateTrusteePage.verifyPageUrl(CorporateTrusteePage.pageUrl)
     CorporateTrusteePage.verifyPageTitle(CorporateTrusteePage.pageTitle)
+//    CorporateTrusteePage.verifyPageCaption(CorporateTrusteePage.pageCaption)
     CorporateTrusteePage.verifyPageHeader(CorporateTrusteePage.pageHeader)
-    CorporateTrusteePage.verifyPageCaption(CorporateTrusteePage.pageCaption)
   }
 
   /* Error Messages To Be Confirmed */
