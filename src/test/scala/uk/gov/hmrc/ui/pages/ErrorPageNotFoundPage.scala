@@ -36,7 +36,7 @@ object ErrorPageNotFoundPage extends BasePage {
     "If the web address is correct or you selected a link or button, contact the HMRC Online Services Helpdesk (opens in new tab) if you need to speak to someone."
 
   def validateNavigation(): Unit = {
-    // PageNotFound.verifyPageUrl(PageNotFound.pageUrl)
+    ErrorPageNotFoundPage.verifyPageUrl(ErrorPageNotFoundPage.pageUrl)
     ErrorPageNotFoundPage.verifyPageTitle(ErrorPageNotFoundPage.pageTitle)
     ErrorPageNotFoundPage.verifyPageHeader(ErrorPageNotFoundPage.pageHeader)
   }

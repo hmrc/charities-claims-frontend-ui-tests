@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object SystemErrorPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/there=is-a-problem"
+  override def pageUrl: String = s"$hostname/there-is-a-problem"
 
   override def pageTitle: String = "Sorry, there is a problem with this service - Charities - GOV.UK"
 
@@ -31,7 +31,6 @@ object SystemErrorPage extends BasePage {
     SystemErrorPage.verifyPageTitle(SystemErrorPage.pageTitle)
     SystemErrorPage.verifyPageHeader(SystemErrorPage.pageHeader)
     SystemErrorPage.verifyListText(SystemErrorPage.listItem)
-
   }
 
 }
