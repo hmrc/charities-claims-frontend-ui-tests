@@ -29,11 +29,14 @@ object AboutTheOrganisationPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageParagraph1: String =
+  def listItem1: String =
     "You need to provide information about the organisation you are claiming for."
 
-  def pageParagraph2: String =
+  def listItem2: String =
     "The person making this claim must be an approved official or corporate trustee recognised by HM Revenue Customs."
+
+  def listItem3: String =
+    "Continue"
 
   def validateNavigation(): Unit = {
     AboutTheOrganisationPage.verifyPageUrl(AboutTheOrganisationPage.pageUrl)
@@ -42,8 +45,14 @@ object AboutTheOrganisationPage extends BasePage {
     AboutTheOrganisationPage.verifyPageHeader(AboutTheOrganisationPage.pageHeader)
   }
 
-  def validateParagraph(): Unit = {
-    AboutTheOrganisationPage.verifyParagraphText(AboutTheOrganisationPage.pageParagraph1)
-    AboutTheOrganisationPage.verifyParagraphText(AboutTheOrganisationPage.pageParagraph2)
-  }
+  def validatePageContent(): Unit =
+    AboutTheOrganisationPage.verifyPageNotFoundContent(
+      AboutTheOrganisationPage.createSingleStringFromMany(
+        AboutTheOrganisationPage.pageCaption,
+        AboutTheOrganisationPage.pageHeader,
+        AboutTheOrganisationPage.listItem1,
+        AboutTheOrganisationPage.listItem2,
+        AboutTheOrganisationPage.listItem3
+      )
+    )
 }

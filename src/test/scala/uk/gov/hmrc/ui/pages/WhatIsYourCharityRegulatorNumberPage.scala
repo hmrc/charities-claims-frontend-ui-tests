@@ -29,7 +29,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
   def pageHeader: String =
     "What is the charity regulator number?"
 
-  def pageParagraph: String =
+  def pageHint: String =
     "This can be up to 20 numerical characters like 123456789 and does not include letters."
 
   def pageErrorMsg: String =
@@ -50,8 +50,8 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     WhatIsYourCharityRegulatorNumberPage.verifyPageHeader(WhatIsYourCharityRegulatorNumberPage.pageHeader)
   }
 
-  def validateParagraph(): Unit =
-    WhatIsYourCharityRegulatorNumberPage.verifyParagraphText(WhatIsYourCharityRegulatorNumberPage.pageParagraph)
+  def validateHint(): Unit =
+    WhatIsYourCharityRegulatorNumberPage.verifyHintText(WhatIsYourCharityRegulatorNumberPage.pageHint)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
