@@ -117,24 +117,6 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'What is your reference number?' page and validates the user is taken to page not found"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR2")
-//      Then("User navigates to 'Sign in using test credentials' page")
-//      SignInUsingTestCredentialsPage.validateNavigation()
-//      And("User clicks 'Organisation' radio button option")
-//      SignInUsingTestCredentialsPage.radioButton(SignInUsingTestCredentialsPage.organisation)
-//      And("User enters their User ID and clicks continue")
-//      SignInUsingTestCredentialsPage.enterUserID("TEST5")
-      Then("User navigates to 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-      ErrorPageNotFoundPage.validateNavigation()
-      Then("User validates the 'page not found' content")
-      ErrorPageNotFoundPage.validatePageContent()
-    }
-
-    Scenario(
       "User navigates to the 'What is your reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
@@ -200,6 +182,34 @@ class GiftAidPagesSpec
 //      Then("User validates the 'no input' error on the 'Check your claim details' page")
 //      CheckYourClaimDetailsPage.validateParagraph()
 //      CheckYourClaimDetailsPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User attempts to navigate to the 'What is your reference number?' page without required data and validates the user is taken to page not found"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR2")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'What is your reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      ErrorPageNotFoundPage.validateNavigation()
+      Then("User validates the 'page not found' content")
+      ErrorPageNotFoundPage.validatePageContent()
+    }
+
+    Scenario(
+      "User navigates to the 'Access Denied' page and validates the user is taken to Access Denied page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR3")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Access Denied' error page")
+      AccessDeniedErrorPage.navigateToPage(AccessDeniedErrorPage.pageUrl)
+      AccessDeniedErrorPage.validateNavigation()
+      Then("User validates the 'Access Denied' page content")
+      AccessDeniedErrorPage.validatePageContent()
     }
   }
 }

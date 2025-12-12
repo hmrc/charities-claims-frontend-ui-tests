@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AccessDeniedPage extends BasePage {
+object AccessDeniedErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/there-is-a-problem-access-denied"
 
@@ -26,14 +26,20 @@ object AccessDeniedPage extends BasePage {
 
   def listItem1: String = "You do not have access to this service."
 
-  def listItem2: String = "Continue to your account"
+  def listItem2: String = "Continue to your account."
 
   def validateNavigation(): Unit = {
-    AccessDeniedPage.verifyPageUrl(AccessDeniedPage.pageUrl)
-    AccessDeniedPage.verifyPageTitle(AccessDeniedPage.pageTitle)
-    AccessDeniedPage.verifyPageHeader(AccessDeniedPage.pageHeader)
-    AccessDeniedPage.verifyListText(AccessDeniedPage.listItem1)
-    AccessDeniedPage.verifyListText(AccessDeniedPage.listItem2)
+    AccessDeniedErrorPage.verifyPageUrl(AccessDeniedErrorPage.pageUrl)
+    AccessDeniedErrorPage.verifyPageTitle(AccessDeniedErrorPage.pageTitle)
+    AccessDeniedErrorPage.verifyPageHeader(AccessDeniedErrorPage.pageHeader)
   }
 
+  def validatePageContent(): Unit =
+    AccessDeniedErrorPage.verifyPageNotFoundContent(
+      AccessDeniedErrorPage.createSingleStringFromMany(
+        AccessDeniedErrorPage.pageHeader,
+        AccessDeniedErrorPage.listItem1,
+        AccessDeniedErrorPage.listItem2
+      )
+    )
 }
