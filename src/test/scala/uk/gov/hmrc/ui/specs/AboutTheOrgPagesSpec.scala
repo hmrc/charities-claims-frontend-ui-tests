@@ -113,7 +113,7 @@ class AboutTheOrgPagesSpec
       "User navigates to the 'Your charity is exempt' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.4")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'What is the name of the charity regulator?' page")
@@ -139,7 +139,7 @@ class AboutTheOrgPagesSpec
       "User navigates to the 'What is the charity regulator number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.5")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'What is the name of the charity regulator?' page")
@@ -152,7 +152,7 @@ class AboutTheOrgPagesSpec
       And("User navigates to 'What is the charity regulator number?' page")
       WhatIsYourCharityRegulatorNumberPage.validateNavigation()
       Then("User validates the elements on the 'What is the charity regulator number?' page")
-//      WhatIsYourCharityRegulatorNumberPage.validateHint()
+      WhatIsYourCharityRegulatorNumberPage.validateHint()
     }
 
 //    Scenario(
