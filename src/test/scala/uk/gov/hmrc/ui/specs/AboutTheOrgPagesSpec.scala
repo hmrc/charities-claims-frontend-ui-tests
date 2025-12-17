@@ -34,7 +34,7 @@ class AboutTheOrgPagesSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation - Gift Aid Page Validations") {
+  Feature("Charities - Organisation - About the Organisation page validations") {
     Scenario(
       "User navigates to the 'About the organisation' page and validates the page elements"
     ) {
@@ -113,7 +113,7 @@ class AboutTheOrgPagesSpec
       "User navigates to the 'Your charity is exempt' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.4")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'What is the name of the charity regulator?' page")
@@ -139,7 +139,7 @@ class AboutTheOrgPagesSpec
       "User navigates to the 'What is the charity regulator number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.5")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'What is the name of the charity regulator?' page")
@@ -152,21 +152,67 @@ class AboutTheOrgPagesSpec
       And("User navigates to 'What is the charity regulator number?' page")
       WhatIsYourCharityRegulatorNumberPage.validateNavigation()
       Then("User validates the elements on the 'What is the charity regulator number?' page")
-//      WhatIsYourCharityRegulatorNumberPage.validateHint()
+      WhatIsYourCharityRegulatorNumberPage.validateHint()
     }
 
-//    Scenario(
-//      "User navigates to the 'Is a corporate trustee making this claim?' page and validates the page elements and error messages"
-//    ) {
-//      Given("the user logs in through the Authority Wizard page")
-//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.6")
-//      Then("User navigates to 'Are you claiming Gift Aid?' page")
-//      AreYouClaimingGiftAidPage.validateNavigation()
-//      And("User navigates to 'Is a corporate trustee making this claim?' page")
-//      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
-//      CorporateTrusteePage.validateNavigation()
-//      Then("User validates the 'no input' error on the 'Is a corporate trustee making this claim?' page")
-//      CorporateTrusteePage.validateErrorMessage()
-//    }
+    Scenario(
+      "User navigates to the 'Is a corporate trustee making this claim?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.6")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
+      CorporateTrusteePage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Is a corporate trustee making this claim?' page")
+      CorporateTrusteePage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'corporate trustee' pages and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.7 A2.9")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
+      CorporateTrusteePage.validateNavigation()
+      And("User selects a corporate trustee is making this claim")
+      CorporateTrusteePage.radioButton(CorporateTrusteePage.yes)
+      CorporateTrusteePage.clickContinue()
+      And("User navigates to 'Does the corporate trustee have a UK address?' page")
+      CorporateTrusteeAddressPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Does the corporate trustee have a UK address?' page")
+      CorporateTrusteeAddressPage.validateErrorMessage()
+      And("User selects a corporate trustee does have a UK address")
+      CorporateTrusteeAddressPage.radioButton(CorporateTrusteeAddressPage.yes)
+      CorporateTrusteeAddressPage.clickContinue()
+      // MORE HERE
+    }
+
+    Scenario(
+      "User navigates to the 'authorised official' pages and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.8 A2.10")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
+      CorporateTrusteePage.validateNavigation()
+      And("User selects a corporate trustee is making this claim")
+      CorporateTrusteePage.radioButton(CorporateTrusteePage.no)
+      CorporateTrusteePage.clickContinue()
+      And("User navigates to 'Does the authorised official have a UK address?' page")
+      AuthorisedOfficialAddressPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Does the authorised official have a UK address?' page")
+      AuthorisedOfficialAddressPage.validateErrorMessage()
+      And("User selects a authorised official does have a UK address")
+      AuthorisedOfficialAddressPage.radioButton(AuthorisedOfficialAddressPage.yes)
+      AuthorisedOfficialAddressPage.clickContinue()
+      // MORE HERE
+    }
   }
 }

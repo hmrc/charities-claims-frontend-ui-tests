@@ -21,10 +21,10 @@ object CorporateTrusteeAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
   override def pageTitle: String =
-    "Corporate Trustee Address - Charities - GOV.UK"
+    "Does the corporate trustee have a UK address? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Corporate trustee address"
+    "Does the corporate trustee have a UK address?"
 
   def pageCaption: String =
     "Provide organisation details"
@@ -33,8 +33,8 @@ object CorporateTrusteeAddressPage extends BasePage {
   def pageErrorMsg: String =
     "Select if the corporate trustee has a UK address"
 
-  val yes: String = "#Value"
-  val no: String  = "#Value - No"
+  val yes: String = "#value"
+  val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
     CorporateTrusteeAddressPage.verifyPageUrl(CorporateTrusteeAddressPage.pageUrl)

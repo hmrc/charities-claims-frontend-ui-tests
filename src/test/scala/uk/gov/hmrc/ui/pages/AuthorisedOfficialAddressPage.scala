@@ -21,10 +21,10 @@ object AuthorisedOfficialAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/authorised-official-address"
 
   override def pageTitle: String =
-    "Authorised official address - Charities - GOV.UK"
+    "Does the authorised official have a UK address? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Authorised official address"
+    "Does the authorised official have a UK address?"
 
   def pageCaption: String =
     "Provide organisation details"
@@ -33,8 +33,8 @@ object AuthorisedOfficialAddressPage extends BasePage {
   def pageErrorMsg: String =
     "Select if the authorised official has a UK address"
 
-  val yes: String = "#Value"
-  val no: String  = "#Value - No"
+  val yes: String = "#value"
+  val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
     AuthorisedOfficialAddressPage.verifyPageUrl(AuthorisedOfficialAddressPage.pageUrl)
