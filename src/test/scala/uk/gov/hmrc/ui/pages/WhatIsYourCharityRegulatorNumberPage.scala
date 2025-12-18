@@ -58,9 +58,10 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
     WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(WhatIsYourCharityRegulatorNumberPage.pageErrorMsg)
+
     /** Number defines string length */
-//    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
-//      WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
-//      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
-//    )
+    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
+      WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
+      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
+    )
 }
