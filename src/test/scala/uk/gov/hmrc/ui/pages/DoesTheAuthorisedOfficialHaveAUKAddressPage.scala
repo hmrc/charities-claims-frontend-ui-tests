@@ -31,7 +31,7 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
 
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
-    "Select if the authorised official has a UK address"
+    "Select ‘Yes’ if the authorised official has a UK address"
 
   val yes: String = "#value"
   val no: String  = "#value-no"

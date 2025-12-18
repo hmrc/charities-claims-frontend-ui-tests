@@ -31,7 +31,7 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
 
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
-    "Select if the corporate trustee has a UK address"
+    "Select ‘Yes’ if the corporate trustee has a UK address"
 
   val yes: String = "#value"
   val no: String  = "#value-no"
