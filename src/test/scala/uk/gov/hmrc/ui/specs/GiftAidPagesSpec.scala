@@ -151,9 +151,9 @@ class GiftAidPagesSpec
       AreYouClaimingGiftAidPage.validateNavigation()
       Then("User navigates to 'What is your reference number?' page")
       WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-      ErrorPageNotFoundPage.validateNavigation()
+      Error_PageNotFoundPage.validateNavigation()
       Then("User validates the 'page not found' content")
-      ErrorPageNotFoundPage.validatePageContent()
+      Error_PageNotFoundPage.validatePageContent()
     }
 
     Scenario(

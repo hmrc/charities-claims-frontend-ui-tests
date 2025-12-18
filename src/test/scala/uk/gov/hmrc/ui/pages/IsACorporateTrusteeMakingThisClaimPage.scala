@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object CorporateTrusteePage extends BasePage {
+object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-claim"
 
@@ -34,12 +34,12 @@ object CorporateTrusteePage extends BasePage {
   val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
-    CorporateTrusteePage.verifyPageUrl(CorporateTrusteePage.pageUrl)
-    CorporateTrusteePage.verifyPageTitle(CorporateTrusteePage.pageTitle)
-    CorporateTrusteePage.verifyPageCaption(CorporateTrusteePage.pageCaption)
-    CorporateTrusteePage.verifyPageHeader(CorporateTrusteePage.pageHeader)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageTitle(IsACorporateTrusteeMakingThisClaimPage.pageTitle)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageCaption(IsACorporateTrusteeMakingThisClaimPage.pageCaption)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageHeader(IsACorporateTrusteeMakingThisClaimPage.pageHeader)
   }
 
   def validateErrorMessage(): Unit =
-    CorporateTrusteePage.validateGenericPageError(CorporateTrusteePage.pageErrorMsg)
+    IsACorporateTrusteeMakingThisClaimPage.validateGenericPageError(IsACorporateTrusteeMakingThisClaimPage.pageErrorMsg)
 }

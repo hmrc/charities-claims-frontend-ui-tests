@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object ErrorPageNotFoundPage extends BasePage {
+object Error_PageNotFoundPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/page-not-found"
 
@@ -36,18 +36,18 @@ object ErrorPageNotFoundPage extends BasePage {
     "If the web address is correct or you selected a link or button, contact the HMRC Online Services Helpdesk (opens in new tab) if you need to speak to someone."
 
   def validateNavigation(): Unit = {
-    ErrorPageNotFoundPage.verifyPageUrl(ErrorPageNotFoundPage.pageUrl)
-    ErrorPageNotFoundPage.verifyPageTitle(ErrorPageNotFoundPage.pageTitle)
-    ErrorPageNotFoundPage.verifyPageHeader(ErrorPageNotFoundPage.pageHeader)
+    Error_PageNotFoundPage.verifyPageUrl(Error_PageNotFoundPage.pageUrl)
+    Error_PageNotFoundPage.verifyPageTitle(Error_PageNotFoundPage.pageTitle)
+    Error_PageNotFoundPage.verifyPageHeader(Error_PageNotFoundPage.pageHeader)
   }
 
   def validatePageContent(): Unit =
-    ErrorPageNotFoundPage.verifyPageNotFoundContent(
-      ErrorPageNotFoundPage.createSingleStringFromMany(
-        ErrorPageNotFoundPage.pageHeader,
-        ErrorPageNotFoundPage.listItem1,
-        ErrorPageNotFoundPage.listItem2,
-        ErrorPageNotFoundPage.listItem3
+    Error_PageNotFoundPage.verifyPageNotFoundContent(
+      Error_PageNotFoundPage.createSingleStringFromMany(
+        Error_PageNotFoundPage.pageHeader,
+        Error_PageNotFoundPage.listItem1,
+        Error_PageNotFoundPage.listItem2,
+        Error_PageNotFoundPage.listItem3
       )
     )
 }

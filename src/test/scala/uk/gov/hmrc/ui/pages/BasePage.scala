@@ -42,25 +42,25 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Locator values */
   object Locators {
-    val btnContinue                   = "//button[@type='submit']"
-    val lnkBack                       = "Back"
-    val lnkHeader                     = ".govuk-header__link.govuk-header__service-name"
-    val rdoYes                        = "#value_0"
-    val rdoNo                         = "#value_1"
-    val txtFileName                   = ".govuk-body"
-    val txtCaption                    = By.ByClassName("govuk-caption-l")
-    val txtHeader: By                 = By.xpath("//h1")
-    val txtAddressPostCode            = By.ById("postcode")
-    val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
-    val inputYourUserId: By           = By.xpath("//input[@name='authorityId']")
-    val hintText                      = By.ById("value-hint")
-    val paragraphText                 = By.ByClassName("govuk-body")
-    val errorSummary                  = By.ByClassName("govuk-error-summary__body")
-    val errorMsg                      = By.ById("value-error")
-    val listText                      = By.ByClassName("govuk-list")
-    val legendText                    = By.ByClassName("govuk-fieldset__legend")
-    val checkYouAnswersSummaryList    = By.ByClassName("govuk-summary-list__row")
-    val pageNotFoundContent           = By.ByClassName("govuk-grid-row")
+    val btnContinue                = "//button[@type='submit']"
+    val lnkBack                    = "Back"
+    val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
+    val rdoYes                     = "#value_0"
+    val rdoNo                      = "#value_1"
+    val txtFileName                = ".govuk-body"
+    val txtCaption                 = By.ByClassName("govuk-caption-l")
+    val txtHeader: By              = By.xpath("//h1")
+    val txtAddressPostCode         = By.ById("postcode")
+    val inputReferenceNumber       = By.ByClassName("govuk-input")
+    val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
+    val hintText                   = By.ById("value-hint")
+    val paragraphText              = By.ByClassName("govuk-body")
+    val errorSummary               = By.ByClassName("govuk-error-summary__body")
+    val errorMsg                   = By.ById("value-error")
+    val listText                   = By.ByClassName("govuk-list")
+    val legendText                 = By.ByClassName("govuk-fieldset__legend")
+    val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
+    val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
   }
 
   def pageUrl: String
@@ -117,9 +117,9 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   }
 
   /** Trigger too many characters error message */
-  def triggerTooManyCharInputtedError(expectedMessage: String): Unit = {
-    val randomString: String = Random.alphanumeric.take(64).mkString
-    val element              = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+  def triggerTooManyCharInputtedError(length: Int, expectedMessage: String): Unit = {
+    val randomString: String = Random.alphanumeric.take(length).mkString
+    val element              = waitForVisibilityOfElement(Locators.inputReferenceNumber)
     element.clear()
     element.sendKeys(randomString)
     validateGenericPageError(expectedMessage)
@@ -128,7 +128,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Trigger non Western European Alphabet error message */
   def triggerNonWesternEuropeanAlphabetError(expectedMessage: String): Unit = {
     val heartCharacter = "\u2665"
-    val element        = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+    val element        = waitForVisibilityOfElement(Locators.inputReferenceNumber)
     element.clear()
     element.sendKeys(heartCharacter)
     validateGenericPageError(expectedMessage)

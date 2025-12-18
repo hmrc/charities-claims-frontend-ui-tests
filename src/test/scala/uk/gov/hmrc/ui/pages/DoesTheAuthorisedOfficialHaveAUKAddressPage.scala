@@ -17,32 +17,37 @@
 /* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
-object CorporateTrusteeAddressPage extends BasePage {
-  override def pageUrl: String = s"$hostname/corporate-trustee-address"
+object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
+  override def pageUrl: String = s"$hostname/authorised-official-address"
 
   override def pageTitle: String =
-    "Does the corporate trustee have a UK address? - Charities - GOV.UK"
+    "Does the authorised official have a UK address? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Does the corporate trustee have a UK address?"
+    "Does the authorised official have a UK address?"
 
   def pageCaption: String =
     "Provide organisation details"
 
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
-    "Select if the corporate trustee has a UK address"
+    "Select if the authorised official has a UK address"
 
   val yes: String = "#value"
   val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
-    CorporateTrusteeAddressPage.verifyPageUrl(CorporateTrusteeAddressPage.pageUrl)
-    CorporateTrusteeAddressPage.verifyPageTitle(CorporateTrusteeAddressPage.pageTitle)
-    CorporateTrusteeAddressPage.verifyPageHeader(CorporateTrusteeAddressPage.pageHeader)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageTitle(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageTitle)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeader(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeader)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageCaption(
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageCaption
+    )
   }
 
   def validateErrorMessage(): Unit =
-    CorporateTrusteeAddressPage.validateGenericPageError(CorporateTrusteeAddressPage.pageErrorMsg)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.validateGenericPageError(
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageErrorMsg
+    )
 
 }

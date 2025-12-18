@@ -153,6 +153,8 @@ class AboutTheOrgPagesSpec
       WhatIsYourCharityRegulatorNumberPage.validateNavigation()
       Then("User validates the elements on the 'What is the charity regulator number?' page")
       WhatIsYourCharityRegulatorNumberPage.validateHint()
+      Then("User validates the 'no input' error on the 'What is the charity regulator number?' page")
+      WhatIsYourCharityRegulatorNumberPage.validateErrorMessage()
     }
 
     Scenario(
@@ -163,10 +165,10 @@ class AboutTheOrgPagesSpec
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
-      CorporateTrusteePage.validateNavigation()
+      IsACorporateTrusteeMakingThisClaimPage.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
       Then("User validates the 'no input' error on the 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.validateErrorMessage()
+      IsACorporateTrusteeMakingThisClaimPage.validateErrorMessage()
     }
 
     Scenario(
@@ -177,18 +179,18 @@ class AboutTheOrgPagesSpec
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
-      CorporateTrusteePage.validateNavigation()
+      IsACorporateTrusteeMakingThisClaimPage.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
       And("User selects a corporate trustee is making this claim")
-      CorporateTrusteePage.radioButton(CorporateTrusteePage.yes)
-      CorporateTrusteePage.clickContinue()
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      CorporateTrusteeAddressPage.validateNavigation()
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
       Then("User validates the 'no input' error on the 'Does the corporate trustee have a UK address?' page")
-      CorporateTrusteeAddressPage.validateErrorMessage()
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateErrorMessage()
       And("User selects a corporate trustee does have a UK address")
-      CorporateTrusteeAddressPage.radioButton(CorporateTrusteeAddressPage.yes)
-      CorporateTrusteeAddressPage.clickContinue()
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
       // MORE HERE
     }
 
@@ -200,18 +202,18 @@ class AboutTheOrgPagesSpec
       Then("User navigates to 'Are you claiming Gift Aid?' page")
       AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.navigateToPage(CorporateTrusteePage.pageUrl)
-      CorporateTrusteePage.validateNavigation()
+      IsACorporateTrusteeMakingThisClaimPage.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
       And("User selects a corporate trustee is making this claim")
-      CorporateTrusteePage.radioButton(CorporateTrusteePage.no)
-      CorporateTrusteePage.clickContinue()
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the authorised official have a UK address?' page")
-      AuthorisedOfficialAddressPage.validateNavigation()
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.validateNavigation()
       Then("User validates the 'no input' error on the 'Does the authorised official have a UK address?' page")
-      AuthorisedOfficialAddressPage.validateErrorMessage()
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.validateErrorMessage()
       And("User selects a authorised official does have a UK address")
-      AuthorisedOfficialAddressPage.radioButton(AuthorisedOfficialAddressPage.yes)
-      AuthorisedOfficialAddressPage.clickContinue()
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
       // MORE HERE
     }
   }

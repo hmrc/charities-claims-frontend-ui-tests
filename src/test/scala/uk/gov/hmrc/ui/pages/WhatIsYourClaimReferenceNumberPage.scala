@@ -38,8 +38,10 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   def pageErrorMsgNonWesternChar =
     "Include characters from Western European alphabets"
 
+  def inputMaxLength = 21
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputYourClaimReferenceNumber, referenceNo)
+    input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }
 
@@ -55,7 +57,10 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
     WhatIsYourClaimReferenceNumberPage.validateGenericPageError(WhatIsYourClaimReferenceNumberPage.pageErrorMsg)
+
+    /** Number defines string length */
     WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputtedError(
+      WhatIsYourClaimReferenceNumberPage.inputMaxLength,
       WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars
     )
     WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(

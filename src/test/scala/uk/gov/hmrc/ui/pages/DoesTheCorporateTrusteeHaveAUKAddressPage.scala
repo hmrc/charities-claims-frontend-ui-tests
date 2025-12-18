@@ -17,33 +17,34 @@
 /* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
-object AuthorisedOfficialAddressPage extends BasePage {
-  override def pageUrl: String = s"$hostname/authorised-official-address"
+object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
+  override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
   override def pageTitle: String =
-    "Does the authorised official have a UK address? - Charities - GOV.UK"
+    "Does the corporate trustee have a UK address? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Does the authorised official have a UK address?"
+    "Does the corporate trustee have a UK address?"
 
   def pageCaption: String =
     "Provide organisation details"
 
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
-    "Select if the authorised official has a UK address"
+    "Select if the corporate trustee has a UK address"
 
   val yes: String = "#value"
   val no: String  = "#value-no"
 
   def validateNavigation(): Unit = {
-    AuthorisedOfficialAddressPage.verifyPageUrl(AuthorisedOfficialAddressPage.pageUrl)
-    AuthorisedOfficialAddressPage.verifyPageTitle(AuthorisedOfficialAddressPage.pageTitle)
-    AuthorisedOfficialAddressPage.verifyPageHeader(AuthorisedOfficialAddressPage.pageHeader)
-    AuthorisedOfficialAddressPage.verifyPageCaption(AuthorisedOfficialAddressPage.pageCaption)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
   }
 
   def validateErrorMessage(): Unit =
-    AuthorisedOfficialAddressPage.validateGenericPageError(AuthorisedOfficialAddressPage.pageErrorMsg)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.validateGenericPageError(
+      DoesTheCorporateTrusteeHaveAUKAddressPage.pageErrorMsg
+    )
 
 }

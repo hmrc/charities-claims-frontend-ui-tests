@@ -62,16 +62,16 @@ class AboutTheOrgJourneySpec
       Then("User selects continue on 'Your charity is excepted' page")
       YourCharityIsExceptedPage.clickContinue()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.validateNavigation()
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
       And("User selects a corporate trustee is making this claim")
-      CorporateTrusteePage.radioButton(CorporateTrusteePage.yes)
-      CorporateTrusteePage.clickContinue()
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      CorporateTrusteeAddressPage.validateNavigation()
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
       And("User selects a corporate trustee does not have a UK address")
-      CorporateTrusteeAddressPage.radioButton(CorporateTrusteeAddressPage.no)
-      CorporateTrusteeAddressPage.clickContinue()
-      //MORE TO DO
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      // MORE TO DO
     }
 
     Scenario(
@@ -101,16 +101,16 @@ class AboutTheOrgJourneySpec
       Then("User selects continue on 'Your charity is exempt' page")
       YourCharityIsExemptPage.clickContinue()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      CorporateTrusteePage.validateNavigation()
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
       And("User selects a corporate trustee is not making this claim")
-      CorporateTrusteePage.radioButton(CorporateTrusteePage.no)
-      CorporateTrusteePage.clickContinue()
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the authorised official have a UK address?' page")
-      AuthorisedOfficialAddressPage.validateNavigation()
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.validateNavigation()
       And("User selects a authorised official does have a UK address")
-      AuthorisedOfficialAddressPage.radioButton(AuthorisedOfficialAddressPage.yes)
-      AuthorisedOfficialAddressPage.clickContinue()
-      //MORE TO DO
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
+      // MORE TO DO
     }
   }
 }

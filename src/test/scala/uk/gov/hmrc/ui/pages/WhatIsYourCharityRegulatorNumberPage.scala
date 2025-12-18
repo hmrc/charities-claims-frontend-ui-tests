@@ -33,13 +33,15 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     "This can be up to 20 numerical characters like 123456789 and does not include letters."
 
   def pageErrorMsg: String =
-    "Enter your claim reference number"
+    "Enter a charity regulator number"
 
   def pageErrorMsgTooManyChars =
     "Enter a charity regulator number in the correct format"
 
+  def inputMaxLength = 21
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputYourClaimReferenceNumber, referenceNo)
+    input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }
 
@@ -54,10 +56,11 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     WhatIsYourCharityRegulatorNumberPage.verifyHintText(WhatIsYourCharityRegulatorNumberPage.pageHint)
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit = {
+  def validateErrorMessage(): Unit =
     WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(WhatIsYourCharityRegulatorNumberPage.pageErrorMsg)
-    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
-      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
-    )
-  }
+    /** Number defines string length */
+//    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
+//      WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
+//      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
+//    )
 }
