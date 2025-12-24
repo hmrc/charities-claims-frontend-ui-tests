@@ -50,7 +50,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtFileName                = ".govuk-body"
     val txtCaption                 = By.ByClassName("govuk-caption-l")
     val txtHeader: By              = By.xpath("//h1")
-    val txtAddressPostCode         = By.ById("postcode")
+    val txtAddressPostCode         = By.ById("addressPostcode")
     val inputReferenceNumber       = By.ByClassName("govuk-input")
     val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
     val hintText                   = By.ById("value-hint")
