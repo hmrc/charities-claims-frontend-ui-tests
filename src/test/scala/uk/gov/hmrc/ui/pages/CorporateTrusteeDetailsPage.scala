@@ -18,50 +18,49 @@ package uk.gov.hmrc.ui.pages
 
 object CorporateTrusteeDetailsPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/charity-regulator-number"
+  override def pageUrl: String = s"$hostname/corporate-trustee-details"
 
   override def pageTitle: String =
-    "What is the charity regulator number? - Charities - GOV.UK"
+    "What are the corporate trustee details? - Charities - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeader: String =
-    "What is the charity regulator number?"
+    "What are the corporate trustee details?"
 
-  def pageHint: String =
-    "This can be up to 20 numerical characters like 123456789 and does not include letters."
+  def pageErrorMsgTrusteeName: String =
+    "Enter a corporate trustee name"
 
-  def pageErrorMsg: String =
-    "Enter a charity regulator number"
+  def pageErrorMsgTrusteePhoneNo: String =
+    "Enter a corporate trustee phone number"
 
-  def pageErrorMsgTooManyChars =
-    "Enter a charity regulator number in the correct format"
+  def pageErrorMsgTrusteeUKPostcode: String =
+    "Enter trustee postcode"
 
-  def inputMaxLength = 21
-
-  def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputReferenceNumber, referenceNo)
+  def enterTrusteeName(referenceNo: String): Unit = {
+    input(Locators.txtTrusteeName, referenceNo)
     clickContinue()
   }
 
   def validateNavigation(): Unit = {
-    WhatIsYourCharityRegulatorNumberPage.verifyPageUrl(WhatIsYourCharityRegulatorNumberPage.pageUrl)
-    WhatIsYourCharityRegulatorNumberPage.verifyPageTitle(WhatIsYourCharityRegulatorNumberPage.pageTitle)
-    WhatIsYourCharityRegulatorNumberPage.verifyPageCaption(WhatIsYourCharityRegulatorNumberPage.pageCaption)
-    WhatIsYourCharityRegulatorNumberPage.verifyPageHeader(WhatIsYourCharityRegulatorNumberPage.pageHeader)
+    CorporateTrusteeDetailsPage.verifyPageUrl(CorporateTrusteeDetailsPage.pageUrl)
+    CorporateTrusteeDetailsPage.verifyPageTitle(CorporateTrusteeDetailsPage.pageTitle)
+    CorporateTrusteeDetailsPage.verifyPageCaption(CorporateTrusteeDetailsPage.pageCaption)
+    CorporateTrusteeDetailsPage.verifyPageHeader(CorporateTrusteeDetailsPage.pageHeader)
   }
 
-  def validateHint(): Unit =
-    WhatIsYourCharityRegulatorNumberPage.verifyHintText(WhatIsYourCharityRegulatorNumberPage.pageHint)
-
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit =
-    WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(WhatIsYourCharityRegulatorNumberPage.pageErrorMsg)
+  def validateUKAddressErrorMessages(): Unit =
+    CorporateTrusteeDetailsPage.validateGenericPageError(
+      CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
+        CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo + "\n" +
+        CorporateTrusteeDetailsPage.pageErrorMsgTrusteeUKPostcode
+    )
 
-    /** Number defines string length */
-    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
-      WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
-      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
+  def validateNonUKAddressErrorMessages(): Unit =
+    CorporateTrusteeDetailsPage.validateGenericPageError(
+      CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
+        CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo
     )
 }

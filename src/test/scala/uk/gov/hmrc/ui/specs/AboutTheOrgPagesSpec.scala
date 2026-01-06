@@ -191,7 +191,21 @@ class AboutTheOrgPagesSpec
       And("User selects a corporate trustee does have a UK address")
       DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
       DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      // MORE HERE
+      And("User navigates to 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNavigation()
+      Then("User validates the 'no input' error on the UK address 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateUKAddressErrorMessages()
+      And("User navigates back to the 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.navigateToPage(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+      And("User navigates to 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
+      And("User selects a corporate trustee does NOT have a UK address")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNavigation()
+      Then("User validates the 'no input' error on the Non-UK address 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNonUKAddressErrorMessages()
     }
 
     Scenario(
@@ -214,7 +228,21 @@ class AboutTheOrgPagesSpec
       And("User selects a authorised official does have a UK address")
       DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
-      // MORE HERE
+      And("User navigates to 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateNavigation()
+      Then("User validates the 'no input' error on the UK address 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateUKAddressErrorMessages()
+      And("User navigates back to the 'Does the authorised official have a UK address?' page")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.navigateToPage(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
+      And("User navigates to 'Does the authorised official have a UK address?' page")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.validateNavigation()
+      And("User selects a authorised official does NOT have a UK address")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.no)
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateNavigation()
+      Then("User validates the 'no input' error on the Non-UK address 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateNonUKAddressErrorMessages()
     }
   }
 }

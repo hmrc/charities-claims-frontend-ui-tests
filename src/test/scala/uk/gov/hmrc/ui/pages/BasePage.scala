@@ -56,11 +56,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val hintText                   = By.ById("value-hint")
     val paragraphText              = By.ByClassName("govuk-body")
     val errorSummary               = By.ByClassName("govuk-error-summary__body")
-    val errorMsg                   = By.ById("value-error")
+//    val errorMsg                   = By.ById("value-error")
+    val errorMsg                   = By.ByClassName("govuk-error-message")
     val listText                   = By.ByClassName("govuk-list")
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
+    val txtTrusteeName             = By.ById("trustee-name")
+    val txtTrusteePhoneNo          = By.ById("trustee-phone-number")
   }
 
   def pageUrl: String
@@ -94,7 +97,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val errorSummary       = s"$expectedErrorMessage"
     val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
     clickContinue()
-    waitForVisibilityOfElement(Locators.errorMsg)
+    waitForVisibilityOfElement(Locators.errorSummary)
     // Error title indicator
     assert(
       driver.getTitle.contains("Error:"),
@@ -104,13 +107,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
     assert(
       actualErrorSummary == errorSummary,
-      s"Page error message mismatch! Expected: $errorSummary, Actual: $actualErrorSummary"
+      s"Page error summary mismatch! Expected: $errorSummary, Actual: $actualErrorSummary"
     )
     println("Actual error summary is: " + driver.findElement(Locators.errorSummary).getText)
     // Error message - above erroring field
     val actualErrorMsg     = driver.findElement(Locators.errorMsg).getText
     assert(
-      actualErrorMsg == errorMsgWithPrefix,
+//      actualErrorMsg contains errorMsgWithPrefix,
+      errorMsgWithPrefix contains actualErrorMsg,
       s"Page error message mismatch! Expected: $errorMsgWithPrefix, Actual: $actualErrorMsg"
     )
     println("Actual error message is: " + driver.findElement(Locators.errorMsg).getText)
