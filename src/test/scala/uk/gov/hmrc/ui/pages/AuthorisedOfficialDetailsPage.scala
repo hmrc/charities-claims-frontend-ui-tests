@@ -41,8 +41,18 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   def pageErrorMsgAuthOfficialUKPostcode: String =
     "Enter a authorised official postcode"
 
-  def enterTrusteeName(referenceNo: String): Unit = {
-    input(Locators.txtTrusteeName, referenceNo)
+  def enterUKAuthOfficialDetails(
+    authOfficialTitle: String,
+    authOfficialForename: String,
+    authOfficialSurname: String,
+    authOfficialPhoneNo: String,
+    authOfficialPostcode: String
+  ): Unit = {
+    input(Locators.txtAuthOfficialTitle, authOfficialTitle)
+    input(Locators.txtAuthOfficialForename, authOfficialForename)
+    input(Locators.txtAuthOfficialSurname, authOfficialSurname)
+    input(Locators.txtAuthOfficialPhoneNo, authOfficialPhoneNo)
+    input(Locators.txtAuthOfficialPostcode, authOfficialPostcode)
     clickContinue()
   }
 

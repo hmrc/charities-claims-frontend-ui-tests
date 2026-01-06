@@ -64,6 +64,11 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
     val txtTrusteeName             = By.ById("trustee-name")
     val txtTrusteePhoneNo          = By.ById("trustee-phone-number")
+    val txtAuthOfficialTitle       = By.ById("title")
+    val txtAuthOfficialForename    = By.ById("firstName")
+    val txtAuthOfficialSurname     = By.ById("lastName")
+    val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
+    val txtAuthOfficialPostcode    = By.ById("postcode")
   }
 
   def pageUrl: String

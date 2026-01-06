@@ -38,8 +38,9 @@ object CorporateTrusteeDetailsPage extends BasePage {
   def pageErrorMsgTrusteeUKPostcode: String =
     "Enter trustee postcode"
 
-  def enterTrusteeName(referenceNo: String): Unit = {
-    input(Locators.txtTrusteeName, referenceNo)
+  def enterNonUKTrusteeDetails(trusteeName: String, trusteePhoneNo: String): Unit = {
+    input(Locators.txtTrusteeName, trusteeName)
+    input(Locators.txtTrusteePhoneNo, trusteePhoneNo)
     clickContinue()
   }
 

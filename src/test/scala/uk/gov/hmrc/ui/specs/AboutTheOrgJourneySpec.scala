@@ -71,6 +71,10 @@ class AboutTheOrgJourneySpec
       And("User selects a corporate trustee does not have a UK address")
       DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
       DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNavigation()
+      And("User enters their Non UK Trustee details and clicks continue")
+      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
       // MORE TO DO
     }
 
@@ -110,6 +114,10 @@ class AboutTheOrgJourneySpec
       And("User selects a authorised official does have a UK address")
       DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateNavigation()
+      And("User enters their UK Authorised Official details and clicks continue")
+      AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails("TEST", "TEST", "TEST", "01632 960999", "WG7 7FU")
       // MORE TO DO
     }
   }
