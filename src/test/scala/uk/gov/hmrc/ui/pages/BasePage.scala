@@ -117,13 +117,13 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
     )
     println("Actual error summary is: " + actualErrorSummary)
-//    // Error message - above erroring field
-//    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
-//    assert(
-//      actualErrorMsg contains errorMessage,
-//      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
-//    )
-//    println("Actual error message is: " + actualErrorMsg)
+    // Error message - above erroring field
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
+    assert(
+      actualErrorMsg contains errorMessage,
+      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
+    )
+    println("Actual error message is: " + actualErrorMsg)
   }
 
   /** Trigger too many characters error message */

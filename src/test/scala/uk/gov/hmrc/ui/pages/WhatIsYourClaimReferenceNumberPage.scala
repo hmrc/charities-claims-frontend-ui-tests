@@ -71,12 +71,12 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
       WhatIsYourClaimReferenceNumberPage.inputMaxLength,
       WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars,
       WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
-      null
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
     )
     WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
       WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar,
       WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
-      null
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
     )
   }
 }

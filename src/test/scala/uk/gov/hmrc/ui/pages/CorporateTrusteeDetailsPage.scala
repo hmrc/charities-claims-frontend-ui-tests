@@ -32,6 +32,8 @@ object CorporateTrusteeDetailsPage extends BasePage {
   def pageHeader: String =
     "What are the corporate trustee details?"
 
+  val errorSummary = By.ByClassName("govuk-error-summary__body")
+
   // Name field
   def inputNameMaxLength  = 161
   val nameInputLocator    = By.ById("nameOfCorporateTrustee")
@@ -93,14 +95,14 @@ object CorporateTrusteeDetailsPage extends BasePage {
       CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
         CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo + "\n" +
         CorporateTrusteeDetailsPage.pageErrorMsgTrusteeUKPostcode,
-      CorporateTrusteeDetailsPage.nameErrorMsgLocator
+      CorporateTrusteeDetailsPage.errorSummary
     )
 
   def validateNonUKAddressErrorMessages(): Unit =
     CorporateTrusteeDetailsPage.validateGenericPageError(
       CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
         CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo,
-      CorporateTrusteeDetailsPage.nameErrorMsgLocator
+      CorporateTrusteeDetailsPage.errorSummary
     )
 
     /** Validate that the error messages are correct */
