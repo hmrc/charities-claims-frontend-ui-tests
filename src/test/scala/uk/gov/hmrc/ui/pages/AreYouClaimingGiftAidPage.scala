@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object AreYouClaimingGiftAidPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-gift-aid"
@@ -32,8 +34,9 @@ object AreYouClaimingGiftAidPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you are claiming Gift Aid."
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     AreYouClaimingGiftAidPage.verifyPageUrl(AreYouClaimingGiftAidPage.pageUrl)
@@ -47,5 +50,8 @@ object AreYouClaimingGiftAidPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    AreYouClaimingGiftAidPage.validateGenericPageError(AreYouClaimingGiftAidPage.pageErrorMsg)
+    AreYouClaimingGiftAidPage.validateGenericPageError(
+      AreYouClaimingGiftAidPage.pageErrorMsg,
+      AreYouClaimingGiftAidPage.errorMsgLocator
+    )
 }

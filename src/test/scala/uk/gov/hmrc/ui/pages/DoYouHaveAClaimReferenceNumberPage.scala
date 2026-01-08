@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-reference-number"
@@ -29,8 +31,9 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you have a reference number for this claim."
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
@@ -40,5 +43,8 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(DoYouHaveAClaimReferenceNumberPage.pageErrorMsg)
+    DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(
+      DoYouHaveAClaimReferenceNumberPage.pageErrorMsg,
+      DoYouHaveAClaimReferenceNumberPage.errorMsgLocator
+    )
 }

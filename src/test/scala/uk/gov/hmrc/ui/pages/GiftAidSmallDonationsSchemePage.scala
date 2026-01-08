@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object GiftAidSmallDonationsSchemePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/gift-aid-small-donations-scheme"
@@ -35,8 +37,9 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you are claiming for the Gift Aid Small Donations Scheme."
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     GiftAidSmallDonationsSchemePage.verifyPageUrl(GiftAidSmallDonationsSchemePage.pageUrl)
@@ -50,5 +53,8 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
   }
 
   def validateErrorMessage(): Unit =
-    GiftAidSmallDonationsSchemePage.validateGenericPageError(GiftAidSmallDonationsSchemePage.pageErrorMsg)
+    GiftAidSmallDonationsSchemePage.validateGenericPageError(
+      GiftAidSmallDonationsSchemePage.pageErrorMsg,
+      GiftAidSmallDonationsSchemePage.errorMsgLocator
+    )
 }

@@ -16,6 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.pages
+
 object CorporateTrusteeDetailsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-details"
@@ -29,14 +32,47 @@ object CorporateTrusteeDetailsPage extends BasePage {
   def pageHeader: String =
     "What are the corporate trustee details?"
 
+  // Name field
+  def inputNameMaxLength  = 161
+  val nameInputLocator    = By.ById("nameOfCorporateTrustee")
+  val nameErrorMsgLocator = By.ById("nameOfCorporateTrustee-error")
+
   def pageErrorMsgTrusteeName: String =
     "Enter a corporate trustee name"
+
+  def pageErrorMsgNameTooManyChars: String =
+    "Corporate trustee name must be 160 characters or less"
+
+  def pageErrorMsgNameNonWesternChar =
+    "Enter a corporate trustee name in the correct format"
+
+  // Phone field
+  def inputPhoneMaxLength  = 36
+  val phoneInputLocator    = By.ById("corporateTrusteeDaytimeTelephoneNumber")
+  val phoneErrorMsgLocator = By.ById("corporateTrusteeDaytimeTelephoneNumber-error")
 
   def pageErrorMsgTrusteePhoneNo: String =
     "Enter a corporate trustee phone number"
 
+  def pageErrorMsgPhoneTooManyChars: String =
+    "Corporate trustee phone number must be 35 characters or less"
+
+  def pageErrorMsgPhoneNonWesternChar =
+    "Enter a corporate trustee phone number in the correct format"
+
+  // Postcode field
+  def inputPostcodeMaxLength  = 9
+  val postcodeInputLocator    = By.ById("corporateTrusteePostcode")
+  val postcodeErrorMsgLocator = By.ById("corporateTrusteePostcode-error")
+
   def pageErrorMsgTrusteeUKPostcode: String =
-    "Enter trustee postcode"
+    "Enter a corporate trustee postcode"
+
+  def pageErrorMsgPostcodeTooManyChars: String =
+    "Corporate trustee postcode must be 8 characters or less"
+
+  def pageErrorMsgPostcodeNonWesternChar =
+    "Enter a corporate trustee postcode in the correct format"
 
   def enterNonUKTrusteeDetails(trusteeName: String, trusteePhoneNo: String): Unit = {
     input(Locators.txtTrusteeName, trusteeName)
@@ -56,12 +92,57 @@ object CorporateTrusteeDetailsPage extends BasePage {
     CorporateTrusteeDetailsPage.validateGenericPageError(
       CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
         CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo + "\n" +
-        CorporateTrusteeDetailsPage.pageErrorMsgTrusteeUKPostcode
+        CorporateTrusteeDetailsPage.pageErrorMsgTrusteeUKPostcode,
+      CorporateTrusteeDetailsPage.nameErrorMsgLocator
     )
 
   def validateNonUKAddressErrorMessages(): Unit =
     CorporateTrusteeDetailsPage.validateGenericPageError(
       CorporateTrusteeDetailsPage.pageErrorMsgTrusteeName + "\n" +
-        CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo
+        CorporateTrusteeDetailsPage.pageErrorMsgTrusteePhoneNo,
+      CorporateTrusteeDetailsPage.nameErrorMsgLocator
+    )
+
+    /** Validate that the error messages are correct */
+  def validateCorporateTrusteeNameErrorMessages(): Unit =
+    /** Number defines string length */
+    CorporateTrusteeDetailsPage.triggerTooManyCharInputError(
+      CorporateTrusteeDetailsPage.inputNameMaxLength,
+      CorporateTrusteeDetailsPage.pageErrorMsgNameTooManyChars,
+      CorporateTrusteeDetailsPage.nameInputLocator,
+      CorporateTrusteeDetailsPage.nameErrorMsgLocator
+    )
+    CorporateTrusteeDetailsPage.triggerNonWesternEuropeanAlphabetError(
+      CorporateTrusteeDetailsPage.pageErrorMsgNameNonWesternChar,
+      CorporateTrusteeDetailsPage.nameInputLocator,
+      CorporateTrusteeDetailsPage.nameErrorMsgLocator
+    )
+
+  def validateCorporateTrusteePhoneErrorMessages(): Unit =
+    /** Number defines string length */
+    CorporateTrusteeDetailsPage.triggerTooManyCharInputError(
+      CorporateTrusteeDetailsPage.inputPhoneMaxLength,
+      CorporateTrusteeDetailsPage.pageErrorMsgPhoneTooManyChars,
+      CorporateTrusteeDetailsPage.phoneInputLocator,
+      CorporateTrusteeDetailsPage.phoneErrorMsgLocator
+    )
+    CorporateTrusteeDetailsPage.triggerNonWesternEuropeanAlphabetError(
+      CorporateTrusteeDetailsPage.pageErrorMsgPhoneNonWesternChar,
+      CorporateTrusteeDetailsPage.phoneInputLocator,
+      CorporateTrusteeDetailsPage.phoneErrorMsgLocator
+    )
+
+  def validateCorporateTrusteePostcodeErrorMessages(): Unit =
+    /** Number defines string length */
+    CorporateTrusteeDetailsPage.triggerTooManyCharInputError(
+      CorporateTrusteeDetailsPage.inputPostcodeMaxLength,
+      CorporateTrusteeDetailsPage.pageErrorMsgPostcodeTooManyChars,
+      CorporateTrusteeDetailsPage.postcodeInputLocator,
+      CorporateTrusteeDetailsPage.postcodeErrorMsgLocator
+    )
+    CorporateTrusteeDetailsPage.triggerNonWesternEuropeanAlphabetError(
+      CorporateTrusteeDetailsPage.pageErrorMsgPostcodeNonWesternChar,
+      CorporateTrusteeDetailsPage.postcodeInputLocator,
+      CorporateTrusteeDetailsPage.postcodeErrorMsgLocator
     )
 }

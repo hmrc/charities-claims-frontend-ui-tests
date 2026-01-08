@@ -16,6 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.pages
+
 object WhatIsYourCharityRegulatorNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/charity-regulator-number"
@@ -40,6 +43,9 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
 
   def inputMaxLength = 21
 
+  val charityRegulatorNumberFieldLocator = By.ById("value")
+  val errorMsgLocator                    = By.ById("value-error")
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
@@ -57,11 +63,16 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(WhatIsYourCharityRegulatorNumberPage.pageErrorMsg)
+    WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(
+      WhatIsYourCharityRegulatorNumberPage.pageErrorMsg,
+      WhatIsYourCharityRegulatorNumberPage.errorMsgLocator
+    )
 
     /** Number defines string length */
-    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
+    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputError(
       WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
-      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
+      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars,
+      WhatIsYourCharityRegulatorNumberPage.charityRegulatorNumberFieldLocator,
+      null
     )
 }

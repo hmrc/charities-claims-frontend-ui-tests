@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claiming-other-income"
@@ -41,8 +43,9 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you are claiming tax deducted from other income."
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageUrl(AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl)
@@ -68,6 +71,7 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
     AreYouClaimingTaxDeductedFromOtherIncomePage.validateGenericPageError(
-      AreYouClaimingTaxDeductedFromOtherIncomePage.pageErrorMsg
+      AreYouClaimingTaxDeductedFromOtherIncomePage.pageErrorMsg,
+      AreYouClaimingTaxDeductedFromOtherIncomePage.errorMsgLocator
     )
 }

@@ -17,6 +17,8 @@
 /* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
@@ -33,8 +35,9 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if the corporate trustee has a UK address"
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
@@ -44,7 +47,8 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
 
   def validateErrorMessage(): Unit =
     DoesTheCorporateTrusteeHaveAUKAddressPage.validateGenericPageError(
-      DoesTheCorporateTrusteeHaveAUKAddressPage.pageErrorMsg
+      DoesTheCorporateTrusteeHaveAUKAddressPage.pageErrorMsg,
+      DoesTheCorporateTrusteeHaveAUKAddressPage.errorMsgLocator
     )
 
 }

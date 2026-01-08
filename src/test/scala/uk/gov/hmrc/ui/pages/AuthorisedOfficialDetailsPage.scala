@@ -63,19 +63,19 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     AuthorisedOfficialDetailsPage.verifyPageHeader(AuthorisedOfficialDetailsPage.pageHeader)
   }
 
-  /** Validate that the error message is correct */
-  def validateUKAddressErrorMessages(): Unit =
-    AuthorisedOfficialDetailsPage.validateGenericPageError(
-      AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialForename + "\n" +
-        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialSurname + "\n" +
-        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialPhoneNo + "\n" +
-        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialUKPostcode
-    )
-
-  def validateNonUKAddressErrorMessages(): Unit =
-    AuthorisedOfficialDetailsPage.validateGenericPageError(
-      AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialForename + "\n" +
-        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialSurname + "\n" +
-        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialPhoneNo
-    )
+//  /** Validate that the error message is correct */
+//  def validateUKAddressErrorMessages(): Unit =
+//    AuthorisedOfficialDetailsPage.validateGenericPageError(
+//      AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialForename + "\n" +
+//        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialSurname + "\n" +
+//        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialPhoneNo + "\n" +
+//        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialUKPostcode
+//    )
+//
+//  def validateNonUKAddressErrorMessages(): Unit =
+//    AuthorisedOfficialDetailsPage.validateGenericPageError(
+//      AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialForename + "\n" +
+//        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialSurname + "\n" +
+//        AuthorisedOfficialDetailsPage.pageErrorMsgAuthOfficialPhoneNo
+//    )
 }

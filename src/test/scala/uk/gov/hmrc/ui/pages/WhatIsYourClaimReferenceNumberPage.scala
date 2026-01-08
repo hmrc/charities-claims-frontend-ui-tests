@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/your-claim-reference-number"
@@ -40,6 +42,9 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   def inputMaxLength = 21
 
+  val claimReferenceNumberFieldLocator = By.ById("value")
+  val errorMsgLocator                  = By.ById("value-error")
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
@@ -56,15 +61,22 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(WhatIsYourClaimReferenceNumberPage.pageErrorMsg)
+    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsg,
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
+    )
 
     /** Number defines string length */
-    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputtedError(
+    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputError(
       WhatIsYourClaimReferenceNumberPage.inputMaxLength,
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars,
+      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
+      null
     )
     WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar,
+      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
+      null
     )
   }
 }

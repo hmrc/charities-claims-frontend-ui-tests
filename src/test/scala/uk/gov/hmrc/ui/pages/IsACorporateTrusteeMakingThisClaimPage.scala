@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-claim"
@@ -30,8 +32,9 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   def pageErrorMsg: String = "Select ‘Yes’ if this claim is being made by a corporate trustee"
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
@@ -41,5 +44,8 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
   }
 
   def validateErrorMessage(): Unit =
-    IsACorporateTrusteeMakingThisClaimPage.validateGenericPageError(IsACorporateTrusteeMakingThisClaimPage.pageErrorMsg)
+    IsACorporateTrusteeMakingThisClaimPage.validateGenericPageError(
+      IsACorporateTrusteeMakingThisClaimPage.pageErrorMsg,
+      IsACorporateTrusteeMakingThisClaimPage.errorMsgLocator
+    )
 }

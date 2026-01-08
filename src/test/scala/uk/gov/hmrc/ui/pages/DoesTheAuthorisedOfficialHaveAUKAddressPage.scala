@@ -17,6 +17,8 @@
 /* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/authorised-official-address"
 
@@ -33,8 +35,9 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if the authorised official has a UK address"
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
@@ -47,7 +50,8 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
 
   def validateErrorMessage(): Unit =
     DoesTheAuthorisedOfficialHaveAUKAddressPage.validateGenericPageError(
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageErrorMsg
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageErrorMsg,
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.errorMsgLocator
     )
 
 }
