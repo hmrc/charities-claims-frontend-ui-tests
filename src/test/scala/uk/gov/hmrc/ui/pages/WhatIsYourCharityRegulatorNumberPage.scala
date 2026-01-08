@@ -73,6 +73,6 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
       WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
       WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars,
       WhatIsYourCharityRegulatorNumberPage.charityRegulatorNumberFieldLocator,
-      null
+      WhatIsYourCharityRegulatorNumberPage.errorMsgLocator
     )
 }
