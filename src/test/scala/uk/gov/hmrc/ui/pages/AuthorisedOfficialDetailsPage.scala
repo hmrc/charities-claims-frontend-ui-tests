@@ -81,13 +81,13 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Enter a authorised official phone number"
 
   def pageErrorMsgPhoneNoTooManyChars: String =
-    "Authorised official last name must be 35 characters or less"
+    "Authorised official phone number must be 35 characters or less"
 
   def pageErrorMsgPhoneNoNonWesternChar =
-    "Enter a correct authorised official name format"
+    "Enter a correct authorised official phone number format"
 
   // Postcode field
-  def inputPostcodeMaxLength  = 8
+  def inputPostcodeMaxLength  = 9
   val postcodeInputLocator    = By.ById("postcode")
   val postcodeErrorMsgLocator = By.ById("postcode-error")
 
@@ -95,10 +95,10 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Enter a authorised official postcode"
 
   def pageErrorMsgPostcodeTooManyChars: String =
-    "Authorised official last name must be 35 characters or less"
+    "Authorised official postcode must be 8 characters or less"
 
   def pageErrorMsgPostcodeNonWesternChar =
-    "Enter a correct authorised official name format"
+    "Enter a correct authorised official postcode format"
 
   def enterUKAuthOfficialDetails(
     authOfficialTitle: String,
