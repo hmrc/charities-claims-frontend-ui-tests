@@ -50,7 +50,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   val forenameErrorMsgLocator = By.ById("firstName-error")
 
   def pageErrorMsgAuthOfficialForename: String =
-    "Enter a authorised official first name"
+    "Enter an authorised official first name"
 
   def pageErrorMsgForenameTooManyChars: String =
     "Authorised official first name must be 35 characters or less"
@@ -64,7 +64,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   val surnameErrorMsgLocator = By.ById("lastName-error")
 
   def pageErrorMsgAuthOfficialSurname: String =
-    "Enter a authorised official last name"
+    "Enter an authorised official last name"
 
   def pageErrorMsgSurnameTooManyChars: String =
     "Authorised official last name must be 35 characters or less"
@@ -78,7 +78,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   val phoneNoErrorMsgLocator = By.ById("phoneNumber-error")
 
   def pageErrorMsgAuthOfficialPhoneNo: String =
-    "Enter a authorised official phone number"
+    "Enter an authorised official phone number"
 
   def pageErrorMsgPhoneNoTooManyChars: String =
     "Authorised official phone number must be 35 characters or less"
@@ -92,7 +92,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   val postcodeErrorMsgLocator = By.ById("postcode-error")
 
   def pageErrorMsgAuthOfficialUKPostcode: String =
-    "Enter a authorised official postcode"
+    "Enter an authorised official postcode"
 
   def pageErrorMsgPostcodeTooManyChars: String =
     "Authorised official postcode must be 8 characters or less"
