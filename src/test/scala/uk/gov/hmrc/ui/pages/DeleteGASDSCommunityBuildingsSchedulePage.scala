@@ -31,8 +31,8 @@ object DeleteGASDSCommunityBuildingsSchedulePage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you want to delete this Gift Aid Small Donations Scheme community buildings schedule"
 
-  val yes: String = "#value"
-  val no: String = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {

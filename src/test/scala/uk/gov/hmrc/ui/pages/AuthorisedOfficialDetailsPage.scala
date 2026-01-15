@@ -56,7 +56,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official first name must be 35 characters or less"
 
   def pageErrorMsgForenameNonWesternChar =
-    "Enter a correct authorised official name format"
+    "Enter a correct authorised official first name format"
 
   // Surname field
   def inputSurnameMaxLength  = 36
@@ -70,7 +70,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official last name must be 35 characters or less"
 
   def pageErrorMsgSurnameNonWesternChar =
-    "Enter a correct authorised official name format"
+    "Enter a correct authorised official last name format"
 
   // Phone number field
   def inputPhoneNoMaxLength  = 36

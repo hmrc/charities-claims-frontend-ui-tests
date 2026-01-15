@@ -73,7 +73,9 @@ class WarningPagesSpec
       Then("User navigates to 'Do you want to delete this GASDS community buildings schedule?' page")
       DeleteGASDSCommunityBuildingsSchedulePage.navigateToPage(DeleteGASDSCommunityBuildingsSchedulePage.pageUrl)
       DeleteGASDSCommunityBuildingsSchedulePage.validateNavigation()
-      Then("User validates the 'no input' error on the 'Do you want to delete this GASDS community buildings schedule?' page")
+      Then(
+        "User validates the 'no input' error on the 'Do you want to delete this GASDS community buildings schedule?' page"
+      )
       DeleteGASDSCommunityBuildingsSchedulePage.validateErrorMessage()
     }
 
@@ -87,7 +89,9 @@ class WarningPagesSpec
       Then("User navigates to 'Do you want to delete this GASDS connected charities schedule?' page")
       DeleteGASDSConnectedCharitiesSchedulePage.navigateToPage(DeleteGASDSConnectedCharitiesSchedulePage.pageUrl)
       DeleteGASDSConnectedCharitiesSchedulePage.validateNavigation()
-      Then("User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page")
+      Then(
+        "User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page"
+      )
       DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
     }
   }
