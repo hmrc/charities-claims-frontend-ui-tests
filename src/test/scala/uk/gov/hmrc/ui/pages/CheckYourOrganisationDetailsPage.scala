@@ -38,14 +38,17 @@ object CheckYourOrganisationDetailsPage extends BasePage {
     CheckYourOrganisationDetailsPage.verifyPageHeader(CheckYourOrganisationDetailsPage.pageHeader)
   }
 
-  val linkChangeCharityRegulatorName: By = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")
-  val linkChangeRegisteredWithRegulator: By = By.xpath("//a[@href='/charities-claims/change-charity-not-registered']")
-  val linkChangeCharityRegulatorNumber: By = By.xpath("//a[@href='/charities-claims/change-charity-regulator-number']")
-  val linkChangeCorporateTrusteeClaim: By = By.xpath("//a[@href='/charities-claims/change-corporate-trustee-claim']")
-  val linkChangeCorporateTrusteeUKAddress: By = By.xpath("//a[@href='/charities-claims/change-corporate-trustee-address']")
-  val linkChangeCorporateTrusteeDetails: By = By.xpath("//a[@href='/charities-claims/change-corporate-trustee-details']")
-  val linkChangeAuthOfficialUKAddress: By = By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
-  val linkChangeAuthOfficialDetails: By = By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
+  val linkChangeCharityRegulatorName: By      = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")
+  val linkChangeRegisteredWithRegulator: By   = By.xpath("//a[@href='/charities-claims/change-charity-not-registered']")
+  val linkChangeCharityRegulatorNumber: By    = By.xpath("//a[@href='/charities-claims/change-charity-regulator-number']")
+  val linkChangeCorporateTrusteeClaim: By     = By.xpath("//a[@href='/charities-claims/change-corporate-trustee-claim']")
+  val linkChangeCorporateTrusteeUKAddress: By =
+    By.xpath("//a[@href='/charities-claims/change-corporate-trustee-address']")
+  val linkChangeCorporateTrusteeDetails: By   =
+    By.xpath("//a[@href='/charities-claims/change-corporate-trustee-details']")
+  val linkChangeAuthOfficialUKAddress: By     =
+    By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
+  val linkChangeAuthOfficialDetails: By       = By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
 
   def clickChangeCharityRegulatorName(): Unit = {
     val element = waitForElementToBeClickable(linkChangeCharityRegulatorName)

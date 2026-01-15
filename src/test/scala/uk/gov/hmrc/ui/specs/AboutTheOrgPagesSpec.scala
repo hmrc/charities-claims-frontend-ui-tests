@@ -260,5 +260,17 @@ class AboutTheOrgPagesSpec
       Then("User validates the 'no input' error on the Non-UK address 'What are the authorised official details?' page")
       AuthorisedOfficialDetailsPage.validateNonUKAddressErrorMessages()
     }
+
+    Scenario(
+      "User navigates to the 'Check your organisation details' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.11")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.navigateToPage(CheckYourOrganisationDetailsPage.pageUrl)
+      CheckYourOrganisationDetailsPage.validateNavigation()
+    }
   }
 }

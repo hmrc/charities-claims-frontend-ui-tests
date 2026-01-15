@@ -75,7 +75,8 @@ class AboutTheOrgJourneySpec
       CorporateTrusteeDetailsPage.validateNavigation()
       And("User enters their Non UK Trustee details and clicks continue")
       CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      // MORE TO DO
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
     }
 
     Scenario(
@@ -118,7 +119,8 @@ class AboutTheOrgJourneySpec
       AuthorisedOfficialDetailsPage.validateNavigation()
       And("User enters their UK Authorised Official details and clicks continue")
       AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails("TEST", "TEST", "TEST", "01632 960999", "WG7 7FU")
-      // MORE TO DO
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
     }
   }
 }
