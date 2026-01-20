@@ -101,8 +101,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Trigger a generic error message by trying to bypass required components / data */
   def validateGenericPageError(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
     val errorMessage       = s"$expectedErrorMessage"
-    val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
-    val errorMsgPrefix     = s"Error:\n"
     clickContinue()
     waitForVisibilityOfElement(Locators.errorSummary)
     // Error title indicator

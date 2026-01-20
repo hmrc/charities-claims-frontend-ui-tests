@@ -42,7 +42,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official title must be 4 characters or less"
 
   def pageErrorMsgTitleNonWesternChar =
-    "Enter a correct authorised official title format"
+    "Enter an authorised official title in the correct format"
 
   // Forename field
   def inputForenameMaxLength  = 36
@@ -56,7 +56,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official first name must be 35 characters or less"
 
   def pageErrorMsgForenameNonWesternChar =
-    "Enter a correct authorised official first name format"
+    "Enter an authorised official first name in the correct format"
 
   // Surname field
   def inputSurnameMaxLength  = 36
@@ -70,7 +70,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official last name must be 35 characters or less"
 
   def pageErrorMsgSurnameNonWesternChar =
-    "Enter a correct authorised official last name format"
+    "Enter an authorised official last name in the correct format"
 
   // Phone number field
   def inputPhoneNoMaxLength  = 36
@@ -84,7 +84,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official phone number must be 35 characters or less"
 
   def pageErrorMsgPhoneNoNonWesternChar =
-    "Enter a correct authorised official phone number format"
+    "Enter an authorised official phone number in the correct format"
 
   // Postcode field
   def inputPostcodeMaxLength  = 9
@@ -98,7 +98,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Authorised official postcode must be 8 characters or less"
 
   def pageErrorMsgPostcodeNonWesternChar =
-    "Enter a correct authorised official postcode format"
+    "Enter an authorised official postcode in the correct format"
 
   def enterUKAuthOfficialDetails(
     authOfficialTitle: String,

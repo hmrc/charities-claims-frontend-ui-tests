@@ -94,5 +94,21 @@ class WarningPagesSpec
       )
       DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
     }
+
+    Scenario(
+      "User navigates to the 'Are you sure you want to delete this repayment claim?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN 2")
+      Then("User navigates to 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Are you sure you want to delete this repayment claim?' page")
+      DeleteRepaymentClaimPage.navigateToPage(DeleteRepaymentClaimPage.pageUrl)
+      DeleteRepaymentClaimPage.validateNavigation()
+      Then(
+        "User validates the 'no input' error on the 'Are you sure you want to delete this repayment claim?' page"
+      )
+      DeleteRepaymentClaimPage.validateErrorMessage()
+    }
   }
 }
