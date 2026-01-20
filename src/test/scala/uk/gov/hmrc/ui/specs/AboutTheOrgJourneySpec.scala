@@ -118,7 +118,13 @@ class AboutTheOrgJourneySpec
       And("User navigates to 'What are the authorised official details?' page")
       AuthorisedOfficialDetailsPage.validateNavigation()
       And("User enters their UK Authorised Official details and clicks continue")
-      AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails("TEST", "TEST", "TEST", "01632 960999", "WG7 7FU")
+      AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
+        "TEST",
+        "TESTFORENAME",
+        "TESTSURNAME",
+        "01632 960999",
+        "WG7 7FU"
+      )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
     }
