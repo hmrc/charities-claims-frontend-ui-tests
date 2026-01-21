@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   /** Everything is taken from and follows the confluence page and the prototype */
@@ -34,6 +36,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
   val Exempt: String     = "#Exempt"
   val Excepted: String   = "#Excepted"
   val NorIrlWait: String = "#Waiting"
+  val errorMsgLocator    = By.ById("value-error")
 
   /** Name for values picked as we want to know why there is no charity regulator and is based on the options */
 
@@ -47,7 +50,10 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
   /** We want to validate the navigation features of the page and ensure they follow confluence */
 
   def validateErrorMessage(): Unit =
-    WhyIsTheCharityNotRegisteredPage.validateGenericPageError(WhyIsTheCharityNotRegisteredPage.pageErrorMsg)
+    WhyIsTheCharityNotRegisteredPage.validateGenericPageError(
+      WhyIsTheCharityNotRegisteredPage.pageErrorMsg,
+      WhyIsTheCharityNotRegisteredPage.errorMsgLocator
+    )
 
   /** We want to validate that the error message is correct and follows confluence page */
 }

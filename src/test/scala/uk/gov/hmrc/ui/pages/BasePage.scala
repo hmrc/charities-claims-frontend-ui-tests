@@ -42,28 +42,37 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Locator values */
   object Locators {
-    val btnContinue                   = "//button[@type='submit']"
-    val lnkBack                       = "Back"
-    val lnkHeader                     = ".govuk-header__link.govuk-header__service-name"
-    val rdoYes                        = "#value_0"
-    val rdoNo                         = "#value_1"
-    val txtFileName                   = ".govuk-body"
-    val txtCaption                    = By.ByClassName("govuk-caption-l")
-    val txtHeader: By                 = By.xpath("//h1")
-    val txtAddressPostCode            = By.ById("postcode")
-    val inputYourClaimReferenceNumber = By.ByClassName("govuk-input")
-    val inputYourUserId: By           = By.xpath("//input[@name='authorityId']")
-    val hintText                      = By.ById("value-hint")
-    val paragraphText                 = By.ByClassName("govuk-body")
-    val errorSummary                  = By.ByClassName("govuk-error-summary__body")
-    val errorMsg                      = By.ById("value-error")
-    val listText                      = By.ByClassName("govuk-list")
-    val legendText                    = By.ByClassName("govuk-fieldset__legend")
-    val checkYouAnswersSummaryList    = By.ByClassName("govuk-summary-list__row")
-    val pageNotFoundContent           = By.ByClassName("govuk-grid-row")
+    val btnContinue                = "//button[@type='submit']"
+    val lnkBack                    = "Back"
+    val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
+    val rdoYes                     = "#value_0"
+    val rdoNo                      = "#value_1"
+    val txtFileName                = ".govuk-body"
+    val txtCaption                 = By.ByClassName("govuk-caption-l")
+    val txtHeader: By              = By.xpath("//h1")
+    val txtAddressPostCode         = By.ById("addressPostcode")
+    val inputReferenceNumber       = By.ByClassName("govuk-input")
+    val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
+    val hintText                   = By.ById("value-hint")
+    val paragraphText              = By.ByClassName("govuk-body")
+    val errorSummary               = By.ByClassName("govuk-error-summary__body")
+    //    val errorMsg                   = By.ById("value-error")
+    val errorMsg                   = By.ByClassName("govuk-error-message")
+    val listText                   = By.ByClassName("govuk-list")
+    val legendText                 = By.ByClassName("govuk-fieldset__legend")
+    val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
+    val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
+    val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
+    val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
+    val txtAuthOfficialTitle       = By.ById("title")
+    val txtAuthOfficialForename    = By.ById("firstName")
+    val txtAuthOfficialSurname     = By.ById("lastName")
+    val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
+    val txtAuthOfficialPostcode    = By.ById("postcode")
   }
 
   def pageUrl: String
+
   def pageTitle: String
 
   /** Wait for visibility of an element */
@@ -90,11 +99,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       .until(ExpectedConditions.elementToBeClickable(selector))
 
   /** Trigger a generic error message by trying to bypass required components / data */
-  def validateGenericPageError(expectedErrorMessage: String): Unit = {
-    val errorSummary       = s"$expectedErrorMessage"
-    val errorMsgWithPrefix = s"Error:\n$expectedErrorMessage"
+  def validateGenericPageError(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
+    val errorMessage       = s"$expectedErrorMessage"
     clickContinue()
-    waitForVisibilityOfElement(Locators.errorMsg)
+    waitForVisibilityOfElement(Locators.errorSummary)
     // Error title indicator
     assert(
       driver.getTitle.contains("Error:"),
@@ -103,35 +111,44 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     // Error summary - top of page
     val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
     assert(
-      actualErrorSummary == errorSummary,
-      s"Page error message mismatch! Expected: $errorSummary, Actual: $actualErrorSummary"
+      actualErrorSummary contains errorMessage,
+      s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
     )
-    println("Actual error summary is: " + driver.findElement(Locators.errorSummary).getText)
+    println("Actual error summary is: " + actualErrorSummary)
     // Error message - above erroring field
-    val actualErrorMsg     = driver.findElement(Locators.errorMsg).getText
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
     assert(
-      actualErrorMsg == errorMsgWithPrefix,
-      s"Page error message mismatch! Expected: $errorMsgWithPrefix, Actual: $actualErrorMsg"
+      actualErrorMsg contains errorMessage,
+      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
     )
-    println("Actual error message is: " + driver.findElement(Locators.errorMsg).getText)
+    println("Actual error message is: " + actualErrorMsg)
   }
 
   /** Trigger too many characters error message */
-  def triggerTooManyCharInputtedError(expectedMessage: String): Unit = {
-    val randomString: String = Random.alphanumeric.take(64).mkString
-    val element              = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+  def triggerTooManyCharInputError(
+    length: Int,
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val randomString: String = Random.alphanumeric.take(length).mkString
+    val element              = waitForVisibilityOfElement(inputLocatorValue)
     element.clear()
     element.sendKeys(randomString)
-    validateGenericPageError(expectedMessage)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
   /** Trigger non Western European Alphabet error message */
-  def triggerNonWesternEuropeanAlphabetError(expectedMessage: String): Unit = {
+  def triggerNonWesternEuropeanAlphabetError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
     val heartCharacter = "\u2665"
-    val element        = waitForVisibilityOfElement(Locators.inputYourClaimReferenceNumber)
+    val element        = waitForVisibilityOfElement(inputLocatorValue)
     element.clear()
     element.sendKeys(heartCharacter)
-    validateGenericPageError(expectedMessage)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
   /** Generic input method */

@@ -17,32 +17,38 @@
 /* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
-object CorporateTrusteeAddressPage extends BasePage {
+import org.openqa.selenium.By
+
+object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
   override def pageTitle: String =
-    "Corporate Trustee Address - Charities - GOV.UK"
+    "Does the corporate trustee have a UK address? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Corporate trustee address"
+    "Does the corporate trustee have a UK address?"
 
   def pageCaption: String =
     "Provide organisation details"
 
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
-    "Select if the corporate trustee has a UK address"
+    "Select ‘Yes’ if the corporate trustee has a UK address"
 
-  val yes: String = "#Value"
-  val no: String  = "#Value - No"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    CorporateTrusteeAddressPage.verifyPageUrl(CorporateTrusteeAddressPage.pageUrl)
-    CorporateTrusteeAddressPage.verifyPageTitle(CorporateTrusteeAddressPage.pageTitle)
-    CorporateTrusteeAddressPage.verifyPageHeader(CorporateTrusteeAddressPage.pageHeader)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
   }
 
   def validateErrorMessage(): Unit =
-    CorporateTrusteeAddressPage.validateGenericPageError(CorporateTrusteeAddressPage.pageErrorMsg)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.validateGenericPageError(
+      DoesTheCorporateTrusteeHaveAUKAddressPage.pageErrorMsg,
+      DoesTheCorporateTrusteeHaveAUKAddressPage.errorMsgLocator
+    )
 
 }

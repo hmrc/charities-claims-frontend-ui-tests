@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/name-of-charity-regulator"
@@ -32,10 +34,11 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
   def pageErrorMsg: String =
     "Select the name of the charity regulator"
 
-  val EngWal: String = "#EnglandAndWales"
-  val Ire: String    = "#NorthernIreland"
-  val None: String   = "#None"
-  val Scot: String   = "#Scottish"
+  val EngWal: String  = "#EnglandAndWales"
+  val Ire: String     = "#NorthernIreland"
+  val None: String    = "#None"
+  val Scot: String    = "#Scottish"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
@@ -46,5 +49,8 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    WhatIsTheNameOfTheCharityRegulatorPage.validateGenericPageError(WhatIsTheNameOfTheCharityRegulatorPage.pageErrorMsg)
+    WhatIsTheNameOfTheCharityRegulatorPage.validateGenericPageError(
+      WhatIsTheNameOfTheCharityRegulatorPage.pageErrorMsg,
+      WhatIsTheNameOfTheCharityRegulatorPage.errorMsgLocator
+    )
 }

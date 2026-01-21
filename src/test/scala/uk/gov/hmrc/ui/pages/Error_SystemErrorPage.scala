@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object SystemErrorPage extends BasePage {
+object Error_SystemErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/there-is-a-problem"
 
@@ -27,10 +27,10 @@ object SystemErrorPage extends BasePage {
   def listItem: String = "Try again later or contact the HMRC Online Services Helpdesk(opens in a new tab)."
 
   def validateNavigation(): Unit = {
-    SystemErrorPage.verifyPageUrl(SystemErrorPage.pageUrl)
-    SystemErrorPage.verifyPageTitle(SystemErrorPage.pageTitle)
-    SystemErrorPage.verifyPageHeader(SystemErrorPage.pageHeader)
-    SystemErrorPage.verifyListText(SystemErrorPage.listItem)
+    Error_SystemErrorPage.verifyPageUrl(Error_SystemErrorPage.pageUrl)
+    Error_SystemErrorPage.verifyPageTitle(Error_SystemErrorPage.pageTitle)
+    Error_SystemErrorPage.verifyPageHeader(Error_SystemErrorPage.pageHeader)
+    Error_SystemErrorPage.verifyListText(Error_SystemErrorPage.listItem)
   }
 
 }

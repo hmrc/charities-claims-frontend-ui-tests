@@ -16,7 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
-object CorporateTrusteePage extends BasePage {
+import org.openqa.selenium.By
+
+object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-claim"
 
@@ -28,21 +30,22 @@ object CorporateTrusteePage extends BasePage {
 
   def pageParagraph: String = "This can be the trust department of a bank, a trust company or trust corporation"
 
-  def pageErrorMsg: String = "Select 'Yes' if this claim is being made by a corporate trustee"
+  def pageErrorMsg: String = "Select ‘Yes’ if this claim is being made by a corporate trustee"
 
-  val yes: String = "#value"
-  val no: String  = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    CorporateTrusteePage.verifyPageUrl(CorporateTrusteePage.pageUrl)
-    CorporateTrusteePage.verifyPageTitle(CorporateTrusteePage.pageTitle)
-//    CorporateTrusteePage.verifyPageCaption(CorporateTrusteePage.pageCaption)
-    CorporateTrusteePage.verifyPageHeader(CorporateTrusteePage.pageHeader)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageTitle(IsACorporateTrusteeMakingThisClaimPage.pageTitle)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageCaption(IsACorporateTrusteeMakingThisClaimPage.pageCaption)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageHeader(IsACorporateTrusteeMakingThisClaimPage.pageHeader)
   }
 
-  /* Error Messages To Be Confirmed */
-
   def validateErrorMessage(): Unit =
-    CorporateTrusteePage.validateGenericPageError(CorporateTrusteePage.pageErrorMsg)
-
+    IsACorporateTrusteeMakingThisClaimPage.validateGenericPageError(
+      IsACorporateTrusteeMakingThisClaimPage.pageErrorMsg,
+      IsACorporateTrusteeMakingThisClaimPage.errorMsgLocator
+    )
 }

@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/your-claim-reference-number"
@@ -38,8 +40,13 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   def pageErrorMsgNonWesternChar =
     "Include characters from Western European alphabets"
 
+  def inputMaxLength = 21
+
+  val claimReferenceNumberFieldLocator = By.ById("value")
+  val errorMsgLocator                  = By.ById("value-error")
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputYourClaimReferenceNumber, referenceNo)
+    input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }
 
@@ -54,12 +61,22 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(WhatIsYourClaimReferenceNumberPage.pageErrorMsg)
-    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputtedError(
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars
+    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsg,
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
+    )
+
+    /** Number defines string length */
+    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputError(
+      WhatIsYourClaimReferenceNumberPage.inputMaxLength,
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars,
+      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
     )
     WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar
+      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar,
+      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
+      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
     )
   }
 }

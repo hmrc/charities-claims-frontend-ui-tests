@@ -18,33 +18,33 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object DoYouHaveAClaimReferenceNumberPage extends BasePage {
+object DeleteOtherIncomeSchedulePage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claim-reference-number"
+  override def pageUrl: String = s"$hostname/delete-other-income-schedule"
 
   override def pageTitle: String =
-    "Do you have a claim reference number? - Charities - GOV.UK"
+    "Do you want to delete this Other Income schedule? - Charities - GOV.UK"
 
   def pageHeader: String =
-    "Do you have a claim reference number?"
+    "Do you want to delete this Other Income schedule?"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you have a reference number for this claim."
+    "Select ‘Yes’ if you want to delete this Other Income schedule"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
-    DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
+    DeleteOtherIncomeSchedulePage.verifyPageUrl(DeleteOtherIncomeSchedulePage.pageUrl)
+    DeleteOtherIncomeSchedulePage.verifyPageTitle(DeleteOtherIncomeSchedulePage.pageTitle)
+    DeleteOtherIncomeSchedulePage.verifyPageHeader(DeleteOtherIncomeSchedulePage.pageHeader)
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(
-      DoYouHaveAClaimReferenceNumberPage.pageErrorMsg,
-      DoYouHaveAClaimReferenceNumberPage.errorMsgLocator
+    DeleteOtherIncomeSchedulePage.validateGenericPageError(
+      DeleteOtherIncomeSchedulePage.pageErrorMsg,
+      DeleteOtherIncomeSchedulePage.errorMsgLocator
     )
 }

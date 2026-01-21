@@ -16,6 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.pages
+
 object WhatIsYourCharityRegulatorNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/charity-regulator-number"
@@ -33,13 +36,18 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     "This can be up to 20 numerical characters like 123456789 and does not include letters."
 
   def pageErrorMsg: String =
-    "Enter your claim reference number"
+    "Enter a charity regulator number"
 
   def pageErrorMsgTooManyChars =
     "Enter a charity regulator number in the correct format"
 
+  def inputMaxLength = 21
+
+  val charityRegulatorNumberFieldLocator = By.ById("value")
+  val errorMsgLocator                    = By.ById("value-error")
+
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputYourClaimReferenceNumber, referenceNo)
+    input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }
 
@@ -54,10 +62,17 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     WhatIsYourCharityRegulatorNumberPage.verifyHintText(WhatIsYourCharityRegulatorNumberPage.pageHint)
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit = {
-    WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(WhatIsYourCharityRegulatorNumberPage.pageErrorMsg)
-    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputtedError(
-      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars
+  def validateErrorMessage(): Unit =
+    WhatIsYourCharityRegulatorNumberPage.validateGenericPageError(
+      WhatIsYourCharityRegulatorNumberPage.pageErrorMsg,
+      WhatIsYourCharityRegulatorNumberPage.errorMsgLocator
     )
-  }
+
+    /** Number defines string length */
+    WhatIsYourCharityRegulatorNumberPage.triggerTooManyCharInputError(
+      WhatIsYourCharityRegulatorNumberPage.inputMaxLength,
+      WhatIsYourCharityRegulatorNumberPage.pageErrorMsgTooManyChars,
+      WhatIsYourCharityRegulatorNumberPage.charityRegulatorNumberFieldLocator,
+      WhatIsYourCharityRegulatorNumberPage.errorMsgLocator
+    )
 }
