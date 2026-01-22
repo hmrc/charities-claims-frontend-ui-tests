@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 
 object AreYouClaimingGiftAidPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claim-gift-aid"
+  override def pageUrl: String = s"$hostname/old/claim-gift-aid"
 
   override def pageTitle: String =
     "Are you claiming Gift Aid? - Charities - GOV.UK"
