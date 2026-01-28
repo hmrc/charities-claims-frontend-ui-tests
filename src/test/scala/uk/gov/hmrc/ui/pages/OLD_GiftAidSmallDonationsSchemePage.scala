@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object GiftAidSmallDonationsSchemePage extends BasePage {
+object OLD_GiftAidSmallDonationsSchemePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/gift-aid-small-donations-scheme"
 
@@ -42,19 +42,19 @@ object GiftAidSmallDonationsSchemePage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    GiftAidSmallDonationsSchemePage.verifyPageUrl(GiftAidSmallDonationsSchemePage.pageUrl)
-    GiftAidSmallDonationsSchemePage.verifyPageTitle(GiftAidSmallDonationsSchemePage.pageTitle)
-    GiftAidSmallDonationsSchemePage.verifyPageHeader(GiftAidSmallDonationsSchemePage.pageHeader)
+    OLD_GiftAidSmallDonationsSchemePage.verifyPageUrl(OLD_GiftAidSmallDonationsSchemePage.pageUrl)
+    OLD_GiftAidSmallDonationsSchemePage.verifyPageTitle(OLD_GiftAidSmallDonationsSchemePage.pageTitle)
+    OLD_GiftAidSmallDonationsSchemePage.verifyPageHeader(OLD_GiftAidSmallDonationsSchemePage.pageHeader)
   }
 
   def validateParagraph(): Unit = {
-    GiftAidSmallDonationsSchemePage.verifyParagraphText(GiftAidSmallDonationsSchemePage.pageParagraph)
-    GiftAidSmallDonationsSchemePage.verifyLegendText(GiftAidSmallDonationsSchemePage.pageLegend)
+    OLD_GiftAidSmallDonationsSchemePage.verifyParagraphText(OLD_GiftAidSmallDonationsSchemePage.pageParagraph)
+    OLD_GiftAidSmallDonationsSchemePage.verifyLegendText(OLD_GiftAidSmallDonationsSchemePage.pageLegend)
   }
 
   def validateErrorMessage(): Unit =
-    GiftAidSmallDonationsSchemePage.validateGenericPageError(
-      GiftAidSmallDonationsSchemePage.pageErrorMsg,
-      GiftAidSmallDonationsSchemePage.errorMsgLocator
+    OLD_GiftAidSmallDonationsSchemePage.validateGenericPageError(
+      OLD_GiftAidSmallDonationsSchemePage.pageErrorMsg,
+      OLD_GiftAidSmallDonationsSchemePage.errorMsgLocator
     )
 }
