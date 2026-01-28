@@ -24,7 +24,7 @@ import uk.gov.hmrc.ui.pages.*
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
-class GiftAidJourneySpec
+class OLD_GiftAidJourneySpec
     extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
@@ -53,11 +53,11 @@ class GiftAidJourneySpec
       And("User clicks 'Continue' button")
       AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme' page")
-      GiftAidSmallDonationsSchemePage.validateNavigation()
+      OLD_GiftAidSmallDonationsSchemePage.validateNavigation()
       And("User clicks 'Yes' radio button option")
-      GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.yes)
+      OLD_GiftAidSmallDonationsSchemePage.radioButton(OLD_GiftAidSmallDonationsSchemePage.yes)
       And("User clicks 'Continue' button")
-      GiftAidSmallDonationsSchemePage.clickContinue()
+      OLD_GiftAidSmallDonationsSchemePage.clickContinue()
       And("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User clicks 'No' radio button option")
@@ -107,11 +107,11 @@ class GiftAidJourneySpec
     And("User clicks 'Continue' button")
     AreYouClaimingTaxDeductedFromOtherIncomePage.clickContinue()
     And("User navigates to 'Gift Aid Small Donations Scheme' page")
-    GiftAidSmallDonationsSchemePage.validateNavigation()
+    OLD_GiftAidSmallDonationsSchemePage.validateNavigation()
     And("User clicks 'No' radio button option")
-    GiftAidSmallDonationsSchemePage.radioButton(GiftAidSmallDonationsSchemePage.no)
+    OLD_GiftAidSmallDonationsSchemePage.radioButton(OLD_GiftAidSmallDonationsSchemePage.no)
     And("User clicks 'Continue' button")
-    GiftAidSmallDonationsSchemePage.clickContinue()
+    OLD_GiftAidSmallDonationsSchemePage.clickContinue()
     And("User navigates to 'Do you have a claim reference number?' page")
     DoYouHaveAClaimReferenceNumberPage.validateNavigation()
     And("User clicks 'No' radio button option")

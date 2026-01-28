@@ -21,6 +21,6 @@ object Urls extends Enumeration {
     "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
   val QA      = "https://www.qa.tax.service.gov.uk"
   val DEV     = "https://www.development.tax.service.gov.uk"
-  val STAGING = "https://www.staging.tax.service.gov.uk/auth-login-stub/gg-sign-in"
+  val STAGING = "https://www.staging.tax.service.gov.uk"
 
 }
