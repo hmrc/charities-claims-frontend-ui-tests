@@ -64,6 +64,21 @@ class GiftAidPagesSpec
     }
 
     Scenario(
+      "User navigates to the 'Connected charities and Community Amateur Sports Clubs' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
+      ConnectedCharitiesPage.validateNavigation()
+      ConnectedCharitiesPage.validateParagraph()
+      Then("User validates the 'no input' error on the 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateErrorMessage()
+    }
+
+    Scenario(
       "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
