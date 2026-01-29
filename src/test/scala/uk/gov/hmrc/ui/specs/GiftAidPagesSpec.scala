@@ -35,7 +35,6 @@ class GiftAidPagesSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
-//R1.0
     Scenario(
       "User navigates to the 'About repayment' page and validates the page elements"
     ) {
@@ -49,7 +48,6 @@ class GiftAidPagesSpec
       AboutRepayment.validateParagraph()
     }
 
-//R1.4
     Scenario(
       "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
     ) {
@@ -63,6 +61,20 @@ class GiftAidPagesSpec
       GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
     }
   }
 }

@@ -57,7 +57,7 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
   }
 
   def validateErrorMessage(): Unit =
-    OLD_GiftAidSmallDonationsSchemePage.validateGenericPageError(
+    GiftAidSmallDonationsSchemeClaimPage.validateGenericPageError(
       GiftAidSmallDonationsSchemeClaimPage.pageErrorMsg,
       GiftAidSmallDonationsSchemeClaimPage.errorMsgLocator
     )
