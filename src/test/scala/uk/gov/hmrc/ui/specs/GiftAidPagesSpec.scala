@@ -64,5 +64,21 @@ class GiftAidPagesSpec
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
     }
+
+//R1.5
+    Scenario(
+      "User navigates to the 'connected to charities' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Connected to Other Charities' page")
+      ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
+      ConnectedCharitiesPage.validateNavigation()
+      ConnectedCharitiesPage.validateParagraph()
+      Then("User validates the 'no input' error on the 'Connected to Charities' page")
+      ConnectedCharitiesPage.validateErrorMessage()
+    }
   }
 }
