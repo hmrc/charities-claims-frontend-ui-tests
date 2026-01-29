@@ -57,7 +57,7 @@ object ConnectedCharitiesPage extends BasePage {
   }
 
   def validateErrorMessage(): Unit =
-    OLD_GiftAidSmallDonationsSchemePage.validateGenericPageError(
+    ConnectedCharitiesPage.validateGenericPageError(
       ConnectedCharitiesPage.pageErrorMsg,
       ConnectedCharitiesPage.errorMsgLocator
     )
