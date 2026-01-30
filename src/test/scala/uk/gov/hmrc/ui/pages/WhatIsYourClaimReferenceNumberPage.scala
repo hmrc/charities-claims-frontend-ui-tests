@@ -20,16 +20,19 @@ import org.openqa.selenium.By
 
 object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/your-claim-reference-number"
+  override def pageUrl: String = s"$hostname/enter-claim-reference-number"
 
   override def pageTitle: String =
     "What is your claim reference number? - Charities - GOV.UK"
 
+  def pageCaption: String =
+    "Provide repayment claim details"
+
   def pageHeader: String =
     "What is your claim reference number?"
 
-  def pageParagraph: String =
-    "You do not have to complete this box but you can use it to show your claim reference if you use one. The reference that you quote will appear on the payment advice note you receive from us when we pay the claim."
+  def pageHint: String =
+    "This can be up to 20 characters and include numerical characters like 123456789 and letters from A to Z. It can be found on the payment advice note when the claim is paid."
 
   def pageErrorMsg: String =
     "Enter your claim reference number"
@@ -38,7 +41,7 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
     "Claim reference number must be 20 characters or less"
 
   def pageErrorMsgNonWesternChar =
-    "Include characters from Western European alphabets"
+    "This can be up to 20 characters including numbers and capital letters"
 
   def inputMaxLength = 21
 
@@ -53,11 +56,12 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   def validateNavigation(): Unit = {
     WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
     WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitle)
+    WhatIsYourClaimReferenceNumberPage.verifyPageCaption(WhatIsYourClaimReferenceNumberPage.pageCaption)
     WhatIsYourClaimReferenceNumberPage.verifyPageHeader(WhatIsYourClaimReferenceNumberPage.pageHeader)
   }
 
-  def validateParagraph(): Unit =
-    WhatIsYourClaimReferenceNumberPage.verifyParagraphText(WhatIsYourClaimReferenceNumberPage.pageParagraph)
+  def validateHint(): Unit =
+    WhatIsYourClaimReferenceNumberPage.verifyHintText(WhatIsYourClaimReferenceNumberPage.pageHint)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {

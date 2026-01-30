@@ -108,7 +108,7 @@ class OLD_GiftAidPagesSpec
       WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
       WhatIsYourClaimReferenceNumberPage.validateNavigation()
       Then("User validates the elements on the 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.validateParagraph()
+//      WhatIsYourClaimReferenceNumberPage.validateParagraph()
       Then("User validates the 'no input' error on the 'What is your reference number?' page")
       WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
     }
