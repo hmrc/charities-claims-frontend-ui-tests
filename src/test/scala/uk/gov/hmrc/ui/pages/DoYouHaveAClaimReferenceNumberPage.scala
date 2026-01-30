@@ -25,6 +25,9 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   override def pageTitle: String =
     "Do you have a claim reference number? - Charities - GOV.UK"
 
+  def pageCaption: String =
+    "Provide repayment claim details"
+
   def pageHeader: String =
     "Do you have a claim reference number?"
 
@@ -36,15 +39,16 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(OLD_DoYouHaveAClaimReferenceNumberPage.pageUrl)
-    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(OLD_DoYouHaveAClaimReferenceNumberPage.pageTitle)
-    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(OLD_DoYouHaveAClaimReferenceNumberPage.pageHeader)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaption)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    OLD_DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(
-      OLD_DoYouHaveAClaimReferenceNumberPage.pageErrorMsg,
-      OLD_DoYouHaveAClaimReferenceNumberPage.errorMsgLocator
+    DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(
+      DoYouHaveAClaimReferenceNumberPage.pageErrorMsg,
+      DoYouHaveAClaimReferenceNumberPage.errorMsgLocator
     )
 }
