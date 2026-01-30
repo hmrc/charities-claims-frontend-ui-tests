@@ -38,7 +38,7 @@ object ConnectedCharitiesPage extends BasePage {
     "Are you connected to other charities or a Community Amateur Sports Club?"
 
   def pageErrorMsg: String =
-    "Select 'Yes' if you are connected to other charities or a Community Amateur Sports Club"
+    "Select ‘Yes’ if you are connected to other charities or a Community Amateur Sports Club"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
