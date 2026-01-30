@@ -25,11 +25,14 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   override def pageTitle: String =
     "Do you have a claim reference number? - Charities - GOV.UK"
 
+  def pageCaption: String =
+    "Provide repayment claim details"
+
   def pageHeader: String =
     "Do you have a claim reference number?"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you have a reference number for this claim."
+    "Select ‘Yes’ if you have a claim reference number"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
@@ -38,6 +41,7 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   def validateNavigation(): Unit = {
     DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
     DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaption)
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage.pageHeader)
   }
 
