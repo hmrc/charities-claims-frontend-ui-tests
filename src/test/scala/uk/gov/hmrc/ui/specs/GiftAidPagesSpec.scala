@@ -86,10 +86,33 @@ class GiftAidPagesSpec
       Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
       OLD_AreYouClaimingGiftAidPage.validateNavigation()
       And("User navigates to 'Do you have a claim reference number?' page")
-      OLD_DoYouHaveAClaimReferenceNumberPage.navigateToPage(OLD_DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      OLD_DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
-      OLD_DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User clicks 'yes' radio button")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      Then("User clicks 'continue' button")
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      And("User navigates to 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the elements on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateHint()
+      Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
     }
   }
 }
