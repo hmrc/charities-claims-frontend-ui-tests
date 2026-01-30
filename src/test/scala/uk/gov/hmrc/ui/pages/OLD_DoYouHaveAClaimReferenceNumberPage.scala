@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object DoYouHaveAClaimReferenceNumberPage extends BasePage {
+object OLD_DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claim-reference-number"
+  override def pageUrl: String = s"$hostname/old/claim-reference-number"
 
   override def pageTitle: String =
     "Do you have a claim reference number? - Charities - GOV.UK"
@@ -29,7 +29,7 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
     "Do you have a claim reference number?"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you have a claim reference number"
+    "Select ‘Yes’ if you have a reference number for this claim."
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
