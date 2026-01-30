@@ -36,15 +36,15 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    DoYouHaveAClaimReferenceNumberPage_OLD.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage_OLD.pageUrl)
-    DoYouHaveAClaimReferenceNumberPage_OLD.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage_OLD.pageTitle)
-    DoYouHaveAClaimReferenceNumberPage_OLD.verifyPageHeader(DoYouHaveAClaimReferenceNumberPage_OLD.pageHeader)
+    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(OLD_DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(OLD_DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    OLD_DoYouHaveAClaimReferenceNumberPage.verifyPageHeader(OLD_DoYouHaveAClaimReferenceNumberPage.pageHeader)
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    DoYouHaveAClaimReferenceNumberPage_OLD.validateGenericPageError(
-      DoYouHaveAClaimReferenceNumberPage_OLD.pageErrorMsg,
-      DoYouHaveAClaimReferenceNumberPage_OLD.errorMsgLocator
+    OLD_DoYouHaveAClaimReferenceNumberPage.validateGenericPageError(
+      OLD_DoYouHaveAClaimReferenceNumberPage.pageErrorMsg,
+      OLD_DoYouHaveAClaimReferenceNumberPage.errorMsgLocator
     )
 }

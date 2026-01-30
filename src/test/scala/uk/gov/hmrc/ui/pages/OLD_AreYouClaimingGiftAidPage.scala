@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object AreYouClaimingGiftAidPage_OLD extends BasePage {
+object OLD_AreYouClaimingGiftAidPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/old/claim-gift-aid"
 
@@ -39,19 +39,19 @@ object AreYouClaimingGiftAidPage_OLD extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    AreYouClaimingGiftAidPage_OLD.verifyPageUrl(AreYouClaimingGiftAidPage_OLD.pageUrl)
-    AreYouClaimingGiftAidPage_OLD.verifyPageTitle(AreYouClaimingGiftAidPage_OLD.pageTitle)
-    AreYouClaimingGiftAidPage_OLD.verifyPageHeader(AreYouClaimingGiftAidPage_OLD.pageHeader)
+    OLD_AreYouClaimingGiftAidPage.verifyPageUrl(OLD_AreYouClaimingGiftAidPage.pageUrl)
+    OLD_AreYouClaimingGiftAidPage.verifyPageTitle(OLD_AreYouClaimingGiftAidPage.pageTitle)
+    OLD_AreYouClaimingGiftAidPage.verifyPageHeader(OLD_AreYouClaimingGiftAidPage.pageHeader)
   }
 
   /** Validate the paragraph on the screen, dev team have encapsulated inside a hint */
   def validateHint(): Unit =
-    AreYouClaimingGiftAidPage_OLD.verifyHintText(AreYouClaimingGiftAidPage_OLD.pageHint)
+    OLD_AreYouClaimingGiftAidPage.verifyHintText(OLD_AreYouClaimingGiftAidPage.pageHint)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    AreYouClaimingGiftAidPage_OLD.validateGenericPageError(
-      AreYouClaimingGiftAidPage_OLD.pageErrorMsg,
-      AreYouClaimingGiftAidPage_OLD.errorMsgLocator
+    OLD_AreYouClaimingGiftAidPage.validateGenericPageError(
+      OLD_AreYouClaimingGiftAidPage.pageErrorMsg,
+      OLD_AreYouClaimingGiftAidPage.errorMsgLocator
     )
 }
