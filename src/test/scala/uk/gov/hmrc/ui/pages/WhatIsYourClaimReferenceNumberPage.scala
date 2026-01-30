@@ -27,7 +27,7 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   def pageCaption: String =
     "Provide repayment claim details"
-    
+
   def pageHeader: String =
     "What is your claim reference number?"
 
