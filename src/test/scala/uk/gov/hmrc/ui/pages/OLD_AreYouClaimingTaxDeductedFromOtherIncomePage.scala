@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
+object OLD_AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claiming-other-income"
+  override def pageUrl: String = s"$hostname/old/claiming-other-income"
 
   override def pageTitle: String =
     "Are you claiming tax deducted from other income? - Charities - GOV.UK"
@@ -48,30 +48,34 @@ object AreYouClaimingTaxDeductedFromOtherIncomePage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageUrl(AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl)
-    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle)
-    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
-      AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageUrl(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl
+    )
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageTitle(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageTitle
+    )
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.verifyPageHeader(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageHeader
     )
   }
 
   def validateParagraph(): Unit = {
-    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyParagraphText(
-      AreYouClaimingTaxDeductedFromOtherIncomePage.pageParagraph
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.verifyParagraphText(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageParagraph
     )
-    AreYouClaimingTaxDeductedFromOtherIncomePage.verifyListText(
-      AreYouClaimingTaxDeductedFromOtherIncomePage.createSingleStringFromMany(
-        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem1,
-        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem2,
-        AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem3
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.verifyListText(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.createSingleStringFromMany(
+        OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem1,
+        OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem2,
+        OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageListItem3
       )
     )
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    AreYouClaimingTaxDeductedFromOtherIncomePage.validateGenericPageError(
-      AreYouClaimingTaxDeductedFromOtherIncomePage.pageErrorMsg,
-      AreYouClaimingTaxDeductedFromOtherIncomePage.errorMsgLocator
+    OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.validateGenericPageError(
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageErrorMsg,
+      OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.errorMsgLocator
     )
 }
