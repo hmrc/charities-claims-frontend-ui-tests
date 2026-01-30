@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object WhatIsYourClaimReferenceNumberPage extends BasePage {
+object WhatIsYourClaimReferenceNumberPage_OLD extends BasePage {
 
-  override def pageUrl: String = s"$hostname/your-claim-reference-number"
+  override def pageUrl: String = s"$hostname/old/your-claim-reference-number"
 
   override def pageTitle: String =
     "What is your claim reference number? - Charities - GOV.UK"
@@ -51,32 +51,32 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   }
 
   def validateNavigation(): Unit = {
-    WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
-    WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitle)
-    WhatIsYourClaimReferenceNumberPage.verifyPageHeader(WhatIsYourClaimReferenceNumberPage.pageHeader)
+    WhatIsYourClaimReferenceNumberPage_OLD.verifyPageUrl(WhatIsYourClaimReferenceNumberPage_OLD.pageUrl)
+    WhatIsYourClaimReferenceNumberPage_OLD.verifyPageTitle(WhatIsYourClaimReferenceNumberPage_OLD.pageTitle)
+    WhatIsYourClaimReferenceNumberPage_OLD.verifyPageHeader(WhatIsYourClaimReferenceNumberPage_OLD.pageHeader)
   }
 
   def validateParagraph(): Unit =
-    WhatIsYourClaimReferenceNumberPage.verifyParagraphText(WhatIsYourClaimReferenceNumberPage.pageParagraph)
+    WhatIsYourClaimReferenceNumberPage_OLD.verifyParagraphText(WhatIsYourClaimReferenceNumberPage_OLD.pageParagraph)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    WhatIsYourClaimReferenceNumberPage.validateGenericPageError(
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsg,
-      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
+    WhatIsYourClaimReferenceNumberPage_OLD.validateGenericPageError(
+      WhatIsYourClaimReferenceNumberPage_OLD.pageErrorMsg,
+      WhatIsYourClaimReferenceNumberPage_OLD.errorMsgLocator
     )
 
     /** Number defines string length */
-    WhatIsYourClaimReferenceNumberPage.triggerTooManyCharInputError(
-      WhatIsYourClaimReferenceNumberPage.inputMaxLength,
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgTooManyChars,
-      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
-      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
+    WhatIsYourClaimReferenceNumberPage_OLD.triggerTooManyCharInputError(
+      WhatIsYourClaimReferenceNumberPage_OLD.inputMaxLength,
+      WhatIsYourClaimReferenceNumberPage_OLD.pageErrorMsgTooManyChars,
+      WhatIsYourClaimReferenceNumberPage_OLD.claimReferenceNumberFieldLocator,
+      WhatIsYourClaimReferenceNumberPage_OLD.errorMsgLocator
     )
-    WhatIsYourClaimReferenceNumberPage.triggerNonWesternEuropeanAlphabetError(
-      WhatIsYourClaimReferenceNumberPage.pageErrorMsgNonWesternChar,
-      WhatIsYourClaimReferenceNumberPage.claimReferenceNumberFieldLocator,
-      WhatIsYourClaimReferenceNumberPage.errorMsgLocator
+    WhatIsYourClaimReferenceNumberPage_OLD.triggerNonWesternEuropeanAlphabetError(
+      WhatIsYourClaimReferenceNumberPage_OLD.pageErrorMsgNonWesternChar,
+      WhatIsYourClaimReferenceNumberPage_OLD.claimReferenceNumberFieldLocator,
+      WhatIsYourClaimReferenceNumberPage_OLD.errorMsgLocator
     )
   }
 }

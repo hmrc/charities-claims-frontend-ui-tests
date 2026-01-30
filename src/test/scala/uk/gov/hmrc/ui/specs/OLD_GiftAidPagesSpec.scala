@@ -41,11 +41,11 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - R1.0")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       Then("User validates the elements on the 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateHint()
+      AreYouClaimingGiftAidPage_OLD.validateHint()
       Then("User validates the 'no input' error on the 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateErrorMessage()
+      AreYouClaimingGiftAidPage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -54,13 +54,15 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.navigateToPage(AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl)
-      AreYouClaimingTaxDeductedFromOtherIncomePage.validateNavigation()
-      AreYouClaimingTaxDeductedFromOtherIncomePage.validateParagraph()
+      AreYouClaimingTaxDeductedFromOtherIncomePage_OLD.navigateToPage(
+        AreYouClaimingTaxDeductedFromOtherIncomePage_OLD.pageUrl
+      )
+      AreYouClaimingTaxDeductedFromOtherIncomePage_OLD.validateNavigation()
+      AreYouClaimingTaxDeductedFromOtherIncomePage_OLD.validateParagraph()
       Then("User validates the 'no input' error on the 'Are you claiming Gift Aid?' page")
-      AreYouClaimingTaxDeductedFromOtherIncomePage.validateErrorMessage()
+      AreYouClaimingTaxDeductedFromOtherIncomePage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -69,13 +71,13 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.2")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       And("User navigates to 'Gift Aid Small Donations Scheme' page")
-      OLD_GiftAidSmallDonationsSchemePage.navigateToPage(OLD_GiftAidSmallDonationsSchemePage.pageUrl)
-      OLD_GiftAidSmallDonationsSchemePage.validateNavigation()
-      OLD_GiftAidSmallDonationsSchemePage.validateParagraph()
+      GiftAidSmallDonationsSchemePage_OLD.navigateToPage(GiftAidSmallDonationsSchemePage_OLD.pageUrl)
+      GiftAidSmallDonationsSchemePage_OLD.validateNavigation()
+      GiftAidSmallDonationsSchemePage_OLD.validateParagraph()
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme' page")
-      OLD_GiftAidSmallDonationsSchemePage.validateErrorMessage()
+      GiftAidSmallDonationsSchemePage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -84,12 +86,12 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       And("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      DoYouHaveAClaimReferenceNumberPage_OLD.navigateToPage(DoYouHaveAClaimReferenceNumberPage_OLD.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage_OLD.validateNavigation()
       Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+      DoYouHaveAClaimReferenceNumberPage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -98,19 +100,19 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
       Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      DoYouHaveAClaimReferenceNumberPage_OLD.navigateToPage(DoYouHaveAClaimReferenceNumberPage_OLD.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage_OLD.validateNavigation()
       Then("User clicks 'yes' radio button")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouHaveAClaimReferenceNumberPage_OLD.radioButton(DoYouHaveAClaimReferenceNumberPage_OLD.yes)
       Then("User clicks 'continue' button")
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      DoYouHaveAClaimReferenceNumberPage_OLD.clickContinue()
       And("User navigates to 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      WhatIsYourClaimReferenceNumberPage_OLD.navigateToPage(WhatIsYourClaimReferenceNumberPage_OLD.pageUrl)
+      WhatIsYourClaimReferenceNumberPage_OLD.validateNavigation()
       Then("User validates the elements on the 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.validateParagraph()
+      WhatIsYourClaimReferenceNumberPage_OLD.validateParagraph()
       Then("User validates the 'no input' error on the 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
+      WhatIsYourClaimReferenceNumberPage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -119,12 +121,12 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       And("User navigates to 'Declaration' page")
-      DeclarationPage.navigateToPage(DeclarationPage.pageUrl)
-      DeclarationPage.validateNavigation()
+      DeclarationPage_OLD.navigateToPage(DeclarationPage_OLD.pageUrl)
+      DeclarationPage_OLD.validateNavigation()
       Then("User validates the elements on the 'Declaration' page")
-      DeclarationPage.validateParagraph()
+      DeclarationPage_OLD.validateParagraph()
     }
 
     Scenario(
@@ -133,13 +135,13 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       And("User navigates to 'Check your claim details' page")
-      CheckYourClaimDetailsPage.navigateToPage(CheckYourClaimDetailsPage.pageUrl)
-      CheckYourClaimDetailsPage.validateNavigation()
+      CheckYourClaimDetailsPage_OLD.navigateToPage(CheckYourClaimDetailsPage_OLD.pageUrl)
+      CheckYourClaimDetailsPage_OLD.validateNavigation()
 //      Then("User validates the 'no input' error on the 'Check your claim details' page")
-//      CheckYourClaimDetailsPage.validateParagraph()
-//      CheckYourClaimDetailsPage.validateErrorMessage()
+//      CheckYourClaimDetailsPage_OLD.validateParagraph()
+//      CheckYourClaimDetailsPage_OLD.validateErrorMessage()
     }
 
     Scenario(
@@ -148,9 +150,9 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR2")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       Then("User navigates to 'What is your reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage_OLD.navigateToPage(WhatIsYourClaimReferenceNumberPage_OLD.pageUrl)
       Error_PageNotFoundPage.validateNavigation()
       Then("User validates the 'page not found' content")
       Error_PageNotFoundPage.validatePageContent()
@@ -162,7 +164,7 @@ class OLD_GiftAidPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR3")
       Then("User navigates to 'Are you claiming Gift Aid?' page")
-      AreYouClaimingGiftAidPage.validateNavigation()
+      AreYouClaimingGiftAidPage_OLD.validateNavigation()
       Then("User navigates to 'Access Denied' error page")
       AccessDeniedErrorPage.navigateToPage(AccessDeniedErrorPage.pageUrl)
       AccessDeniedErrorPage.validateNavigation()

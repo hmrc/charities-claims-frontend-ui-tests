@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object OLD_GiftAidSmallDonationsSchemePage extends BasePage {
+object GiftAidSmallDonationsSchemePage_OLD extends BasePage {
 
-  override def pageUrl: String = s"$hostname/gift-aid-small-donations-scheme"
+  override def pageUrl: String = s"$hostname/old/gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
     "Gift Aid Small Donations Scheme - Charities - GOV.UK"
@@ -42,19 +42,19 @@ object OLD_GiftAidSmallDonationsSchemePage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    OLD_GiftAidSmallDonationsSchemePage.verifyPageUrl(OLD_GiftAidSmallDonationsSchemePage.pageUrl)
-    OLD_GiftAidSmallDonationsSchemePage.verifyPageTitle(OLD_GiftAidSmallDonationsSchemePage.pageTitle)
-    OLD_GiftAidSmallDonationsSchemePage.verifyPageHeader(OLD_GiftAidSmallDonationsSchemePage.pageHeader)
+    GiftAidSmallDonationsSchemePage_OLD.verifyPageUrl(GiftAidSmallDonationsSchemePage_OLD.pageUrl)
+    GiftAidSmallDonationsSchemePage_OLD.verifyPageTitle(GiftAidSmallDonationsSchemePage_OLD.pageTitle)
+    GiftAidSmallDonationsSchemePage_OLD.verifyPageHeader(GiftAidSmallDonationsSchemePage_OLD.pageHeader)
   }
 
   def validateParagraph(): Unit = {
-    OLD_GiftAidSmallDonationsSchemePage.verifyParagraphText(OLD_GiftAidSmallDonationsSchemePage.pageParagraph)
-    OLD_GiftAidSmallDonationsSchemePage.verifyLegendText(OLD_GiftAidSmallDonationsSchemePage.pageLegend)
+    GiftAidSmallDonationsSchemePage_OLD.verifyParagraphText(GiftAidSmallDonationsSchemePage_OLD.pageParagraph)
+    GiftAidSmallDonationsSchemePage_OLD.verifyLegendText(GiftAidSmallDonationsSchemePage_OLD.pageLegend)
   }
 
   def validateErrorMessage(): Unit =
-    OLD_GiftAidSmallDonationsSchemePage.validateGenericPageError(
-      OLD_GiftAidSmallDonationsSchemePage.pageErrorMsg,
-      OLD_GiftAidSmallDonationsSchemePage.errorMsgLocator
+    GiftAidSmallDonationsSchemePage_OLD.validateGenericPageError(
+      GiftAidSmallDonationsSchemePage_OLD.pageErrorMsg,
+      GiftAidSmallDonationsSchemePage_OLD.errorMsgLocator
     )
 }
