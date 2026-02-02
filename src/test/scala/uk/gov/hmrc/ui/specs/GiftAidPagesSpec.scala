@@ -49,6 +49,21 @@ class GiftAidPagesSpec
 //    }
 //
     Scenario(
+      "User navigates to the 'Type of Repayment Claim' checkbox page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigation()
+      RepaymentCheckboxPage.validateHints()
+      Then("User validates the 'no input' error on the 'ype of Repayment Claim' page")
+      RepaymentCheckboxPage.validateErrorMessage()
+    }
+
+    Scenario(
       "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
