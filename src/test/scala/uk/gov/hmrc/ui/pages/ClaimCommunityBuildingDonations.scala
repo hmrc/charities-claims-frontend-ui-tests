@@ -35,7 +35,7 @@ object ClaimCommunityBuildingDonations extends BasePage {
     "For donations of £20 or less that were collected in a community building during charitable activities."
 
   def errorMsg: String =
-    "Select 'Yes' if you are claiming for donations collected in community buildings"
+    "Select ‘Yes’ if you are claiming for donations collected in community buildings"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
@@ -44,8 +44,8 @@ object ClaimCommunityBuildingDonations extends BasePage {
   def validateNavigation(): Unit = {
     ClaimCommunityBuildingDonations.verifyPageUrl(ClaimCommunityBuildingDonations.pageUrl)
     ClaimCommunityBuildingDonations.verifyPageTitle(ClaimCommunityBuildingDonations.pageTitle)
-    ClaimCommunityBuildingDonations.verifyPageHeader(ClaimCommunityBuildingDonations.pageHeading)
     ClaimCommunityBuildingDonations.verifyPageCaption(ClaimCommunityBuildingDonations.pageCaption)
+    ClaimCommunityBuildingDonations.verifyPageHeader(ClaimCommunityBuildingDonations.pageHeading)
   }
 
   def validateHint(): Unit =
@@ -56,5 +56,4 @@ object ClaimCommunityBuildingDonations extends BasePage {
       ClaimCommunityBuildingDonations.errorMsg,
       ClaimCommunityBuildingDonations.errorMsgLocator
     )
-
 }
