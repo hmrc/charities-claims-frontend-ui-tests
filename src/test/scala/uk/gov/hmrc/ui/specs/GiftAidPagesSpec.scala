@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class GiftAidPagesSpec
-    extends AnyFeatureSpec
+  extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -49,6 +49,21 @@ class GiftAidPagesSpec
     }
 
     Scenario(
+      "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.navigateToPage(ClaimCommunityBuildingDonations.pageUrl)
+      ClaimCommunityBuildingDonations.validateNavigation()
+      ClaimCommunityBuildingDonations.validateHint()
+      Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.validateErrorMessage()
+    }
+
+    Scenario(
       "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
@@ -62,71 +77,57 @@ class GiftAidPagesSpec
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
     }
+
     Scenario(
-      "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
+      "User navigates to the 'Connected charities and Community Amateur Sports Clubs' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
       Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
       OLD_AreYouClaimingGiftAidPage.validateNavigation()
-      And("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.navigateToPage(ClaimCommunityBuildingDonations.pageUrl)
-      ClaimCommunityBuildingDonations.validateNavigation()
-      ClaimCommunityBuildingDonations.validateHint()
-      Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateErrorMessage()
+      And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
+      ConnectedCharitiesPage.validateNavigation()
+      ConnectedCharitiesPage.validateParagraph()
+      Then("User validates the 'no input' error on the 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateErrorMessage()
+    }
 
-      Scenario(
-        "User navigates to the 'Connected charities and Community Amateur Sports Clubs' page and validates the page elements and error messages"
-      ) {
-        Given("the user logs in through the Authority Wizard page")
-        AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
-        Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
-        OLD_AreYouClaimingGiftAidPage.validateNavigation()
-        And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-        ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
-        ConnectedCharitiesPage.validateNavigation()
-        ConnectedCharitiesPage.validateParagraph()
-        Then("User validates the 'no input' error on the 'Connected charities and Community Amateur Sports Clubs' page")
-        ConnectedCharitiesPage.validateErrorMessage()
-      }
+    Scenario(
+      "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+    }
 
-      Scenario(
-        "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
-      ) {
-        Given("the user logs in through the Authority Wizard page")
-        AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
-        Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
-        OLD_AreYouClaimingGiftAidPage.validateNavigation()
-        And("User navigates to 'Do you have a claim reference number?' page")
-        DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-        DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-        Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
-        DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
-      }
-
-      Scenario(
-        "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
-      ) {
-        Given("the user logs in through the Authority Wizard page")
-        AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
-        Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
-        OLD_AreYouClaimingGiftAidPage.validateNavigation()
-        And("User navigates to 'Do you have a claim reference number?' page")
-        DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-        DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-        Then("User clicks 'yes' radio button")
-        DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
-        Then("User clicks 'continue' button")
-        DoYouHaveAClaimReferenceNumberPage.clickContinue()
-        And("User navigates to 'What is your claim reference number?' page")
-        WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-        WhatIsYourClaimReferenceNumberPage.validateNavigation()
-        Then("User validates the elements on the 'What is your claim reference number?' page")
-        WhatIsYourClaimReferenceNumberPage.validateHint()
-        Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
-        WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
-      }
+    Scenario(
+      "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User clicks 'yes' radio button")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      Then("User clicks 'continue' button")
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      And("User navigates to 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the elements on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateHint()
+      Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
     }
   }
 }
