@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class GiftAidPagesSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb

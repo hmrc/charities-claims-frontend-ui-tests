@@ -14,35 +14,34 @@
  * limitations under the License.
  */
 
-
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object ClaimCommunityBuildingDonations extends BasePage{
+object ClaimCommunityBuildingDonations extends BasePage {
 
-  override def pageUrl : String = s"$hostname/claim-community-building-donations"
+  override def pageUrl: String = s"$hostname/claim-community-building-donations"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "Do you want to claim for donations collected in community buildings? - Charities - GOV.UK"
 
-  def pageHeading : String =
+  def pageHeading: String =
     "Do you want to claim for donations collected in community buildings?"
 
-  def pageCaption : String =
+  def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHint : String =
+  def pageHint: String =
     "For donations of £20 or less that were collected in a community building during charitable activities."
 
-  def errorMsg : String =
+  def errorMsg: String =
     "Select 'Yes' if you are claiming for donations collected in community buildings"
 
-  val yes: String = "#value"
-  val no: String = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
-  def validateNavigation () : Unit ={
+  def validateNavigation(): Unit = {
     ClaimCommunityBuildingDonations.verifyPageUrl(ClaimCommunityBuildingDonations.pageUrl)
     ClaimCommunityBuildingDonations.verifyPageTitle(ClaimCommunityBuildingDonations.pageTitle)
     ClaimCommunityBuildingDonations.verifyPageHeader(ClaimCommunityBuildingDonations.pageHeading)
