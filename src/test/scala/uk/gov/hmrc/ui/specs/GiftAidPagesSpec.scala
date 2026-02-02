@@ -49,6 +49,21 @@ class GiftAidPagesSpec
     }
 
     Scenario(
+      "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
+      Then("User navigates to OLD 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      And("User navigates to 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.navigateToPage(ClaimCommunityBuildingDonations.pageUrl)
+      ClaimCommunityBuildingDonations.validateNavigation()
+      ClaimCommunityBuildingDonations.validateHint()
+      Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.validateErrorMessage()
+    }
+
+    Scenario(
       "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
