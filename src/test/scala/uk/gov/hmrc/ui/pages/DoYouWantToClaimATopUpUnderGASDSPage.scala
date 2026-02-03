@@ -23,16 +23,16 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
   override def pageUrl: String = s"$hostname/claim-gasds-payment"
 
   override def pageTitle: String =
-    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?  - Charities - GOV.UK"
+    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme? - Charities - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"
 
   def pageHeader: String =
-    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme? "
+    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?"
 
   def pageHint: String =
-    "For donations of £20 or less that were not collected in a community building."  
+    "For donations of £20 or less that were not collected in a community building."
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you are claiming under the Gift Aid Small Donations Scheme"
@@ -50,7 +50,6 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
 
   def validateHint(): Unit =
     DoYouWantToClaimATopUpUnderGASDSPage.verifyHintText(DoYouWantToClaimATopUpUnderGASDSPage.pageHint)
-
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =

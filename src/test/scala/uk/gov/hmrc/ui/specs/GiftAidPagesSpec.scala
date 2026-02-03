@@ -35,19 +35,18 @@ class GiftAidPagesSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
-    //    Scenario(
-    //      "User navigates to the 'About repayment' page and validates the page elements"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage.validateNavigation()
-    //      And("User navigates to 'About repayment' page")
-    //      AboutRepayment.navigateToPage(AboutRepayment.pageUrl)
-    //      AboutRepayment.validateNavigation()
-    //      AboutRepayment.validateParagraph()
-    //    }
-    //
+    Scenario(
+      "User navigates to the 'About repayment' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'About repayment' page")
+      AboutRepayment.navigateToPage(AboutRepayment.pageUrl)
+      AboutRepayment.validateNavigation()
+      AboutRepayment.validateParagraph()
+    }
 
     Scenario(
       "User navigates to the 'Type of Repayment Claim' Checkbox page and validates the page elements and error messages"
@@ -69,85 +68,153 @@ class GiftAidPagesSpec
     }
 
     Scenario(
+      "User navigates to the 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.2")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      DoYouWantToClaimATopUpUnderGASDSPage.validateHint()
+      Then(
+        "User validates the 'no input' error on the 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.validateErrorMessage()
+    }
+
+    Scenario(
       "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'No' on the 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page'"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       And("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.navigateToPage(ClaimCommunityBuildingDonations.pageUrl)
       ClaimCommunityBuildingDonations.validateNavigation()
-      ClaimCommunityBuildingDonations.validateHint()
       Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
       ClaimCommunityBuildingDonations.validateErrorMessage()
     }
-    //
-    //    Scenario(
-    //      "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage.validateNavigation()
-    //      And("User navigates to 'Gift Aid Small Donations Scheme claim' page")
-    //      GiftAidSmallDonationsSchemeClaimPage.navigateToPage(GiftAidSmallDonationsSchemeClaimPage.pageUrl)
-    //      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
-    //      GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
-    //      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
-    //      GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
-    //    }
-    //
-    //    Scenario(
-    //      "User navigates to the 'Connected charities and Community Amateur Sports Clubs' page and validates the page elements and error messages"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage.validateNavigation()
-    //      And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-    //      ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
-    //      ConnectedCharitiesPage.validateNavigation()
-    //      ConnectedCharitiesPage.validateParagraph()
-    //      Then("User validates the 'no input' error on the 'Connected charities and Community Amateur Sports Clubs' page")
-    //      ConnectedCharitiesPage.validateErrorMessage()
-    //    }
-    //
-    //    Scenario(
-    //      "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage.validateNavigation()
-    //      And("User navigates to 'Do you have a claim reference number?' page")
-    //      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-    //      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-    //      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
-    //      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
-    //    }
-    //
-    //    Scenario(
-    //      "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage.validateNavigation()
-    //      And("User navigates to 'Do you have a claim reference number?' page")
-    //      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-    //      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-    //      Then("User clicks 'yes' radio button")
-    //      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
-    //      Then("User clicks 'continue' button")
-    //      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-    //      And("User navigates to 'What is your claim reference number?' page")
-    //      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-    //      WhatIsYourClaimReferenceNumberPage.validateNavigation()
-    //      Then("User validates the elements on the 'What is your claim reference number?' page")
-    //      WhatIsYourClaimReferenceNumberPage.validateHint()
-    //      Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
-    //      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
-    //    }
+
+    Scenario(
+      "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'Yes' on the 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page'"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.validateNavigation()
+      And("User selects 'Yes' on the 'Claim Community Building Donations' page'")
+      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.yes)
+      ClaimCommunityBuildingDonations.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
+      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Connected charities and Community Amateur Sports Clubs' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'No' on the 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page'"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Claim Community Building Donations' page")
+      ClaimCommunityBuildingDonations.validateNavigation()
+      And("User selects 'No' on the 'Claim Community Building Donations' page'")
+      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.no)
+      ClaimCommunityBuildingDonations.clickContinue()
+      And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
+      ConnectedCharitiesPage.validateNavigation()
+      ConnectedCharitiesPage.validateParagraph()
+      Then("User validates the 'no input' error on the 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      Then("User clicks 'yes' radio button")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      Then("User clicks 'continue' button")
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      And("User navigates to 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      Then("User validates the elements on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateHint()
+      Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
+    }
   }
 }
