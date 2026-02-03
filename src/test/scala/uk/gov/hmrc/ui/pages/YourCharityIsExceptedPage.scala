@@ -30,7 +30,7 @@ object YourCharityIsExceptedPage extends BasePage {
     "Your charity is excepted"
 
   def pageParagraph: String =
-    "Your charity is excepted as the charity's income is £100,000 or less and is classed as one of the following:"
+    "Your charity is excepted as the charity’s income is £100,000 or less and is classed as one of the following:"
 
   def pageListItem1: String =
     "a church or chapel"

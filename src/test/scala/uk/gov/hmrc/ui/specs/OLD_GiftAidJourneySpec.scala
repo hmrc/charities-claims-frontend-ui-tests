@@ -40,7 +40,10 @@ class OLD_GiftAidJourneySpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST1")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       Then("User navigates to 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.navigateToPage(OLD_AreYouClaimingGiftAidPage.pageUrl)
       OLD_AreYouClaimingGiftAidPage.validateNavigation()
       And("User clicks 'Yes' radio button option")
       OLD_AreYouClaimingGiftAidPage.radioButton(OLD_AreYouClaimingGiftAidPage.yes)
@@ -94,7 +97,10 @@ class OLD_GiftAidJourneySpec
   ) {
     Given("the user logs in through the Authority Wizard page")
     AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST2")
+    Then("User navigates to 'Make a charity repayment claim' page")
+    ClaimsTaskListPage.validateNavigation()
     Then("User navigates to 'Are you claiming Gift Aid?' page")
+    OLD_AreYouClaimingGiftAidPage.navigateToPage(OLD_AreYouClaimingGiftAidPage.pageUrl)
     OLD_AreYouClaimingGiftAidPage.validateNavigation()
     And("User clicks 'No' radio button option")
     OLD_AreYouClaimingGiftAidPage.radioButton(OLD_AreYouClaimingGiftAidPage.no)

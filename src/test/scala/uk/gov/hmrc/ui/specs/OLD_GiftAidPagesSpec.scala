@@ -40,7 +40,10 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - R1.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       Then("User navigates to 'Are you claiming Gift Aid?' page")
+      OLD_AreYouClaimingGiftAidPage.navigateToPage(OLD_AreYouClaimingGiftAidPage.pageUrl)
       OLD_AreYouClaimingGiftAidPage.validateNavigation()
       Then("User validates the elements on the 'Are you claiming Gift Aid?' page")
       OLD_AreYouClaimingGiftAidPage.validateHint()
@@ -53,8 +56,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Are you claiming UK tax deducted from other income?' page")
       OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.navigateToPage(
         OLD_AreYouClaimingTaxDeductedFromOtherIncomePage.pageUrl
@@ -70,8 +73,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.2")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Gift Aid Small Donations Scheme' page")
       OLD_GiftAidSmallDonationsSchemePage.navigateToPage(OLD_GiftAidSmallDonationsSchemePage.pageUrl)
       OLD_GiftAidSmallDonationsSchemePage.validateNavigation()
@@ -85,8 +88,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Do you have a claim reference number?' page")
       OLD_DoYouHaveAClaimReferenceNumberPage.navigateToPage(OLD_DoYouHaveAClaimReferenceNumberPage.pageUrl)
       OLD_DoYouHaveAClaimReferenceNumberPage.validateNavigation()
@@ -99,6 +102,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       Then("User navigates to 'Do you have a claim reference number?' page")
       OLD_DoYouHaveAClaimReferenceNumberPage.navigateToPage(OLD_DoYouHaveAClaimReferenceNumberPage.pageUrl)
       OLD_DoYouHaveAClaimReferenceNumberPage.validateNavigation()
@@ -120,8 +125,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.5")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Declaration' page")
       OLD_DeclarationPage.navigateToPage(OLD_DeclarationPage.pageUrl)
       OLD_DeclarationPage.validateNavigation()
@@ -134,8 +139,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Check your claim details' page")
       OLD_CheckYourClaimDetailsPage.navigateToPage(OLD_CheckYourClaimDetailsPage.pageUrl)
       OLD_CheckYourClaimDetailsPage.validateNavigation()
@@ -149,8 +154,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR2")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       Then("User navigates to 'What is your reference number?' page")
       OLD_WhatIsYourClaimReferenceNumberPage.navigateToPage(OLD_WhatIsYourClaimReferenceNumberPage.pageUrl)
       Error_PageNotFoundPage.validateNavigation()
@@ -163,8 +168,8 @@ class OLD_GiftAidPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - ERR3")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       Then("User navigates to 'Access Denied' error page")
       AccessDeniedErrorPage.navigateToPage(AccessDeniedErrorPage.pageUrl)
       AccessDeniedErrorPage.validateNavigation()
