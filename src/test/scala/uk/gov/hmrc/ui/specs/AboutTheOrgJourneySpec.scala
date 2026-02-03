@@ -40,8 +40,8 @@ class AboutTheOrgJourneySpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.0")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'About the organisation' page")
       AboutTheOrganisationPage.navigateToPage(AboutTheOrganisationPage.pageUrl)
       AboutTheOrganisationPage.validateNavigation()
@@ -84,8 +84,8 @@ class AboutTheOrgJourneySpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.0")
-      Then("User navigates to 'Are you claiming Gift Aid?' page")
-      OLD_AreYouClaimingGiftAidPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'About the organisation' page")
       AboutTheOrganisationPage.navigateToPage(AboutTheOrganisationPage.pageUrl)
       AboutTheOrganisationPage.validateNavigation()
