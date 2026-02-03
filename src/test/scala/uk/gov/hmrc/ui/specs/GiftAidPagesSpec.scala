@@ -111,6 +111,7 @@ class GiftAidPagesSpec
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       And("User navigates to 'Claim Community Building Donations' page")
       ClaimCommunityBuildingDonations.validateNavigation()
+      ClaimCommunityBuildingDonations.validateHint()
       Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
       ClaimCommunityBuildingDonations.validateErrorMessage()
     }
