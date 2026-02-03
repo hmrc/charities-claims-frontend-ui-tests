@@ -50,9 +50,10 @@ object RepaymentCheckboxPage extends BasePage {
     println("Actual page hint is: " + driver.findElement(By.ById("value_1-item-hint")).getText)
   }
 
-  val GiftAid: String     = "#value_0"
+  val GiftAid: String     = "#value"
   val GASDSclaim: String  = "#value_1"
   val OtherIncome: String = "#value_2"
+  val errorMsgLocator     = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.pageUrl)
@@ -62,13 +63,13 @@ object RepaymentCheckboxPage extends BasePage {
   }
 
   def validateHints(): Unit = {
-    RepaymentCheckboxPage.verifyHintSelectAll(RepaymentCheckboxPage.pageHintSelectAll)
+    RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAll)
     RepaymentCheckboxPage.verifyHintCheckbox(RepaymentCheckboxPage.pageHintCheckbox)
   }
 
   def validateErrorMessage(): Unit =
-    ConnectedCharitiesPage.validateGenericPageError(
-      ConnectedCharitiesPage.pageErrorMsg,
-      ConnectedCharitiesPage.errorMsgLocator
+    RepaymentCheckboxPage.validateGenericPageError(
+      RepaymentCheckboxPage.pageErrorMsg,
+      RepaymentCheckboxPage.errorMsgLocator
     )
 }
