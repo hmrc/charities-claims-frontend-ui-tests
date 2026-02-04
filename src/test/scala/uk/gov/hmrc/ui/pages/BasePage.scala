@@ -50,6 +50,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtFileName                = ".govuk-body"
     val txtCaption                 = By.ByClassName("govuk-caption-l")
     val txtHeader: By              = By.xpath("//h1")
+    val txtSubHeading1: By         = By.xpath("//main//h2[1]")
+    val txtSubHeading2: By         = By.xpath("//main//h2[2]")
     val txtAddressPostCode         = By.ById("addressPostcode")
     val inputReferenceNumber       = By.ByClassName("govuk-input")
     val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
@@ -59,6 +61,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     //    val errorMsg                   = By.ById("value-error")
     val errorMsg                   = By.ByClassName("govuk-error-message")
     val listText                   = By.ByClassName("govuk-list")
+    val taskList1Text: By          = By.xpath("//main//ul[1]")
+    val taskList2Text: By          = By.xpath("//main//ul[2]")
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
@@ -255,6 +259,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
 
+  def verifyDynamicPageCaption(expectedCaption: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtCaption)
+    val actualCaption = driver.findElement(Locators.txtCaption).getText
+    assert(
+      actualCaption contains expectedCaption,
+      s"Page header mismatch! Expected: $expectedCaption, Actual: $actualCaption"
+    )
+    println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
+  }
+
   def verifyPageHeader(expectedHeader: String): Unit = {
     waitForVisibilityOfElement(Locators.txtHeader)
     val actualHeader = driver.findElement(Locators.txtHeader).getText
@@ -263,6 +277,26 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page header mismatch! Expected: $expectedHeader, Actual: $actualHeader"
     )
     println("Actual page header is: " + driver.findElement(Locators.txtHeader).getText)
+  }
+
+  def verifyPageSubHeading1(expectedSubHeading1: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSubHeading1)
+    val actualSubHeading1 = driver.findElement(Locators.txtSubHeading1).getText
+    assert(
+      actualSubHeading1 == expectedSubHeading1,
+      s"Page sub-heading 1 mismatch! Expected: $expectedSubHeading1, Actual: $actualSubHeading1"
+    )
+    println("Actual page sub-heading 1 is: " + driver.findElement(Locators.txtSubHeading1).getText)
+  }
+
+  def verifyPageSubHeading2(expectedSubHeading2: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSubHeading2)
+    val actualSubHeading2 = driver.findElement(Locators.txtSubHeading2).getText
+    assert(
+      actualSubHeading2 == expectedSubHeading2,
+      s"Page sub-heading 2 mismatch! Expected: $expectedSubHeading2, Actual: $actualSubHeading2"
+    )
+    println("Actual page sub-heading 2 is: " + driver.findElement(Locators.txtSubHeading2).getText)
   }
 
   /** Verify that a hint includes expected message */
@@ -296,6 +330,28 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page list mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page list is: " + driver.findElement(Locators.listText).getText)
+  }
+
+  /** Verify elements of a list are the expected messages */
+  def verifyTaskList1Text(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.taskList1Text)
+    val actualText = driver.findElement(Locators.taskList1Text).getText
+    assert(
+      actualText == expectedText,
+      s"Page task list 1 mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page task list 1 is: " + driver.findElement(Locators.taskList1Text).getText)
+  }
+
+  /** Verify elements of a list are the expected messages */
+  def verifyTaskList2Text(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.taskList2Text)
+    val actualText = driver.findElement(Locators.taskList2Text).getText
+    assert(
+      actualText == expectedText,
+      s"Page task list 2 mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page task list 2 is: " + driver.findElement(Locators.taskList2Text).getText)
   }
 
   /** Verify that the text within a legend includes the expected text */
