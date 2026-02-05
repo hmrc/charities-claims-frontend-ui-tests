@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object ClaimsTaskListPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/make-a-charity-repayment-claim"
@@ -23,12 +25,69 @@ object ClaimsTaskListPage extends BasePage {
   override def pageTitle: String =
     "Make a charity repayment claim - Charities - GOV.UK"
 
+  def pageCaption: String =
+    "HMRC Charities reference:"
+
   def pageHeader: String =
     "Make a charity repayment claim"
+
+  def pageSubheading1: String =
+    "About the claim"
+
+  def pageTaskListItemCompleteStatus: String =
+    "Complete"
+
+  def pageTaskListItemIncompleteStatus: String =
+    "Incomplete"
+
+  def pageTaskList1Item1: String =
+    "Provide repayment claim details"
+
+  def pageSubheading2: String =
+    "Declaration"
+
+  def pageTaskList2Item1: String =
+    "Read declaration"
+
+  def pageTaskList2Item2: String =
+    "You must complete every section before you can declare."
+
+  def pageTaskList2Item3: String =
+    "Cannot start yet"
 
   def validateNavigation(): Unit = {
     ClaimsTaskListPage.verifyPageUrl(ClaimsTaskListPage.pageUrl)
     ClaimsTaskListPage.verifyPageTitle(ClaimsTaskListPage.pageTitle)
+    ClaimsTaskListPage.verifyDynamicPageCaption(ClaimsTaskListPage.pageCaption)
     ClaimsTaskListPage.verifyPageHeader(ClaimsTaskListPage.pageHeader)
+    ClaimsTaskListPage.verifyPageSubHeading1(ClaimsTaskListPage.pageSubheading1)
+    ClaimsTaskListPage.verifyPageSubHeading2(ClaimsTaskListPage.pageSubheading2)
   }
+
+  val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
+  val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
+
+  def clickGoToDashboard(): Unit = {
+    val element = waitForElementToBeClickable(linkGoToDashboard)
+    element.click()
+  }
+
+  def clickProvideRepaymentClaimDetails(): Unit = {
+    val element = waitForElementToBeClickable(linkProvideRepaymentClaimDetails)
+    element.click()
+  }
+
+  def validatePageContent(): Unit =
+    ClaimsTaskListPage.verifyTaskList1Text(
+      ClaimsTaskListPage.createSingleStringFromMany(
+        ClaimsTaskListPage.pageTaskList1Item1 + " " + ClaimsTaskListPage.pageTaskListItemIncompleteStatus
+      )
+    )
+    ClaimsTaskListPage.verifyTaskList2Text(
+      ClaimsTaskListPage.createSingleStringFromMany(
+        ClaimsTaskListPage.pageTaskList2Item1,
+        ClaimsTaskListPage.pageTaskList2Item2,
+        ClaimsTaskListPage.pageTaskList2Item3
+      )
+    )
 }

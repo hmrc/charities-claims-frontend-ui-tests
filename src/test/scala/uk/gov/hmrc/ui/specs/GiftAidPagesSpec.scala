@@ -36,13 +36,25 @@ class GiftAidPagesSpec
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
     Scenario(
+      "User navigates to the 'Make a charity repayment claim' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R2.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      ClaimsTaskListPage.validatePageContent()
+    }
+
+    Scenario(
       "User navigates to the 'About repayment' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
-      And("User navigates to 'About repayment' page")
+      And("User clicks the link to navigate to 'About repayment' page")
+      ClaimsTaskListPage.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'About repayment' page")
       AboutRepayment.navigateToPage(AboutRepayment.pageUrl)
       AboutRepayment.validateNavigation()
       AboutRepayment.validateParagraph()
