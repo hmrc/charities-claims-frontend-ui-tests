@@ -35,7 +35,10 @@ object ClaimsTaskListPage extends BasePage {
     "About the claim"
 
   def pageTaskList1Item1: String =
-    "Provide repayment claim details Incomplete"
+    "Provide repayment claim details"
+
+  def pageTaskList1Item1Status: String =
+    "Incomplete"
 
   def pageSubheading2: String =
     "Declaration"
@@ -74,7 +77,7 @@ object ClaimsTaskListPage extends BasePage {
   def validatePageContent(): Unit =
     ClaimsTaskListPage.verifyTaskList1Text(
       ClaimsTaskListPage.createSingleStringFromMany(
-        ClaimsTaskListPage.pageTaskList1Item1
+        ClaimsTaskListPage.pageTaskList1Item1 + " " + ClaimsTaskListPage.pageTaskList1Item1Status
       )
     )
     ClaimsTaskListPage.verifyTaskList2Text(
