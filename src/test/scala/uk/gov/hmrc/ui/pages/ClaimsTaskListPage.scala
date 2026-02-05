@@ -59,7 +59,7 @@ object ClaimsTaskListPage extends BasePage {
   }
 
   val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
-  val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/old/claim-gift-aid']")
+  val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
 
   def clickGoToDashboard(): Unit = {
     val element = waitForElementToBeClickable(linkGoToDashboard)
