@@ -82,6 +82,13 @@ object CorporateTrusteeDetailsPage extends BasePage {
     clickContinue()
   }
 
+  def enterUKTrusteeDetails(trusteeName: String, trusteePhoneNo: String, trusteePostcode: String): Unit = {
+    input(Locators.txtTrusteeName, trusteeName)
+    input(Locators.txtTrusteePhoneNo, trusteePhoneNo)
+    input(Locators.txtTrusteePostcode, trusteePostcode)
+    clickContinue()
+  }
+
   def validateNavigation(): Unit = {
     CorporateTrusteeDetailsPage.verifyPageUrl(CorporateTrusteeDetailsPage.pageUrl)
     CorporateTrusteeDetailsPage.verifyPageTitle(CorporateTrusteeDetailsPage.pageTitle)

@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutRepayment extends BasePage {
+object RepaymentClaimDetailsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/repayment-claim-details"
 
@@ -42,21 +42,21 @@ object AboutRepayment extends BasePage {
     "UK tax deducted from Other Income"
 
   def validateNavigation(): Unit = {
-    AboutRepayment.verifyPageUrl(AboutRepayment.pageUrl)
-    AboutRepayment.verifyPageTitle(AboutRepayment.pageTitle)
-    AboutRepayment.verifyPageHeader(AboutRepayment.pageHeader)
-    AboutRepayment.verifyPageCaption(AboutRepayment.pageCaption)
+    RepaymentClaimDetailsPage.verifyPageUrl(RepaymentClaimDetailsPage.pageUrl)
+    RepaymentClaimDetailsPage.verifyPageTitle(RepaymentClaimDetailsPage.pageTitle)
+    RepaymentClaimDetailsPage.verifyPageHeader(RepaymentClaimDetailsPage.pageHeader)
+    RepaymentClaimDetailsPage.verifyPageCaption(RepaymentClaimDetailsPage.pageCaption)
   }
 
   def validateParagraph(): Unit = {
-    AboutRepayment.verifyParagraphText(
-      AboutRepayment.pageParagraph
+    RepaymentClaimDetailsPage.verifyParagraphText(
+      RepaymentClaimDetailsPage.pageParagraph
     )
-    AboutRepayment.verifyListText(
-      AboutRepayment.createSingleStringFromMany(
-        AboutRepayment.listItem1,
-        AboutRepayment.listItem2,
-        AboutRepayment.listItem3
+    RepaymentClaimDetailsPage.verifyListText(
+      RepaymentClaimDetailsPage.createSingleStringFromMany(
+        RepaymentClaimDetailsPage.listItem1,
+        RepaymentClaimDetailsPage.listItem2,
+        RepaymentClaimDetailsPage.listItem3
       )
     )
   }

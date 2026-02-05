@@ -46,18 +46,17 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'About repayment' page and validates the page elements"
+      "User navigates to the 'Repayment claim details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
-      And("User clicks the link to navigate to 'About repayment' page")
+      And("User clicks the link to navigate to 'Repayment claim details' page")
       ClaimsTaskListPage.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'About repayment' page")
-      AboutRepayment.navigateToPage(AboutRepayment.pageUrl)
-      AboutRepayment.validateNavigation()
-      AboutRepayment.validateParagraph()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      RepaymentClaimDetailsPage.validateParagraph()
     }
 
     Scenario(
@@ -122,10 +121,10 @@ class GiftAidPagesSpec
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       And("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
-      ClaimCommunityBuildingDonations.validateHint()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateHint()
       Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateErrorMessage()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateErrorMessage()
     }
 
     Scenario(
@@ -149,10 +148,12 @@ class GiftAidPagesSpec
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And("User selects 'Yes' on the 'Claim Community Building Donations' page'")
-      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.yes)
-      ClaimCommunityBuildingDonations.clickContinue()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
@@ -181,10 +182,12 @@ class GiftAidPagesSpec
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And("User selects 'No' on the 'Claim Community Building Donations' page'")
-      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.no)
-      ClaimCommunityBuildingDonations.clickContinue()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
       ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
       ConnectedCharitiesPage.validateNavigation()
