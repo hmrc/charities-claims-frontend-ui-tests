@@ -46,7 +46,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
   val charityRegulatorNumberFieldLocator = By.ById("value")
   val errorMsgLocator                    = By.ById("value-error")
 
-  def enterClaimReferenceNumber(referenceNo: String): Unit = {
+  def enterCharityRegulatorNumber(referenceNo: String): Unit = {
     input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }

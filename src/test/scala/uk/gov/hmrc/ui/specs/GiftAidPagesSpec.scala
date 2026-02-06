@@ -46,28 +46,27 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'About repayment' page and validates the page elements"
+      "User navigates to the 'Repayment claim details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
-      And("User clicks the link to navigate to 'About repayment' page")
+      And("User clicks the link to navigate to 'Repayment claim details' page")
       ClaimsTaskListPage.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'About repayment' page")
-      AboutRepayment.navigateToPage(AboutRepayment.pageUrl)
-      AboutRepayment.validateNavigation()
-      AboutRepayment.validateParagraph()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      RepaymentClaimDetailsPage.validateParagraph()
     }
 
     Scenario(
-      "User navigates to the 'Type of Repayment Claim' Checkbox page and validates the page elements and error messages"
+      "User navigates to the 'Which type of repayment claim do you want to make?' Checkbox page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
-      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      And("User navigates to 'Which type of repayment claim do you want to make?' checkbox page")
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
       RepaymentCheckboxPage.validateNavigation()
       RepaymentCheckboxPage.validateHints()
@@ -75,7 +74,9 @@ class GiftAidPagesSpec
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
-      Then("User validates the 'no input' error on the 'Type of Repayment Claim' checkbox page")
+      Then(
+        "User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page"
+      )
       RepaymentCheckboxPage.validateErrorMessage()
     }
 
@@ -102,7 +103,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
+      "User navigates to the 'Do you want to claim for donations collected in community buildings?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
@@ -121,11 +122,13 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      And("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
-      ClaimCommunityBuildingDonations.validateHint()
-      Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateErrorMessage()
+      And("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateHint()
+      Then(
+        "User validates the 'no input' error on the 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateErrorMessage()
     }
 
     Scenario(
@@ -148,11 +151,13 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      Then("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
-      And("User selects 'Yes' on the 'Claim Community Building Donations' page'")
-      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.yes)
-      ClaimCommunityBuildingDonations.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And("User selects 'Yes' on the 'Do you want to claim for donations collected in community buildings?' page'")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
@@ -180,11 +185,13 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      Then("User navigates to 'Claim Community Building Donations' page")
-      ClaimCommunityBuildingDonations.validateNavigation()
-      And("User selects 'No' on the 'Claim Community Building Donations' page'")
-      ClaimCommunityBuildingDonations.radioButton(ClaimCommunityBuildingDonations.no)
-      ClaimCommunityBuildingDonations.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And("User selects 'No' on the 'Do you want to claim for donations collected in community buildings?' page'")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       And("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
       ConnectedCharitiesPage.navigateToPage(ConnectedCharitiesPage.pageUrl)
       ConnectedCharitiesPage.validateNavigation()

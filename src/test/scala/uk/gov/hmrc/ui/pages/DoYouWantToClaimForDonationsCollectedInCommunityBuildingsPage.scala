@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object ClaimCommunityBuildingDonations extends BasePage {
+object DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-community-building-donations"
 
@@ -42,18 +42,28 @@ object ClaimCommunityBuildingDonations extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    ClaimCommunityBuildingDonations.verifyPageUrl(ClaimCommunityBuildingDonations.pageUrl)
-    ClaimCommunityBuildingDonations.verifyPageTitle(ClaimCommunityBuildingDonations.pageTitle)
-    ClaimCommunityBuildingDonations.verifyPageCaption(ClaimCommunityBuildingDonations.pageCaption)
-    ClaimCommunityBuildingDonations.verifyPageHeader(ClaimCommunityBuildingDonations.pageHeading)
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageUrl(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageUrl
+    )
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageTitle(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageTitle
+    )
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageCaption(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageCaption
+    )
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageHeader(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHeading
+    )
   }
 
   def validateHint(): Unit =
-    ClaimCommunityBuildingDonations.verifyHintText(ClaimCommunityBuildingDonations.pageHint)
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyHintText(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHint
+    )
 
   def validateErrorMessage(): Unit =
-    ClaimCommunityBuildingDonations.validateGenericPageError(
-      ClaimCommunityBuildingDonations.errorMsg,
-      ClaimCommunityBuildingDonations.errorMsgLocator
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateGenericPageError(
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsg,
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsgLocator
     )
 }

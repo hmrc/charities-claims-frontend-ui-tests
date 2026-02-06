@@ -39,7 +39,7 @@ class AboutTheOrgJourneySpec
       "User navigates to the 'About the organisation', selects not registered radio button option, excepted and corporate trustee without UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - A1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'About the organisation' page")
@@ -83,7 +83,7 @@ class AboutTheOrgJourneySpec
       "User navigates to the 'About the organisation', selects not registered radio button option, exempt and authorised official with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - A2.0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - A2")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'About the organisation' page")
@@ -98,7 +98,7 @@ class AboutTheOrgJourneySpec
       WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
       And("User navigates to 'Why is the charity not registered with a regulator?' page")
       WhyIsTheCharityNotRegisteredPage.validateNavigation()
-      And("User selects they are excepted")
+      And("User selects they are exempt")
       WhyIsTheCharityNotRegisteredPage.radioButton(WhyIsTheCharityNotRegisteredPage.Exempt)
       WhyIsTheCharityNotRegisteredPage.clickContinue()
       And("User navigates to 'Your charity is exempt' page")
@@ -125,6 +125,45 @@ class AboutTheOrgJourneySpec
         "01632 960999",
         "WG7 7FU"
       )
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
+    }
+
+    Scenario(
+      "User navigates to the 'About the organisation', selects registered with England and Wales regulator radio button option and corporate trustee with UK address"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - A3")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'About the organisation' page")
+      AboutTheOrganisationPage.navigateToPage(AboutTheOrganisationPage.pageUrl)
+      AboutTheOrganisationPage.validateNavigation()
+      Then("User selects continue on 'About the organisation' page")
+      AboutTheOrganisationPage.clickContinue()
+      And("User navigates to 'What is the name of the charity regulator?' page")
+      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
+      And("User selects they are registered with the England and Wales regulator")
+      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
+      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
+      And("User navigates to 'What is the charity regulator number?' page")
+      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
+      And("User enters their charity regulator number and clicks continue")
+      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("1234567890")
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
+      And("User selects a corporate trustee is making this claim")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      And("User navigates to 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
+      And("User selects a corporate trustee does not have a UK address")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNavigation()
+      And("User enters their Non UK Trustee details and clicks continue")
+      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
     }
