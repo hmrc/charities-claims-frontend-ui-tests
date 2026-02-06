@@ -236,5 +236,16 @@ class GiftAidPagesSpec
       Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
       WhatIsYourClaimReferenceNumberPage.validateErrorMessage()
     }
+    Scenario(
+      "User navigates to the 'Check your Repayment Claim details' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.8")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Check your Repayment Claim details' page")
+      CheckYourRepaymentPage.navigateToPage(CheckYourRepaymentPage.pageUrl)
+      CheckYourRepaymentPage.validateNavigation()
+    }
   }
 }
