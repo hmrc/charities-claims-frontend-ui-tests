@@ -60,7 +60,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'Type of Repayment Claim' Checkbox page and validates the page elements and error messages"
+      "User navigates to the 'Which type of repayment claim do you want to make?' Checkbox page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
@@ -101,7 +101,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'Claim Community Building Donations' page and validates the page elements and error messages"
+      "User navigates to the 'Do you want to claim for donations collected in community buildings?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.3")
