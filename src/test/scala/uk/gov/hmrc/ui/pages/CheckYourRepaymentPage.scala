@@ -38,15 +38,15 @@ object CheckYourRepaymentPage extends BasePage {
     CheckYourRepaymentPage.verifyPageHeader(CheckYourRepaymentPage.pageHeader)
   }
 
-  val linkChangeRepaymentClaimType: By      = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")
-  val linkChangeClaimReference: By   = By.xpath("//a[@href='/charities-claims/change-claim-reference-number']")
+  val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")
+  val linkChangeClaimReference: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number']")
   val linkChangeReferenceNumber: By    = By.xpath("//a[@href='/charities-claims/change-enter-claim-reference-number']")
-  val linkChangeGasdsPayment: By     = By.xpath("//a[@href='/charities-claims/change-claim-gasds-payment']")
-  val linkChangeBuilding: By =
+  val linkChangeGasdsPayment: By       = By.xpath("//a[@href='/charities-claims/change-claim-gasds-payment']")
+  val linkChangeBuilding: By           =
     By.xpath("//a[@href='/charities-claims/change-claim-community-building-donations']")
-  val linkChangeChangeGasds: By   =
+  val linkChangeChangeGasds: By        =
     By.xpath("//a[@href='/charities-claims/change-change-previous-gasds-claim']")
-  val linkChangeConnectedCharities: By     =
+  val linkChangeConnectedCharities: By =
     By.xpath("//a[@href='/charities-claims/change-connected-to-charities']")
 
   def clickChangeRepaymentClaimType(): Unit = {
