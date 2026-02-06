@@ -74,7 +74,9 @@ class GiftAidPagesSpec
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
-      Then("User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page")
+      Then(
+        "User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page"
+      )
       RepaymentCheckboxPage.validateErrorMessage()
     }
 
@@ -123,7 +125,9 @@ class GiftAidPagesSpec
       And("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateHint()
-      Then("User validates the 'no input' error on the 'Do you want to claim for donations collected in community buildings?' page")
+      Then(
+        "User validates the 'no input' error on the 'Do you want to claim for donations collected in community buildings?' page"
+      )
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateErrorMessage()
     }
 
