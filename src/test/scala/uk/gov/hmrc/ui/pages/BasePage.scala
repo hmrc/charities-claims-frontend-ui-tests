@@ -281,14 +281,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page header is: " + driver.findElement(Locators.txtHeader).getText)
   }
 
-  def verifyPageWaring(expectedWarning: String): Unit = {
-    waitForVisibilityOfElement(Locators.txtCaption)
-    val actualWarning = driver.findElement(Locators.txtCaption).getText
+  def verifyPageWarning(expectedWarning: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtWarning)
+    val actualWarning = driver.findElement(Locators.txtWarning).getText
     assert(
       actualWarning == expectedWarning,
       s"Page warning mismatch! Expected: $expectedWarning, Actual: $actualWarning"
     )
-    println("Actual page warning is: " + driver.findElement(Locators.txtCaption).getText)
+    println("Actual page warning is: " + driver.findElement(Locators.txtWarning).getText)
   }
 
   def verifyPageSubHeading1(expectedSubHeading1: String): Unit = {
