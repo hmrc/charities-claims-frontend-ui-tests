@@ -127,7 +127,6 @@ class WarningPagesSpec
       ThisClaimCannotBeSetupPage_Organisation.validateNavigation()
       Then("User validates the expected missing info on the 'This claim cannot be setup' page")
       ThisClaimCannotBeSetupPage_Organisation.validatePageContent()
-//      ThisClaimCannotBeSetupPage_Organisation.validateMissingInfo()
     }
 
 //    Scenario(
