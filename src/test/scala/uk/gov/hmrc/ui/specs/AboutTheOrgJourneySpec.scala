@@ -130,7 +130,7 @@ class AboutTheOrgJourneySpec
     }
 
     Scenario(
-      "User navigates to the 'About the organisation', selects not registered radio button option, excepted and corporate trustee without UK address"
+      "User navigates to the 'About the organisation', selects registered with England and Wales regulator radio button option and corporate trustee with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - A3")
