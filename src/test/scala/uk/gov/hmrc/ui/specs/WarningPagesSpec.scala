@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,6 +109,68 @@ class WarningPagesSpec
         "User validates the 'no input' error on the 'Are you sure you want to delete this repayment claim?' page"
       )
       DeleteRepaymentClaimPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Check your organisation details' page with missing information and validates correct warning screen is displayed on submission"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "PAGETEST - Organisation WRN6"
+      )
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.navigateToPage(CheckYourOrganisationDetailsPage.pageUrl)
+      CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User attempts to submit with missing details on 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      And("User navigates to 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Organisation.validateNavigation()
+      Then("User validates the expected missing info on the 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Organisation.validatePageContent()
+    }
+
+    Scenario(
+      "User navigates to the 'Check your repayment claim' page with missing information and validates correct warning screen is displayed on submission"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - Repayment WRN6")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And("User navigates to 'Check your repayment claim details' page")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
+      Then("User attempts to submit with missing details on 'Check your repayment claim details' page")
+      CheckYourRepaymentClaimPage.clickContinue()
+      And("User navigates to 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Repayment.validateNavigation()
+      Then("User validates the expected missing info on the 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Repayment.validatePageContent()
     }
   }
 }

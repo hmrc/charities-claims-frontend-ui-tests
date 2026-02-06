@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ object Error_PageNotFoundPage extends BasePage {
   }
 
   def validatePageContent(): Unit =
-    Error_PageNotFoundPage.verifyPageNotFoundContent(
+    Error_PageNotFoundPage.verifyEntirePageContent(
       Error_PageNotFoundPage.createSingleStringFromMany(
         Error_PageNotFoundPage.pageHeader,
         Error_PageNotFoundPage.listItem1,
