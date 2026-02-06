@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,17 +26,32 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   def pageHeader: String =
     "This claim cannot be setup"
 
-  def pageWarning: String =
+  def pageWarningIcon: String =
+    "!"
+
+  def pageWarningHeading: String =
+    "Warning"
+
+  def pageWarningText: String =
     "This claim cannot be setup because some details are missing."
 
-  def listItem1: String =
-    "You need to provide information about the organisation you are claiming for."
+  def textParagraph1: String =
+    "You need to provide the following details to continue:"
 
-  def listItem2: String =
-    "The person making this claim must be an approved official or corporate trustee recognised by HM Revenue Customs."
+  def linkGoBackToProvideMissingInfo: String =
+    "Go back to provide the missing details for your claim"
 
-  def listItem3: String =
-    "Continue"
+  def textConfirmDonationsCollectedInCommunityBuildings: String =
+    "confirm if you are claiming for donations collected in community buildings"
+
+  def textConfirmChangingPreviousGASDSClaim: String =
+    "confirm if you want to change a previous Gift Aid Small Donations Scheme claim"
+
+  def textConfirmIfConnectedToOtherCharitiesOrCASC: String =
+    "confirm if you are connected to other charities or a Community Amateur Sports Club"
+
+  def textConfirmIfYouHaveAClaimRefNo: String =
+    "confirm if you have a claim reference number"
 
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_Repayment.verifyPageUrl(ThisClaimCannotBeSetupPage_Repayment.pageUrl)
@@ -48,10 +63,15 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
     ThisClaimCannotBeSetupPage_Repayment.verifyEntirePageContent(
       ThisClaimCannotBeSetupPage_Repayment.createSingleStringFromMany(
         ThisClaimCannotBeSetupPage_Repayment.pageHeader,
-        ThisClaimCannotBeSetupPage_Repayment.pageWarning,
-        ThisClaimCannotBeSetupPage_Repayment.listItem1,
-        ThisClaimCannotBeSetupPage_Repayment.listItem2,
-        ThisClaimCannotBeSetupPage_Repayment.listItem3
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningIcon,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningHeading,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningText,
+        ThisClaimCannotBeSetupPage_Repayment.textParagraph1,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmDonationsCollectedInCommunityBuildings,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmChangingPreviousGASDSClaim,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmIfConnectedToOtherCharitiesOrCASC,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmIfYouHaveAClaimRefNo,
+        ThisClaimCannotBeSetupPage_Repayment.linkGoBackToProvideMissingInfo
       )
     )
 }

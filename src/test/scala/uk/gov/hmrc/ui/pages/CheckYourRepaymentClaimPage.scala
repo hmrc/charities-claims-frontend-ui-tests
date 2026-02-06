@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object CheckYourRepaymentPage extends BasePage {
+object CheckYourRepaymentClaimPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/check-your-repayment-claim"
 
@@ -32,10 +32,10 @@ object CheckYourRepaymentPage extends BasePage {
     "Check your repayment claim"
 
   def validateNavigation(): Unit = {
-    CheckYourRepaymentPage.verifyPageUrl(CheckYourRepaymentPage.pageUrl)
-    CheckYourRepaymentPage.verifyPageTitle(CheckYourRepaymentPage.pageTitle)
-    CheckYourRepaymentPage.verifyPageCaption(CheckYourRepaymentPage.pageCaption)
-    CheckYourRepaymentPage.verifyPageHeader(CheckYourRepaymentPage.pageHeader)
+    CheckYourRepaymentClaimPage.verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
+    CheckYourRepaymentClaimPage.verifyPageTitle(CheckYourRepaymentClaimPage.pageTitle)
+    CheckYourRepaymentClaimPage.verifyPageCaption(CheckYourRepaymentClaimPage.pageCaption)
+    CheckYourRepaymentClaimPage.verifyPageHeader(CheckYourRepaymentClaimPage.pageHeader)
   }
 
   val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")

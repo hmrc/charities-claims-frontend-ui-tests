@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-/* Page properties are to be confirmed, this is just provisional, will be amended when confirmed */
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
