@@ -66,7 +66,7 @@ class GiftAidPagesSpec
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
-      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      And("User navigates to 'Which type of repayment claim do you want to make?' checkbox page")
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
       RepaymentCheckboxPage.validateNavigation()
       RepaymentCheckboxPage.validateHints()
@@ -74,7 +74,7 @@ class GiftAidPagesSpec
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
-      Then("User validates the 'no input' error on the 'Type of Repayment Claim' checkbox page")
+      Then("User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page")
       RepaymentCheckboxPage.validateErrorMessage()
     }
 
@@ -120,10 +120,10 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      And("User navigates to 'Claim Community Building Donations' page")
+      And("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateHint()
-      Then("User validates the 'no input' error on the 'Claim Community Building Donations' page")
+      Then("User validates the 'no input' error on the 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateErrorMessage()
     }
 
@@ -147,9 +147,9 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      Then("User navigates to 'Claim Community Building Donations' page")
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
-      And("User selects 'Yes' on the 'Claim Community Building Donations' page'")
+      And("User selects 'Yes' on the 'Do you want to claim for donations collected in community buildings?' page'")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
         DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
       )
@@ -181,9 +181,9 @@ class GiftAidPagesSpec
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
-      Then("User navigates to 'Claim Community Building Donations' page")
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
-      And("User selects 'No' on the 'Claim Community Building Donations' page'")
+      And("User selects 'No' on the 'Do you want to claim for donations collected in community buildings?' page'")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
         DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
