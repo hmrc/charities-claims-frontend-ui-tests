@@ -42,7 +42,7 @@ object Error_PageNotFoundPage extends BasePage {
   }
 
   def validatePageContent(): Unit =
-    Error_PageNotFoundPage.verifyPageNotFoundContent(
+    Error_PageNotFoundPage.verifyEntirePageContent(
       Error_PageNotFoundPage.createSingleStringFromMany(
         Error_PageNotFoundPage.pageHeader,
         Error_PageNotFoundPage.listItem1,

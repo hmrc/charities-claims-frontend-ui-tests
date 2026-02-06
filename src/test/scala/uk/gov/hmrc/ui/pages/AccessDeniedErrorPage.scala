@@ -35,7 +35,7 @@ object AccessDeniedErrorPage extends BasePage {
   }
 
   def validatePageContent(): Unit =
-    AccessDeniedErrorPage.verifyPageNotFoundContent(
+    AccessDeniedErrorPage.verifyEntirePageContent(
       AccessDeniedErrorPage.createSingleStringFromMany(
         AccessDeniedErrorPage.pageHeader,
         AccessDeniedErrorPage.listItem1,

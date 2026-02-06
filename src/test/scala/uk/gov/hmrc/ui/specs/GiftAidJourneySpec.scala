@@ -55,7 +55,7 @@ class GiftAidJourneySpec
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
@@ -115,14 +115,14 @@ class GiftAidJourneySpec
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
       DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
-        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
-        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
         DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
@@ -135,7 +135,7 @@ class GiftAidJourneySpec
       ConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")

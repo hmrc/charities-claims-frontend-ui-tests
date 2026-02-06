@@ -50,6 +50,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtFileName                = ".govuk-body"
     val txtCaption                 = By.ByClassName("govuk-caption-l")
     val txtHeader: By              = By.xpath("//h1")
+    val txtWarning                 = By.ByClassName("govuk-warning-text")
     val txtSubHeading1: By         = By.xpath("//main//h2[1]")
     val txtSubHeading2: By         = By.xpath("//main//h2[2]")
     val txtAddressPostCode         = By.ById("addressPostcode")
@@ -65,7 +66,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val taskList2Text: By          = By.xpath("//main//ul[2]")
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
-    val pageNotFoundContent        = By.ByClassName("govuk-grid-row")
+    val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
     val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
     val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
     val txtTrusteePostcode         = By.ById("corporateTrusteePostcode")
@@ -280,6 +281,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page header is: " + driver.findElement(Locators.txtHeader).getText)
   }
 
+  def verifyPageWaring(expectedWarning: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtCaption)
+    val actualWarning = driver.findElement(Locators.txtCaption).getText
+    assert(
+      actualWarning == expectedWarning,
+      s"Page warning mismatch! Expected: $expectedWarning, Actual: $actualWarning"
+    )
+    println("Actual page warning is: " + driver.findElement(Locators.txtCaption).getText)
+  }
+
   def verifyPageSubHeading1(expectedSubHeading1: String): Unit = {
     waitForVisibilityOfElement(Locators.txtSubHeading1)
     val actualSubHeading1 = driver.findElement(Locators.txtSubHeading1).getText
@@ -367,14 +378,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   }
 
   /** Verify that the main error page content is displayed as expected */
-  def verifyPageNotFoundContent(expectedText: String): Unit = {
-    waitForVisibilityOfElement(Locators.pageNotFoundContent)
-    val actualText = driver.findElement(Locators.pageNotFoundContent).getText
+  def verifyEntirePageContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtEntirePageContent)
+    val actualText = driver.findElement(Locators.txtEntirePageContent).getText
     assert(
       actualText == expectedText,
-      s"404 page content mismatch! Expected: $expectedText, Actual: $actualText"
+      s"Warning page content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page not found content is: " + driver.findElement(Locators.pageNotFoundContent).getText)
+    println("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
   }
 
   /** Helper method for passing one string to verify list text instead of multiple */

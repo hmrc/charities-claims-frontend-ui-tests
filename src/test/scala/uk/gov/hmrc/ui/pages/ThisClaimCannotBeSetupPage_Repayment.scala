@@ -16,18 +16,18 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutTheOrganisationPage extends BasePage {
+object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
 
-  override def pageUrl: String = s"$hostname/about-the-organisation"
+  override def pageUrl: String = s"$hostname/cannot-set-up-repayment-claim"
 
   override def pageTitle: String =
-    "About the organisation - Charities - GOV.UK"
+    "This claim cannot be setup - Charities - GOV.UK"
 
   def pageHeader: String =
-    "About the organisation"
+    "This claim cannot be setup"
 
-  def pageCaption: String =
-    "Provide organisation details"
+  def pageWarning: String =
+    "This claim cannot be setup because some details are missing."
 
   def listItem1: String =
     "You need to provide information about the organisation you are claiming for."
@@ -39,20 +39,19 @@ object AboutTheOrganisationPage extends BasePage {
     "Continue"
 
   def validateNavigation(): Unit = {
-    AboutTheOrganisationPage.verifyPageUrl(AboutTheOrganisationPage.pageUrl)
-    AboutTheOrganisationPage.verifyPageTitle(AboutTheOrganisationPage.pageTitle)
-    AboutTheOrganisationPage.verifyPageCaption(AboutTheOrganisationPage.pageCaption)
-    AboutTheOrganisationPage.verifyPageHeader(AboutTheOrganisationPage.pageHeader)
+    ThisClaimCannotBeSetupPage_Repayment.verifyPageUrl(ThisClaimCannotBeSetupPage_Repayment.pageUrl)
+    ThisClaimCannotBeSetupPage_Repayment.verifyPageTitle(ThisClaimCannotBeSetupPage_Repayment.pageTitle)
+    ThisClaimCannotBeSetupPage_Repayment.verifyPageHeader(ThisClaimCannotBeSetupPage_Repayment.pageHeader)
   }
 
   def validatePageContent(): Unit =
-    AboutTheOrganisationPage.verifyEntirePageContent(
-      AboutTheOrganisationPage.createSingleStringFromMany(
-        AboutTheOrganisationPage.pageCaption,
-        AboutTheOrganisationPage.pageHeader,
-        AboutTheOrganisationPage.listItem1,
-        AboutTheOrganisationPage.listItem2,
-        AboutTheOrganisationPage.listItem3
+    ThisClaimCannotBeSetupPage_Repayment.verifyEntirePageContent(
+      ThisClaimCannotBeSetupPage_Repayment.createSingleStringFromMany(
+        ThisClaimCannotBeSetupPage_Repayment.pageHeader,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarning,
+        ThisClaimCannotBeSetupPage_Repayment.listItem1,
+        ThisClaimCannotBeSetupPage_Repayment.listItem2,
+        ThisClaimCannotBeSetupPage_Repayment.listItem3
       )
     )
 }
