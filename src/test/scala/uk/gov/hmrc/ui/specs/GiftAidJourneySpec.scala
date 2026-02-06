@@ -59,7 +59,7 @@ class GiftAidJourneySpec
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
-      //      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      CheckYourRepaymentClaimPage.validateNavigation()
     }
 
     Scenario(
@@ -91,7 +91,7 @@ class GiftAidJourneySpec
       And("User enters their claim reference number and clicks continue")
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
       Then("User navigates to 'Check your repayment claim' page")
-      //      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      CheckYourRepaymentClaimPage.validateNavigation()
     }
 
     Scenario(
@@ -139,7 +139,7 @@ class GiftAidJourneySpec
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
-//      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      CheckYourRepaymentClaimPage.validateNavigation()
     }
 
     Scenario(
@@ -196,7 +196,7 @@ class GiftAidJourneySpec
       And("User enters their claim reference number and clicks continue")
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
       Then("User navigates to 'Check your repayment claim' page")
-//      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      CheckYourRepaymentClaimPage.validateNavigation()
     }
   }
 }

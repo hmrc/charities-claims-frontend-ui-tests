@@ -115,7 +115,14 @@ class WarningPagesSpec
       "User navigates to the 'Check your organisation details' page with missing information and validates correct warning screen is displayed on submission"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - WRN6")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "PAGETEST - Organisation WRN6"
+      )
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
       And("User navigates to 'Check your organisation details' page")
@@ -133,7 +140,7 @@ class WarningPagesSpec
       "User navigates to the 'Check your repayment claim' page with missing information and validates correct warning screen is displayed on submission"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - R3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - Repayment WRN6")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")

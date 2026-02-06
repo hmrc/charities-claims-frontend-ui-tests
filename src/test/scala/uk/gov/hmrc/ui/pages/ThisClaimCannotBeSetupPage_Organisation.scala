@@ -38,7 +38,7 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
   def textParagraph1: String =
     "You need to provide the following details to continue:"
 
-  def linkGoBackToProvideMissingInfo: String =
+  def textGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
   def textConfirmRegulatorName: String =
@@ -63,7 +63,7 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
         ThisClaimCannotBeSetupPage_Organisation.textParagraph1,
         ThisClaimCannotBeSetupPage_Organisation.textConfirmRegulatorName,
         ThisClaimCannotBeSetupPage_Organisation.textConfirmIfCorporateTrustee,
-        ThisClaimCannotBeSetupPage_Organisation.linkGoBackToProvideMissingInfo
+        ThisClaimCannotBeSetupPage_Organisation.textGoBackToProvideMissingInfo
       )
     )
 }
