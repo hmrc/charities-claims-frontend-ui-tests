@@ -40,8 +40,8 @@ object UploadAGiftAidSchedulePage extends BasePage {
   def pageErrorMsg: String =
     "Select a Gift Aid schedule"
 
-  val fileUploadFieldLocator           = By.ById("value")
-  val errorMsgLocator                  = By.ById("value-error")
+  val fileUploadFieldLocator = By.ById("value")
+  val errorMsgLocator        = By.ById("value-error")
 
   def enterClaimReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputReferenceNumber, referenceNo)
@@ -67,10 +67,9 @@ object UploadAGiftAidSchedulePage extends BasePage {
     )
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit = {
+  def validateErrorMessage(): Unit =
     UploadAGiftAidSchedulePage.validateGenericPageError(
       UploadAGiftAidSchedulePage.pageErrorMsg,
       UploadAGiftAidSchedulePage.errorMsgLocator
     )
-  }
 }
