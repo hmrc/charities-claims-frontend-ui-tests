@@ -405,8 +405,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
 
   /** Helper for switching the driver to a new tab, useful for actions that open content in a new tab */
-  def getOriginalWindowHandle(): String = { driver.getWindowHandle }
-  
+  def getOriginalWindowHandle(): String = driver.getWindowHandle
+
   def switchBrowserTab(originalWindow: String): Unit = {
     // Wait until the tab has opened / is open
     w.until(_.getWindowHandles.size() > 1)
