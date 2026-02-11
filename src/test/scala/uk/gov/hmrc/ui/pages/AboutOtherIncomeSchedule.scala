@@ -17,14 +17,15 @@ object AboutOtherIncomeSchedule extends BasePage {
     "You can download a Other Income schedule here (opens in a new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
 
   /** URL to the page that opens in new tab */
-  def newPageUrl: String = "https://www.gov.uk/guidance/schedule-spreadsheet-to-reclaim-tax-on-interest-and-other-income"
+  def newPageUrl: String =
+    "https://www.gov.uk/guidance/schedule-spreadsheet-to-reclaim-tax-on-interest-and-other-income"
 
   def validateNavigation(): Unit = {
     AboutOtherIncomeSchedule.verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
     AboutOtherIncomeSchedule.verifyPageTitle(AboutOtherIncomeSchedule.pageTitle)
   }
 
-  def validatePageContent(): Unit = {
+  def validatePageContent(): Unit =
     AboutOtherIncomeSchedule.verifyEntirePageContent(
       AboutTheOrganisationPage.createSingleStringFromMany(
         AboutOtherIncomeSchedule.pageCaption,
@@ -34,7 +35,6 @@ object AboutOtherIncomeSchedule extends BasePage {
         AboutOtherIncomeSchedule.listText3
       )
     )
-  }
 
   def validateDataGuardProtection(): Unit = {
     navigateToPage(pageUrl)
@@ -53,7 +53,21 @@ object AboutOtherIncomeSchedule extends BasePage {
     clickContinue()
   }
 
-  def dataGuardCompleteGoToAboutOtherIncomeSchedule(): Unit = {
+  def goToAboutOtherIncomeSchedulePage(): Unit = {
     navigateToPage(AboutOtherIncomeSchedule.pageUrl)
+    verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
+  }
+
+  def goToMakeACharityRepaymentClaimPage(): Unit = {
+    navigateToPage(ClaimsTaskListPage.pageUrl)
+    verifyPageUrl(ClaimsTaskListPage.pageUrl)
+  }
+
+  def clickOnDownloadSpreadsheetLink(): Unit = {
+    val originalWindow: String = getOriginalWindowHandle()
+    clickLink()
+    switchBrowserTab(originalWindow)
+    verifyPageUrl(AboutOtherIncomeSchedule.newPageUrl)
+    closeCurrentTabAndReturnToOriginal(originalWindow)
   }
 }

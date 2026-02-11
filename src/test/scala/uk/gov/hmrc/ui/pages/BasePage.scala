@@ -24,6 +24,8 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
+
+import scala.collection.JavaConverters.asScalaSetConverter
 //import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
@@ -75,7 +77,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialSurname     = By.ById("lastName")
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
-    val linkToDifferentPage = By.ById("govuk-link")
+    val linkToDifferentPage        = By.ById("govuk-link")
   }
 
   def pageUrl: String
@@ -234,7 +236,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     }
 
   /** Click a link that is defaulted to the GOV class */
-  def clickLink(): Unit = {
+  def clickLink(): Unit =
     try {
       click(Locators.linkToDifferentPage)
       println("Successfully clicked the link")
@@ -242,7 +244,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       case e: Exception =>
         println(s"Failed to click the link. Error: ${e.getMessage}")
     }
-  }
 
   /** Verify that the URL Endpoint is a substring of the current URL */
   def verifyPageUrl(expectedUrl: String): Unit = {
@@ -402,4 +403,28 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Helper method for passing one string to verify list text instead of multiple */
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
+
+  /** Helper for switching the driver to a new tab, useful for actions that open content in a new tab */
+  def getOriginalWindowHandle(): String = { driver.getWindowHandle }
+  
+  def switchBrowserTab(originalWindow: String): Unit = {
+    // Wait until the tab has opened / is open
+    w.until(_.getWindowHandles.size() > 1)
+
+    // Get all current window handles
+    val handles = driver.getWindowHandles.asScala
+
+    // Check there are 2 if not throw an error
+    assert(handles.size == 2, s"Expected exactly 2 tabs, but found ${handles.size}")
+
+    // Get the other tab that is not the original
+    val otherTab = handles.find(_ != originalWindow)
+
+    driver.switchTo().window(otherTab.get)
+  }
+
+  def closeCurrentTabAndReturnToOriginal(originalWindow: String): Unit = {
+    driver.close()
+    driver.switchTo().window(originalWindow)
+  }
 }
