@@ -37,6 +37,24 @@ object UploadAGiftAidSchedulePage extends BasePage {
   def pageText2: String =
     "If you have not completed a Gift Aid schedule, download a Gift Aid schedule here (opens in new tab)."
 
+  def pageText3: String =
+    "Upload a file"
+
+  def pageText4: String =
+    "No file chosen"
+
+  def pageHiddenText: String =
+    ","
+
+  def pageText5: String =
+    "Choose file"
+
+  def pageText6: String =
+    "or drop file"
+
+  def pageText7: String =
+    "Continue"
+
   def pageErrorMsg: String =
     "Select a Gift Aid schedule"
 
@@ -61,8 +79,13 @@ object UploadAGiftAidSchedulePage extends BasePage {
         UploadAGiftAidSchedulePage.pageCaption,
         UploadAGiftAidSchedulePage.pageHeader,
         UploadAGiftAidSchedulePage.pageText1,
-        UploadAGiftAidSchedulePage.pageText2
-//        UploadAGiftAidSchedulePage.listItem3
+        UploadAGiftAidSchedulePage.pageText2,
+        UploadAGiftAidSchedulePage.pageText3,
+        UploadAGiftAidSchedulePage.pageText4,
+        UploadAGiftAidSchedulePage.pageHiddenText,
+        UploadAGiftAidSchedulePage.pageText5,
+        UploadAGiftAidSchedulePage.pageText6,
+        UploadAGiftAidSchedulePage.pageText7
       )
     )
 
