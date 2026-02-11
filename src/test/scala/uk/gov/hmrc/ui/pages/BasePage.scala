@@ -75,6 +75,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialSurname     = By.ById("lastName")
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
+    val linkToDifferentPage = By.ById("govuk-link")
   }
 
   def pageUrl: String
@@ -231,6 +232,17 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       case e: Exception =>
         println(s"Failed to click the link with ID: $linkId. Error: ${e.getMessage}")
     }
+
+  /** Click a link that is defaulted to the GOV class */
+  def clickLink(): Unit = {
+    try {
+      click(Locators.linkToDifferentPage)
+      println("Successfully clicked the link")
+    } catch {
+      case e: Exception =>
+        println(s"Failed to click the link. Error: ${e.getMessage}")
+    }
+  }
 
   /** Verify that the URL Endpoint is a substring of the current URL */
   def verifyPageUrl(expectedUrl: String): Unit = {
