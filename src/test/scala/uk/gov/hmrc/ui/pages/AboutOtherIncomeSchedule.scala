@@ -80,7 +80,7 @@ object AboutOtherIncomeSchedule extends BasePage {
   }
 
   def clickOnDownloadSpreadsheetLink(): Unit = {
-    val originalWindow: String = getOriginalWindowHandle()
+    val originalWindow: String = getOriginalWindowHandle
     clickLink()
     switchBrowserTab(originalWindow)
     verifyPageUrl(AboutOtherIncomeSchedule.newPageUrl)

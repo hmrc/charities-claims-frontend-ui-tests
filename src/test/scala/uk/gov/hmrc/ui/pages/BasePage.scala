@@ -24,11 +24,9 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
-
-import scala.collection.JavaConverters.asScalaSetConverter
-//import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+import scala.jdk.CollectionConverters._
 
 import java.time.Duration
 import scala.util.Random
@@ -405,14 +403,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
 
   /** Helper for switching the driver to a new tab, useful for actions that open content in a new tab */
-  def getOriginalWindowHandle(): String = driver.getWindowHandle
+  def getOriginalWindowHandle: String = driver.getWindowHandle
 
   def switchBrowserTab(originalWindow: String): Unit = {
     // Wait until the tab has opened / is open
     w.until(_.getWindowHandles.size() > 1)
 
     // Get all current window handles
-    val handles = driver.getWindowHandles.asScala
+    val handles = driver.getWindowHandles.asScala.toSeq
 
     // Check there are 2 if not throw an error
     assert(handles.size == 2, s"Expected exactly 2 tabs, but found ${handles.size}")
