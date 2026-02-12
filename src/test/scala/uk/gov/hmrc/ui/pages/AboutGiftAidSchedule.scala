@@ -16,38 +16,47 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutGiftAidSchedule extends BasePage{
+object AboutGiftAidSchedule extends BasePage {
 
-  override def pageUrl : String = s"$hostname/about-gift-aid-schedule"
+  override def pageUrl: String = s"$hostname/about-gift-aid-schedule"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "About Gift Aid schedule - Charities - GOV.UK"
 
-  def pageCaption : String =
+  def pageCaption: String =
     "Add Gift Aid schedule"
 
-  def pageHeading : String =
+  def pageHeading: String =
     "About Gift Aid schedule"
 
-  def listText1 : String =
+  def listItem1: String =
     "Use this service to add a Gift Aid schedule."
 
-  def listText2 : String =
+  def listItem2: String =
     "You can upload a Gift Aid schedule in a .ods format."
 
-  def listText3 : String =
-    "You can download a Gift Aid schedule here (opens in a new tab). You can submit up to 1 file at a time, and each file can be up to 2.5MB."
+  def listItem3: String =
+    "You can download a Gift Aid schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
 
-  def validateNavigation() : Unit = {
+  def listItem4: String =
+    "Continue"
+
+  def validateNavigation(): Unit = {
     AboutGiftAidSchedule.verifyPageUrl(AboutGiftAidSchedule.pageUrl)
     AboutGiftAidSchedule.verifyPageTitle(AboutGiftAidSchedule.pageTitle)
     AboutGiftAidSchedule.verifyPageCaption(AboutGiftAidSchedule.pageCaption)
     AboutGiftAidSchedule.verifyPageHeader(AboutGiftAidSchedule.pageHeading)
   }
 
-  def validatePageContent() : Unit = {
-    AboutGiftAidSchedule.verifyListText(AboutGiftAidSchedule.listText1)
-    AboutGiftAidSchedule.verifyListText(AboutGiftAidSchedule.listText2)
-    AboutGiftAidSchedule.verifyListText(AboutGiftAidSchedule.listText3)
-  }
+  def validatePageContent(): Unit =
+    AboutGiftAidSchedule.verifyEntirePageContent(
+      AboutGiftAidSchedule.createSingleStringFromMany(
+        AboutGiftAidSchedule.pageCaption,
+        AboutGiftAidSchedule.pageHeading,
+        AboutGiftAidSchedule.listItem1,
+        AboutGiftAidSchedule.listItem2,
+        AboutGiftAidSchedule.listItem3,
+        AboutGiftAidSchedule.listItem4
+      )
+    )
 }
