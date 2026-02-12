@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object ClaimsTaskListPage extends BasePage {
+object ClaimsTaskListPage_Empty extends BasePage {
 
   override def pageUrl: String = s"$hostname/make-a-charity-repayment-claim"
 
@@ -56,12 +56,12 @@ object ClaimsTaskListPage extends BasePage {
     "Cannot start yet"
 
   def validateNavigation(): Unit = {
-    ClaimsTaskListPage.verifyPageUrl(ClaimsTaskListPage.pageUrl)
-    ClaimsTaskListPage.verifyPageTitle(ClaimsTaskListPage.pageTitle)
-    ClaimsTaskListPage.verifyDynamicPageCaption(ClaimsTaskListPage.pageCaption)
-    ClaimsTaskListPage.verifyPageHeader(ClaimsTaskListPage.pageHeader)
-    ClaimsTaskListPage.verifyPageSubHeading1(ClaimsTaskListPage.pageSubheading1)
-    ClaimsTaskListPage.verifyPageSubHeading2(ClaimsTaskListPage.pageSubheading2)
+    ClaimsTaskListPage_Empty.verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
+    ClaimsTaskListPage_Empty.verifyPageTitle(ClaimsTaskListPage_Empty.pageTitle)
+    ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
+    ClaimsTaskListPage_Empty.verifyPageHeader(ClaimsTaskListPage_Empty.pageHeader)
+    ClaimsTaskListPage_Empty.verifyPageSubHeading1(ClaimsTaskListPage_Empty.pageSubheading1)
+    ClaimsTaskListPage_Empty.verifyPageSubHeading2(ClaimsTaskListPage_Empty.pageSubheading2)
   }
 
   val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
@@ -78,16 +78,16 @@ object ClaimsTaskListPage extends BasePage {
   }
 
   def validatePageContent(): Unit =
-    ClaimsTaskListPage.verifyTaskList1Text(
-      ClaimsTaskListPage.createSingleStringFromMany(
-        ClaimsTaskListPage.pageTaskList1Item1 + " " + ClaimsTaskListPage.pageTaskListItemIncompleteStatus
+    ClaimsTaskListPage_Empty.verifyTaskList1Text(
+      ClaimsTaskListPage_Empty.createSingleStringFromMany(
+        ClaimsTaskListPage_Empty.pageTaskList1Item1 + " " + ClaimsTaskListPage_Empty.pageTaskListItemIncompleteStatus
       )
     )
-    ClaimsTaskListPage.verifyTaskList2Text(
-      ClaimsTaskListPage.createSingleStringFromMany(
-        ClaimsTaskListPage.pageTaskList2Item1,
-        ClaimsTaskListPage.pageTaskList2Item2,
-        ClaimsTaskListPage.pageTaskList2Item3
+    ClaimsTaskListPage_Empty.verifyTaskList2Text(
+      ClaimsTaskListPage_Empty.createSingleStringFromMany(
+        ClaimsTaskListPage_Empty.pageTaskList2Item1,
+        ClaimsTaskListPage_Empty.pageTaskList2Item2,
+        ClaimsTaskListPage_Empty.pageTaskList2Item3
       )
     )
 }
