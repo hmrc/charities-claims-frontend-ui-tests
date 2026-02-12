@@ -24,6 +24,8 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
+
+import java.nio.file.Paths
 //import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
@@ -77,6 +79,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialSurname     = By.ById("lastName")
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
+    val fileUploadFieldLocator     = By.ById("file-input")
   }
 
   def pageUrl: String
@@ -403,4 +406,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Helper method for passing one string to verify list text instead of multiple */
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
+
+  def selectFile(spreadsheetName: String): Unit = {
+    val fileUploadFieldLocator = driver.findElement(By.id("file-input"))
+    val inputFilePath          = Paths.get("src/test/resources/" + spreadsheetName + ".ods").toAbsolutePath.toString
+    fileUploadFieldLocator.sendKeys(inputFilePath)
+  }
 }
