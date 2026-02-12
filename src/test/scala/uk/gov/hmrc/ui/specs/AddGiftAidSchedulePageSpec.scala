@@ -35,11 +35,16 @@ class AddGiftAidSchedulePageSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
+//    Scenario(
+//      "G1.0 test goes here"
+//    ) {
+//    }
+
     Scenario(
-      "User navigates to the 'Make a charity repayment claim' page and validates the page elements"
+      "User navigates to the 'Upload a Gift Aid schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JR TEST - G1.1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - G1.1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
