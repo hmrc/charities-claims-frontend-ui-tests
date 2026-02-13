@@ -401,28 +401,4 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Helper method for passing one string to verify list text instead of multiple */
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
-
-  /** Helper for switching the driver to a new tab, useful for actions that open content in a new tab */
-  def getOriginalWindowHandle: String = driver.getWindowHandle
-
-  def switchBrowserTab(originalWindow: String): Unit = {
-    // Wait until the tab has opened / is open
-    w.until(_.getWindowHandles.size() > 1)
-
-    // Get all current window handles
-    val handles = driver.getWindowHandles.asScala.toSeq
-
-    // Check there are 2 if not throw an error
-    assert(handles.size == 2, s"Expected exactly 2 tabs, but found ${handles.size}")
-
-    // Get the other tab that is not the original
-    val otherTab = handles.find(_ != originalWindow)
-
-    driver.switchTo().window(otherTab.get)
-  }
-
-  def closeCurrentTabAndReturnToOriginal(originalWindow: String): Unit = {
-    driver.close()
-    driver.switchTo().window(originalWindow)
-  }
 }

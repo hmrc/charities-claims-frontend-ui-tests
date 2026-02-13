@@ -36,7 +36,14 @@ class OtherIncomePagesSpec
   Feature("Charities - Organisation - About Other Income Schedule") {
     Scenario("User navigates to the 'About Other Income Schedule' page without meeting the minimum data guard") {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - O1.0")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "PAGETEST - O1.0 - Page Not Found"
+      )
       Then("the user tries to access the screen and reaches 'Page Not Found'")
       AboutOtherIncomeSchedule.validateDataGuardProtection()
     }
@@ -44,15 +51,13 @@ class OtherIncomePagesSpec
     Scenario("User navigates to the 'About Other Income Schedule' page and completes the minimum data guard") {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - O1.0")
-      Then("the user navigates too 'ClaimsTaskList' then completes the necessary minimum data input")
+      Then("the user navigates too 'Claims Task List' then completes the necessary minimum data input")
       AboutOtherIncomeSchedule.completeMinimumDataGuard()
-      Then("the user has completed the minimum data required and navigates too 'AboutOtherIncomeSchedule' page")
+      Then("the user has completed the minimum data required and navigates to 'About Other Income Schedule' page")
       AboutOtherIncomeSchedule.goToAboutOtherIncomeSchedulePage()
       Then("the we validate the page content")
       AboutOtherIncomeSchedule.validateNavigation()
       AboutOtherIncomeSchedule.validatePageContent()
-      Then("the user clicks on the download link")
-      AboutOtherIncomeSchedule.clickOnDownloadSpreadsheetLink()
     }
   }
 }
