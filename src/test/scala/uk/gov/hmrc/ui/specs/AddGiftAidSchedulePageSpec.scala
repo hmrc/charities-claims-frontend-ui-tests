@@ -81,6 +81,16 @@ class AddGiftAidSchedulePageSpec
       Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
       UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-TEST")
       UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Your Gift Aid schedule upload' page")
+//      ClaimsTaskListPage.validateNavigation()
+      Thread.sleep(5000)
+      UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Check your Gift Aid schedule' page")
+      CheckYourGiftAidSchedulePage.validateNavigation()
+      Then("User validates content on 'Check your Gift Aid schedule' page")
+      CheckYourGiftAidSchedulePage.validateSummaryCard()
+      CheckYourGiftAidSchedulePage.validateFormFieldset()
+//      CheckYourGiftAidSchedulePage.validateErrorMessage()
     }
   }
 }
