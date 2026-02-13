@@ -32,10 +32,6 @@ object AboutOtherIncomeSchedule extends BasePage {
   def listText3: String =
     "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
 
-  /** URL to the page that opens in new tab */
-  def newPageUrl: String =
-    "https://www.gov.uk/guidance/schedule-spreadsheet-to-reclaim-tax-on-interest-and-other-income"
-
   def validateNavigation(): Unit = {
     AboutOtherIncomeSchedule.verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
     AboutOtherIncomeSchedule.verifyPageTitle(AboutOtherIncomeSchedule.pageTitle)
