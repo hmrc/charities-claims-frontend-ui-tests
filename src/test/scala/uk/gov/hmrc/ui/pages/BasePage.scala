@@ -71,6 +71,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
+    val txtSummaryCardContent      = By.ByClassName("govuk-summary-card")
     val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
     val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
     val txtTrusteePostcode         = By.ById("corporateTrusteePostcode")
@@ -80,6 +81,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
     val fileUploadFieldLocator     = By.ById("file-input")
+    val txtFormFieldset: By        = By.xpath("//form//fieldset")
   }
 
   def pageUrl: String
@@ -402,6 +404,26 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Warning page content mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
+  }
+
+  def verifySummaryCardContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSummaryCardContent)
+    val actualText = driver.findElement(Locators.txtSummaryCardContent).getText
+    assert(
+      actualText == expectedText,
+      s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardContent).getText)
+  }
+
+  def verifyFormFieldsetContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtFormFieldset)
+    val actualText = driver.findElement(Locators.txtFormFieldset).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
   }
 
   /** Helper method for passing one string to verify list text instead of multiple */
