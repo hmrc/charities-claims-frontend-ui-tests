@@ -58,9 +58,9 @@ object AboutOtherIncomeSchedule extends BasePage {
   }
 
   def completeMinimumDataGuard(): Unit = {
-    navigateToPage(ClaimsTaskListPage.pageUrl)
-    verifyPageUrl(ClaimsTaskListPage.pageUrl)
-    ClaimsTaskListPage.clickProvideRepaymentClaimDetails()
+    navigateToPage(ClaimsTaskListPage_Empty.pageUrl)
+    verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
+    ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
     verifyPageUrl(RepaymentClaimDetailsPage.pageUrl)
     clickContinue()
     verifyPageUrl(RepaymentCheckboxPage.pageUrl)
@@ -74,7 +74,7 @@ object AboutOtherIncomeSchedule extends BasePage {
   }
 
   def goToMakeACharityRepaymentClaimPage(): Unit = {
-    navigateToPage(ClaimsTaskListPage.pageUrl)
-    verifyPageUrl(ClaimsTaskListPage.pageUrl)
+    navigateToPage(ClaimsTaskListPage_Empty.pageUrl)
+    verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
   }
 }
