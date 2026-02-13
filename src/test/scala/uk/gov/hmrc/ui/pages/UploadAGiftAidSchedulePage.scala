@@ -61,11 +61,6 @@ object UploadAGiftAidSchedulePage extends BasePage {
   val fileUploadFieldLocator = By.ById("file")
   val errorMsgLocator        = By.ById("value-error")
 
-  def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputReferenceNumber, referenceNo)
-    clickContinue()
-  }
-
   def clickFileUploader(spreadsheet: String): Unit = {
     selectFile(spreadsheet)
     clickContinue()
