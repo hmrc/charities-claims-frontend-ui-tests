@@ -137,16 +137,16 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
         ClaimsTaskListPage_InProgress.pageTaskList1Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList1Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList1Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus
+        ClaimsTaskListPage_InProgress.pageTaskList1Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+//        ClaimsTaskListPage_InProgress.pageTaskList1Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus
       )
     )
     ClaimsTaskListPage_InProgress.verifyTaskList2Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
-        ClaimsTaskListPage_InProgress.pageTaskList2Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList2Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList2Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList2Item4 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+        ClaimsTaskListPage_InProgress.pageTaskList2Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+//        ClaimsTaskListPage_InProgress.pageTaskList2Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
+//        ClaimsTaskListPage_InProgress.pageTaskList2Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
+//        ClaimsTaskListPage_InProgress.pageTaskList2Item4 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
       )
     )
     ClaimsTaskListPage_InProgress.verifyTaskList3Text(

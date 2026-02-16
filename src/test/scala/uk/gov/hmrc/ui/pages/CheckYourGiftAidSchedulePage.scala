@@ -32,7 +32,7 @@ object CheckYourGiftAidSchedulePage extends BasePage {
     "Check your Gift Aid schedule"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you have a claim reference number"
+    "Select ‘Yes’ if you need to update this Gift Aid schedule"
 
   def textSummaryCardTitle: String =
     "Gift Aid schedule details"
@@ -75,14 +75,14 @@ object CheckYourGiftAidSchedulePage extends BasePage {
     CheckYourGiftAidSchedulePage.verifyPageHeader(CheckYourGiftAidSchedulePage.pageHeader)
   }
 
-  //TODO Hardcoded values, needs improved
+  // TODO Hardcoded values, needs improved
   def validateSummaryCard(): Unit =
     CheckYourGiftAidSchedulePage.verifySummaryCardContent(
       CheckYourGiftAidSchedulePage.createSingleStringFromMany(
         CheckYourGiftAidSchedulePage.textSummaryCardTitle,
         CheckYourGiftAidSchedulePage.textSummaryRow1Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow1Col2,
         CheckYourGiftAidSchedulePage.textSummaryRow2Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow2Col2,
-        CheckYourGiftAidSchedulePage.textSummaryRow3Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow3Col2,
+        CheckYourGiftAidSchedulePage.textSummaryRow3Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow3Col2
       )
     )
 

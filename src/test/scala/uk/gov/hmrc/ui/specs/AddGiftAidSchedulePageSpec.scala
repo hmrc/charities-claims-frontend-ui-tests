@@ -90,7 +90,7 @@ class AddGiftAidSchedulePageSpec
       Then("User validates content on 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateSummaryCard()
       CheckYourGiftAidSchedulePage.validateFormFieldset()
-//      CheckYourGiftAidSchedulePage.validateErrorMessage()
+      CheckYourGiftAidSchedulePage.validateErrorMessage()
     }
   }
 }
