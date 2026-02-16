@@ -24,6 +24,8 @@ import org.scalatest.matchers.must.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
+
+import java.nio.file.Paths
 //import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
@@ -53,6 +55,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtWarning                 = By.ByClassName("govuk-warning-text")
     val txtSubHeading1: By         = By.xpath("//main//h2[1]")
     val txtSubHeading2: By         = By.xpath("//main//h2[2]")
+    val txtSubHeading3: By         = By.xpath("//main//h2[3]")
     val txtAddressPostCode         = By.ById("addressPostcode")
     val inputReferenceNumber       = By.ByClassName("govuk-input")
     val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
@@ -64,6 +67,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val listText                   = By.ByClassName("govuk-list")
     val taskList1Text: By          = By.xpath("//main//ul[1]")
     val taskList2Text: By          = By.xpath("//main//ul[2]")
+    val taskList3Text: By          = By.xpath("//main//ul[3]")
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
@@ -75,6 +79,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialSurname     = By.ById("lastName")
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
+    val fileUploadFieldLocator     = By.ById("file-input")
   }
 
   def pageUrl: String
@@ -366,6 +371,17 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page task list 2 is: " + driver.findElement(Locators.taskList2Text).getText)
   }
 
+  /** Verify elements of a list are the expected messages */
+  def verifyTaskList3Text(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.taskList3Text)
+    val actualText = driver.findElement(Locators.taskList3Text).getText
+    assert(
+      actualText == expectedText,
+      s"Page task list 3 mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page task list 3 is: " + driver.findElement(Locators.taskList3Text).getText)
+  }
+
   /** Verify that the text within a legend includes the expected text */
   def verifyLegendText(expectedText: String): Unit = {
     waitForVisibilityOfElement(Locators.legendText)
@@ -390,4 +406,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Helper method for passing one string to verify list text instead of multiple */
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
+
+  def selectFile(spreadsheetName: String): Unit = {
+    val fileUploadFieldLocator = driver.findElement(By.id("file-input"))
+    val inputFilePath          = Paths.get("src/test/resources/" + spreadsheetName + ".ods").toAbsolutePath.toString
+    fileUploadFieldLocator.sendKeys(inputFilePath)
+  }
 }
