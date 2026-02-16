@@ -56,10 +56,10 @@ object UploadAGiftAidSchedulePage extends BasePage {
     "Continue"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you need to update this Gift Aid schedule"
+    "Select a Gift Aid schedule"
 
   val fileUploadFieldLocator = By.ById("file")
-  val errorMsgLocator        = By.ById("value-error")
+  val errorMsgLocator        = By.ById("file-error")
 
   def clickFileUploader(spreadsheet: String): Unit = {
     selectFile(spreadsheet)
