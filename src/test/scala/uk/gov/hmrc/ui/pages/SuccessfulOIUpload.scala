@@ -17,4 +17,9 @@ object SuccessfulOIUpload extends BasePage {
   def validatePageContent(): Unit = {
     SuccessfulOIUpload.verifyParagraphText(SuccessfulOIUpload.listText)
   }
+
+  def goToPage(): Unit = {
+    navigateToPage(SuccessfulOIUpload.pageUrl)
+    verifyPageUrl(SuccessfulOIUpload.pageUrl)
+  }
 }
