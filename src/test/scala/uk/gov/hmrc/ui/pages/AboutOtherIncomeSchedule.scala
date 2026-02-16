@@ -38,7 +38,6 @@ object AboutOtherIncomeSchedule extends BasePage {
   }
 
   def validatePageContent(): Unit =
-    println(
       AboutOtherIncomeSchedule.verifyEntirePageContent(
         AboutOtherIncomeSchedule.createSingleStringFromMany(
           AboutOtherIncomeSchedule.pageCaption,
@@ -48,7 +47,6 @@ object AboutOtherIncomeSchedule extends BasePage {
           AboutOtherIncomeSchedule.listText3,
           "Continue"
         )
-      )
     )
 
   def validateDataGuardProtection(): Unit = {
