@@ -32,21 +32,23 @@ object AboutOtherIncomeSchedule extends BasePage {
   def listText3: String =
     "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
 
+  def continueButton: String = "Continue"
+
   def validateNavigation(): Unit = {
     AboutOtherIncomeSchedule.verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
     AboutOtherIncomeSchedule.verifyPageTitle(AboutOtherIncomeSchedule.pageTitle)
   }
 
   def validatePageContent(): Unit =
-      AboutOtherIncomeSchedule.verifyEntirePageContent(
-        AboutOtherIncomeSchedule.createSingleStringFromMany(
-          AboutOtherIncomeSchedule.pageCaption,
-          AboutOtherIncomeSchedule.pageHeading,
-          AboutOtherIncomeSchedule.listText1,
-          AboutOtherIncomeSchedule.listText2,
-          AboutOtherIncomeSchedule.listText3,
-          "Continue"
-        )
+    AboutOtherIncomeSchedule.verifyEntirePageContent(
+      AboutOtherIncomeSchedule.createSingleStringFromMany(
+        AboutOtherIncomeSchedule.pageCaption,
+        AboutOtherIncomeSchedule.pageHeading,
+        AboutOtherIncomeSchedule.listText1,
+        AboutOtherIncomeSchedule.listText2,
+        AboutOtherIncomeSchedule.listText3,
+        AboutOtherIncomeSchedule.continueButton
+      )
     )
 
   def validateDataGuardProtection(): Unit = {
