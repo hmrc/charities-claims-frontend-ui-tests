@@ -35,10 +35,41 @@ class AddGiftAidSchedulePageSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
-//    Scenario(
-//      "G1.0 test goes here"
-//    ) {
-//    }
+    Scenario(
+      "User navigates to the 'About Gift Aid Schedule' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - G1.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validatePageContent()
+      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+      Then("User validates the 'About Gift Aid Schedule' page")
+      AboutGiftAidSchedule.validateNavigation()
+      AboutGiftAidSchedule.validatePageContent()
+    }
 
     Scenario(
       "User navigates to the 'Upload a Gift Aid schedule' page and validates the page elements"
