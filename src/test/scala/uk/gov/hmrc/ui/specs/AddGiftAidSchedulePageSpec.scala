@@ -118,10 +118,52 @@ class AddGiftAidSchedulePageSpec
       UploadAGiftAidSchedulePage.validateOversizeErrorMessage()
     }
 
-//    Scenario(
-//      "G1.2 test goes here"
-//    ) {
-//    }
+    Scenario(
+      "User navigates to the 'Your Gift Aid schedule upload' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - G1.2")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+      Then("User navigates to 'About Gift Aid schedule' page")
+      AboutGiftAidSchedulePage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigation()
+      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-TEST")
+      UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Your Gift Aid schedule upload' page")
+      YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.validateParagraph()
+      Then("User removed the uploaded file on 'Your Gift Aid schedule upload' page")
+      YourGiftAidScheduleUploadPage.clickRemoveUploadedFile()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigation()
+    }
 
     Scenario(
       "User navigates to the 'Check your Gift Aid schedule' page and validates the page elements"
@@ -156,7 +198,7 @@ class AddGiftAidSchedulePageSpec
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User navigates to 'About Gift Aid schedule' page")
       AboutGiftAidSchedulePage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
+      AboutGiftAidSchedulePage.clickContinue()
       Then("User navigates to 'Upload a Gift Aid schedule' page")
       UploadAGiftAidSchedulePage.validateNavigation()
       Then("User validates the elements on the 'Upload a Gift Aid schedule' page")
@@ -165,9 +207,9 @@ class AddGiftAidSchedulePageSpec
       UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-TEST")
       UploadAGiftAidSchedulePage.clickContinue()
       Then("User navigates to 'Your Gift Aid schedule upload' page")
-      //      ClaimsTaskListPage.validateNavigation()
-      Thread.sleep(5000)
-      UploadAGiftAidSchedulePage.clickContinue()
+      YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.waitForFileUpload()
+      YourGiftAidScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateNavigation()
       Then("User validates content on 'Check your Gift Aid schedule' page")

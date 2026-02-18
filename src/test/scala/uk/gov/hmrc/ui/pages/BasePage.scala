@@ -111,6 +111,12 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     new WebDriverWait(driver, Duration.ofSeconds(10))
       .until(ExpectedConditions.elementToBeClickable(selector))
 
+  // Wait for the element to contain the text
+  def waitForElementToContain(elementLocator: By, expectedValue: String, waitTime: Int): Unit = {
+    val wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime))
+    wait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocator, expectedValue))
+  }
+
   /** Trigger a generic error message by trying to bypass required components / data */
   def validateGenericPageError(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
     val errorMessage       = s"$expectedErrorMessage"
