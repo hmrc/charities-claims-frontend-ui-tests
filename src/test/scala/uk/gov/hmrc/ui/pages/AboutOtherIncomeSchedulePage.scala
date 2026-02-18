@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutOtherIncomeSchedule extends BasePage {
+object AboutOtherIncomeSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/about-other-income-schedule"
 
   override def pageTitle: String = "About Other Income schedule - Charities - GOV.UK"
@@ -35,19 +35,19 @@ object AboutOtherIncomeSchedule extends BasePage {
   def continueButton: String = "Continue"
 
   def validateNavigation(): Unit = {
-    AboutOtherIncomeSchedule.verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
-    AboutOtherIncomeSchedule.verifyPageTitle(AboutOtherIncomeSchedule.pageTitle)
+    AboutOtherIncomeSchedulePage.verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
+    AboutOtherIncomeSchedulePage.verifyPageTitle(AboutOtherIncomeSchedulePage.pageTitle)
   }
 
   def validatePageContent(): Unit =
-    AboutOtherIncomeSchedule.verifyEntirePageContent(
-      AboutOtherIncomeSchedule.createSingleStringFromMany(
-        AboutOtherIncomeSchedule.pageCaption,
-        AboutOtherIncomeSchedule.pageHeading,
-        AboutOtherIncomeSchedule.listText1,
-        AboutOtherIncomeSchedule.listText2,
-        AboutOtherIncomeSchedule.listText3,
-        AboutOtherIncomeSchedule.continueButton
+    AboutOtherIncomeSchedulePage.verifyEntirePageContent(
+      AboutOtherIncomeSchedulePage.createSingleStringFromMany(
+        AboutOtherIncomeSchedulePage.pageCaption,
+        AboutOtherIncomeSchedulePage.pageHeading,
+        AboutOtherIncomeSchedulePage.listText1,
+        AboutOtherIncomeSchedulePage.listText2,
+        AboutOtherIncomeSchedulePage.listText3,
+        AboutOtherIncomeSchedulePage.continueButton
       )
     )
 
@@ -75,8 +75,8 @@ object AboutOtherIncomeSchedule extends BasePage {
   }
 
   def goToAboutOtherIncomeSchedulePage(): Unit = {
-    navigateToPage(AboutOtherIncomeSchedule.pageUrl)
-    verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
+    navigateToPage(AboutOtherIncomeSchedulePage.pageUrl)
+    verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
   }
 
   def goToMakeACharityRepaymentClaimPage(): Unit = {

@@ -20,7 +20,7 @@ import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.verbs.ShouldVerb
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
-import uk.gov.hmrc.ui.pages.{AboutOtherIncomeSchedule, AuthWizard}
+import uk.gov.hmrc.ui.pages.{AboutOtherIncomeSchedulePage, AuthWizard}
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -45,19 +45,19 @@ class OtherIncomePagesSpec
         "PAGETEST - O1.0 - Page Not Found"
       )
       Then("the user tries to access the screen and reaches 'Page Not Found'")
-      AboutOtherIncomeSchedule.validateDataGuardProtection()
+      AboutOtherIncomeSchedulePage.validateDataGuardProtection()
     }
 
     Scenario("User navigates to the 'About Other Income Schedule' page and completes the minimum data guard") {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - O1.0")
       Then("the user navigates too 'Claims Task List' then completes the necessary minimum data input")
-      AboutOtherIncomeSchedule.completeMinimumDataGuard()
+      AboutOtherIncomeSchedulePage.completeMinimumDataGuard()
       Then("the user has completed the minimum data required and navigates to 'About Other Income Schedule' page")
-      AboutOtherIncomeSchedule.goToAboutOtherIncomeSchedulePage()
+      AboutOtherIncomeSchedulePage.goToAboutOtherIncomeSchedulePage()
       Then("the we validate the page content")
-      AboutOtherIncomeSchedule.validateNavigation()
-      AboutOtherIncomeSchedule.validatePageContent()
+      AboutOtherIncomeSchedulePage.validateNavigation()
+      AboutOtherIncomeSchedulePage.validatePageContent()
     }
   }
 }

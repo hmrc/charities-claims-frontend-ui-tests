@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object SuccessfulOIUpload extends BasePage {
+object OtherIncomeUploadSuccessfulPage extends BasePage {
   override def pageUrl: String = s"$hostname/other-income-schedule-upload-successful"
 
   override def pageTitle: String = "Upload successful - Charities - GOV.UK"
@@ -26,10 +26,10 @@ object SuccessfulOIUpload extends BasePage {
   def listText: String = "You have successfully attached your Other Income schedule."
 
   def validateNavigation(): Unit = {
-    SuccessfulOIUpload.verifyPageUrl(SuccessfulOIUpload.pageUrl)
-    SuccessfulOIUpload.verifyPageTitle(SuccessfulOIUpload.pageTitle)
+    OtherIncomeUploadSuccessfulPage.verifyPageUrl(OtherIncomeUploadSuccessfulPage.pageUrl)
+    OtherIncomeUploadSuccessfulPage.verifyPageTitle(OtherIncomeUploadSuccessfulPage.pageTitle)
   }
 
   def validatePageContent(): Unit =
-    SuccessfulOIUpload.verifyParagraphText(SuccessfulOIUpload.listText)
+    OtherIncomeUploadSuccessfulPage.verifyParagraphText(OtherIncomeUploadSuccessfulPage.listText)
 }

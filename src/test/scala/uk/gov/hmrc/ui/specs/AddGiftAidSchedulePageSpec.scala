@@ -67,8 +67,8 @@ class AddGiftAidSchedulePageSpec
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User validates the 'About Gift Aid Schedule' page")
-      AboutGiftAidSchedule.validateNavigation()
-      AboutGiftAidSchedule.validatePageContent()
+      AboutGiftAidSchedulePage.validateNavigation()
+      AboutGiftAidSchedulePage.validatePageContent()
     }
 
     Scenario(
