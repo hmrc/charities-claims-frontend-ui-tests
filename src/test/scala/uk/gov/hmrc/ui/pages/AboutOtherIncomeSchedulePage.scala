@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutOtherIncomeSchedule extends BasePage {
+object AboutOtherIncomeSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/about-other-income-schedule"
 
   override def pageTitle: String = "About Other Income schedule - Charities - GOV.UK"
@@ -30,24 +30,24 @@ object AboutOtherIncomeSchedule extends BasePage {
   def listText2: String = "You can upload an Other Income schedule in a .ods format."
 
   def listText3: String =
-    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
+    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 250KB."
+
+  def continueButton: String = "Continue"
 
   def validateNavigation(): Unit = {
-    AboutOtherIncomeSchedule.verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
-    AboutOtherIncomeSchedule.verifyPageTitle(AboutOtherIncomeSchedule.pageTitle)
+    AboutOtherIncomeSchedulePage.verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
+    AboutOtherIncomeSchedulePage.verifyPageTitle(AboutOtherIncomeSchedulePage.pageTitle)
   }
 
   def validatePageContent(): Unit =
-    println(
-      AboutOtherIncomeSchedule.verifyEntirePageContent(
-        AboutOtherIncomeSchedule.createSingleStringFromMany(
-          AboutOtherIncomeSchedule.pageCaption,
-          AboutOtherIncomeSchedule.pageHeading,
-          AboutOtherIncomeSchedule.listText1,
-          AboutOtherIncomeSchedule.listText2,
-          AboutOtherIncomeSchedule.listText3,
-          "Continue"
-        )
+    AboutOtherIncomeSchedulePage.verifyEntirePageContent(
+      AboutOtherIncomeSchedulePage.createSingleStringFromMany(
+        AboutOtherIncomeSchedulePage.pageCaption,
+        AboutOtherIncomeSchedulePage.pageHeading,
+        AboutOtherIncomeSchedulePage.listText1,
+        AboutOtherIncomeSchedulePage.listText2,
+        AboutOtherIncomeSchedulePage.listText3,
+        AboutOtherIncomeSchedulePage.continueButton
       )
     )
 
@@ -66,11 +66,17 @@ object AboutOtherIncomeSchedule extends BasePage {
     verifyPageUrl(RepaymentCheckboxPage.pageUrl)
     checkbox(RepaymentCheckboxPage.OtherIncome, true)
     clickContinue()
+    verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+    clickContinue()
+    verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
+    clickContinue()
+    verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
   }
 
   def goToAboutOtherIncomeSchedulePage(): Unit = {
-    navigateToPage(AboutOtherIncomeSchedule.pageUrl)
-    verifyPageUrl(AboutOtherIncomeSchedule.pageUrl)
+    navigateToPage(AboutOtherIncomeSchedulePage.pageUrl)
+    verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
   }
 
   def goToMakeACharityRepaymentClaimPage(): Unit = {
