@@ -1,0 +1,98 @@
+/*
+ * Copyright 2026 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.gov.hmrc.ui.pages
+
+import org.openqa.selenium.By
+
+object CheckYourGiftAidScheduleErrorPage extends BasePage {
+
+  override def pageUrl: String = s"$hostname/problem-with-gift-aid-schedule"
+
+  override def pageTitle: String =
+    "There is a problem with the data in your Gift Aid schedule - Charities - GOV.UK"
+
+  def pageCaption: String =
+    "Add Gift Aid schedule"
+
+  def pageHeader: String =
+    "There is a problem with the data in your Gift Aid schedule"
+
+  def pageWarning: String =
+    "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
+
+  def pageHeader2: String =
+    "What you can do next"
+
+  def pageHeader3: String =
+    "Summary of errors"
+
+//  def pageErrorMsg: String =
+//    "Select ‘Yes’ if you need to update this Gift Aid schedule"
+//
+//  def textSummaryCardTitle: String =
+//    "Gift Aid schedule details"
+
+  def errorHelp1: String =
+    "Refer to the Schedule spreadsheet to claim tax back on Gift Aid donations (opens in new tab)."
+
+  def errorHelp2: String =
+    "Delete this Gift Aid schedule."
+
+  def errorHelp3: String =
+    "Update your spreadsheet."
+
+  def errorHelp4: String =
+    "Upload the updated spreadsheet."
+
+  def deleteScheduleLink: String =
+    "Delete Schedule"
+
+  def textSummaryRow3Col2: String =
+    "£599,500.00"
+
+  def textRadioButtonQuestion: String =
+    "Do you need to update this Gift Aid schedule?"
+
+  def textRadioButtonYes: String =
+    "Yes"
+
+  def textRadioButtonNo: String =
+    "No, continue with Gift Aid schedule"
+
+  val lnkDelete: By = By.xpath("//a[contains(text(), 'Delete schedule')]")
+
+  def validateNavigation(): Unit = {
+    CheckYourGiftAidScheduleErrorPage.verifyPageUrl(CheckYourGiftAidScheduleErrorPage.pageUrl)
+    CheckYourGiftAidScheduleErrorPage.verifyPageTitle(CheckYourGiftAidScheduleErrorPage.pageTitle)
+    CheckYourGiftAidScheduleErrorPage.verifyPageCaption(CheckYourGiftAidScheduleErrorPage.pageCaption)
+    CheckYourGiftAidScheduleErrorPage.verifyPageHeader(CheckYourGiftAidScheduleErrorPage.pageHeader)
+    CheckYourGiftAidScheduleErrorPage.verifyPageWarning(CheckYourGiftAidScheduleErrorPage.pageWarning)
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading1(CheckYourGiftAidScheduleErrorPage.pageHeader2)
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading2(CheckYourGiftAidScheduleErrorPage.pageHeader3)
+  }
+
+  def validatePageContent(): Unit =
+    CheckYourGiftAidScheduleErrorPage.verifyScheduleErrorHelpList(
+      CheckYourGiftAidScheduleErrorPage.createSingleStringFromMany(
+        CheckYourGiftAidScheduleErrorPage.errorHelp1,
+        CheckYourGiftAidScheduleErrorPage.errorHelp2,
+        CheckYourGiftAidScheduleErrorPage.errorHelp3,
+        CheckYourGiftAidScheduleErrorPage.errorHelp4
+      )
+    )
+
+}
