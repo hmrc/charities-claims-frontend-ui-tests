@@ -34,12 +34,12 @@ object YourGiftAidScheduleUploadPage extends BasePage {
   def pageParagraph: String =
     "You can upload your Gift Aid schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
-  val linkRemoveUploadedFile: By      = By.xpath("//a[@href='/charities-claims/your-gift-aid-schedule-upload/remove']")
+  val linkRemoveUploadedFile: By = By.xpath("//a[@href='/charities-claims/your-gift-aid-schedule-upload/remove']")
 
   def btnContinue: String =
     "Continue"
 
-  val txtFileStatus: By          = By.xpath("//dd[@class='govuk-summary-list__value']")
+  val txtFileStatus: By = By.xpath("//dd[@class='govuk-summary-list__value']")
 
   def txtFileStatusUploaded: String =
     "Uploaded"
