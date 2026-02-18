@@ -71,6 +71,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
+    val txtSummaryCardContent      = By.ByClassName("govuk-summary-card")
     val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
     val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
     val txtTrusteePostcode         = By.ById("corporateTrusteePostcode")
@@ -80,6 +81,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
     val txtAuthOfficialPostcode    = By.ById("postcode")
     val fileUploadFieldLocator     = By.ById("file-input")
+    val txtFormFieldset: By        = By.xpath("//form//fieldset")
   }
 
   def pageUrl: String
@@ -404,6 +406,26 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
   }
 
+  def verifySummaryCardContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSummaryCardContent)
+    val actualText = driver.findElement(Locators.txtSummaryCardContent).getText
+    assert(
+      actualText == expectedText,
+      s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardContent).getText)
+  }
+
+  def verifyFormFieldsetContent(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtFormFieldset)
+    val actualText = driver.findElement(Locators.txtFormFieldset).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
+  }
+
   /** Helper method for passing one string to verify list text instead of multiple */
   def createSingleStringFromMany(listItems: String*): String = listItems.mkString("\n")
 
@@ -411,5 +433,29 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val fileUploadFieldLocator = driver.findElement(By.id("file-input"))
     val inputFilePath          = Paths.get("src/test/resources/" + spreadsheetName + ".ods").toAbsolutePath.toString
     fileUploadFieldLocator.sendKeys(inputFilePath)
+  }
+
+  def validateUploadFilePageError(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
+    val errorMessage       = s"$expectedErrorMessage"
+    waitForVisibilityOfElement(Locators.errorSummary)
+    // Error title indicator
+    assert(
+      driver.getTitle.contains("Error:"),
+      s"Page title mismatch! Expected: Error: ${driver.getTitle} , Actual: ${driver.getTitle}"
+    )
+    // Error summary - top of page
+    val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
+    assert(
+      actualErrorSummary contains errorMessage,
+      s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
+    )
+    println("Actual error summary is: " + actualErrorSummary)
+    // Error message - above erroring field
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
+    assert(
+      actualErrorMsg contains errorMessage,
+      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
+    )
+    println("Actual error message is: " + actualErrorMsg)
   }
 }
