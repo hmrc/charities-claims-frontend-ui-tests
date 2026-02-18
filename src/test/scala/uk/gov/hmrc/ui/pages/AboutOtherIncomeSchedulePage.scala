@@ -30,7 +30,7 @@ object AboutOtherIncomeSchedulePage extends BasePage {
   def listText2: String = "You can upload an Other Income schedule in a .ods format."
 
   def listText3: String =
-    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 250 KB."
+    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 250KB."
 
   def continueButton: String = "Continue"
 
