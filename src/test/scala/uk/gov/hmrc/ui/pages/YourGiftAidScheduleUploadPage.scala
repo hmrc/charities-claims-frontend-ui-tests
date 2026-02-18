@@ -53,19 +53,17 @@ object YourGiftAidScheduleUploadPage extends BasePage {
     YourGiftAidScheduleUploadPage.verifyPageHeader(YourGiftAidScheduleUploadPage.pageHeading)
   }
 
-  def validateParagraph(): Unit = {
+  def validateParagraph(): Unit =
     YourGiftAidScheduleUploadPage.verifyParagraphText(
       YourGiftAidScheduleUploadPage.pageParagraph
     )
-  }
 
-  def waitForFileUpload(): Unit = {
+  def waitForFileUpload(): Unit =
     YourGiftAidScheduleUploadPage.waitForElementToContain(
       YourGiftAidScheduleUploadPage.txtFileStatus,
       YourGiftAidScheduleUploadPage.txtFileStatusUploaded,
       YourGiftAidScheduleUploadPage.numMaxWaitTime
     )
-  }
 
   def clickRemoveUploadedFile(): Unit = {
     val element = waitForElementToBeClickable(linkRemoveUploadedFile)
