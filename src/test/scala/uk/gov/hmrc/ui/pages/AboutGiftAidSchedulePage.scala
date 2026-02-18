@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
-object AboutGiftAidSchedule extends BasePage {
+object AboutGiftAidSchedulePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/about-gift-aid-schedule"
 
@@ -42,21 +42,21 @@ object AboutGiftAidSchedule extends BasePage {
     "Continue"
 
   def validateNavigation(): Unit = {
-    AboutGiftAidSchedule.verifyPageUrl(AboutGiftAidSchedule.pageUrl)
-    AboutGiftAidSchedule.verifyPageTitle(AboutGiftAidSchedule.pageTitle)
-    AboutGiftAidSchedule.verifyPageCaption(AboutGiftAidSchedule.pageCaption)
-    AboutGiftAidSchedule.verifyPageHeader(AboutGiftAidSchedule.pageHeading)
+    AboutGiftAidSchedulePage.verifyPageUrl(AboutGiftAidSchedulePage.pageUrl)
+    AboutGiftAidSchedulePage.verifyPageTitle(AboutGiftAidSchedulePage.pageTitle)
+    AboutGiftAidSchedulePage.verifyPageCaption(AboutGiftAidSchedulePage.pageCaption)
+    AboutGiftAidSchedulePage.verifyPageHeader(AboutGiftAidSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =
-    AboutGiftAidSchedule.verifyEntirePageContent(
-      AboutGiftAidSchedule.createSingleStringFromMany(
-        AboutGiftAidSchedule.pageCaption,
-        AboutGiftAidSchedule.pageHeading,
-        AboutGiftAidSchedule.listItem1,
-        AboutGiftAidSchedule.listItem2,
-        AboutGiftAidSchedule.listItem3,
-        AboutGiftAidSchedule.listItem4
+    AboutGiftAidSchedulePage.verifyEntirePageContent(
+      AboutGiftAidSchedulePage.createSingleStringFromMany(
+        AboutGiftAidSchedulePage.pageCaption,
+        AboutGiftAidSchedulePage.pageHeading,
+        AboutGiftAidSchedulePage.listItem1,
+        AboutGiftAidSchedulePage.listItem2,
+        AboutGiftAidSchedulePage.listItem3,
+        AboutGiftAidSchedulePage.listItem4
       )
     )
 }
