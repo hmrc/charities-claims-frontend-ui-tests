@@ -30,7 +30,7 @@ object AboutOtherIncomeSchedule extends BasePage {
   def listText2: String = "You can upload an Other Income schedule in a .ods format."
 
   def listText3: String =
-    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 2.5MB."
+    "You can download an Other Income schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 250 KB."
 
   def continueButton: String = "Continue"
 
@@ -66,6 +66,12 @@ object AboutOtherIncomeSchedule extends BasePage {
     verifyPageUrl(RepaymentCheckboxPage.pageUrl)
     checkbox(RepaymentCheckboxPage.OtherIncome, true)
     clickContinue()
+    verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+    clickContinue()
+    verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
+    clickContinue()
+    verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
   }
 
   def goToAboutOtherIncomeSchedulePage(): Unit = {
