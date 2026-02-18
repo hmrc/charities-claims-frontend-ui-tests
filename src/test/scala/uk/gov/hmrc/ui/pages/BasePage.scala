@@ -434,4 +434,28 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val inputFilePath          = Paths.get("src/test/resources/" + spreadsheetName + ".ods").toAbsolutePath.toString
     fileUploadFieldLocator.sendKeys(inputFilePath)
   }
+
+  def validateUploadFilePageError(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
+    val errorMessage       = s"$expectedErrorMessage"
+    waitForVisibilityOfElement(Locators.errorSummary)
+    // Error title indicator
+    assert(
+      driver.getTitle.contains("Error:"),
+      s"Page title mismatch! Expected: Error: ${driver.getTitle} , Actual: ${driver.getTitle}"
+    )
+    // Error summary - top of page
+    val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
+    assert(
+      actualErrorSummary contains errorMessage,
+      s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
+    )
+    println("Actual error summary is: " + actualErrorSummary)
+    // Error message - above erroring field
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
+    assert(
+      actualErrorMsg contains errorMessage,
+      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
+    )
+    println("Actual error message is: " + actualErrorMsg)
+  }
 }

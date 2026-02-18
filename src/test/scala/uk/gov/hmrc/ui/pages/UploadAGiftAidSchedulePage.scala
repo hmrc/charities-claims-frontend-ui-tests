@@ -55,8 +55,11 @@ object UploadAGiftAidSchedulePage extends BasePage {
   def pageText7: String =
     "Continue"
 
-  def pageErrorMsg: String =
+  def pageNoInputErrorMsg: String =
     "Select a Gift Aid schedule"
+
+  def pageFileTooBigErrorMsg: String =
+    "The selected file must be smaller than 250 KB"
 
   val fileUploadFieldLocator = By.ById("file")
   val errorMsgLocator        = By.ById("file-error")
@@ -89,10 +92,17 @@ object UploadAGiftAidSchedulePage extends BasePage {
       )
     )
 
-  /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit =
+  /** Validate that the no input error message is correct */
+  def validateNoInputErrorMessage(): Unit =
     UploadAGiftAidSchedulePage.validateGenericPageError(
-      UploadAGiftAidSchedulePage.pageErrorMsg,
+      UploadAGiftAidSchedulePage.pageNoInputErrorMsg,
+      UploadAGiftAidSchedulePage.errorMsgLocator
+    )
+
+  /** Validate that the file above max size error message is correct */
+  def validateOversizeErrorMessage(): Unit =
+    UploadAGiftAidSchedulePage.validateUploadFilePageError(
+      UploadAGiftAidSchedulePage.pageFileTooBigErrorMsg,
       UploadAGiftAidSchedulePage.errorMsgLocator
     )
 }
