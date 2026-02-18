@@ -59,7 +59,7 @@ object UploadAGiftAidSchedulePage extends BasePage {
     "Select a Gift Aid schedule"
 
   def pageFileTooBigErrorMsg: String =
-    "The selected file must be smaller than 250 KB"
+    "The selected file must be smaller than 250KB"
 
   val fileUploadFieldLocator = By.ById("file")
   val errorMsgLocator        = By.ById("file-error")
