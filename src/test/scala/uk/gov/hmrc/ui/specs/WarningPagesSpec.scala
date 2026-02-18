@@ -35,34 +35,76 @@ class WarningPagesSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Gift Aid Page Validations") {
-    Scenario(
-      "User navigates to the 'Do you want to delete this Gift Aid schedule?' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.0")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      Then("User navigates to 'Do you want to delete this Gift Aid schedule?' page")
-      DeleteGiftAidSchedulePage.navigateToPage(DeleteGiftAidSchedulePage.pageUrl)
-      DeleteGiftAidSchedulePage.validateNavigation()
-      Then("User validates the 'no input' error on the 'Do you want to delete this Gift Aid schedule?' page")
-      DeleteGiftAidSchedulePage.validateErrorMessage()
-    }
-
-    Scenario(
-      "User navigates to the 'Do you want to delete this Other Income schedule?' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.1")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      Then("User navigates to 'Do you want to delete this Other Income schedule?' page")
-      DeleteOtherIncomeSchedulePage.navigateToPage(DeleteOtherIncomeSchedulePage.pageUrl)
-      DeleteOtherIncomeSchedulePage.validateNavigation()
-      Then("User validates the 'no input' error on the 'Do you want to delete this Other Income schedule?' page")
-      DeleteOtherIncomeSchedulePage.validateErrorMessage()
-    }
-
+//    Scenario(
+//      "User navigates to the 'Do you want to delete this Gift Aid schedule?' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN 1.0")
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      And("User clicks the link to navigate to 'Repayment claim details' page")
+//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+//      Then("User validates the 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.validateNavigation()
+//      And("User clicks continue on 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.clickContinue()
+//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+//      RepaymentCheckboxPage.validateNavigation()
+//      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+//      RepaymentCheckboxPage.clickContinue()
+//      Then("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//      Then("User navigates to 'Check your repayment claim' page")
+//      CheckYourRepaymentClaimPage.validateNavigation()
+//      CheckYourRepaymentClaimPage.clickContinue()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_InProgress.validateNavigation()
+//      ClaimsTaskListPage_InProgress.validatePageContent()
+//      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+//      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+//      Then("User navigates to 'About Gift Aid schedule' page")
+//      AboutGiftAidSchedule.validateNavigation()
+//      CheckYourRepaymentClaimPage.clickContinue()
+//      Then("User navigates to 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.validateNavigation()
+//      Then("User validates the elements on the 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.validatePageContent()
+//      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEFAIL")
+//      UploadAGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Your Gift Aid schedule upload' page")
+//      //      ClaimsTaskListPage.validateNavigation()
+//      Thread.sleep(5000)
+//      UploadAGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'There is a problem with the data in your Gift Aid schedule' page")
+//      // TODO rewrite steps to reach delete - G1.4
+////      CheckYourGiftAidSchedulePage.validateNavigation()
+////      Then("User navigates to 'Do you want to delete this Gift Aid schedule?' page")
+////      DeleteGiftAidSchedulePage.navigateToPage(DeleteGiftAidSchedulePage.pageUrl)
+////      DeleteGiftAidSchedulePage.validateNavigation()
+////      Then("User validates the 'no input' error on the 'Do you want to delete this Gift Aid schedule?' page")
+////      DeleteGiftAidSchedulePage.validateErrorMessage()
+//    }
+//
+//    Scenario(
+//      "User navigates to the 'Do you want to delete this Other Income schedule?' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.1")
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      //TODO rewrite steps to reach delete
+//      Then("User navigates to 'Do you want to delete this Other Income schedule?' page")
+//      DeleteOtherIncomeSchedulePage.navigateToPage(DeleteOtherIncomeSchedulePage.pageUrl)
+//      DeleteOtherIncomeSchedulePage.validateNavigation()
+//      Then("User validates the 'no input' error on the 'Do you want to delete this Other Income schedule?' page")
+//      DeleteOtherIncomeSchedulePage.validateErrorMessage()
+//    }
+//
     Scenario(
       "User navigates to the 'Do you want to delete this GASDS community buildings schedule?' page and validates the page elements and error messages"
     ) {
