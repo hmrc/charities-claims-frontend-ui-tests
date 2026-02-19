@@ -37,5 +37,4 @@ object GiftAidUploadSuccessfulPage extends BasePage {
 
   def validatePageParagraph(): Unit =
     GiftAidUploadSuccessfulPage.verifyParagraphText(GiftAidUploadSuccessfulPage.pageParagraph)
-
 }
