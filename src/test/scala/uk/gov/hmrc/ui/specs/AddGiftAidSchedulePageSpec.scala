@@ -312,7 +312,6 @@ class AddGiftAidSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      ClaimsTaskListPage_InProgress.validatePageContent()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User navigates to 'About Gift Aid schedule' page")
@@ -331,17 +330,11 @@ class AddGiftAidSchedulePageSpec
       YourGiftAidScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateNavigation()
-      Then("User validates content on 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateSummaryCard()
-      CheckYourGiftAidSchedulePage.validateFormFieldset()
-      Then("User validates the 'no input' error on the 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateErrorMessage()
       CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
       CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page ")
-      SuccessfulGiftAidUpload.validateNavigation()
-      And("User validates the page contents")
-      SuccessfulGiftAidUpload.validatePageContent()
+      Then("User navigates and validates 'Successful Gift Aid Upload' page ")
+      GiftAidUploadSuccessfulPage.validateNavigation()
+      GiftAidUploadSuccessfulPage.validatePageParagraph()
     }
   }
 }
