@@ -55,17 +55,23 @@ class AddCommunityBuildingsSchedulePageSpec
       RepaymentClaimDetailsPage.clickContinue()
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue")
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
       DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
       DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
-      And("User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page")
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
