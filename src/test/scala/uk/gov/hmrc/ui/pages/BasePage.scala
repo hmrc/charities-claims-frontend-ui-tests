@@ -47,6 +47,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val btnContinue                = "//button[@type='submit']"
     val lnkBack                    = "Back"
     val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
+    val lnkDeleteSchedule          = "//a[contains(text(), 'Delete schedule')]"
     val rdoYes                     = "#value_0"
     val rdoNo                      = "#value_1"
     val txtFileName                = ".govuk-body"
@@ -206,6 +207,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 //  def saveAndContinue(): Unit   = click(By.cssSelector(Locators.btnContinue))
   def header(): Unit        = click(By.cssSelector(Locators.lnkHeader))
 //  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
+
+  def clickDeleteScheduleLink(): Unit = click(By.xpath(Locators.lnkDeleteSchedule))
 
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)

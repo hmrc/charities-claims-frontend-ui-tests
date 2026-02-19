@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object CheckYourGiftAidScheduleErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/problem-with-gift-aid-schedule"
@@ -40,12 +38,6 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
   def pageHeader3: String =
     "Summary of errors"
 
-//  def pageErrorMsg: String =
-//    "Select ‘Yes’ if you need to update this Gift Aid schedule"
-//
-//  def textSummaryCardTitle: String =
-//    "Gift Aid schedule details"
-
   def errorHelp1: String =
     "Refer to the Schedule spreadsheet to claim tax back on Gift Aid donations (opens in new tab)."
 
@@ -57,23 +49,6 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
 
   def errorHelp4: String =
     "Upload the updated spreadsheet."
-
-  def deleteScheduleLink: String =
-    "Delete Schedule"
-
-  def textSummaryRow3Col2: String =
-    "£599,500.00"
-
-  def textRadioButtonQuestion: String =
-    "Do you need to update this Gift Aid schedule?"
-
-  def textRadioButtonYes: String =
-    "Yes"
-
-  def textRadioButtonNo: String =
-    "No, continue with Gift Aid schedule"
-
-  val lnkDelete: By = By.xpath("//a[contains(text(), 'Delete schedule')]")
 
   def validateNavigation(): Unit = {
     CheckYourGiftAidScheduleErrorPage.verifyPageUrl(CheckYourGiftAidScheduleErrorPage.pageUrl)

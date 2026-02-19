@@ -261,18 +261,28 @@ class AddGiftAidSchedulePageSpec
       UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEFAIL")
       UploadAGiftAidSchedulePage.clickContinue()
       Then("User navigates to 'Your Gift Aid schedule upload' page")
-      //      ClaimsTaskListPage.validateNavigation()
-      Thread.sleep(5000)
-      UploadAGiftAidSchedulePage.clickContinue()
+      YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.waitForFileUpload()
+      YourGiftAidScheduleUploadPage.clickContinue()
       Then("User navigates to 'Problem with your Gift Aid schedule data' page and validates page")
       CheckYourGiftAidScheduleErrorPage.validateNavigation()
-      Then("User validates the statis text on'Problem with your Gift Aid schedule data' page")
+      Then("User validates the static text on'Problem with your Gift Aid schedule data' page")
       CheckYourGiftAidScheduleErrorPage.validatePageContent()
-      // Then("User validates content on 'Check your Gift Aid schedule' page")
-      // CheckYourGiftAidScheduleErrorPage.validateSummaryCard()
-      // CheckYourGiftAidScheduleErrorPage.validateFormFieldset()
-      // Then("User validates the 'no input' error on the 'Check your Gift Aid schedule' page")
-      // CheckYourGiftAidScheduleErrorPage.validateErrorMessage()
+      Then("User clicks on the Delete Schedule link and reaches the Delete Schedule WRN 1.0 page")
+      CheckYourGiftAidScheduleErrorPage.clickDeleteScheduleLink()
+      Then("User validates navigation of Delete Schedule WRN 1.0 page")
+      DeleteGiftAidSchedulePage.validateNavigation()
+      Then("User clicks back to reach 'problem with your GAS' page")
+      DeleteGiftAidSchedulePage.clickBackLink()
+      Then("User reaches the 'problem with your GAS page' and validates the navigation")
+      CheckYourGiftAidScheduleErrorPage.validateNavigation()
+      Then(
+        "User clicks on 'Attach an updated Gift Aid schedule' that deletes the invalid ODS and navigates to" +
+          " 'upload a GAS page G1.1' "
+      )
+      CheckYourGiftAidScheduleErrorPage.clickContinue()
+      Then("User validates navigation of 'upload a GAS page G1.1' ")
+      UploadAGiftAidSchedulePage.validateNavigation()
     }
   }
 }
