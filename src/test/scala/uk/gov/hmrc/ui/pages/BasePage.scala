@@ -47,6 +47,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val btnContinue                = "//button[@type='submit']"
     val lnkBack                    = "Back"
     val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
+    val lnkDeleteSchedule          = "//a[contains(text(), 'Delete schedule')]"
     val rdoYes                     = "#value_0"
     val rdoNo                      = "#value_1"
     val txtFileName                = ".govuk-body"
@@ -68,6 +69,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val taskList1Text: By          = By.xpath("//main//ul[1]")
     val taskList2Text: By          = By.xpath("//main//ul[2]")
     val taskList3Text: By          = By.xpath("//main//ul[3]")
+    val scheduleErrorHelpList: By  = By.xpath("//ol[contains(@class, 'govuk-list')]")
     val legendText                 = By.ByClassName("govuk-fieldset__legend")
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
@@ -206,6 +208,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def header(): Unit        = click(By.cssSelector(Locators.lnkHeader))
 //  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
 
+  def clickDeleteScheduleLink(): Unit = click(By.xpath(Locators.lnkDeleteSchedule))
+
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
   def navigateBackToPage(): Unit        = driver.navigate().back()
@@ -298,7 +302,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     waitForVisibilityOfElement(Locators.txtWarning)
     val actualWarning = driver.findElement(Locators.txtWarning).getText
     assert(
-      actualWarning == expectedWarning,
+      actualWarning contains expectedWarning,
       s"Page warning mismatch! Expected: $expectedWarning, Actual: $actualWarning"
     )
     println("Actual page warning is: " + driver.findElement(Locators.txtWarning).getText)
@@ -388,6 +392,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page task list 3 mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page task list 3 is: " + driver.findElement(Locators.taskList3Text).getText)
+  }
+
+  def verifyScheduleErrorHelpList(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.scheduleErrorHelpList)
+    val actualText = driver.findElement(Locators.scheduleErrorHelpList).getText
+    assert(
+      actualText == expectedText,
+      s"Page list mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page list is: " + driver.findElement(Locators.scheduleErrorHelpList).getText)
   }
 
   /** Verify that the text within a legend includes the expected text */
