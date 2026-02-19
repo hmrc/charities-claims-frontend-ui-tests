@@ -89,7 +89,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   val linkProvideOrganisationDetails: By    = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkProvideGASDSnDetails: By          = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkAddGiftAidSchedule: By            = By.xpath("//a[@href='/charities-claims/about-gift-aid-schedule']")
-  val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/TODO']")
+  val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/about-other-income-schedule']")
   val linkAddCommunityBuildingsSchedule: By = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkAddConnectedCharitiesSchedule: By = By.xpath("//a[@href='/charities-claims/TODO']")
 
