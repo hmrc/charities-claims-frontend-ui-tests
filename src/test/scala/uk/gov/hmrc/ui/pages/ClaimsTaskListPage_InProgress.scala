@@ -89,7 +89,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   val linkProvideOrganisationDetails: By    = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkProvideGASDSnDetails: By          = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkAddGiftAidSchedule: By            = By.xpath("//a[@href='/charities-claims/about-gift-aid-schedule']")
-  val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/TODO']")
+  val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/about-other-income-schedule']")
   val linkAddCommunityBuildingsSchedule: By =
     By.xpath("//a[@href='/charities-claims/about-community-buildings-schedule']")
   val linkAddConnectedCharitiesSchedule: By = By.xpath("//a[@href='/charities-claims/TODO']")
@@ -134,7 +134,8 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     element.click()
   }
 
-  def validatePageContent(): Unit =
+  def validatePageContent(): Unit = {
+
     ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
         ClaimsTaskListPage_InProgress.pageTaskList1Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus,
@@ -145,7 +146,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyTaskList2Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
         ClaimsTaskListPage_InProgress.pageTaskList2Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
-//        ClaimsTaskListPage_InProgress.pageTaskList2Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
+//        ClaimsTaskListPage_InProgress.pageTaskList2Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
 //        ClaimsTaskListPage_InProgress.pageTaskList2Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
 //        ClaimsTaskListPage_InProgress.pageTaskList2Item4 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
       )
@@ -157,4 +158,5 @@ object ClaimsTaskListPage_InProgress extends BasePage {
         ClaimsTaskListPage_InProgress.pageTaskList3Item3
       )
     )
+  }
 }
