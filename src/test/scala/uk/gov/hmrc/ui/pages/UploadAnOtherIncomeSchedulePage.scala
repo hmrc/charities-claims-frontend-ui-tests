@@ -33,7 +33,7 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
   def pageText2: String =
     "If you have not completed an Other Income schedule, download an Other Income schedule here (opens in new tab)."
 
-  def pageText3: String = "Upload a file."
+  def pageText3: String = "Upload a file"
 
   def pageText4: String = "No file chosen"
 
@@ -43,7 +43,7 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
 
   def continueButton: String = "Continue"
 
-//  def pageErrorMsg: String = "There is a problem"
+  def pageHiddenText: String = ","
 
   def pageNoInputErrorMsg: String = "Select an Other Income schedule"
 
@@ -71,6 +71,7 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
         UploadAnOtherIncomeSchedulePage.pageText2,
         UploadAnOtherIncomeSchedulePage.pageText3,
         UploadAnOtherIncomeSchedulePage.pageText4,
+        UploadAnOtherIncomeSchedulePage.pageHiddenText,
         UploadAnOtherIncomeSchedulePage.pageText5,
         UploadAnOtherIncomeSchedulePage.pageText6,
         UploadAnOtherIncomeSchedulePage.continueButton
