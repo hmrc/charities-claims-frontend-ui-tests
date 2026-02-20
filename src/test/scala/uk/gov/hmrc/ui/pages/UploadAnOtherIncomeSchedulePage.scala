@@ -19,6 +19,7 @@ package uk.gov.hmrc.ui.pages
 import org.openqa.selenium.By
 
 object UploadAnOtherIncomeSchedulePage extends BasePage {
+
   override def pageUrl: String = s"$hostname/upload-other-income-schedule"
 
   override def pageTitle: String = "Upload an Other Income schedule - Charities - GOV.UK"

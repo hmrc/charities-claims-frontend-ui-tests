@@ -63,7 +63,9 @@ class AddGiftAidSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      ClaimsTaskListPage_InProgress.validatePageContent()
+      ClaimsTaskListPage_InProgress.validateTaskList1_RC_OI()
+      ClaimsTaskListPage_InProgress.validateTaskList2_GA()
+      ClaimsTaskListPage_InProgress.validateTaskList3_NoDeclaration()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User validates the 'About Gift Aid Schedule' page")
@@ -99,7 +101,6 @@ class AddGiftAidSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      ClaimsTaskListPage_InProgress.validatePageContent()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User navigates to 'About Gift Aid schedule' page")
@@ -193,7 +194,6 @@ class AddGiftAidSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      ClaimsTaskListPage_InProgress.validatePageContent()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User navigates to 'About Gift Aid schedule' page")
@@ -247,7 +247,6 @@ class AddGiftAidSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      ClaimsTaskListPage_InProgress.validatePageContent()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
       Then("User navigates to 'About Gift Aid schedule' page")
@@ -284,6 +283,7 @@ class AddGiftAidSchedulePageSpec
       Then("User validates navigation of 'upload a GAS page G1.1' ")
       UploadAGiftAidSchedulePage.validateNavigation()
     }
+
     Scenario(
       "User navigates to the 'Upload Successful' page and validates the page elements"
     ) {
