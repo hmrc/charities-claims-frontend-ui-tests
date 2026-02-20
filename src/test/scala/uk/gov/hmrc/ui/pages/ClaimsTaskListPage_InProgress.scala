@@ -34,34 +34,34 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageSubheading1: String =
     "About the claim"
 
-  def pageTaskListItemCompleteStatus: String =
+  def pageTaskListItemCompletedStatus: String =
     "Completed"
 
   def pageTaskListItemIncompleteStatus: String =
     "Incomplete"
 
-  def pageTaskList1Item1: String =
+  def pageTaskList1_RepaymentClaimDetails: String =
     "Provide repayment claim details"
 
-  def pageTaskList1Item2: String =
+  def pageTaskList1_OrganisationDetails: String =
     "Provide organisation details"
 
-  def pageTaskList1Item3: String =
+  def pageTaskList1_GASDSDetails: String =
     "Gift Aid Small Donations Scheme details"
 
   def pageSubheading2: String =
     "Upload documents"
 
-  def pageTaskList2Item1: String =
+  def pageTaskList2_GiftAid: String =
     "Add Gift Aid schedule"
 
-  def pageTaskList2Item2: String =
+  def pageTaskList2_OtherIncome: String =
     "Add other income schedule"
 
-  def pageTaskList2Item3: String =
+  def pageTaskList2_CommunityBuildings: String =
     "Add community buildings schedule"
 
-  def pageTaskList2Item4: String =
+  def pageTaskList2_ConnectedCharities: String =
     "Add connected charities schedule"
 
   def pageSubheading3: String =
@@ -134,23 +134,33 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     element.click()
   }
 
-  def validatePageContent(): Unit = {
-
+  def validateTaskList1_RC_OI(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
-        ClaimsTaskListPage_InProgress.pageTaskList1Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList1Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
-//        ClaimsTaskListPage_InProgress.pageTaskList1Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompleteStatus
+        ClaimsTaskListPage_InProgress.pageTaskList1_RepaymentClaimDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
       )
     )
-    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+
+  def validateTaskList1_RC_OC(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
-        ClaimsTaskListPage_InProgress.pageTaskList2Item1 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
-//        ClaimsTaskListPage_InProgress.pageTaskList2Item2 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
-//        ClaimsTaskListPage_InProgress.pageTaskList2Item3 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus,
-//        ClaimsTaskListPage_InProgress.pageTaskList2Item4 + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+        ClaimsTaskListPage_InProgress.pageTaskList1_RepaymentClaimDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus
       )
     )
+
+  def validateTaskList2_GA(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+      ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+    )
+
+  def validateTaskList2_OI(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+      ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+    )
+
+  def validateTaskList3_NoDeclaration(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList3Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
         ClaimsTaskListPage_InProgress.pageTaskList3Item1,
@@ -158,5 +168,4 @@ object ClaimsTaskListPage_InProgress extends BasePage {
         ClaimsTaskListPage_InProgress.pageTaskList3Item3
       )
     )
-  }
 }
