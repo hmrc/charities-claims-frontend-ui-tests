@@ -65,6 +65,9 @@ class AddOtherIncomeSchedulePageSpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateTaskList1_RC_OI()
+      ClaimsTaskListPage_InProgress.validateTaskList2_OI()
+      ClaimsTaskListPage_InProgress.validateTaskList3_NoDeclaration()
       And("User clicks the link to navigate to 'Add Other Income schedule' page")
       ClaimsTaskListPage_InProgress.clickAddOtherIncomeSchedule()
       Then("User navigates to 'About Other Income schedule' page")
@@ -81,8 +84,6 @@ class AddOtherIncomeSchedulePageSpec
       UploadAnOtherIncomeSchedulePage.clickContinue()
       Then("User validates the 'file must be smaller than 250KB' error on the 'Upload an Other Income schedule' page")
       UploadAnOtherIncomeSchedulePage.validateOversizeErrorMessage()
-
     }
   }
-
 }

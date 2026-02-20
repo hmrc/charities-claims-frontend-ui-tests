@@ -77,7 +77,7 @@ object ClaimsTaskListPage_Empty extends BasePage {
     element.click()
   }
 
-  def validatePageContent(): Unit =
+  def validatePageContent(): Unit = {
     ClaimsTaskListPage_Empty.verifyTaskList1Text(
       ClaimsTaskListPage_Empty.createSingleStringFromMany(
         ClaimsTaskListPage_Empty.pageTaskList1Item1 + " " + ClaimsTaskListPage_Empty.pageTaskListItemIncompleteStatus
@@ -90,4 +90,5 @@ object ClaimsTaskListPage_Empty extends BasePage {
         ClaimsTaskListPage_Empty.pageTaskList2Item3
       )
     )
+  }
 }
