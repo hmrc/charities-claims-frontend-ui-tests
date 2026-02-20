@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 
 object YourCommunityBuildingsScheduleUploadPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/your-community-buildings-upload"
+  override def pageUrl: String = s"$hostname/your-community-buildings-schedule-upload"
 
   override def pageTitle: String =
     "Your Community Buildings schedule upload - Charities - GOV.UK"
@@ -34,7 +34,8 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
   def pageParagraph: String =
     "You can upload your Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
-  val linkRemoveUploadedFile: By = By.xpath("//a[@href='/charities-claims/your-community-buildings-upload/remove']")
+  val linkRemoveUploadedFile: By =
+    By.xpath("//a[@href='/charities-claims/your-community-buildings-schedule-upload/remove']")
 
   def btnContinue: String =
     "Continue"
@@ -43,6 +44,9 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
 
   def txtFileStatusUploaded: String =
     "Uploaded"
+
+  def txtFileStatusFailed: String =
+    "Failed"
 
   def numMaxWaitTime: Int = 6
 
@@ -62,6 +66,13 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
     YourCommunityBuildingsScheduleUploadPage.waitForElementToContain(
       YourCommunityBuildingsScheduleUploadPage.txtFileStatus,
       YourCommunityBuildingsScheduleUploadPage.txtFileStatusUploaded,
+      YourCommunityBuildingsScheduleUploadPage.numMaxWaitTime
+    )
+
+  def waitForFileUploadFail(): Unit =
+    YourCommunityBuildingsScheduleUploadPage.waitForElementToContain(
+      YourCommunityBuildingsScheduleUploadPage.txtFileStatus,
+      YourCommunityBuildingsScheduleUploadPage.txtFileStatusFailed,
       YourCommunityBuildingsScheduleUploadPage.numMaxWaitTime
     )
 

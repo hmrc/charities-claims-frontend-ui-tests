@@ -159,6 +159,7 @@ class AddGiftAidSchedulePageSpec
       UploadAGiftAidSchedulePage.clickContinue()
       Then("User navigates to 'Your Gift Aid schedule upload' page")
       YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.waitForFileUpload()
       YourGiftAidScheduleUploadPage.validateParagraph()
       Then("User removed the uploaded file on 'Your Gift Aid schedule upload' page")
       YourGiftAidScheduleUploadPage.clickRemoveUploadedFile()
