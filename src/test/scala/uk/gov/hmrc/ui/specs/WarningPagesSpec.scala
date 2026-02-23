@@ -318,7 +318,7 @@ class WarningPagesSpec
       UploadACommunityBuildingsSchedulePage.validateNavigation()
       Then("User selects a file to upload in the 'Upload a Community Buildings schedule' page")
       UploadACommunityBuildingsSchedulePage.selectFile(
-        "WarningPagesSpreadsheets/infected.MyDoom"
+        "WarningPagesSpreadsheets/infected.WRN7-0"
       )
       UploadACommunityBuildingsSchedulePage.clickContinue()
       Then("User navigates to 'Your Community Buildings schedule upload' page")
@@ -395,7 +395,7 @@ class WarningPagesSpec
 //      UploadACommunityBuildingsSchedulePage.validateNavigation()
 //      Then("User selects a file to upload in the 'Upload a Community Buildings schedule' page")
 //      UploadACommunityBuildingsSchedulePage.selectFile(
-//        "WarningPagesSpreadsheets/unknown.SpookyCookie"
+//        "WarningPagesSpreadsheets/unknown.WRN7-2"
 //      )
 //      UploadACommunityBuildingsSchedulePage.clickContinue()
 //      Then("User navigates to 'Your Community Buildings schedule upload' page")
