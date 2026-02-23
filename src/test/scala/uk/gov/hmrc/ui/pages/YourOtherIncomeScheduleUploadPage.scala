@@ -44,6 +44,9 @@ object YourOtherIncomeScheduleUploadPage extends BasePage {
   def txtFileStatusUploaded: String =
     "Uploaded"
 
+  def txtFileStatusFailed: String =
+    "Failed"
+
   def numMaxWaitTime: Int = 6
 
   def validateNavigation(): Unit = {
@@ -62,6 +65,13 @@ object YourOtherIncomeScheduleUploadPage extends BasePage {
     YourOtherIncomeScheduleUploadPage.waitForElementToContain(
       YourOtherIncomeScheduleUploadPage.txtFileStatus,
       YourOtherIncomeScheduleUploadPage.txtFileStatusUploaded,
+      YourOtherIncomeScheduleUploadPage.numMaxWaitTime
+    )
+
+  def waitForFileUploadFail(): Unit =
+    YourOtherIncomeScheduleUploadPage.waitForElementToContain(
+      YourOtherIncomeScheduleUploadPage.txtFileStatus,
+      YourOtherIncomeScheduleUploadPage.txtFileStatusFailed,
       YourOtherIncomeScheduleUploadPage.numMaxWaitTime
     )
 

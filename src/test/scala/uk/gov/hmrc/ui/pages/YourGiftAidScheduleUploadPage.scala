@@ -44,6 +44,9 @@ object YourGiftAidScheduleUploadPage extends BasePage {
   def txtFileStatusUploaded: String =
     "Uploaded"
 
+  def txtFileStatusFailed: String =
+    "Failed"
+
   def numMaxWaitTime: Int = 6
 
   def validateNavigation(): Unit = {
@@ -62,6 +65,13 @@ object YourGiftAidScheduleUploadPage extends BasePage {
     YourGiftAidScheduleUploadPage.waitForElementToContain(
       YourGiftAidScheduleUploadPage.txtFileStatus,
       YourGiftAidScheduleUploadPage.txtFileStatusUploaded,
+      YourGiftAidScheduleUploadPage.numMaxWaitTime
+    )
+
+  def waitForFileUploadFail(): Unit =
+    YourGiftAidScheduleUploadPage.waitForElementToContain(
+      YourGiftAidScheduleUploadPage.txtFileStatus,
+      YourGiftAidScheduleUploadPage.txtFileStatusFailed,
       YourGiftAidScheduleUploadPage.numMaxWaitTime
     )
 
