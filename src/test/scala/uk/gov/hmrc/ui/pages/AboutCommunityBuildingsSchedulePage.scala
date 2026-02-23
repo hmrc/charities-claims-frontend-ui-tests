@@ -18,27 +18,27 @@ package uk.gov.hmrc.ui.pages
 
 object AboutCommunityBuildingsSchedulePage extends BasePage {
 
-  override def pageUrl : String = s"$hostname/about-community-buildings-schedule"
+  override def pageUrl: String = s"$hostname/about-community-buildings-schedule"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "About Community Buildings schedule - Charities - GOV.UK"
 
-  def pageCaption : String =
+  def pageCaption: String =
     "Add Community Buildings schedule"
 
-  def pageHeading : String =
+  def pageHeading: String =
     "About Community Buildings schedule"
 
-  def listItem1 : String =
+  def listItem1: String =
     "Use this service to add a Community Buildings schedule."
 
-  def listItem2 : String =
+  def listItem2: String =
     "You can upload a Community Buildings schedule in a .ods format."
 
-  def listItem3 : String =
+  def listItem3: String =
     "You can download a Community Buildings schedule here (opens in new tab). You can submit 1 file at a time, and each file can be up to 250KB."
 
-  def listItem4 : String =
+  def listItem4: String =
     "Continue"
 
   def validateNavigation(): Unit = {
