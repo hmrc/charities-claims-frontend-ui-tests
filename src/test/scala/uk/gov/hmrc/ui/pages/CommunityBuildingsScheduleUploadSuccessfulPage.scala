@@ -23,10 +23,10 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
   override def pageTitle: String =
     "Upload successful - Charities - GOV.UK"
 
-  def pageHeading : String =
+  def pageHeading: String =
     "Upload successful"
 
-  def pageParagraph : String = 
+  def pageParagraph: String =
     "You have successfully attached your Community Buildings schedule."
 
   def validateNavigation(): Unit = {
@@ -38,4 +38,3 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
   def validatePageParagraph(): Unit =
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyParagraphText(CommunityBuildingsScheduleUploadSuccessfulPage.pageParagraph)
 }
-
