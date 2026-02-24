@@ -40,9 +40,15 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown extend
   val linkReturnToDashboard: By = By.xpath("//a[@href='/charities-claims/make-a-charity-repayment-claim']")
 
   def validateNavigation(): Unit = {
-    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageUrl(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageUrl)
-    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageTitle(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageTitle)
-    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageHeader(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeading)
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageUrl(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageUrl
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageTitle(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageTitle
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageHeader(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeading
+    )
   }
 
   def validatePageContent(): Unit =
