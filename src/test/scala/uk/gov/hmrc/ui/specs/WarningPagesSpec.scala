@@ -485,5 +485,111 @@ class WarningPagesSpec
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validateNavigation()
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validatePageContent()
     }
+
+    Scenario(
+      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a quarantined file"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-GA")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+      Then("User navigates to 'About Gift Aid schedule' page")
+      AboutGiftAidSchedulePage.validateNavigation()
+      AboutGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigation()
+      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.selectFile(
+        "WarningPagesSpreadsheets/infected.WRN7-0"
+      )
+      UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Your Gift Aid schedule upload' page")
+      YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
+      YourGiftAidScheduleUploadPage.clickContinue()
+      Then(
+        "User navigates to 'There is a problem uploading your Gift Aid schedule' page and validates its contents"
+      )
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validateNavigation()
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContent()
+    }
+
+    Scenario(
+      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload an unknown file"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.2-GA")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+      Then("User navigates to 'About Gift Aid schedule' page")
+      AboutGiftAidSchedulePage.validateNavigation()
+      AboutGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigation()
+      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.selectFile(
+        "WarningPagesSpreadsheets/unknown.WRN7-2"
+      )
+      UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Your Gift Aid schedule upload' page")
+      YourGiftAidScheduleUploadPage.validateNavigation()
+      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
+      YourGiftAidScheduleUploadPage.clickContinue()
+      Then(
+        "User navigates to 'There is a problem uploading your Gift Aid schedule' page and validates its contents"
+      )
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validateNavigation()
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContent()
+    }
   }
 }
