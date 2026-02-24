@@ -35,10 +35,66 @@ class AddCommunityBuildingsSchedulePageSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Community Buildings Page Validations") {
-//    Scenario(
-//      B1.0 goes here
-//    ) {
-//    }
+    Scenario(
+      "User navigates to the 'About community buildings schedule' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Community Buildings schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddCommunityBuildingsSchedule()
+      Then("User navigates to 'About Community Buildings schedule' page")
+      AboutCommunityBuildingsSchedulePage.validateNavigation()
+      AboutCommunityBuildingsSchedulePage.validatePageContent()
+    }
 
     Scenario(
       "User navigates to the 'Upload a Community Buildings schedule' page and validates the page elements"
@@ -97,8 +153,8 @@ class AddCommunityBuildingsSchedulePageSpec
       And("User clicks the link to navigate to 'Add Community Buildings schedule' page")
       ClaimsTaskListPage_InProgress.clickAddCommunityBuildingsSchedule()
       Then("User navigates to 'About Community Buildings schedule' page")
-//      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
+      AboutCommunityBuildingsSchedulePage.validateNavigation()
+      AboutCommunityBuildingsSchedulePage.clickContinue()
       Then("User navigates to 'Upload a Community Buildings schedule' page")
       UploadACommunityBuildingsSchedulePage.validateNavigation()
       Then("User validates the elements on the 'Upload a Community Buildings schedule' page")
@@ -169,8 +225,8 @@ class AddCommunityBuildingsSchedulePageSpec
       And("User clicks the link to navigate to 'Add Community Buildings schedule' page")
       ClaimsTaskListPage_InProgress.clickAddCommunityBuildingsSchedule()
       Then("User navigates to 'About Community Buildings schedule' page")
-      //      AboutGiftAidSchedulePage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
+      AboutCommunityBuildingsSchedulePage.validateNavigation()
+      AboutCommunityBuildingsSchedulePage.clickContinue()
       Then("User navigates to 'Upload a Community Buildings schedule' page")
       UploadACommunityBuildingsSchedulePage.validateNavigation()
       Then("User selects a file to upload in the 'Upload a Community Buildings schedule' page")
