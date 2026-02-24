@@ -490,7 +490,7 @@ class WarningPagesSpec
       "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a quarantined file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-CB")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-GA")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -543,7 +543,7 @@ class WarningPagesSpec
       "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload an unknown file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-CB")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.2-GA")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
