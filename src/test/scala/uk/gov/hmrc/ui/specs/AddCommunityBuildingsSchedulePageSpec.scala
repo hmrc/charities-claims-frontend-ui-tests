@@ -321,7 +321,8 @@ class AddCommunityBuildingsSchedulePageSpec
       Then("User validates the 'no input' error on the 'Check your Community Buildings schedule' page")
       CheckYourCommunityBuildingsSchedulePage.validateErrorMessage()
     }
-    //    G1.4 here
+
+    //    B1.4 here
 
     Scenario(
       "User navigates to the 'Community Buildings schedule upload successful' page and validates the page elements"
