@@ -31,10 +31,16 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
 
   def validateNavigation(): Unit = {
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageUrl(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
-    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageTitle(CommunityBuildingsScheduleUploadSuccessfulPage.pageTitle)
-    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageHeader(CommunityBuildingsScheduleUploadSuccessfulPage.pageHeading)
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageTitle(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageTitle
+    )
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageHeader(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageHeading
+    )
   }
 
   def validatePageParagraph(): Unit =
-    CommunityBuildingsScheduleUploadSuccessfulPage.verifyParagraphText(CommunityBuildingsScheduleUploadSuccessfulPage.pageParagraph)
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyParagraphText(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageParagraph
+    )
 }
