@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+
 package uk.gov.hmrc.ui.pages
 
 object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
