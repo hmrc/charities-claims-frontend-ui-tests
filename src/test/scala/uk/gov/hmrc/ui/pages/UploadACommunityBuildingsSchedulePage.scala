@@ -61,13 +61,7 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
   def pageFileTooBigErrorMsg: String =
     "The selected file must be smaller than 250KB"
 
-  val fileUploadFieldLocator = By.ById("file")
-  val errorMsgLocator        = By.ById("file-error")
-
-  def clickFileUploader(spreadsheet: String): Unit = {
-    selectFile(spreadsheet)
-    clickContinue()
-  }
+  val errorMsgLocator = By.ById("file-error")
 
   def validateNavigation(): Unit = {
     UploadACommunityBuildingsSchedulePage.verifyPageUrl(UploadACommunityBuildingsSchedulePage.pageUrl)
