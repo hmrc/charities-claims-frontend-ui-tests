@@ -68,7 +68,7 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
     CheckYourCommunityBuildingsSchedulePage.verifySummaryCardContent(
       CheckYourCommunityBuildingsSchedulePage.createSingleStringFromMany(
         CheckYourCommunityBuildingsSchedulePage.textSummaryCardTitle,
-        CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col1 + " " + CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col2,
+        CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col1 + " " + CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col2
       )
     )
 
