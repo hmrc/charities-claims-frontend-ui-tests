@@ -32,7 +32,7 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
     "Upload a Community Buildings schedule"
 
   def pageText1: String =
-    "To claim Community Buildings top-up payment, upload a completed Community Buildings schedule with details of the community building(s) where donations were collected and amounts received. You can save your claim without uploading the Community Buildings schedule, but you need to upload a Community Buildings schedule before submitting your claim."
+    "To claim Community Buildings top-up payment, you need to upload a completed Community Buildings schedule with details of the community building(s) where donations were collected and amounts received. You can save your claim without uploading the Community Buildings schedule, but you need to upload a Community Buildings schedule before submitting your claim."
 
   def pageText2: String =
     "If you have not completed a Community Buildings schedule, download a Community Buildings schedule here (opens in new tab)."
