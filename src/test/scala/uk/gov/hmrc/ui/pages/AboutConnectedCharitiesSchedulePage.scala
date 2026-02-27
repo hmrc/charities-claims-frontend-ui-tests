@@ -36,14 +36,14 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
 
   def backButton: String = "Back"
 
-  def validateNavigation():Unit = {
+  def validateNavigation(): Unit = {
     AboutConnectedCharitiesSchedulePage.verifyPageUrl(AboutConnectedCharitiesSchedulePage.pageUrl)
     AboutConnectedCharitiesSchedulePage.verifyPageTitle(AboutConnectedCharitiesSchedulePage.pageTitle)
     AboutConnectedCharitiesSchedulePage.verifyPageCaption(AboutConnectedCharitiesSchedulePage.pageCaption)
     AboutConnectedCharitiesSchedulePage.verifyPageHeader(AboutConnectedCharitiesSchedulePage.pageHeading)
   }
-  
-  def validatePageContent(): Unit = {
+
+  def validatePageContent(): Unit =
     AboutConnectedCharitiesSchedulePage.verifyEntirePageContent(
       AboutConnectedCharitiesSchedulePage.createSingleStringFromMany(
         AboutConnectedCharitiesSchedulePage.pageCaption,
@@ -55,5 +55,4 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
         AboutConnectedCharitiesSchedulePage.backButton
       )
     )
-  }
 }

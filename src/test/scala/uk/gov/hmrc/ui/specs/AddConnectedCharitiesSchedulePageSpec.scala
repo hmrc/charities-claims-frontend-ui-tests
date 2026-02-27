@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class AddConnectedCharitiesSchedulePageSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -38,11 +38,11 @@ class AddConnectedCharitiesSchedulePageSpec
     Scenario("") {
 //      CC1.0
     }
-    
+
     Scenario("") {
 //      CC1.1 here
     }
-    
+
     Scenario("") {
 //      CC1.2 here
     }
