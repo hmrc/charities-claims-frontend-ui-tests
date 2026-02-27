@@ -20,7 +20,7 @@ import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.verbs.ShouldVerb
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
-import uk.gov.hmrc.ui.pages.{AboutOtherIncomeSchedulePage, AuthWizard}
+import uk.gov.hmrc.ui.pages.*
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -44,8 +44,8 @@ class OtherIncomePagesSpec
         "CHARID",
         "PAGETEST - O1.0 - Page Not Found"
       )
-      Then("the user tries to access the screen and reaches 'Page Not Found'")
-      AboutOtherIncomeSchedulePage.validateDataGuardProtection()
+      Then("the user tries to access the screen and is redirected to the 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
     }
 
     Scenario("User navigates to the 'About Other Income Schedule' page and completes the minimum data guard") {
