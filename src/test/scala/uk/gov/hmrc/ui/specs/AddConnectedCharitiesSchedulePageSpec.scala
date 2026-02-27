@@ -35,17 +35,16 @@ class AddConnectedCharitiesSchedulePageSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Connected Charities Page Validations") {
-    Scenario("") {
-//      CC1.0
-    }
-
-    Scenario("") {
-//      CC1.1 here
-    }
-
-    Scenario("") {
-//      CC1.2 here
-    }
+//    Scenario("") {
+////      CC1.0
+//    }
+//
+//    Scenario("") {
+////      CC1.1 here
+//    }
+//
+//    Scenario("") {
+////      CC1.2 here
+//    }
   }
-
 }
