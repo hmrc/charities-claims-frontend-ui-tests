@@ -35,8 +35,33 @@ class AddOtherIncomeSchedulePageSpec
     with ScreenshotOnFailure {
 
   Feature("Charities - Organisation - Other Income Page Validations") {
-//    Scenario("Placeholder for O1.0"){}
+    Scenario("User navigates to the 'About Other Income Schedule' page without meeting the minimum data guard") {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "PAGETEST - O1.0 - Page Not Found"
+      )
+      Then("the user tries to access the screen and reaches 'Page Not Found'")
+      AboutOtherIncomeSchedulePage.validateDataGuardProtection()
+    }
 
+    Scenario("User navigates to the 'About Other Income Schedule' page and completes the minimum data guard") {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - O1.0")
+      Then("the user navigates too 'Claims Task List' then completes the necessary minimum data input")
+      AboutOtherIncomeSchedulePage.completeMinimumDataGuard()
+      Then("the user has completed the minimum data required and navigates to 'About Other Income Schedule' page")
+      AboutOtherIncomeSchedulePage.goToAboutOtherIncomeSchedulePage()
+      Then("the we validate the page content")
+      AboutOtherIncomeSchedulePage.validateNavigation()
+      AboutOtherIncomeSchedulePage.validatePageContent()
+    }
+
+    /** Jaye stuff */
     Scenario(
       "User navigates to the 'Upload an Other Income schedule' page and validates the page elements"
     ) {
