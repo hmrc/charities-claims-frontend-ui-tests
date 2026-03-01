@@ -20,13 +20,13 @@ import org.openqa.selenium.By
 
 object YourOtherIncomeScheduleUploadPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/your-gift-aid-schedule-upload"
+  override def pageUrl: String = s"$hostname/your-other-income-schedule-upload"
 
   override def pageTitle: String =
     "Your Other Income schedule upload - Charities - GOV.UK"
 
   def pageCaption: String =
-    "Your Other Income schedule upload"
+    "Add Other Income schedule"
 
   def pageHeading: String =
     "Your Other Income schedule upload"
