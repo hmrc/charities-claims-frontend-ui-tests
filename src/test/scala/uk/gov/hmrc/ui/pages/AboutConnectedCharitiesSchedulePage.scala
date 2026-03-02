@@ -51,8 +51,7 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
         AboutConnectedCharitiesSchedulePage.listText1,
         AboutConnectedCharitiesSchedulePage.listText2,
         AboutConnectedCharitiesSchedulePage.listText3,
-        AboutConnectedCharitiesSchedulePage.continueButton,
-        AboutConnectedCharitiesSchedulePage.backButton
+        AboutConnectedCharitiesSchedulePage.continueButton
       )
     )
 }
