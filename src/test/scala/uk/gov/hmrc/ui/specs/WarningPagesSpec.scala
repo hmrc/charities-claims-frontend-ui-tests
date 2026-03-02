@@ -827,9 +827,7 @@ class WarningPagesSpec
       Then("User navigates to 'Upload a Community Buildings schedule' page")
       UploadACommunityBuildingsSchedulePage.validateNavigation()
       Then("User selects a file to upload in the 'Upload a Community Buildings schedule' page")
-      UploadACommunityBuildingsSchedulePage.selectFile(
-        "CommunityBuildingsSpreadsheets/CommunityBuildingsPassRows"
-      )
+      UploadACommunityBuildingsSchedulePage.selectFile("CommunityBuildingsSpreadsheets/CommunityBuildingsPassRows")
       UploadACommunityBuildingsSchedulePage.clickContinue()
       Then("User navigates to 'Upload a Community Buildings schedule' page")
       YourCommunityBuildingsScheduleUploadPage.validateNavigation()

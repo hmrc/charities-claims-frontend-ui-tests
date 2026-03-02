@@ -21,37 +21,35 @@ import org.scalactic.Prettifier.default
 
 object UpdateCommunityBuildingSchedulePage extends BasePage {
 
-  override def pageUrl : String = s"$hostname/update-community-buildings-schedule"
+  override def pageUrl: String = s"$hostname/update-community-buildings-schedule"
 
-  override def pageTitle : String =
+  override def pageTitle: String =
     "Are you sure you want to update this Community Buildings schedule? - Charities - GOV.UK"
 
-  def pageHeading : String =
+  def pageHeading: String =
     "Are you sure you want to update this Community Buildings schedule?"
 
-  def pageHint : String =
+  def pageHint: String =
     "By updating this file, you will lose any Community Buildings schedule data you have previously attached."
 
-  def errorMsg : String =
+  def errorMsg: String =
     "Select ‘Yes’ if you want to update this Community Buildings schedule"
 
-  val yes: String = "#value"
-  val no: String = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
-  def validateNavigation() : Unit = {
+  def validateNavigation(): Unit = {
     UpdateCommunityBuildingSchedulePage.verifyPageUrl(UpdateCommunityBuildingSchedulePage.pageUrl)
     UpdateCommunityBuildingSchedulePage.verifyPageTitle(UpdateCommunityBuildingSchedulePage.pageTitle)
     UpdateCommunityBuildingSchedulePage.verifyPageHeader(UpdateCommunityBuildingSchedulePage.pageHeading)
     UpdateCommunityBuildingSchedulePage.verifyHintText(UpdateCommunityBuildingSchedulePage.pageHint)
   }
 
-  def validateErrorMessage() : Unit =
+  def validateErrorMessage(): Unit =
     UpdateCommunityBuildingSchedulePage.validateGenericPageError(
       UpdateCommunityBuildingSchedulePage.errorMsg,
       UpdateCommunityBuildingSchedulePage.errorMsgLocator
-      )
-
-
+    )
 
 }
