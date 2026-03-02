@@ -99,5 +99,4 @@ class AddConnectedCharitiesSchedulePageSpec
 //      CC1.2 here
 //    }
   }
-
 }
