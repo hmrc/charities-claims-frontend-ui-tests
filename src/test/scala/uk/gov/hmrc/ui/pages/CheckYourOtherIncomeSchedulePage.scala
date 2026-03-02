@@ -34,15 +34,15 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   def textSummaryRow1Col1: String = "Adjustment for Other Income previously over-claimed"
 
-  def textSummaryRow1Col2: String = "£0.00"
+  def textSummaryRow1Col2: String = "£78.00"
 
   def textSummaryRow2Col1: String = "Total gross payment"
 
-  def textSummaryRow2Col2: String = "£100.00"
+  def textSummaryRow2Col2: String = "£1,234.00"
 
   def textSummaryRow3Col1: String = "Total tax deducted"
 
-  def textSummaryRow3Col2: String = "£50.00"
+  def textSummaryRow3Col2: String = "£56.00"
 
   def textRadioButtonQuestion: String = "Do you need to update this Other Income schedule?"
 

@@ -53,8 +53,8 @@ object AboutOtherIncomeSchedulePage extends BasePage {
 
   def validateDataGuardProtection(): Unit = {
     navigateToPage(pageUrl)
-    Error_PageNotFoundPage.validateNavigation()
-    Error_PageNotFoundPage.validatePageContent()
+    ClaimsTaskListPage_Empty.validateNavigation()
+    ClaimsTaskListPage_Empty.validatePageContent()
   }
 
   def completeMinimumDataGuard(): Unit = {
