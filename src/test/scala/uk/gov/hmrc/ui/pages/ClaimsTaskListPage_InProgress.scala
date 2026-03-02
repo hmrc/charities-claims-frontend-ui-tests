@@ -92,7 +92,8 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/about-other-income-schedule']")
   val linkAddCommunityBuildingsSchedule: By =
     By.xpath("//a[@href='/charities-claims/about-community-buildings-schedule']")
-  val linkAddConnectedCharitiesSchedule: By = By.xpath("//a[@href='/charities-claims/TODO']")
+  val linkAddConnectedCharitiesSchedule: By =
+    By.xpath("//a[@href='/charities-claims/about-connected-charities-schedule']")
 
   def clickGoToDashboard(): Unit = {
     val element = waitForElementToBeClickable(linkGoToDashboard)
