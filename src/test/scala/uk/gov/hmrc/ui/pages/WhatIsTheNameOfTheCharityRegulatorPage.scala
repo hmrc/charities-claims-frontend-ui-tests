@@ -34,7 +34,7 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
   def pageErrorMsg: String =
     "Select the name of the charity regulator"
 
-  val EngWal: String  = "#EnglandAndWales"
+  val EngWal: String  = "#value"
   val Ire: String     = "#NorthernIreland"
   val None: String    = "#None"
   val Scot: String    = "#Scottish"
