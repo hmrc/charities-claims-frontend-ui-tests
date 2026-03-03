@@ -402,14 +402,14 @@ class AddCommunityBuildingsSchedulePageSpec
       DeleteGASDSCommunityBuildingsSchedulePage.validateNavigation()
       Then("User clicks back to reach 'problem with your CBS' page")
       DeleteGASDSCommunityBuildingsSchedulePage.clickBackLink()
-      Then("User reaches the 'problem with your GAS page' and validates the navigation")
+      Then("User reaches the 'problem with your CBS page' and validates the navigation")
       CheckYourCommunityBuildingsScheduleErrorPage.validateNavigation()
       Then(
         "User clicks on 'Attach an updated Community Buildings schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a CBS page B1.1' "
       )
-      CheckYourGiftAidScheduleErrorPage.clickContinue()
-      Then("User validates navigation of 'upload a GAS page B1.1' ")
+      CheckYourCommunityBuildingsScheduleErrorPage.clickContinue()
+      Then("User validates navigation of 'upload a CBS page B1.1' ")
       UploadACommunityBuildingsSchedulePage.validateNavigation()
 
     }
