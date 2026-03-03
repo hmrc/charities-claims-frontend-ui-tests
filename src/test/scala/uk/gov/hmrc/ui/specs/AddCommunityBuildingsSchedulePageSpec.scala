@@ -322,7 +322,97 @@ class AddCommunityBuildingsSchedulePageSpec
       CheckYourCommunityBuildingsSchedulePage.validateErrorMessage()
     }
 
-    //    B1.4 here
+    Scenario(
+      "User navigates to the 'Check your Community Buildings schedule' error page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.4")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Community Buildings schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddCommunityBuildingsSchedule()
+      Then("User navigates to 'About Community Buildings schedule' page")
+      AboutCommunityBuildingsSchedulePage.validateNavigation()
+      AboutCommunityBuildingsSchedulePage.clickContinue()
+      Then("User navigates to 'Upload a Community Buildings schedule' page")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
+      Then("User selects a file to upload in the 'Upload a Community Buildings schedule' page")
+      UploadACommunityBuildingsSchedulePage.selectFile(
+        "CommunityBuildingsSpreadsheets/community-buildings-excel-BadData"
+      )
+      UploadACommunityBuildingsSchedulePage.clickContinue()
+      Then("User navigates to 'Your Community Buildings schedule upload' page")
+      YourCommunityBuildingsScheduleUploadPage.validateNavigation()
+      YourCommunityBuildingsScheduleUploadPage.waitForFileUpload()
+      YourCommunityBuildingsScheduleUploadPage.clickContinue()
+      Then("User navigates to 'Check your Community Buildings schedule' page")
+      CheckYourCommunityBuildingsScheduleErrorPage.validateNavigation()
+      Then("User validates the static text on'Problem with your Community Buildings schedule data' page")
+      CheckYourCommunityBuildingsScheduleErrorPage.validatePageContent()
+      Then("User clicks on the Delete Schedule link and reaches the Delete Schedule WRN 1.2 page")
+      CheckYourCommunityBuildingsScheduleErrorPage.clickDeleteScheduleLink()
+      Then("User validates navigation of Delete Schedule WRN 1.2 page")
+      DeleteGASDSCommunityBuildingsSchedulePage.validateNavigation()
+      Then("User clicks back to reach 'problem with your CBS' page")
+      DeleteGASDSCommunityBuildingsSchedulePage.clickBackLink()
+      Then("User reaches the 'problem with your CBS page' and validates the navigation")
+      CheckYourCommunityBuildingsScheduleErrorPage.validateNavigation()
+      Then(
+        "User clicks on 'Attach an updated Community Buildings schedule' that deletes the invalid ODS and navigates to" +
+          " 'upload a CBS page B1.1' "
+      )
+      CheckYourCommunityBuildingsScheduleErrorPage.clickContinue()
+      Then("User validates navigation of 'upload a CBS page B1.1' ")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
+
+    }
 
     Scenario(
       "User navigates to the 'Community Buildings schedule upload successful' page and validates the page elements"
