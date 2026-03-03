@@ -22,6 +22,8 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-gasds-payment"
 
+  def changePageUrl: String = s"$hostname/change-claim-gasds-payment"
+
   override def pageTitle: String =
     "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme? - Charities - GOV.UK"
 
@@ -43,6 +45,13 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
 
   def validateNavigation(): Unit = {
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.pageUrl)
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeader(DoYouWantToClaimATopUpUnderGASDSPage.pageHeader)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.changePageUrl)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeader(DoYouWantToClaimATopUpUnderGASDSPage.pageHeader)

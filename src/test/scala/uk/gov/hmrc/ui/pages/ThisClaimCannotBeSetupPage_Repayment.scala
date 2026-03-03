@@ -41,6 +41,9 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   def linkGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
+  def textConfirmTopUpPaymentUnderGASDS: String =
+    "confirm if you are claiming a top-up payment under the Gift Aid Small Donations Scheme"
+
   def textConfirmDonationsCollectedInCommunityBuildings: String =
     "confirm if you are claiming for donations collected in community buildings"
 
@@ -51,7 +54,7 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
     "confirm if you are connected to other charities or a Community Amateur Sports Club"
 
   def textConfirmIfYouHaveAClaimRefNo: String =
-    "confirm if you have a claim reference number"
+    "provide a claim reference number"
 
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_Repayment.verifyPageUrl(ThisClaimCannotBeSetupPage_Repayment.pageUrl)
@@ -67,10 +70,9 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
         ThisClaimCannotBeSetupPage_Repayment.pageWarningHeading,
         ThisClaimCannotBeSetupPage_Repayment.pageWarningText,
         ThisClaimCannotBeSetupPage_Repayment.textParagraph1,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmTopUpPaymentUnderGASDS,
         ThisClaimCannotBeSetupPage_Repayment.textConfirmDonationsCollectedInCommunityBuildings,
-        ThisClaimCannotBeSetupPage_Repayment.textConfirmChangingPreviousGASDSClaim,
         ThisClaimCannotBeSetupPage_Repayment.textConfirmIfConnectedToOtherCharitiesOrCASC,
-        ThisClaimCannotBeSetupPage_Repayment.textConfirmIfYouHaveAClaimRefNo,
         ThisClaimCannotBeSetupPage_Repayment.linkGoBackToProvideMissingInfo
       )
     )
