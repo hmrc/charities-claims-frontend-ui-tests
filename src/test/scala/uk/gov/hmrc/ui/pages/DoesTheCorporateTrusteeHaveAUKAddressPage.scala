@@ -21,6 +21,8 @@ import org.openqa.selenium.By
 object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/corporate-trustee-address"
 
+  def changePageUrl: String = s"$hostname/change-corporate-trustee-address"
+
   override def pageTitle: String =
     "Does the corporate trustee have a UK address? - Charities - GOV.UK"
 
@@ -40,6 +42,12 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
 
   def validateNavigation(): Unit = {
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.changePageUrl)
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
   }

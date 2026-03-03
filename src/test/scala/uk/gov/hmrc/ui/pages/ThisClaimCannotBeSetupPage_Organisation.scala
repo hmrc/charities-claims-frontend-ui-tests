@@ -47,6 +47,9 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
   def textConfirmIfCorporateTrustee: String =
     "confirm if you are a corporate trustee"
 
+  def textConfirmCorporateTrusteeDetails: String =
+    "confirm the corporate trustee details"
+
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_Organisation.verifyPageUrl(ThisClaimCannotBeSetupPage_Organisation.pageUrl)
     ThisClaimCannotBeSetupPage_Organisation.verifyPageTitle(ThisClaimCannotBeSetupPage_Organisation.pageTitle)
@@ -61,8 +64,7 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
         ThisClaimCannotBeSetupPage_Organisation.pageWarningHeading,
         ThisClaimCannotBeSetupPage_Organisation.pageWarningText,
         ThisClaimCannotBeSetupPage_Organisation.textParagraph1,
-        ThisClaimCannotBeSetupPage_Organisation.textConfirmRegulatorName,
-        ThisClaimCannotBeSetupPage_Organisation.textConfirmIfCorporateTrustee,
+        ThisClaimCannotBeSetupPage_Organisation.textConfirmCorporateTrusteeDetails,
         ThisClaimCannotBeSetupPage_Organisation.textGoBackToProvideMissingInfo
       )
     )
