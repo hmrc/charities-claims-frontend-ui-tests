@@ -27,7 +27,7 @@ object UpdateConnectedCharitiesSchedulePage extends BasePage {
     "Are you sure you want to update this Connected Charities schedule? - Charities - GOV.UK"
 
   def pageHeading: String =
-    "\tAre you sure you want to update this Connected Charities schedule?"
+    "Are you sure you want to update this Connected Charities schedule?"
 
   def pageHint: String =
     "By updating this file, you will lose any Connected Charities schedule data you have previously attached."
