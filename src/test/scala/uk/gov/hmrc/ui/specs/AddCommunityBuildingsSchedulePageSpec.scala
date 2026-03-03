@@ -394,7 +394,23 @@ class AddCommunityBuildingsSchedulePageSpec
       YourCommunityBuildingsScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Community Buildings schedule' page")
       CheckYourCommunityBuildingsScheduleErrorPage.validateNavigation()
+      Then("User validates the static text on'Problem with your Community Buildings schedule data' page")
       CheckYourCommunityBuildingsScheduleErrorPage.validatePageContent()
+      Then("User clicks on the Delete Schedule link and reaches the Delete Schedule WRN 1.2 page")
+      CheckYourCommunityBuildingsScheduleErrorPage.clickDeleteScheduleLink()
+      Then("User validates navigation of Delete Schedule WRN 1.2 page")
+      DeleteGASDSCommunityBuildingsSchedulePage.validateNavigation()
+      Then("User clicks back to reach 'problem with your CBS' page")
+      DeleteGASDSCommunityBuildingsSchedulePage.clickBackLink()
+      Then("User reaches the 'problem with your GAS page' and validates the navigation")
+      CheckYourCommunityBuildingsScheduleErrorPage.validateNavigation()
+      Then(
+        "User clicks on 'Attach an updated Community Buildings schedule' that deletes the invalid ODS and navigates to" +
+          " 'upload a CBS page B1.1' "
+      )
+      CheckYourGiftAidScheduleErrorPage.clickContinue()
+      Then("User validates navigation of 'upload a GAS page B1.1' ")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
 
     }
 
