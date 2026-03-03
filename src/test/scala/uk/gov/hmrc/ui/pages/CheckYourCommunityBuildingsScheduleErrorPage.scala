@@ -53,11 +53,21 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
   def validateNavigation(): Unit = {
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageUrl(CheckYourCommunityBuildingsScheduleErrorPage.pageUrl)
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageTitle(CheckYourCommunityBuildingsScheduleErrorPage.pageTitle)
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageCaption(CheckYourCommunityBuildingsScheduleErrorPage.pageCaption)
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeader(CheckYourCommunityBuildingsScheduleErrorPage.pageHeader)
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageWarning(CheckYourCommunityBuildingsScheduleErrorPage.pageWarning)
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading1(CheckYourCommunityBuildingsScheduleErrorPage.pageHeader2)
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading2(CheckYourCommunityBuildingsScheduleErrorPage.pageHeader3)
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageCaption(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageCaption
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeader(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageWarning(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageWarning
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading1(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader2
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading2(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader3
+    )
   }
 
   def validatePageContent(): Unit =
