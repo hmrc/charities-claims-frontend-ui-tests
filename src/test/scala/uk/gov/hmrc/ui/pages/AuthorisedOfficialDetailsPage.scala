@@ -115,6 +115,19 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     clickContinue()
   }
 
+  def enterNonUKAuthOfficialDetails(
+    authOfficialTitle: String,
+    authOfficialForename: String,
+    authOfficialSurname: String,
+    authOfficialPhoneNo: String
+  ): Unit = {
+    input(Locators.txtAuthOfficialTitle, authOfficialTitle)
+    input(Locators.txtAuthOfficialForename, authOfficialForename)
+    input(Locators.txtAuthOfficialSurname, authOfficialSurname)
+    input(Locators.txtAuthOfficialPhoneNo, authOfficialPhoneNo)
+    clickContinue()
+  }
+
   def validateNavigation(): Unit = {
     AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.pageUrl)
     AuthorisedOfficialDetailsPage.verifyPageTitle(AuthorisedOfficialDetailsPage.pageTitle)

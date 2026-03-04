@@ -377,8 +377,9 @@ class WarningPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to update this repayment claim?' page")
-      // TODO when page object added
+      // TODO when page object added replace sleep
 //      CheckYourRepaymentClaimPage.validateNavigation()
+      Thread.sleep(1000)
       And("User selects to update repayment claim")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
