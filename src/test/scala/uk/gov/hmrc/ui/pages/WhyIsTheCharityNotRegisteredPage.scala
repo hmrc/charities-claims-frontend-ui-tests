@@ -32,7 +32,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def pageErrorMsg: String = "Select why the charity is not registered with a regulator"
 
-  val LowIncome: String  = "#LowIncome"
+  val LowIncome: String  = "#value"
   val Exempt: String     = "#Exempt"
   val Excepted: String   = "#Excepted"
   val NorIrlWait: String = "#Waiting"
