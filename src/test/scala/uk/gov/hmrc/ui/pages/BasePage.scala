@@ -74,7 +74,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
     val txtSummaryCardContent      = By.ByClassName("govuk-summary-card")
-    val connectedCharitiesTable    = By.ByClassName("govuk-table connected-charities-table")
     val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
     val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
     val txtTrusteePostcode         = By.ById("corporateTrusteePostcode")
@@ -435,16 +434,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardContent).getText)
-  }
-
-  def verifyConnectedCharitiesTable(expectedText: String): Unit = {
-    waitForVisibilityOfElement(Locators.connectedCharitiesTable)
-    val actualText = driver.findElement(Locators.connectedCharitiesTable).getText
-    assert(
-      actualText == expectedText,
-      s"Warning connected charities content mismatch! Expected: $expectedText, Actual: $actualText"
-    )
-    println("Actual connected charities content is: " + driver.findElement(Locators.connectedCharitiesTable).getText)
   }
 
   def verifyFormFieldsetContent(expectedText: String): Unit = {

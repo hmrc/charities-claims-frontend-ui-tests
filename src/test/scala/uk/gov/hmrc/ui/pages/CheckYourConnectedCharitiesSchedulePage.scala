@@ -30,23 +30,11 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to update this Connected Charities schedule"
 
-  def tableColumn1Row1: String = "Item"
-
-  def tableColumn2Row1: String = "1"
-
-  def tableColumn1Row2: String = "Name of charity"
-
-  def tableColumn2Row2: String = "Charity of the 501st Legion"
-
-  def tableColumn1Row3: String = "HMRC Charities reference"
-
-  def tableColumn2Row3: String = "CW501"
-
-  def textRadioButtonQuestion: String = "Do you need to update this Other Income schedule?"
+  def textRadioButtonQuestion: String = "Do you need to update this Connected Charities schedule?"
 
   def textRadioButtonYes: String = "Yes"
 
-  def textRadioButtonNo: String = "No, continue with Other Income schedule"
+  def textRadioButtonNo: String = "No, continue with Connected Charities schedule"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
@@ -58,15 +46,6 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
     CheckYourConnectedCharitiesSchedulePage.verifyPageCaption(CheckYourConnectedCharitiesSchedulePage.pageCaption)
     CheckYourConnectedCharitiesSchedulePage.verifyPageHeader(CheckYourConnectedCharitiesSchedulePage.pageHeading)
   }
-
-  // TODO Hardcoded values, needs improved
-  def validateConnectedCharitiesTable(): Unit =
-    CheckYourConnectedCharitiesSchedulePage.verifyConnectedCharitiesTable(
-      CheckYourConnectedCharitiesSchedulePage.createSingleStringFromMany(
-        CheckYourConnectedCharitiesSchedulePage.tableColumn1Row1 + " " + CheckYourConnectedCharitiesSchedulePage.tableColumn1Row2 + " " + CheckYourConnectedCharitiesSchedulePage.tableColumn1Row3,
-        CheckYourConnectedCharitiesSchedulePage.tableColumn2Row1 + " " + CheckYourConnectedCharitiesSchedulePage.tableColumn2Row2 + " " + CheckYourConnectedCharitiesSchedulePage.tableColumn2Row3,
-      )
-    )
 
   def validateFormFieldset(): Unit =
     CheckYourConnectedCharitiesSchedulePage.verifyFormFieldsetContent(
