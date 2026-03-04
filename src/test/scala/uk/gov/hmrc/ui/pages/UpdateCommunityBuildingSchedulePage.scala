@@ -17,7 +17,6 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
-import org.scalactic.Prettifier.default
 
 object UpdateCommunityBuildingSchedulePage extends BasePage {
 

@@ -456,7 +456,9 @@ class AddConnectedCharitiesSchedulePageSpec
       Then("User navigates to 'Upload a Connected Charities schedule' page")
       UploadAConnectedCharitiesSchedulePage.validateNavigation()
       Then("User selects a file to upload in the 'Upload a Connected Charities schedule' page")
-      UploadAConnectedCharitiesSchedulePage.selectFile("ConnectedCharitiesSpreadsheets/Connected-Charities-schedule-Excel-GoodData")
+      UploadAConnectedCharitiesSchedulePage.selectFile(
+        "ConnectedCharitiesSpreadsheets/Connected-Charities-schedule-Excel-GoodData"
+      )
       UploadAConnectedCharitiesSchedulePage.clickContinue()
       Then("User navigates to 'Your Connected Charities schedule upload' page")
       YourConnectedCharitiesScheduleUploadPage.validateNavigation()
