@@ -338,7 +338,7 @@ class AddOtherIncomeSchedulePageSpec
       YourOtherIncomeScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Other Income schedule' page")
       CheckYourOtherIncomeSchedulePage.validateNavigation()
-      CheckYourOtherIncomeSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
+      CheckYourOtherIncomeSchedulePage.radioButton(CheckYourOtherIncomeSchedulePage.no)
       CheckYourOtherIncomeSchedulePage.clickContinue()
       Then("User navigates and validates 'Successful Other Income Upload' page ")
       OtherIncomeUploadSuccessfulPage.validateNavigation()
