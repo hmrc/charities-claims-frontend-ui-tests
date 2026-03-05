@@ -948,17 +948,19 @@ class WarningPagesSpec
       And(
         "User selects 'no' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
-      GiftAidSmallDonationsSchemeClaimPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
       ConnectedCharitiesPage.validateNavigation()
       And("User selects 'Yes' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
       ConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
@@ -978,7 +980,9 @@ class WarningPagesSpec
       Then("User navigates to 'Upload a Connected Charities schedule' page")
       UploadAConnectedCharitiesSchedulePage.validateNavigation()
       Then("User selects a file to upload in the 'Upload a Connected Charities schedule' page")
-      UploadAConnectedCharitiesSchedulePage.selectFile("ConnectedCharitiesSpreadsheets/Connected-Charities-schedule-Excel-GoodData")
+      UploadAConnectedCharitiesSchedulePage.selectFile(
+        "ConnectedCharitiesSpreadsheets/Connected-Charities-schedule-Excel-GoodData"
+      )
       UploadAConnectedCharitiesSchedulePage.clickContinue()
       Then("User navigates to 'Upload a Connected Charities schedule' page")
       YourConnectedCharitiesScheduleUploadPage.validateNavigation()
@@ -986,7 +990,9 @@ class WarningPagesSpec
       YourConnectedCharitiesScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Connected Charities schedule' page")
 //      CheckYourConnectedCharitiesSchedulePage.validateNavigation()
-      CheckYourCommunityBuildingsScheduleErrorPage.radioButton(CheckYourCommunityBuildingsSchedulePage.yes)  //To change when page done
+      CheckYourCommunityBuildingsScheduleErrorPage.radioButton(
+        CheckYourCommunityBuildingsSchedulePage.yes
+      ) // To change when page done
       CheckYourCommunityBuildingsScheduleErrorPage.clickContinue()
       Then("User navigates to 'Update Connected Charities schedule' page")
       UpdateConnectedCharitiesSchedulePage.validateNavigation()
