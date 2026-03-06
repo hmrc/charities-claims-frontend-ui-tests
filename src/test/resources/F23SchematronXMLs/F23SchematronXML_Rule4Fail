@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GovTalkMessage xmlns="http://www.govtalk.gov.uk/CM/envelope">
+	<EnvelopeVersion>2.0</EnvelopeVersion>
+	<Header>
+		<MessageDetails>
+			<Class>HMRC-CHAR-CLM</Class>
+			<Qualifier>request</Qualifier>
+			<Function>submit</Function>
+			<CorrelationID>E5E33CCB3A0241BCB38252F2B0B6A7DC</CorrelationID>
+			<GatewayTimestamp>2025-12-04T12:53:29.124</GatewayTimestamp>
+		</MessageDetails>
+		<SenderDetails></SenderDetails>
+	</Header>
+	<GovTalkDetails>
+		<Keys>
+			<Key Type="CredentialID">authorityOrg1</Key>
+			<Key Type="CHARID">F23RULE4FAIL</Key>
+			<Key Type="SessionID">session-7f2f616c-c50d-461e-93c9-57b8d60e04a6</Key>
+		</Keys>
+		<ChannelRouting>
+			<Channel>
+				<URI>9998</URI>
+				<Product>Charities portal</Product>
+				<Version>1.0</Version>
+			</Channel>
+		</ChannelRouting>
+	</GovTalkDetails>
+	<Body>
+		<IRenvelope xmlns="http://www.govtalk.gov.uk/taxation/charities/r68/2">
+			<IRheader>
+				<Keys>
+					<Key Type="CHARID">F23RULE4FAIL</Key>
+				</Keys>
+				<PeriodEnd>2012-01-01</PeriodEnd>
+				<IRmark Type="generic">ecYRGN8K5yfiZSK5RDXoskrwbJE=</IRmark>
+				<Sender>Other</Sender>
+			</IRheader>
+			<R68>
+				<AuthOfficial>
+					<Trustee>Test Corp</Trustee>
+					<ClaimNo>CHR-DS-029</ClaimNo>
+					<OffID>
+						<Postcode>AB12 3YZ</Postcode>
+					</OffID>
+					<Phone>07777777777</Phone>
+				</AuthOfficial>
+				<Declaration>yes</Declaration>
+				<Claim>
+					<OrgName>CHARITY TC088</OrgName>
+					<HMRCref>XR4010</HMRCref>
+					<Regulator>
+						<RegName>CCEW</RegName>
+						<RegNo>1137948</RegNo>
+					</Regulator>
+					<Repayment>
+						<GAD>
+							<AggDonation>One off Gift Aid donations</AggDonation>
+							<Date>2025-03-31</Date>
+							<Total>1000.01</Total>
+						</GAD>
+						<EarliestGAdate>2025-01-01</EarliestGAdate>
+					</Repayment>
+					<GiftAidSmallDonationsScheme>
+						<ConnectedCharities>yes</ConnectedCharities>
+						<Charity>
+							<Name>Charity One</Name>
+							<HMRCref>X95442</HMRCref>
+						</Charity>
+					</GiftAidSmallDonationsScheme>
+					<OtherInfo>This is my other info about my adjustments</OtherInfo>
+				</Claim>
+			</R68>
+		</IRenvelope>
+	</Body>
+</GovTalkMessage>
