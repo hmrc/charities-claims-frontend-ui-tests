@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GovTalkMessage xmlns="http://www.govtalk.gov.uk/CM/envelope">
+	<EnvelopeVersion>2.0</EnvelopeVersion>
+	<Header>
+		<MessageDetails>
+			<Class>HMRC-CHAR-CLM</Class>
+			<Qualifier>request</Qualifier>
+			<Function>submit</Function>
+			<CorrelationID>D240212BD8464107966120F5B312BA63</CorrelationID>
+			<GatewayTimestamp>2025-11-06T14:58:32.486</GatewayTimestamp>
+		</MessageDetails>
+		<SenderDetails></SenderDetails>
+	</Header>
+	<GovTalkDetails>
+		<Keys>
+			<Key Type="CredentialID">authorityOrg1</Key>
+			<Key Type="CHARID">XR4010</Key>
+			<Key Type="SessionID">session-7dd01275-60b7-47fd-b08f-ab834ce94555</Key>
+		</Keys>
+		<ChannelRouting>
+			<Channel>
+				<URI>9998</URI>
+				<Product>Charities portal</Product>
+				<Version>1.0</Version>
+			</Channel>
+		</ChannelRouting>
+	</GovTalkDetails>
+	<Body>
+		<IRenvelope xmlns="http://www.govtalk.gov.uk/taxation/charities/r68/2">
+			<IRheader>
+				<Keys>
+					<Key Type="CHARID">XR4010</Key>
+				</Keys>
+				<PeriodEnd>2012-01-01</PeriodEnd>
+				<IRmark Type="generic">oCHbGp+XAIi/AYdxWxLNLMmbEno=</IRmark>
+				<Sender>Other</Sender>
+			</IRheader>
+			<R68>
+				<AuthOfficial>
+					<Trustee>Joe Bloggs</Trustee>
+					<OffID>
+						<Postcode>AB12 3YZ</Postcode>
+					</OffID>
+					<Phone>07777777777</Phone>
+				</AuthOfficial>
+				<Declaration>yes</Declaration>
+				<Claim>
+					<OrgName>CHARITY TC088</OrgName>
+					<HMRCref>XR4010</HMRCref>
+					<Regulator>
+						<RegName>CCEW</RegName>
+						<RegNo>1234</RegNo>
+					</Regulator>
+					<Repayment>
+						<GAD>
+							<Donor>
+								<Ttl>Mr</Ttl>
+								<Fore>John</Fore>
+								<Sur>Smith</Sur>
+								<House>100 Champs Elysees, Paris</House>
+								<Overseas>yes</Overseas>
+							</Donor>
+							<Date>2025-01-02</Date>
+							<Total>250.00</Total>
+						</GAD>
+						<EarliestGAdate>2025-01-01</EarliestGAdate>
+					</Repayment>
+					<OtherInfo>def</OtherInfo>
+				</Claim>
+			</R68>
+		</IRenvelope>
+	</Body>
+</GovTalkMessage>
