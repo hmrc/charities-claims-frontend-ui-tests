@@ -1,0 +1,79 @@
+<GovTalkMessage xmlns="http://www.govtalk.gov.uk/CM/envelope">
+	<EnvelopeVersion>2.0</EnvelopeVersion>
+	<Header>
+		<MessageDetails>
+			<Class>HMRC-CHAR-CLM</Class>
+			<Qualifier>request</Qualifier>
+			<Function>submit</Function>
+			<CorrelationID>729ABBDACEE741A682464789BB6DEA6A</CorrelationID>
+			<GatewayTimestamp>2026-01-09T13:19:48.435</GatewayTimestamp>
+		</MessageDetails>
+		<SenderDetails />
+	</Header>
+	<GovTalkDetails>
+		<Keys>
+			<Key Type="CredentialID">0000000097289635</Key>
+			<Key Type="CHARID">F23RULE5ORGPASS</Key>
+			<Key Type="SessionID">session-be72e030-41ea-476a-aec5-e1f7e68116e7</Key>
+		</Keys>
+		<ChannelRouting>
+			<Channel>
+				<URI>9998</URI>
+				<Product>Charities portal</Product>
+				<Version>1.0</Version>
+			</Channel>
+		</ChannelRouting>
+	</GovTalkDetails>
+	<Body>
+		<IRenvelope xmlns="http://www.govtalk.gov.uk/taxation/charities/r68/2">
+			<IRheader>
+				<Keys>
+					<Key Type="CHARID">F23RULE5ORGPASS</Key>
+				</Keys>
+				<PeriodEnd>2012-01-01</PeriodEnd>
+				<IRmark Type="generic">lC+fMqqQqrJFxj/PIKISaA1AgLU=</IRmark>
+				<Sender>Other</Sender>
+			</IRheader>
+			<R68>
+				<AgtOrNom>
+					<OrgName>MR B BANANA</OrgName>
+					<RefNo>95100000001295</RefNo>
+					<ClaimNo>FOO123</ClaimNo>
+					<AoNID>
+						<Postcode>AB12 3YZ</Postcode>
+					</AoNID>
+					<Phone>07355593397</Phone>
+				</AgtOrNom>
+				<Declaration>yes</Declaration>
+				<Claim>
+					<OrgName>CHARITY TC088</OrgName>
+					<HMRCref>XR4010</HMRCref>
+					<Regulator>
+						<RegName>CCEW</RegName>
+						<RegNo>4035826</RegNo>
+					</Regulator>
+					<Repayment>
+						<GAD>
+							<Donor>
+								<Ttl>Mr</Ttl>
+								<Fore>Artur</Fore>
+								<Sur>Opala</Sur>
+								<House>4 Albany Close</House>
+								<Overseas>yes</Overseas>
+							</Donor>
+							<Date>2025-12-28</Date>
+							<Total>1000.00</Total>
+						</GAD>
+						<EarliestGAdate>2025-12-28</EarliestGAdate>
+						<OtherInc>
+							<Payer>Artur Opala</Payer>
+							<OIDate>2026-01-10</OIDate>
+							<Gross>128.00</Gross>
+							<Tax>5.00</Tax>
+						</OtherInc>
+					</Repayment>
+				</Claim>
+			</R68>
+		</IRenvelope>
+	</Body>
+</GovTalkMessage>
