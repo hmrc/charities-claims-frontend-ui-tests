@@ -1,189 +1,189 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <GovTalkMessage xmlns="http://www.govtalk.gov.uk/CM/envelope">
-	<EnvelopeVersion>2.0</EnvelopeVersion>
-	<Header>
-		<MessageDetails>
-			<Class>HMRC-CHAR-CLM</Class>
-			<Qualifier>request</Qualifier>
-			<Function>submit</Function>
-			<CorrelationID>E5E33CCB3A0241BCB38252F2B0B6A7DC</CorrelationID>
-			<GatewayTimestamp>2025-12-04T12:53:29.124</GatewayTimestamp>
-		</MessageDetails>
-		<SenderDetails></SenderDetails>
-	</Header>
-	<GovTalkDetails>
-		<Keys>
-			<Key Type="CredentialID">authorityOrg1</Key>
-			<Key Type="CHARID">F23RULE9PASS</Key>
-			<Key Type="SessionID">session-7f2f616c-c50d-461e-93c9-57b8d60e04a6</Key>
-		</Keys>
-		<ChannelRouting>
-			<Channel>
-				<URI>9998</URI>
-				<Product>Charities portal</Product>
-				<Version>1.0</Version>
-			</Channel>
-		</ChannelRouting>
-	</GovTalkDetails>
-	<Body>
-		<IRenvelope xmlns="http://www.govtalk.gov.uk/taxation/charities/r68/2">
-			<IRheader>
-				<Keys>
-					<Key Type="CHARID">F23RULE9PASS</Key>
-				</Keys>
-				<PeriodEnd>2012-01-01</PeriodEnd>
-				<IRmark Type="generic">ecYRGN8K5yfiZSK5RDXoskrwbJE=</IRmark>
-				<Sender>Other</Sender>
-			</IRheader>
-			<R68>
-				<AuthOfficial>
-					<Trustee>Test Corp</Trustee>
-					<ClaimNo>CHR-DS-029</ClaimNo>
-					<OffID>
-						<Postcode>AB12 3YZ</Postcode>
-					</OffID>
-					<Phone>07777777777</Phone>
-				</AuthOfficial>
-				<Declaration>yes</Declaration>
-				<Claim>
-					<OrgName>CHARITY TC088</OrgName>
-					<HMRCref>F23RULE9PASS</HMRCref>
-					<Regulator>
-						<RegName>CCEW</RegName>
-						<RegNo>1137948</RegNo>
-					</Regulator>
-					<Repayment>
-						<GAD>
-							<Donor>
-								<Ttl>Prof</Ttl>
-								<Fore>Henry</Fore>
-								<Sur>House Martin</Sur>
-								<House>152A</House>
-								<Postcode>M99 2QD</Postcode>
-							</Donor>
-							<Date>2025-03-24</Date>
-							<Total>240.00</Total>
-						</GAD>
-						<GAD>
-							<Donor>
-								<Ttl>Mr</Ttl>
-								<Fore>John</Fore>
-								<Sur>Smith</Sur>
-								<House>100 Champs Elysees, Paris</House>
-								<Overseas>yes</Overseas>
-							</Donor>
-							<Date>2025-06-24</Date>
-							<Total>250.00</Total>
-						</GAD>
-						<GAD>
-							<AggDonation>One off Gift Aid donations</AggDonation>
-							<Date>2025-03-31</Date>
-							<Total>880.00</Total>
-						</GAD>
-						<GAD>
-							<Donor>
-								<Ttl>Miss</Ttl>
-								<Fore>B</Fore>
-								<Sur>Chaudry</Sur>
-								<House>21</House>
-								<Postcode>L43 4FB</Postcode>
-							</Donor>
-							<Sponsored>yes</Sponsored>
-							<Date>2025-04-26</Date>
-							<Total>4000.00</Total>
-						</GAD>
-						<EarliestGAdate>2025-01-01</EarliestGAdate>
-						<OtherInc>
-							<Payer>Joe Bloggs</Payer>
-							<OIDate>2025-01-01</OIDate>
-							<Gross>100.00</Gross>
-							<Tax>20.00</Tax>
-						</OtherInc>
-						<OtherInc>
-							<Payer>Imogen Smith</Payer>
-							<OIDate>2025-02-02</OIDate>
-							<Gross>157.66</Gross>
-							<Tax>31.53</Tax>
-						</OtherInc>
-						<OtherInc>
-							<Payer>Paul Robinson</Payer>
-							<OIDate>2025-03-03</OIDate>
-							<Gross>45222.78</Gross>
-							<Tax>9044.56</Tax>
-						</OtherInc>
-						<Adjustment>123.45</Adjustment>
-					</Repayment>
-					<GiftAidSmallDonationsScheme>
-						<ConnectedCharities>yes</ConnectedCharities>
-						<Charity>
-							<Name>Charity One</Name>
-							<HMRCref>X95442</HMRCref>
-						</Charity>
-						<Charity>
-							<Name>Charity Two</Name>
-							<HMRCref>X95443</HMRCref>
-						</Charity>
-						<Charity>
-							<Name>Charity Three</Name>
-							<HMRCref>X95444</HMRCref>
-						</Charity>
-						<Charity>
-							<Name>Charity Four</Name>
-							<HMRCref>X95445</HMRCref>
-						</Charity>
-						<Charity>
-							<Name>Charity Five</Name>
-							<HMRCref>X95446</HMRCref>
-						</Charity>
-						<GiftAidSmallDonationsSchemeClaim>
-							<Year>2024</Year>
-							<Amount>67.09</Amount>
-						</GiftAidSmallDonationsSchemeClaim>
-						<GiftAidSmallDonationsSchemeClaim>
-							<Year>2023</Year>
-							<Amount>460.34</Amount>
-						</GiftAidSmallDonationsSchemeClaim>
-						<CommBldgs>no</CommBldgs>
-						<Building>
-							<BldgName>YMCA</BldgName>
-							<Address>123 New Street</Address>
-							<Postcode>AB12 3CD</Postcode>
-							<BldgClaim>
-								<Year>2024</Year>
-								<Amount>1257.21</Amount>
-							</BldgClaim>
-						</Building>
-						<Building>
-							<BldgName>The Vault</BldgName>
-							<Address>22 Liberty Place</Address>
-							<Postcode>L20 3UD</Postcode>
-							<BldgClaim>
-								<Year>2023</Year>
-								<Amount>1500.00</Amount>
-							</BldgClaim>
-							<BldgClaim>
-								<Year>2024</Year>
-								<Amount>2500.00</Amount>
-							</BldgClaim>
-							<BldgClaim>
-								<Year>2025</Year>
-								<Amount>2000.00</Amount>
-							</BldgClaim>
-						</Building>
-						<Building>
-							<BldgName>Bootle Village Hall</BldgName>
-							<Address>11A Grange Road</Address>
-							<Postcode>L20 1KL</Postcode>
-							<BldgClaim>
-								<Year>2023</Year>
-								<Amount>1750.00</Amount>
-							</BldgClaim>
-						</Building>
-						<Adj>56.89</Adj>
-					</GiftAidSmallDonationsScheme>
-					<OtherInfo>This is my other info about my adjustments</OtherInfo>
-				</Claim>
-			</R68>
-		</IRenvelope>
-	</Body>
+    <EnvelopeVersion>2.0</EnvelopeVersion>
+    <Header>
+        <MessageDetails>
+            <Class>HMRC-CHAR-CLM</Class>
+            <Qualifier>request</Qualifier>
+            <Function>submit</Function>
+            <CorrelationID>E5E33CCB3A0241BCB38252F2B0B6A7DC</CorrelationID>
+            <GatewayTimestamp>2025-12-04T12:53:29.124</GatewayTimestamp>
+        </MessageDetails>
+        <SenderDetails></SenderDetails>
+    </Header>
+    <GovTalkDetails>
+        <Keys>
+            <Key Type="CredentialID">authorityOrg1</Key>
+            <Key Type="CHARID">F23RULE9PASS</Key>
+            <Key Type="SessionID">session-7f2f616c-c50d-461e-93c9-57b8d60e04a6</Key>
+        </Keys>
+        <ChannelRouting>
+            <Channel>
+                <URI>9998</URI>
+                <Product>Charities portal</Product>
+                <Version>1.0</Version>
+            </Channel>
+        </ChannelRouting>
+    </GovTalkDetails>
+    <Body>
+        <IRenvelope xmlns="http://www.govtalk.gov.uk/taxation/charities/r68/2">
+            <IRheader>
+                <Keys>
+                    <Key Type="CHARID">F23RULE9PASS</Key>
+                </Keys>
+                <PeriodEnd>2012-01-01</PeriodEnd>
+                <IRmark Type="generic">ecYRGN8K5yfiZSK5RDXoskrwbJE=</IRmark>
+                <Sender>Other</Sender>
+            </IRheader>
+            <R68>
+                <AuthOfficial>
+                    <Trustee>Test Corp</Trustee>
+                    <ClaimNo>CHR-DS-029</ClaimNo>
+                    <OffID>
+                        <Postcode>AB12 3YZ</Postcode>
+                    </OffID>
+                    <Phone>07777777777</Phone>
+                </AuthOfficial>
+                <Declaration>yes</Declaration>
+                <Claim>
+                    <OrgName>CHARITY TC088</OrgName>
+                    <HMRCref>F23RULE9PASS</HMRCref>
+                    <Regulator>
+                        <RegName>CCEW</RegName>
+                        <RegNo>1137948</RegNo>
+                    </Regulator>
+                    <Repayment>
+                        <GAD>
+                            <Donor>
+                                <Ttl>Prof</Ttl>
+                                <Fore>Henry</Fore>
+                                <Sur>House Martin</Sur>
+                                <House>152A</House>
+                                <Postcode>M99 2QD</Postcode>
+                            </Donor>
+                            <Date>2025-03-24</Date>
+                            <Total>240.00</Total>
+                        </GAD>
+                        <GAD>
+                            <Donor>
+                                <Ttl>Mr</Ttl>
+                                <Fore>John</Fore>
+                                <Sur>Smith</Sur>
+                                <House>100 Champs Elysees, Paris</House>
+                                <Overseas>yes</Overseas>
+                            </Donor>
+                            <Date>2025-06-24</Date>
+                            <Total>250.00</Total>
+                        </GAD>
+                        <GAD>
+                            <AggDonation>One off Gift Aid donations</AggDonation>
+                            <Date>2025-03-31</Date>
+                            <Total>880.00</Total>
+                        </GAD>
+                        <GAD>
+                            <Donor>
+                                <Ttl>Miss</Ttl>
+                                <Fore>B</Fore>
+                                <Sur>Chaudry</Sur>
+                                <House>21</House>
+                                <Postcode>L43 4FB</Postcode>
+                            </Donor>
+                            <Sponsored>yes</Sponsored>
+                            <Date>2025-04-26</Date>
+                            <Total>4000.00</Total>
+                        </GAD>
+                        <EarliestGAdate>2025-01-01</EarliestGAdate>
+                        <OtherInc>
+                            <Payer>Joe Bloggs</Payer>
+                            <OIDate>2025-01-01</OIDate>
+                            <Gross>100.00</Gross>
+                            <Tax>20.00</Tax>
+                        </OtherInc>
+                        <OtherInc>
+                            <Payer>Imogen Smith</Payer>
+                            <OIDate>2025-02-02</OIDate>
+                            <Gross>157.66</Gross>
+                            <Tax>31.53</Tax>
+                        </OtherInc>
+                        <OtherInc>
+                            <Payer>Paul Robinson</Payer>
+                            <OIDate>2025-03-03</OIDate>
+                            <Gross>45222.78</Gross>
+                            <Tax>9044.56</Tax>
+                        </OtherInc>
+                        <Adjustment>123.45</Adjustment>
+                    </Repayment>
+                    <GiftAidSmallDonationsScheme>
+                        <ConnectedCharities>yes</ConnectedCharities>
+                        <Charity>
+                            <Name>Charity One</Name>
+                            <HMRCref>X95442</HMRCref>
+                        </Charity>
+                        <Charity>
+                            <Name>Charity Two</Name>
+                            <HMRCref>X95443</HMRCref>
+                        </Charity>
+                        <Charity>
+                            <Name>Charity Three</Name>
+                            <HMRCref>X95444</HMRCref>
+                        </Charity>
+                        <Charity>
+                            <Name>Charity Four</Name>
+                            <HMRCref>X95445</HMRCref>
+                        </Charity>
+                        <Charity>
+                            <Name>Charity Five</Name>
+                            <HMRCref>X95446</HMRCref>
+                        </Charity>
+                        <GiftAidSmallDonationsSchemeClaim>
+                            <Year>2024</Year>
+                            <Amount>67.09</Amount>
+                        </GiftAidSmallDonationsSchemeClaim>
+                        <GiftAidSmallDonationsSchemeClaim>
+                            <Year>2023</Year>
+                            <Amount>460.34</Amount>
+                        </GiftAidSmallDonationsSchemeClaim>
+                        <CommBldgs>no</CommBldgs>
+                        <Building>
+                            <BldgName>YMCA</BldgName>
+                            <Address>123 New Street</Address>
+                            <Postcode>AB12 3CD</Postcode>
+                            <BldgClaim>
+                                <Year>2024</Year>
+                                <Amount>1257.21</Amount>
+                            </BldgClaim>
+                        </Building>
+                        <Building>
+                            <BldgName>The Vault</BldgName>
+                            <Address>22 Liberty Place</Address>
+                            <Postcode>L20 3UD</Postcode>
+                            <BldgClaim>
+                                <Year>2023</Year>
+                                <Amount>1500.00</Amount>
+                            </BldgClaim>
+                            <BldgClaim>
+                                <Year>2024</Year>
+                                <Amount>2500.00</Amount>
+                            </BldgClaim>
+                            <BldgClaim>
+                                <Year>2025</Year>
+                                <Amount>2000.00</Amount>
+                            </BldgClaim>
+                        </Building>
+                        <Building>
+                            <BldgName>Bootle Village Hall</BldgName>
+                            <Address>11A Grange Road</Address>
+                            <Postcode>L20 1KL</Postcode>
+                            <BldgClaim>
+                                <Year>2023</Year>
+                                <Amount>1750.00</Amount>
+                            </BldgClaim>
+                        </Building>
+                        <Adj>56.89</Adj>
+                    </GiftAidSmallDonationsScheme>
+                    <OtherInfo>This is my other info about my adjustments</OtherInfo>
+                </Claim>
+            </R68>
+        </IRenvelope>
+    </Body>
 </GovTalkMessage>
