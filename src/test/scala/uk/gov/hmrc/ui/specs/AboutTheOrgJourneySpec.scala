@@ -220,7 +220,7 @@ class AboutTheOrgJourneySpec
       IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the corporate trustee have a UK address?' page")
       DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
+      And("User selects a corporate trustee has a UK address")
       DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
       DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What are the corporate trustee details?' page")
@@ -229,6 +229,15 @@ class AboutTheOrgJourneySpec
       CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactly(
+        "Charity regulator name"       -> "Charity Commission for England and Wales",
+        "Charity regulator number"     -> "1234567890",
+        "Corporate trustee claim"      -> "Yes",
+        "Corporate trustee UK address" -> "Yes",
+        "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+      )
+      CheckYourOrganisationDetailsPage.clickContinue()
     }
   }
 }

@@ -143,7 +143,7 @@ class GiftAidJourneySpec
     }
 
     Scenario(
-      "User navigates to the 'Repayment claim details' page and validates the page elements - GASDS with reference number"
+      "User navigates to the 'Repayment claim details' page and validates the page elements - GASDS,GA,OI with reference number"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - R4")
@@ -159,6 +159,8 @@ class GiftAidJourneySpec
       RepaymentCheckboxPage.validateNavigation()
       And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
       DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
@@ -197,6 +199,16 @@ class GiftAidJourneySpec
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactly(
+        "Repayment claim type"                                     -> "Gift Aid Top up payments for small cash donations under Gift Aid Small Donations Scheme UK tax deducted from Other Income",
+        "Claim reference number"                                   -> "Yes",
+        "Reference number"                                         -> "TESTREF123",
+        "Gift Aid Small Donations Scheme Payment"                  -> "Yes",
+        "Donations from community buildings"                       -> "Yes",
+        "Change Gift Aid Small Donations Scheme claim"             -> "Yes",
+        "Connected to charities or Community Amateur Sports Clubs" -> "Yes"
+      )
     }
   }
 }
