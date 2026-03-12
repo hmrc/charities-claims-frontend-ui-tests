@@ -26,7 +26,6 @@ import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
 
 import java.nio.file.Paths
-//import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -63,7 +62,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val hintText                   = By.ById("value-hint")
     val paragraphText              = By.ByClassName("govuk-body")
     val errorSummary               = By.ByClassName("govuk-error-summary__body")
-    //    val errorMsg                   = By.ById("value-error")
     val errorMsg                   = By.ByClassName("govuk-error-message")
     val listText                   = By.ByClassName("govuk-list")
     val taskList1Text: By          = By.xpath("//main//ul[1]")
