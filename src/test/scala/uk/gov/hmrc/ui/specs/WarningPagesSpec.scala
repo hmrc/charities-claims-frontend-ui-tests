@@ -34,7 +34,7 @@ class WarningPagesSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation - Gift Aid Page Validations") {
+  Feature("Charities - Organisation - Warning Page Validations") {
     Scenario(
       "User navigates to the 'Do you want to delete this Gift Aid schedule?' page and validates the page elements and error messages"
     ) {

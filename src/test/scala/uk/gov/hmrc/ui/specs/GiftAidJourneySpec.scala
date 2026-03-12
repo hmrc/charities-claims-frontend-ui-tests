@@ -34,7 +34,7 @@ class GiftAidJourneySpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation - Gift Aid Page Validations") {
+  Feature("Charities - Organisation - Gift Aid Journey Validations") {
     Scenario(
       "User navigates to the 'Repayment claim details' page and validates the page elements - Non GASDS and no reference number"
     ) {
