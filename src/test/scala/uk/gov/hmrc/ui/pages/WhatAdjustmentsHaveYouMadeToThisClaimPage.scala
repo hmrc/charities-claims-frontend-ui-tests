@@ -29,19 +29,31 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     "What adjustments have you made to this claim?"
 
   def pageParagraph: String =
-    "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding your charity's repayment claim."
+    "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding your charity’s repayment claim."
 
-  def pageHint: String =
+  def pageHiddenHint: String =
     "You can enter up to 350 characters"
 
   def pageCharacterCount: String =
     "You have 350 characters remaining"
 
+  def pageHiddenCharacterCount: String =
+    "You have 350 characters remaining"
+
+  def pageErrorMsgRequiredValue: String =
+    "Enter an adjustment to Gift Aid, Other Income or a donation under the Gift Aid Small Donations Scheme"
+
   def pageErrorMsgTooManyChars: String =
     "Adjustments must be 350 characters or less"
 
+  def pageErrorMsgNonWesternChar: String =
+    "Enter an adjustment in the correct format"
+
+  def btnContinue: String =
+    "Continue"
+
   val adjustmentDetailsFieldLocator = By.ById("value")
-  val errorMsgLocator = By.ById("value-error")
+  val errorMsgLocator               = By.ById("value-error")
 
   def inputMaxLength = 351
 
@@ -52,13 +64,25 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   }
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit =
+  def validateErrorMessage(): Unit = {
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.validateGenericPageError(
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.pageErrorMsgRequiredValue,
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.errorMsgLocator
+    )
+
+    /** Number defines string length */
     WhatAdjustmentsHaveYouMadeToThisClaimPage.triggerTooManyCharInputError(
       WhatAdjustmentsHaveYouMadeToThisClaimPage.inputMaxLength,
       WhatAdjustmentsHaveYouMadeToThisClaimPage.pageErrorMsgTooManyChars,
       WhatAdjustmentsHaveYouMadeToThisClaimPage.adjustmentDetailsFieldLocator,
       WhatAdjustmentsHaveYouMadeToThisClaimPage.errorMsgLocator
     )
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.triggerNonWesternEuropeanAlphabetError(
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.pageErrorMsgNonWesternChar,
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.adjustmentDetailsFieldLocator,
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.errorMsgLocator
+    )
+  }
 
   def validateParagraph(): Unit =
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyParagraphText(
@@ -69,9 +93,13 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyEntirePageContent(
       WhatAdjustmentsHaveYouMadeToThisClaimPage.createSingleStringFromMany(
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeader,
+        // TODO revisit when form approach clarified
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeader,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraph,
-        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHint,
-        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenHint,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenCharacterCount,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.btnContinue
       )
     )
 }
