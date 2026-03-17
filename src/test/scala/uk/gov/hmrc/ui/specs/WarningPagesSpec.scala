@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class WarningPagesSpec
-    extends AnyFeatureSpec
+  extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -378,7 +378,7 @@ class WarningPagesSpec
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to update this repayment claim?' page")
       // TODO when page object added replace sleep
-//      CheckYourRepaymentClaimPage.validateNavigation()
+      //      CheckYourRepaymentClaimPage.validateNavigation()
       Thread.sleep(1000)
       And("User selects to update repayment claim")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
@@ -990,7 +990,7 @@ class WarningPagesSpec
       Then("User validates the error message on the 'Update Community Buildings schedule' page")
       UpdateCommunityBuildingSchedulePage.validateErrorMessage()
     }
-    
+
     Scenario(
       "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
     ) {
@@ -1004,9 +1004,9 @@ class WarningPagesSpec
       RepaymentClaimDetailsPage.validateNavigation()
       And("User clicks continue on 'Repayment claim details' page")
       RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      Then("User navigates to 'Repayment claim Type?' page")
       RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      And("User selects 'Other Income' and 'Gift Aid' checkbox and clicks continue")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       RepaymentCheckboxPage.clickContinue()
@@ -1018,7 +1018,7 @@ class WarningPagesSpec
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
-      Then("User navigates to 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      Then("User navigates to 'Repayment claim type' page and un selects 'Gift Aid' checkbox and clicks continue")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Update repayment claim details' Page")

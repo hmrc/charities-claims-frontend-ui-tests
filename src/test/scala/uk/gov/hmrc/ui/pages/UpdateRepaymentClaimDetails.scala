@@ -18,7 +18,9 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 import uk.gov.hmrc.ui.pages
+
 object UpdateRepaymentClaimDetails extends BasePage {
+  
   override def pageUrl: String = s"$hostname/change-repayment-claim-type"
 
   override def pageTitle: String =
@@ -33,8 +35,8 @@ object UpdateRepaymentClaimDetails extends BasePage {
   def errorMsg: String =
     "Select ‘Yes’ if you want to update this repayment claim"
 
-  val yes: String     = "#value"
-  val no: String      = "#value-no"
+  val yes: String = "#value"
+  val no: String = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
@@ -43,6 +45,7 @@ object UpdateRepaymentClaimDetails extends BasePage {
     UpdateRepaymentClaimDetails.verifyPageHeader(UpdateRepaymentClaimDetails.pageHeading)
 
   }
+
   def validateErrorMessages(): Unit =
     UpdateRepaymentClaimDetails.validateGenericPageError(
       UpdateRepaymentClaimDetails.errorMsg,
