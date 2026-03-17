@@ -1124,6 +1124,5 @@ class WarningPagesSpec
       Then("User validates the error message on the 'Update your Other Income Schedule' page ")
       UpdateOtherIncomeSchedulePage.validateErrorMessage()
     }
-
   }
 }
