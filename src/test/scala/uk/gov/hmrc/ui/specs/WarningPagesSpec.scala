@@ -1063,10 +1063,8 @@ class WarningPagesSpec
       YourConnectedCharitiesScheduleUploadPage.waitForFileUpload()
       YourConnectedCharitiesScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Connected Charities schedule' page")
-//      CheckYourConnectedCharitiesSchedulePage.validateNavigation()
-      CheckYourCommunityBuildingsScheduleErrorPage.radioButton(
-        CheckYourCommunityBuildingsSchedulePage.yes
-      ) // To change when page done
+      CheckYourConnectedCharitiesSchedulePage.validateNavigation()
+      CheckYourConnectedCharitiesSchedulePage.radioButton(CheckYourConnectedCharitiesSchedulePage.yes)
       CheckYourCommunityBuildingsScheduleErrorPage.clickContinue()
       Then("User navigates to 'Update Connected Charities schedule' page")
       UpdateConnectedCharitiesSchedulePage.validateNavigation()
