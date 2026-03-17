@@ -20,8 +20,6 @@ import org.openqa.selenium.By
 
 object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
-  /** Everything is taken from and follows the confluence page and the prototype */
-
   override def pageUrl: String = s"$hostname/charity-not-registered"
 
   override def pageTitle: String = "Why is the charity not registered with a regulator? - Charities - GOV.UK"
@@ -38,8 +36,6 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
   val NorIrlWait: String = "#Waiting"
   val errorMsgLocator    = By.ById("value-error")
 
-  /** Name for values picked as we want to know why there is no charity regulator and is based on the options */
-
   def validateNavigation(): Unit = {
     WhyIsTheCharityNotRegisteredPage.verifyPageUrl(WhyIsTheCharityNotRegisteredPage.pageUrl)
     WhyIsTheCharityNotRegisteredPage.verifyPageTitle(WhyIsTheCharityNotRegisteredPage.pageTitle)
@@ -47,13 +43,9 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
   }
 
-  /** We want to validate the navigation features of the page and ensure they follow confluence */
-
   def validateErrorMessage(): Unit =
     WhyIsTheCharityNotRegisteredPage.validateGenericPageError(
       WhyIsTheCharityNotRegisteredPage.pageErrorMsg,
       WhyIsTheCharityNotRegisteredPage.errorMsgLocator
     )
-
-  /** We want to validate that the error message is correct and follows confluence page */
 }

@@ -87,13 +87,14 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   val linkGoToDashboard: By                 = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
   val linkProvideRepaymentClaimDetails: By  = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
   val linkProvideOrganisationDetails: By    = By.xpath("//a[@href='/charities-claims/about-the-organisation']")
-  val linkProvideGASDSnDetails: By          = By.xpath("//a[@href='/charities-claims/TODO']")
+  val linkProvideGASDSDetails: By           = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkAddGiftAidSchedule: By            = By.xpath("//a[@href='/charities-claims/about-gift-aid-schedule']")
   val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/about-other-income-schedule']")
   val linkAddCommunityBuildingsSchedule: By =
     By.xpath("//a[@href='/charities-claims/about-community-buildings-schedule']")
   val linkAddConnectedCharitiesSchedule: By =
     By.xpath("//a[@href='/charities-claims/about-connected-charities-schedule']")
+  val linkReadDeclaration: By               = By.xpath("//a[@href='/charities-claims/adjustments-to-this-claim']")
 
   def clickGoToDashboard(): Unit = {
     val element = waitForElementToBeClickable(linkGoToDashboard)
@@ -111,7 +112,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   }
 
   def clickProvideGASDSDetails(): Unit = {
-    val element = waitForElementToBeClickable(linkProvideGASDSnDetails)
+    val element = waitForElementToBeClickable(linkProvideGASDSDetails)
     element.click()
   }
 
@@ -132,6 +133,11 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def clickAddConnectedCharitiesSchedule(): Unit = {
     val element = waitForElementToBeClickable(linkAddConnectedCharitiesSchedule)
+    element.click()
+  }
+
+  def clickReadDeclaration(): Unit = {
+    val element = waitForElementToBeClickable(linkReadDeclaration)
     element.click()
   }
 

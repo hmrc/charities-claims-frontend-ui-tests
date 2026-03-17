@@ -21,17 +21,19 @@ import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait, Web
 import org.openqa.selenium.{By, JavascriptExecutor, WebDriver, WebElement}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.must.Matchers
+import org.scalatest.matchers.should.Matchers.{should, shouldBe}
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.driver.BrowserDriver
 
 import java.nio.file.Paths
-//import uk.gov.hmrc.ui.pages.AuthWizard
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 import java.time.Duration
 import scala.util.Random
+
+import scala.jdk.CollectionConverters._
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
 
@@ -63,7 +65,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val hintText                   = By.ById("value-hint")
     val paragraphText              = By.ByClassName("govuk-body")
     val errorSummary               = By.ByClassName("govuk-error-summary__body")
-    //    val errorMsg                   = By.ById("value-error")
     val errorMsg                   = By.ByClassName("govuk-error-message")
     val listText                   = By.ByClassName("govuk-list")
     val taskList1Text: By          = By.xpath("//main//ul[1]")
@@ -84,6 +85,11 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialPostcode    = By.ById("postcode")
     val fileUploadFieldLocator     = By.ById("file-input")
     val txtFormFieldset: By        = By.xpath("//form//fieldset")
+
+    val dlLocator: By  = By.className("govuk-summary-list")
+    val rowLocator: By = By.className("govuk-summary-list__row")
+    val dtLocator: By  = By.className("govuk-summary-list__key")
+    val dd1Locator: By = By.className("govuk-summary-list__value")
   }
 
   def pageUrl: String
@@ -479,4 +485,68 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
     println("Actual error message is: " + actualErrorMsg)
   }
+
+  // ----------------------------------------------------------------------------
+
+  /** Helper methods for validating Check your Answers Page's field and value pairs */
+
+  def norm(s: String): String =
+    Option(s)
+      .getOrElse("")
+      .replace('\u00A0', ' ')
+      .replace('\n', ' ')
+      .replace('\r', ' ')
+      .trim
+      .replaceAll("\\s+", " ")
+
+  // Extract ALL actual dt->dd1 pairs from the page (once)
+
+  private def extractAllActualPairs(): Map[String, String] = {
+
+    val dl: WebElement =
+      waitForVisibilityOfElement(Locators.dlLocator)
+
+    val rows: List[WebElement] = dl.findElements(Locators.rowLocator).asScala.toList
+
+    val pairs: List[(String, String)] = rows.flatMap { row =>
+      val keyOpt =
+        row.findElements(Locators.dtLocator).asScala.headOption.map(e => norm(e.getText))
+
+      // Only FIRST dd1 per row; ignores 2nd/3rd dd
+      val valueOpt =
+        row.findElements(Locators.dd1Locator).asScala.headOption.map(e => norm(e.getText))
+
+      (keyOpt, valueOpt) match {
+        case (Some(k), Some(v)) => Some(k -> v)
+        case _                  => None
+      }
+    }
+
+    // Check DT elements text is unique
+    val dupKeys = pairs.groupBy(_._1).collect { case (k, vs) if vs.size > 1 => k }.toList
+    if (dupKeys.nonEmpty)
+      throw new AssertionError(s"Duplicate dt text keys found (expected unique): ${dupKeys.mkString(", ")}")
+    pairs.toMap
+  }
+
+  /** Helper method final to be used in SPEC for validating Check your Answers Page's field and value pairs */
+  /** Lines/texts with single/many 'br' '\n' 'blank spaces' etc to input with a single blank space */
+
+  def assertAllSummaryPairsExactly(expectedPairs: (String, String)*): Unit = {
+    val actual = extractAllActualPairs()
+
+    val expectedNormed = expectedPairs.toMap.map { case (k, v) => norm(k) -> norm(v) }
+
+    assert(
+      actual == expectedNormed,
+      s"""Summary table mismatch!
+         |Expected: $expectedNormed
+         |Actual  : $actual
+         |Missing keys: ${(expectedNormed.keySet -- actual.keySet).mkString(", ")}
+         |Extra keys  : ${(actual.keySet -- expectedNormed.keySet).mkString(", ")}
+         |""".stripMargin
+    )
+
+  }
+
 }
