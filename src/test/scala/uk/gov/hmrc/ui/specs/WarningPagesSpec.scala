@@ -990,5 +990,42 @@ class WarningPagesSpec
       Then("User validates the error message on the 'Update Community Buildings schedule' page")
       UpdateCommunityBuildingSchedulePage.validateErrorMessage()
     }
+    
+    Scenario(
+      "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN3.0")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User navigates to 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Update repayment claim details' Page")
+      UpdateRepaymentClaimDetails.validateNavigation()
+      UpdateRepaymentClaimDetails.validateErrorMessages()
+      UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
+      UpdateRepaymentClaimDetails.clickContinue()
+    }
   }
 }
