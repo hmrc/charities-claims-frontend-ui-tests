@@ -41,7 +41,7 @@ object UpdateCommunityBuildingSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     UpdateCommunityBuildingSchedulePage.verifyPageUrl(UpdateCommunityBuildingSchedulePage.pageUrl)
     UpdateCommunityBuildingSchedulePage.verifyPageTitle(UpdateCommunityBuildingSchedulePage.pageTitle)
-    UpdateCommunityBuildingSchedulePage.verifyPageHeader(UpdateCommunityBuildingSchedulePage.pageHeading)
+    UpdateCommunityBuildingSchedulePage.verifyPageHeading(UpdateCommunityBuildingSchedulePage.pageHeading)
     UpdateCommunityBuildingSchedulePage.verifyHintText(UpdateCommunityBuildingSchedulePage.pageHint)
   }
 

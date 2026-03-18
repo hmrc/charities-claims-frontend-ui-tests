@@ -25,7 +25,7 @@ object DeleteRepaymentClaimPage extends BasePage {
   override def pageTitle: String =
     "Are you sure you want to delete this repayment claim? - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Are you sure you want to delete this repayment claim?"
 
   def pageErrorMsg: String =
@@ -38,7 +38,7 @@ object DeleteRepaymentClaimPage extends BasePage {
   def validateNavigation(): Unit = {
     DeleteRepaymentClaimPage.verifyPageUrl(DeleteRepaymentClaimPage.pageUrl)
     DeleteRepaymentClaimPage.verifyPageTitle(DeleteRepaymentClaimPage.pageTitle)
-    DeleteRepaymentClaimPage.verifyPageHeader(DeleteRepaymentClaimPage.pageHeader)
+    DeleteRepaymentClaimPage.verifyPageHeading(DeleteRepaymentClaimPage.pageHeading)
   }
 
   /** Validate that the error message is correct */

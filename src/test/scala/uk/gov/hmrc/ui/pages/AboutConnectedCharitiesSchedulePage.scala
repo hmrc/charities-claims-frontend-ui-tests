@@ -40,7 +40,7 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
     AboutConnectedCharitiesSchedulePage.verifyPageUrl(AboutConnectedCharitiesSchedulePage.pageUrl)
     AboutConnectedCharitiesSchedulePage.verifyPageTitle(AboutConnectedCharitiesSchedulePage.pageTitle)
     AboutConnectedCharitiesSchedulePage.verifyPageCaption(AboutConnectedCharitiesSchedulePage.pageCaption)
-    AboutConnectedCharitiesSchedulePage.verifyPageHeader(AboutConnectedCharitiesSchedulePage.pageHeading)
+    AboutConnectedCharitiesSchedulePage.verifyPageHeading(AboutConnectedCharitiesSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =

@@ -28,7 +28,7 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What is the name of the charity regulator?"
 
   def pageErrorMsg: String =
@@ -44,7 +44,7 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageTitle(WhatIsTheNameOfTheCharityRegulatorPage.pageTitle)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageCaption(WhatIsTheNameOfTheCharityRegulatorPage.pageCaption)
-    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageHeader(WhatIsTheNameOfTheCharityRegulatorPage.pageHeader)
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageHeading(WhatIsTheNameOfTheCharityRegulatorPage.pageHeading)
   }
 
   /** Validate that the error message is correct */

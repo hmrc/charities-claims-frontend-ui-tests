@@ -28,14 +28,14 @@ object CheckYourOrganisationDetailsPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Check your organisation details"
 
   def validateNavigation(): Unit = {
     CheckYourOrganisationDetailsPage.verifyPageUrl(CheckYourOrganisationDetailsPage.pageUrl)
     CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
     CheckYourOrganisationDetailsPage.verifyPageCaption(CheckYourOrganisationDetailsPage.pageCaption)
-    CheckYourOrganisationDetailsPage.verifyPageHeader(CheckYourOrganisationDetailsPage.pageHeader)
+    CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
   }
 
   val linkChangeCharityRegulatorName: By      = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")

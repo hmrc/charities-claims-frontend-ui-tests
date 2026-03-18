@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine extends Ba
     ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageTitle(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageTitle
     )
-    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageHeader(
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageHeading(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageHeading
     )
   }

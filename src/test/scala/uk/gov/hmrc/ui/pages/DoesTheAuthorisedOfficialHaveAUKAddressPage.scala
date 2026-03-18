@@ -24,7 +24,7 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
   override def pageTitle: String =
     "Does the authorised official have a UK address? - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Does the authorised official have a UK address?"
 
   def pageCaption: String =
@@ -41,7 +41,9 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
   def validateNavigation(): Unit = {
     DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
     DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageTitle(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageTitle)
-    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeader(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeader)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading(
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeading
+    )
     DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageCaption(
       DoesTheAuthorisedOfficialHaveAUKAddressPage.pageCaption
     )

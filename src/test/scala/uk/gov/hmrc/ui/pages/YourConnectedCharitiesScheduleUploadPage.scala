@@ -50,7 +50,7 @@ object YourConnectedCharitiesScheduleUploadPage extends BasePage {
     YourConnectedCharitiesScheduleUploadPage.verifyPageUrl(YourConnectedCharitiesScheduleUploadPage.pageUrl)
     YourConnectedCharitiesScheduleUploadPage.verifyPageTitle(YourConnectedCharitiesScheduleUploadPage.pageTitle)
     YourConnectedCharitiesScheduleUploadPage.verifyPageCaption(YourConnectedCharitiesScheduleUploadPage.pageCaption)
-    YourConnectedCharitiesScheduleUploadPage.verifyPageHeader(YourConnectedCharitiesScheduleUploadPage.pageHeading)
+    YourConnectedCharitiesScheduleUploadPage.verifyPageHeading(YourConnectedCharitiesScheduleUploadPage.pageHeading)
   }
 
   def validateParagraph(): Unit =

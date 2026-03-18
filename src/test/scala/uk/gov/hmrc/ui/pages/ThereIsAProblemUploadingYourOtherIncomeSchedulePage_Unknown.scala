@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown extends BaseP
     ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageTitle(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageTitle
     )
-    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageHeader(
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageHeading(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageHeading
     )
   }

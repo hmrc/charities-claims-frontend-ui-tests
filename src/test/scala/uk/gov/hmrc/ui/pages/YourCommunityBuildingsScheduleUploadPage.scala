@@ -54,7 +54,7 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
     YourCommunityBuildingsScheduleUploadPage.verifyPageUrl(YourCommunityBuildingsScheduleUploadPage.pageUrl)
     YourCommunityBuildingsScheduleUploadPage.verifyPageTitle(YourCommunityBuildingsScheduleUploadPage.pageTitle)
     YourCommunityBuildingsScheduleUploadPage.verifyPageCaption(YourCommunityBuildingsScheduleUploadPage.pageCaption)
-    YourCommunityBuildingsScheduleUploadPage.verifyPageHeader(YourCommunityBuildingsScheduleUploadPage.pageHeading)
+    YourCommunityBuildingsScheduleUploadPage.verifyPageHeading(YourCommunityBuildingsScheduleUploadPage.pageHeading)
   }
 
   def validateParagraph(): Unit =

@@ -24,7 +24,7 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   override def pageTitle: String = "Is a corporate trustee making this claim? - Charities - GOV.UK"
 
-  def pageHeader: String = "Is a corporate trustee making this claim?"
+  def pageHeading: String = "Is a corporate trustee making this claim?"
 
   def pageCaption: String = "Provide organisation details"
 
@@ -40,7 +40,7 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
     IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
     IsACorporateTrusteeMakingThisClaimPage.verifyPageTitle(IsACorporateTrusteeMakingThisClaimPage.pageTitle)
     IsACorporateTrusteeMakingThisClaimPage.verifyPageCaption(IsACorporateTrusteeMakingThisClaimPage.pageCaption)
-    IsACorporateTrusteeMakingThisClaimPage.verifyPageHeader(IsACorporateTrusteeMakingThisClaimPage.pageHeader)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
   }
 
   def validateErrorMessage(): Unit =

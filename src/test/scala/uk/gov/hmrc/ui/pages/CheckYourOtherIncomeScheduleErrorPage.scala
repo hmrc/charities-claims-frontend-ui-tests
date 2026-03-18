@@ -26,16 +26,16 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
   def pageCaption: String =
     "Add Other Income schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "There is a problem with the data in your Other Income schedule"
 
   def pageWarning: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
-  def pageHeader2: String =
+  def pageHeading2: String =
     "What you can do next"
 
-  def pageHeader3: String =
+  def pageHeading3: String =
     "Summary of errors"
 
   def errorHelp1: String =
@@ -54,10 +54,10 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
     CheckYourOtherIncomeScheduleErrorPage.verifyPageUrl(CheckYourOtherIncomeScheduleErrorPage.pageUrl)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageTitle(CheckYourOtherIncomeScheduleErrorPage.pageTitle)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageCaption(CheckYourOtherIncomeScheduleErrorPage.pageCaption)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageHeader(CheckYourOtherIncomeScheduleErrorPage.pageHeader)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageHeading(CheckYourOtherIncomeScheduleErrorPage.pageHeading)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageWarning(CheckYourOtherIncomeScheduleErrorPage.pageWarning)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading1(CheckYourOtherIncomeScheduleErrorPage.pageHeader2)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading2(CheckYourOtherIncomeScheduleErrorPage.pageHeader3)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading1(CheckYourOtherIncomeScheduleErrorPage.pageHeading2)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading2(CheckYourOtherIncomeScheduleErrorPage.pageHeading3)
   }
 
   def validatePageContent(): Unit =

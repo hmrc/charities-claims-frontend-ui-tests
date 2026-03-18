@@ -23,7 +23,7 @@ object RepaymentClaimDetailsPage extends BasePage {
   override def pageTitle: String =
     "Repayment claim details - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Repayment claim details"
 
   def pageCaption: String =
@@ -44,7 +44,7 @@ object RepaymentClaimDetailsPage extends BasePage {
   def validateNavigation(): Unit = {
     RepaymentClaimDetailsPage.verifyPageUrl(RepaymentClaimDetailsPage.pageUrl)
     RepaymentClaimDetailsPage.verifyPageTitle(RepaymentClaimDetailsPage.pageTitle)
-    RepaymentClaimDetailsPage.verifyPageHeader(RepaymentClaimDetailsPage.pageHeader)
+    RepaymentClaimDetailsPage.verifyPageHeading(RepaymentClaimDetailsPage.pageHeading)
     RepaymentClaimDetailsPage.verifyPageCaption(RepaymentClaimDetailsPage.pageCaption)
   }
 

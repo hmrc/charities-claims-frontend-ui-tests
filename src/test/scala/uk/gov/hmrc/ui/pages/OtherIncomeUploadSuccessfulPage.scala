@@ -28,6 +28,7 @@ object OtherIncomeUploadSuccessfulPage extends BasePage {
   def validateNavigation(): Unit = {
     OtherIncomeUploadSuccessfulPage.verifyPageUrl(OtherIncomeUploadSuccessfulPage.pageUrl)
     OtherIncomeUploadSuccessfulPage.verifyPageTitle(OtherIncomeUploadSuccessfulPage.pageTitle)
+    OtherIncomeUploadSuccessfulPage.verifyPageHeading(OtherIncomeUploadSuccessfulPage.pageHeading)
   }
 
   def validatePageContent(): Unit =

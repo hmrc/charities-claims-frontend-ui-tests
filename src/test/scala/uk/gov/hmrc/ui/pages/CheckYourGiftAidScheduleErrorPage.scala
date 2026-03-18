@@ -26,16 +26,16 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
   def pageCaption: String =
     "Add Gift Aid schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "There is a problem with the data in your Gift Aid schedule"
 
   def pageWarning: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
-  def pageHeader2: String =
+  def pageHeading2: String =
     "What you can do next"
 
-  def pageHeader3: String =
+  def pageHeading3: String =
     "Summary of errors"
 
   def errorHelp1: String =
@@ -54,10 +54,10 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
     CheckYourGiftAidScheduleErrorPage.verifyPageUrl(CheckYourGiftAidScheduleErrorPage.pageUrl)
     CheckYourGiftAidScheduleErrorPage.verifyPageTitle(CheckYourGiftAidScheduleErrorPage.pageTitle)
     CheckYourGiftAidScheduleErrorPage.verifyPageCaption(CheckYourGiftAidScheduleErrorPage.pageCaption)
-    CheckYourGiftAidScheduleErrorPage.verifyPageHeader(CheckYourGiftAidScheduleErrorPage.pageHeader)
+    CheckYourGiftAidScheduleErrorPage.verifyPageHeading(CheckYourGiftAidScheduleErrorPage.pageHeading)
     CheckYourGiftAidScheduleErrorPage.verifyPageWarning(CheckYourGiftAidScheduleErrorPage.pageWarning)
-    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading1(CheckYourGiftAidScheduleErrorPage.pageHeader2)
-    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading2(CheckYourGiftAidScheduleErrorPage.pageHeader3)
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading1(CheckYourGiftAidScheduleErrorPage.pageHeading2)
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading2(CheckYourGiftAidScheduleErrorPage.pageHeading3)
   }
 
   def validatePageContent(): Unit =

@@ -55,6 +55,8 @@ object UploadAConnectedCharitiesSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     UploadAConnectedCharitiesSchedulePage.verifyPageUrl(UploadAConnectedCharitiesSchedulePage.pageUrl)
     UploadAConnectedCharitiesSchedulePage.verifyPageTitle(UploadAConnectedCharitiesSchedulePage.pageTitle)
+    UploadAConnectedCharitiesSchedulePage.verifyPageCaption(UploadAConnectedCharitiesSchedulePage.pageCaption)
+    UploadAConnectedCharitiesSchedulePage.verifyPageHeading(UploadAConnectedCharitiesSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =

@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown extend
     ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageTitle(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageTitle
     )
-    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageHeader(
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageHeading(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageHeading
     )
   }

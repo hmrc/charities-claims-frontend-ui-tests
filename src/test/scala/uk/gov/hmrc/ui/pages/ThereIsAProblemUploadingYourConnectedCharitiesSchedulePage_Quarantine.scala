@@ -45,7 +45,7 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine ext
     ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.verifyPageTitle(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.pageTitle
     )
-    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.verifyPageHeader(
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.verifyPageHeading(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.pageHeading
     )
   }

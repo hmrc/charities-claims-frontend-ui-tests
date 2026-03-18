@@ -22,7 +22,7 @@ object SignInUsingTestCredentialsPage extends BasePage {
 
   override def pageTitle: String = "???"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Sign in using test credentials"
 
   def enterUserID(userID: String): Unit = {
@@ -31,7 +31,7 @@ object SignInUsingTestCredentialsPage extends BasePage {
   }
 
   def validateNavigation(): Unit =
-    SignInUsingTestCredentialsPage.verifyPageHeader(SignInUsingTestCredentialsPage.pageHeader)
+    SignInUsingTestCredentialsPage.verifyPageHeading(SignInUsingTestCredentialsPage.pageHeading)
 
   val organisation: String = "#value"
   val agent: String        = "#value-no"

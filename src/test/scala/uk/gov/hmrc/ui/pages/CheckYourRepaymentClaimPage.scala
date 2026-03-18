@@ -28,14 +28,14 @@ object CheckYourRepaymentClaimPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Check your repayment claim"
 
   def validateNavigation(): Unit = {
     CheckYourRepaymentClaimPage.verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
     CheckYourRepaymentClaimPage.verifyPageTitle(CheckYourRepaymentClaimPage.pageTitle)
     CheckYourRepaymentClaimPage.verifyPageCaption(CheckYourRepaymentClaimPage.pageCaption)
-    CheckYourRepaymentClaimPage.verifyPageHeader(CheckYourRepaymentClaimPage.pageHeader)
+    CheckYourRepaymentClaimPage.verifyPageHeading(CheckYourRepaymentClaimPage.pageHeading)
   }
 
   val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")

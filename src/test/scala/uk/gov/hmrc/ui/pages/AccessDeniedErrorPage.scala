@@ -22,7 +22,7 @@ object AccessDeniedErrorPage extends BasePage {
 
   override def pageTitle: String = "Sorry, there is a problem with the service - Charities - GOV.UK"
 
-  def pageHeader: String = "Sorry, there is a problem with the service"
+  def pageHeading: String = "Sorry, there is a problem with the service"
 
   def listItem1: String = "You do not have access to this service."
 
@@ -31,13 +31,13 @@ object AccessDeniedErrorPage extends BasePage {
   def validateNavigation(): Unit = {
     AccessDeniedErrorPage.verifyPageUrl(AccessDeniedErrorPage.pageUrl)
     AccessDeniedErrorPage.verifyPageTitle(AccessDeniedErrorPage.pageTitle)
-    AccessDeniedErrorPage.verifyPageHeader(AccessDeniedErrorPage.pageHeader)
+    AccessDeniedErrorPage.verifyPageHeading(AccessDeniedErrorPage.pageHeading)
   }
 
   def validatePageContent(): Unit =
     AccessDeniedErrorPage.verifyEntirePageContent(
       AccessDeniedErrorPage.createSingleStringFromMany(
-        AccessDeniedErrorPage.pageHeader,
+        AccessDeniedErrorPage.pageHeading,
         AccessDeniedErrorPage.listItem1,
         AccessDeniedErrorPage.listItem2
       )

@@ -34,7 +34,7 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageTitle(
       CommunityBuildingsScheduleUploadSuccessfulPage.pageTitle
     )
-    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageHeader(
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageHeading(
       CommunityBuildingsScheduleUploadSuccessfulPage.pageHeading
     )
   }

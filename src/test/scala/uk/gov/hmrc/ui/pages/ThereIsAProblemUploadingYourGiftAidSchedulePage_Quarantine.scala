@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine extends BasePa
     ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageTitle(
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageTitle
     )
-    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageHeader(
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageHeading(
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageHeading
     )
   }

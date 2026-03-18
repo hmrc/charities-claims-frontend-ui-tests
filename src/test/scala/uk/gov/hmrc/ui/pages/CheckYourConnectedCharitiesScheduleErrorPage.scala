@@ -26,16 +26,16 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
   def pageCaption: String =
     "Add Connected Charities schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "There is a problem with the data in your Connected Charities schedule"
 
   def pageWarning: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
-  def pageHeader2: String =
+  def pageHeading2: String =
     "What you can do next"
 
-  def pageHeader3: String =
+  def pageHeading3: String =
     "Summary of errors"
 
   def errorHelp1: String =
@@ -56,17 +56,17 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageCaption(
       CheckYourConnectedCharitiesScheduleErrorPage.pageCaption
     )
-    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageHeader(
-      CheckYourConnectedCharitiesScheduleErrorPage.pageHeader
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageHeading(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeading
     )
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageWarning(
       CheckYourConnectedCharitiesScheduleErrorPage.pageWarning
     )
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading1(
-      CheckYourConnectedCharitiesScheduleErrorPage.pageHeader2
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeading2
     )
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading2(
-      CheckYourConnectedCharitiesScheduleErrorPage.pageHeader3
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeading3
     )
   }
 

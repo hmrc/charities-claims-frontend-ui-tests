@@ -25,7 +25,7 @@ object DeleteGASDSCommunityBuildingsSchedulePage extends BasePage {
   override def pageTitle: String =
     "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule? - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule?"
 
   def pageErrorMsg: String =
@@ -38,7 +38,7 @@ object DeleteGASDSCommunityBuildingsSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     DeleteGASDSCommunityBuildingsSchedulePage.verifyPageUrl(DeleteGASDSCommunityBuildingsSchedulePage.pageUrl)
     DeleteGASDSCommunityBuildingsSchedulePage.verifyPageTitle(DeleteGASDSCommunityBuildingsSchedulePage.pageTitle)
-    DeleteGASDSCommunityBuildingsSchedulePage.verifyPageHeader(DeleteGASDSCommunityBuildingsSchedulePage.pageHeader)
+    DeleteGASDSCommunityBuildingsSchedulePage.verifyPageHeading(DeleteGASDSCommunityBuildingsSchedulePage.pageHeading)
   }
 
   /** Validate that the error message is correct */

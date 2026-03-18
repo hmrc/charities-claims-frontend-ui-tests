@@ -51,7 +51,7 @@ object DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends Bas
     DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageCaption(
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageCaption
     )
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageHeader(
+    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageHeading(
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHeading
     )
   }

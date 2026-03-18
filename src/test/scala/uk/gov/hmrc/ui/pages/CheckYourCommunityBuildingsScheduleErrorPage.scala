@@ -26,16 +26,16 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
   def pageCaption: String =
     "Add Community Buildings schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "There is a problem with the data in your Community Buildings schedule"
 
   def pageWarning: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
-  def pageHeader2: String =
+  def pageHeading2: String =
     "What you can do next"
 
-  def pageHeader3: String =
+  def pageHeading3: String =
     "Summary of errors"
 
   def errorHelp1: String =
@@ -56,17 +56,17 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageCaption(
       CheckYourCommunityBuildingsScheduleErrorPage.pageCaption
     )
-    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeader(
-      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeading(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeading
     )
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageWarning(
       CheckYourCommunityBuildingsScheduleErrorPage.pageWarning
     )
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading1(
-      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader2
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeading2
     )
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading2(
-      CheckYourCommunityBuildingsScheduleErrorPage.pageHeader3
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeading3
     )
   }
 

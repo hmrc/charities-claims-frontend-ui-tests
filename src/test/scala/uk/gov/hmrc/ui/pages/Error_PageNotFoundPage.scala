@@ -23,7 +23,7 @@ object Error_PageNotFoundPage extends BasePage {
   override def pageTitle: String =
     "Page not found - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Page not found"
 
   def listItem1: String =
@@ -38,13 +38,13 @@ object Error_PageNotFoundPage extends BasePage {
   def validateNavigation(): Unit = {
     Error_PageNotFoundPage.verifyPageUrl(Error_PageNotFoundPage.pageUrl)
     Error_PageNotFoundPage.verifyPageTitle(Error_PageNotFoundPage.pageTitle)
-    Error_PageNotFoundPage.verifyPageHeader(Error_PageNotFoundPage.pageHeader)
+    Error_PageNotFoundPage.verifyPageHeading(Error_PageNotFoundPage.pageHeading)
   }
 
   def validatePageContent(): Unit =
     Error_PageNotFoundPage.verifyEntirePageContent(
       Error_PageNotFoundPage.createSingleStringFromMany(
-        Error_PageNotFoundPage.pageHeader,
+        Error_PageNotFoundPage.pageHeading,
         Error_PageNotFoundPage.listItem1,
         Error_PageNotFoundPage.listItem2,
         Error_PageNotFoundPage.listItem3

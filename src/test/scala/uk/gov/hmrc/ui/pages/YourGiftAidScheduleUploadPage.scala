@@ -53,7 +53,7 @@ object YourGiftAidScheduleUploadPage extends BasePage {
     YourGiftAidScheduleUploadPage.verifyPageUrl(YourGiftAidScheduleUploadPage.pageUrl)
     YourGiftAidScheduleUploadPage.verifyPageTitle(YourGiftAidScheduleUploadPage.pageTitle)
     YourGiftAidScheduleUploadPage.verifyPageCaption(YourGiftAidScheduleUploadPage.pageCaption)
-    YourGiftAidScheduleUploadPage.verifyPageHeader(YourGiftAidScheduleUploadPage.pageHeading)
+    YourGiftAidScheduleUploadPage.verifyPageHeading(YourGiftAidScheduleUploadPage.pageHeading)
   }
 
   def validateParagraph(): Unit =

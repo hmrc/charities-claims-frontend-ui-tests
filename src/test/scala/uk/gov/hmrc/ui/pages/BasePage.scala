@@ -54,7 +54,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val rdoNo                      = "#value_1"
     val txtFileName                = ".govuk-body"
     val txtCaption                 = By.ByClassName("govuk-caption-l")
-    val txtHeader: By              = By.xpath("//h1")
+    val txtHeading: By             = By.xpath("//h1")
     val txtWarning                 = By.ByClassName("govuk-warning-text")
     val txtSubHeading1: By         = By.xpath("//main//h2[1]")
     val txtSubHeading2: By         = By.xpath("//main//h2[2]")
@@ -280,7 +280,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val actualCaption = driver.findElement(Locators.txtCaption).getText
     assert(
       actualCaption == expectedCaption,
-      s"Page header mismatch! Expected: $expectedCaption, Actual: $actualCaption"
+      s"Page caption mismatch! Expected: $expectedCaption, Actual: $actualCaption"
     )
     println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
@@ -290,19 +290,19 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val actualCaption = driver.findElement(Locators.txtCaption).getText
     assert(
       actualCaption contains expectedCaption,
-      s"Page header mismatch! Expected: $expectedCaption, Actual: $actualCaption"
+      s"Page caption mismatch! Expected: $expectedCaption, Actual: $actualCaption"
     )
     println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
 
-  def verifyPageHeader(expectedHeader: String): Unit = {
-    waitForVisibilityOfElement(Locators.txtHeader)
-    val actualHeader = driver.findElement(Locators.txtHeader).getText
+  def verifyPageHeading(expectedHeading: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtHeading)
+    val actualHeading = driver.findElement(Locators.txtHeading).getText
     assert(
-      actualHeader == expectedHeader,
-      s"Page header mismatch! Expected: $expectedHeader, Actual: $actualHeader"
+      actualHeading == expectedHeading,
+      s"Page heading mismatch! Expected: $expectedHeading, Actual: $actualHeading"
     )
-    println("Actual page header is: " + driver.findElement(Locators.txtHeader).getText)
+    println("Actual page heading is: " + driver.findElement(Locators.txtHeading).getText)
   }
 
   def verifyPageWarning(expectedWarning: String): Unit = {

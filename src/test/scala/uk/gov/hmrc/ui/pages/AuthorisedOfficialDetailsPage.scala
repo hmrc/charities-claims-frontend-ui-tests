@@ -28,7 +28,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What are the authorised official details?"
 
   val errorSummary = By.ByClassName("govuk-error-summary__body")
@@ -132,7 +132,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.pageUrl)
     AuthorisedOfficialDetailsPage.verifyPageTitle(AuthorisedOfficialDetailsPage.pageTitle)
     AuthorisedOfficialDetailsPage.verifyPageCaption(AuthorisedOfficialDetailsPage.pageCaption)
-    AuthorisedOfficialDetailsPage.verifyPageHeader(AuthorisedOfficialDetailsPage.pageHeader)
+    AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
   }
 
   /** Validate that the error message is correct */

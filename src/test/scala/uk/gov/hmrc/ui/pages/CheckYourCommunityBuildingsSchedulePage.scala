@@ -28,7 +28,7 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
   def pageCaption: String =
     "Add Community Buildings schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Check your Community Buildings schedule"
 
   def pageErrorMsg: String =
@@ -60,7 +60,7 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
     CheckYourCommunityBuildingsSchedulePage.verifyPageUrl(CheckYourCommunityBuildingsSchedulePage.pageUrl)
     CheckYourCommunityBuildingsSchedulePage.verifyPageTitle(CheckYourCommunityBuildingsSchedulePage.pageTitle)
     CheckYourCommunityBuildingsSchedulePage.verifyPageCaption(CheckYourCommunityBuildingsSchedulePage.pageCaption)
-    CheckYourCommunityBuildingsSchedulePage.verifyPageHeader(CheckYourCommunityBuildingsSchedulePage.pageHeader)
+    CheckYourCommunityBuildingsSchedulePage.verifyPageHeading(CheckYourCommunityBuildingsSchedulePage.pageHeading)
   }
 
   // TODO Hardcoded values, needs improved

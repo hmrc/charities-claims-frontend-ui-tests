@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown extend
     ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageTitle(
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageTitle
     )
-    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageHeader(
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageHeading(
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeading
     )
   }
