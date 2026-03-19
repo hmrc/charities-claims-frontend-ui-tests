@@ -53,15 +53,27 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageUrl(RegisteringYourCharityWithRegulatorPage_Excepted.pageUrl)
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageTitle(RegisteringYourCharityWithRegulatorPage_Excepted.pageTitle)
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageHeading(RegisteringYourCharityWithRegulatorPage_Excepted.pageHeading)
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageUrl(
+      RegisteringYourCharityWithRegulatorPage_Excepted.pageUrl
+    )
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageTitle(
+      RegisteringYourCharityWithRegulatorPage_Excepted.pageTitle
+    )
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageHeading(
+      RegisteringYourCharityWithRegulatorPage_Excepted.pageHeading
+    )
   }
 
   def validatePageContent(): Unit = {
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageWarning(RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningText)
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyParagraphText(RegisteringYourCharityWithRegulatorPage_Excepted.textParagraph1)
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyLegendText(RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion)
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageWarning(
+      RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningText
+    )
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyParagraphText(
+      RegisteringYourCharityWithRegulatorPage_Excepted.textParagraph1
+    )
+    RegisteringYourCharityWithRegulatorPage_Excepted.verifyLegendText(
+      RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion
+    )
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_Excepted.createSingleStringFromMany(
         RegisteringYourCharityWithRegulatorPage_Excepted.pageHeading,

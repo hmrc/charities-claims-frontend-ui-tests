@@ -48,20 +48,32 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
 
   def btnContinue: String = "Continue"
 
-  val yes: String = "#value"
-  val no: String = "#value-no"
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageUrl(RegisteringYourCharityWithRegulatorPage_LowIncome.pageUrl)
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageTitle(RegisteringYourCharityWithRegulatorPage_LowIncome.pageTitle)
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageHeading(RegisteringYourCharityWithRegulatorPage_LowIncome.pageHeading)
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageUrl(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageUrl
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageTitle(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageTitle
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageHeading(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageHeading
+    )
   }
 
   def validatePageContent(): Unit = {
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageWarning(RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningText)
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyParagraphText(RegisteringYourCharityWithRegulatorPage_LowIncome.textParagraph1)
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyLegendText(RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestion)
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageWarning(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningText
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyParagraphText(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.textParagraph1
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyLegendText(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestion
+    )
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
         RegisteringYourCharityWithRegulatorPage_LowIncome.pageHeading,
