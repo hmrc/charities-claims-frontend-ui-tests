@@ -26,7 +26,7 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   override def pageTitle: String =
     "Does the corporate trustee have a UK address? - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Does the corporate trustee have a UK address?"
 
   def pageCaption: String =
@@ -43,13 +43,13 @@ object DoesTheCorporateTrusteeHaveAUKAddressPage extends BasePage {
   def validateNavigation(): Unit = {
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
-    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeading(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeading)
   }
 
   def validateChangeNavigation(): Unit = {
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageUrl(DoesTheCorporateTrusteeHaveAUKAddressPage.changePageUrl)
     DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageTitle(DoesTheCorporateTrusteeHaveAUKAddressPage.pageTitle)
-    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeader(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeader)
+    DoesTheCorporateTrusteeHaveAUKAddressPage.verifyPageHeading(DoesTheCorporateTrusteeHaveAUKAddressPage.pageHeading)
   }
 
   def validateErrorMessage(): Unit =

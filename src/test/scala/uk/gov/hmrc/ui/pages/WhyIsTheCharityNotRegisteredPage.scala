@@ -26,7 +26,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def pageCaption: String = "Provide organisation details"
 
-  def pageHeader: String = "Why is the charity not registered with a regulator?"
+  def pageHeading: String = "Why is the charity not registered with a regulator?"
 
   def pageErrorMsg: String = "Select why the charity is not registered with a regulator"
 
@@ -39,7 +39,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
   def validateNavigation(): Unit = {
     WhyIsTheCharityNotRegisteredPage.verifyPageUrl(WhyIsTheCharityNotRegisteredPage.pageUrl)
     WhyIsTheCharityNotRegisteredPage.verifyPageTitle(WhyIsTheCharityNotRegisteredPage.pageTitle)
-    WhyIsTheCharityNotRegisteredPage.verifyPageHeader(WhyIsTheCharityNotRegisteredPage.pageHeader)
+    WhyIsTheCharityNotRegisteredPage.verifyPageHeading(WhyIsTheCharityNotRegisteredPage.pageHeading)
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
   }
 

@@ -22,14 +22,14 @@ object Error_SystemErrorPage extends BasePage {
 
   override def pageTitle: String = "Sorry, there is a problem with this service - Charities - GOV.UK"
 
-  def pageHeader: String = "Sorry, there is a problem with this service"
+  def pageHeading: String = "Sorry, there is a problem with this service"
 
   def listItem: String = "Try again later or contact the HMRC Online Services Helpdesk(opens in a new tab)."
 
   def validateNavigation(): Unit = {
     Error_SystemErrorPage.verifyPageUrl(Error_SystemErrorPage.pageUrl)
     Error_SystemErrorPage.verifyPageTitle(Error_SystemErrorPage.pageTitle)
-    Error_SystemErrorPage.verifyPageHeader(Error_SystemErrorPage.pageHeader)
+    Error_SystemErrorPage.verifyPageHeading(Error_SystemErrorPage.pageHeading)
     Error_SystemErrorPage.verifyListText(Error_SystemErrorPage.listItem)
   }
 

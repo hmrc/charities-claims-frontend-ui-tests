@@ -37,6 +37,8 @@ object AboutOtherIncomeSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     AboutOtherIncomeSchedulePage.verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
     AboutOtherIncomeSchedulePage.verifyPageTitle(AboutOtherIncomeSchedulePage.pageTitle)
+    AboutOtherIncomeSchedulePage.verifyPageCaption(AboutOtherIncomeSchedulePage.pageCaption)
+    AboutOtherIncomeSchedulePage.verifyPageHeading(AboutOtherIncomeSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =

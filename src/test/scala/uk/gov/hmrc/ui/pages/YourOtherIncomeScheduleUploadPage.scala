@@ -53,7 +53,7 @@ object YourOtherIncomeScheduleUploadPage extends BasePage {
     YourOtherIncomeScheduleUploadPage.verifyPageUrl(YourOtherIncomeScheduleUploadPage.pageUrl)
     YourOtherIncomeScheduleUploadPage.verifyPageTitle(YourOtherIncomeScheduleUploadPage.pageTitle)
     YourOtherIncomeScheduleUploadPage.verifyPageCaption(YourOtherIncomeScheduleUploadPage.pageCaption)
-    YourOtherIncomeScheduleUploadPage.verifyPageHeader(YourOtherIncomeScheduleUploadPage.pageHeading)
+    YourOtherIncomeScheduleUploadPage.verifyPageHeading(YourOtherIncomeScheduleUploadPage.pageHeading)
   }
 
   def validateParagraph(): Unit =

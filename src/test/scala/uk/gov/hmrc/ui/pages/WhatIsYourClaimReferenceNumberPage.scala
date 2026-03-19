@@ -28,7 +28,7 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What is your claim reference number?"
 
   def pageHint: String =
@@ -57,7 +57,7 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
     WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
     WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitle)
     WhatIsYourClaimReferenceNumberPage.verifyPageCaption(WhatIsYourClaimReferenceNumberPage.pageCaption)
-    WhatIsYourClaimReferenceNumberPage.verifyPageHeader(WhatIsYourClaimReferenceNumberPage.pageHeader)
+    WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeading)
   }
 
   def validateHint(): Unit =

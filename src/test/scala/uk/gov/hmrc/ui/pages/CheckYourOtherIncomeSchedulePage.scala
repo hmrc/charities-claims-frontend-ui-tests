@@ -58,7 +58,7 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
     CheckYourOtherIncomeSchedulePage.verifyPageUrl(CheckYourOtherIncomeSchedulePage.pageUrl)
     CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitle)
     CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
-    CheckYourOtherIncomeSchedulePage.verifyPageHeader(CheckYourOtherIncomeSchedulePage.pageHeading)
+    CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeading)
   }
 
   // TODO Hardcoded values, needs improved

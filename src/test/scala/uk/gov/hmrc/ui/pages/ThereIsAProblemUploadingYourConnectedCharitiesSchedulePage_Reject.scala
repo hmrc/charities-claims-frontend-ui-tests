@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject extends
     ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.verifyPageTitle(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.pageTitle
     )
-    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.verifyPageHeader(
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.verifyPageHeading(
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.pageHeading
     )
   }

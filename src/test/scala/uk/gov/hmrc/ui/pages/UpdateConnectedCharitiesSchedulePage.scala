@@ -41,7 +41,7 @@ object UpdateConnectedCharitiesSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     UpdateConnectedCharitiesSchedulePage.verifyPageUrl(UpdateConnectedCharitiesSchedulePage.pageUrl)
     UpdateConnectedCharitiesSchedulePage.verifyPageTitle(UpdateConnectedCharitiesSchedulePage.pageTitle)
-    UpdateConnectedCharitiesSchedulePage.verifyPageHeader(UpdateConnectedCharitiesSchedulePage.pageHeading)
+    UpdateConnectedCharitiesSchedulePage.verifyPageHeading(UpdateConnectedCharitiesSchedulePage.pageHeading)
     UpdateConnectedCharitiesSchedulePage.verifyHintText(UpdateConnectedCharitiesSchedulePage.pageHint)
   }
 

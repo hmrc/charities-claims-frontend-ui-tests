@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject extends BasePa
     ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageTitle(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageTitle
     )
-    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageHeader(
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageHeading(
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageHeading
     )
   }

@@ -42,7 +42,7 @@ object UpdateRepaymentClaimDetails extends BasePage {
   def validateNavigation(): Unit = {
     UpdateRepaymentClaimDetails.verifyPageUrl(UpdateRepaymentClaimDetails.pageUrl)
     UpdateRepaymentClaimDetails.verifyPageTitle(UpdateRepaymentClaimDetails.pageTitle)
-    UpdateRepaymentClaimDetails.verifyPageHeader(UpdateRepaymentClaimDetails.pageHeading)
+    UpdateRepaymentClaimDetails.verifyPageHeading(UpdateRepaymentClaimDetails.pageHeading)
 
   }
 

@@ -44,7 +44,7 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
     CheckYourConnectedCharitiesSchedulePage.verifyPageUrl(CheckYourConnectedCharitiesSchedulePage.pageUrl)
     CheckYourConnectedCharitiesSchedulePage.verifyPageTitle(CheckYourConnectedCharitiesSchedulePage.pageTitle)
     CheckYourConnectedCharitiesSchedulePage.verifyPageCaption(CheckYourConnectedCharitiesSchedulePage.pageCaption)
-    CheckYourConnectedCharitiesSchedulePage.verifyPageHeader(CheckYourConnectedCharitiesSchedulePage.pageHeading)
+    CheckYourConnectedCharitiesSchedulePage.verifyPageHeading(CheckYourConnectedCharitiesSchedulePage.pageHeading)
   }
 
   def validateFormFieldset(): Unit =

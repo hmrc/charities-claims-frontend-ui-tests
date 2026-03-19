@@ -45,7 +45,7 @@ object AboutCommunityBuildingsSchedulePage extends BasePage {
     AboutCommunityBuildingsSchedulePage.verifyPageUrl(AboutCommunityBuildingsSchedulePage.pageUrl)
     AboutCommunityBuildingsSchedulePage.verifyPageTitle(AboutCommunityBuildingsSchedulePage.pageTitle)
     AboutCommunityBuildingsSchedulePage.verifyPageCaption(AboutCommunityBuildingsSchedulePage.pageCaption)
-    AboutCommunityBuildingsSchedulePage.verifyPageHeader(AboutCommunityBuildingsSchedulePage.pageHeading)
+    AboutCommunityBuildingsSchedulePage.verifyPageHeading(AboutCommunityBuildingsSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =

@@ -29,7 +29,7 @@ object CorporateTrusteeDetailsPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What are the corporate trustee details?"
 
   val errorSummary = By.ByClassName("govuk-error-summary__body")
@@ -93,7 +93,7 @@ object CorporateTrusteeDetailsPage extends BasePage {
     CorporateTrusteeDetailsPage.verifyPageUrl(CorporateTrusteeDetailsPage.pageUrl)
     CorporateTrusteeDetailsPage.verifyPageTitle(CorporateTrusteeDetailsPage.pageTitle)
     CorporateTrusteeDetailsPage.verifyPageCaption(CorporateTrusteeDetailsPage.pageCaption)
-    CorporateTrusteeDetailsPage.verifyPageHeader(CorporateTrusteeDetailsPage.pageHeader)
+    CorporateTrusteeDetailsPage.verifyPageHeading(CorporateTrusteeDetailsPage.pageHeading)
   }
 
   /** Validate that the error message is correct */

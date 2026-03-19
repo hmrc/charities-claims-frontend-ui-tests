@@ -26,7 +26,7 @@ object YourCharityIsExemptPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Your charity is exempt"
 
   def pageParagraph: String =
@@ -45,7 +45,7 @@ object YourCharityIsExemptPage extends BasePage {
     YourCharityIsExemptPage.verifyPageUrl(YourCharityIsExemptPage.pageUrl)
     YourCharityIsExemptPage.verifyPageTitle(YourCharityIsExemptPage.pageTitle)
     YourCharityIsExemptPage.verifyPageCaption(YourCharityIsExemptPage.pageCaption)
-    YourCharityIsExemptPage.verifyPageHeader(YourCharityIsExemptPage.pageHeader)
+    YourCharityIsExemptPage.verifyPageHeading(YourCharityIsExemptPage.pageHeading)
   }
 
   def validateParagraph(): Unit = {

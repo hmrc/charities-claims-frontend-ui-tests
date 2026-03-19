@@ -45,7 +45,7 @@ object AboutGiftAidSchedulePage extends BasePage {
     AboutGiftAidSchedulePage.verifyPageUrl(AboutGiftAidSchedulePage.pageUrl)
     AboutGiftAidSchedulePage.verifyPageTitle(AboutGiftAidSchedulePage.pageTitle)
     AboutGiftAidSchedulePage.verifyPageCaption(AboutGiftAidSchedulePage.pageCaption)
-    AboutGiftAidSchedulePage.verifyPageHeader(AboutGiftAidSchedulePage.pageHeading)
+    AboutGiftAidSchedulePage.verifyPageHeading(AboutGiftAidSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =

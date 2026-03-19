@@ -28,7 +28,7 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Gift Aid Small Donations Scheme claim"
 
   def pageParagraph: String =
@@ -48,7 +48,7 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
     GiftAidSmallDonationsSchemeClaimPage.verifyPageUrl(GiftAidSmallDonationsSchemeClaimPage.pageUrl)
     GiftAidSmallDonationsSchemeClaimPage.verifyPageTitle(GiftAidSmallDonationsSchemeClaimPage.pageTitle)
     GiftAidSmallDonationsSchemeClaimPage.verifyPageCaption(GiftAidSmallDonationsSchemeClaimPage.pageCaption)
-    GiftAidSmallDonationsSchemeClaimPage.verifyPageHeader(GiftAidSmallDonationsSchemeClaimPage.pageHeader)
+    GiftAidSmallDonationsSchemeClaimPage.verifyPageHeading(GiftAidSmallDonationsSchemeClaimPage.pageHeading)
   }
 
   def validateParagraph(): Unit = {

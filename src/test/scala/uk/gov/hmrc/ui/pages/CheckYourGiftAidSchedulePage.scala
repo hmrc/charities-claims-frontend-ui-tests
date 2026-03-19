@@ -28,7 +28,7 @@ object CheckYourGiftAidSchedulePage extends BasePage {
   def pageCaption: String =
     "Add Gift Aid schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Check your Gift Aid schedule"
 
   def pageErrorMsg: String =
@@ -72,7 +72,7 @@ object CheckYourGiftAidSchedulePage extends BasePage {
     CheckYourGiftAidSchedulePage.verifyPageUrl(CheckYourGiftAidSchedulePage.pageUrl)
     CheckYourGiftAidSchedulePage.verifyPageTitle(CheckYourGiftAidSchedulePage.pageTitle)
     CheckYourGiftAidSchedulePage.verifyPageCaption(CheckYourGiftAidSchedulePage.pageCaption)
-    CheckYourGiftAidSchedulePage.verifyPageHeader(CheckYourGiftAidSchedulePage.pageHeader)
+    CheckYourGiftAidSchedulePage.verifyPageHeading(CheckYourGiftAidSchedulePage.pageHeading)
   }
 
   // TODO Hardcoded values, needs improved

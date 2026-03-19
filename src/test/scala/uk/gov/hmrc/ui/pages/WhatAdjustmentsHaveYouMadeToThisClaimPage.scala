@@ -25,7 +25,7 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   override def pageTitle: String =
     "What adjustments have you made to this claim? - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What adjustments have you made to this claim?"
 
   def pageParagraph: String =
@@ -60,7 +60,7 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   def validateNavigation(): Unit = {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageUrl(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageTitle(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageTitle)
-    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageHeader(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeader)
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageHeading(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading)
   }
 
   /** Validate that the error message is correct */
@@ -92,9 +92,9 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   def validatePageContent(): Unit =
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyEntirePageContent(
       WhatAdjustmentsHaveYouMadeToThisClaimPage.createSingleStringFromMany(
-        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeader,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
         // TODO revisit when form approach clarified
-        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeader,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraph,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenHint,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount,

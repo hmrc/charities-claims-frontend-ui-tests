@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine ext
     ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.verifyPageTitle(
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.pageTitle
     )
-    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.verifyPageHeader(
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.verifyPageHeading(
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.pageHeading
     )
   }

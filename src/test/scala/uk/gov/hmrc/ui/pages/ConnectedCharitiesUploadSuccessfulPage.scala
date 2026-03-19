@@ -32,7 +32,7 @@ object ConnectedCharitiesUploadSuccessfulPage extends BasePage {
   def validateNavigation(): Unit = {
     ConnectedCharitiesUploadSuccessfulPage.verifyPageUrl(ConnectedCharitiesUploadSuccessfulPage.pageUrl)
     ConnectedCharitiesUploadSuccessfulPage.verifyPageTitle(ConnectedCharitiesUploadSuccessfulPage.pageTitle)
-    ConnectedCharitiesUploadSuccessfulPage.verifyPageHeader(ConnectedCharitiesUploadSuccessfulPage.pageHeading)
+    ConnectedCharitiesUploadSuccessfulPage.verifyPageHeading(ConnectedCharitiesUploadSuccessfulPage.pageHeading)
   }
 
   def validatePageParagraph(): Unit =

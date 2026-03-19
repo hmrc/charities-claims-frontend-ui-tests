@@ -23,7 +23,7 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   override def pageTitle: String =
     "This claim cannot be setup - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "This claim cannot be setup"
 
   def pageWarningIcon: String =
@@ -59,13 +59,13 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_Repayment.verifyPageUrl(ThisClaimCannotBeSetupPage_Repayment.pageUrl)
     ThisClaimCannotBeSetupPage_Repayment.verifyPageTitle(ThisClaimCannotBeSetupPage_Repayment.pageTitle)
-    ThisClaimCannotBeSetupPage_Repayment.verifyPageHeader(ThisClaimCannotBeSetupPage_Repayment.pageHeader)
+    ThisClaimCannotBeSetupPage_Repayment.verifyPageHeading(ThisClaimCannotBeSetupPage_Repayment.pageHeading)
   }
 
   def validatePageContent(): Unit =
     ThisClaimCannotBeSetupPage_Repayment.verifyEntirePageContent(
       ThisClaimCannotBeSetupPage_Repayment.createSingleStringFromMany(
-        ThisClaimCannotBeSetupPage_Repayment.pageHeader,
+        ThisClaimCannotBeSetupPage_Repayment.pageHeading,
         ThisClaimCannotBeSetupPage_Repayment.pageWarningIcon,
         ThisClaimCannotBeSetupPage_Repayment.pageWarningHeading,
         ThisClaimCannotBeSetupPage_Repayment.pageWarningText,

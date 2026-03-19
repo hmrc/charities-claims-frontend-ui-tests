@@ -32,7 +32,7 @@ object GiftAidUploadSuccessfulPage extends BasePage {
   def validateNavigation(): Unit = {
     GiftAidUploadSuccessfulPage.verifyPageUrl(GiftAidUploadSuccessfulPage.pageUrl)
     GiftAidUploadSuccessfulPage.verifyPageTitle(GiftAidUploadSuccessfulPage.pageTitle)
-    GiftAidUploadSuccessfulPage.verifyPageHeader(GiftAidUploadSuccessfulPage.pageHeading)
+    GiftAidUploadSuccessfulPage.verifyPageHeading(GiftAidUploadSuccessfulPage.pageHeading)
   }
 
   def validatePageParagraph(): Unit =

@@ -41,7 +41,7 @@ object UpdateOtherIncomeSchedulePage extends BasePage {
   def validateNavigation(): Unit = {
     UpdateOtherIncomeSchedulePage.verifyPageUrl(UpdateOtherIncomeSchedulePage.pageUrl)
     UpdateOtherIncomeSchedulePage.verifyPageTitle(UpdateOtherIncomeSchedulePage.pageTitle)
-    UpdateOtherIncomeSchedulePage.verifyPageHeader(UpdateOtherIncomeSchedulePage.pageHeading)
+    UpdateOtherIncomeSchedulePage.verifyPageHeading(UpdateOtherIncomeSchedulePage.pageHeading)
     UpdateOtherIncomeSchedulePage.verifyHintText(UpdateOtherIncomeSchedulePage.pageHint)
   }
 

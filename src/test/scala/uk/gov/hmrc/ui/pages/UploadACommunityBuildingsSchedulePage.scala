@@ -28,7 +28,7 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
   def pageCaption: String =
     "Add Community Buildings schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Upload a Community Buildings schedule"
 
   def pageText1: String =
@@ -67,14 +67,14 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
     UploadACommunityBuildingsSchedulePage.verifyPageUrl(UploadACommunityBuildingsSchedulePage.pageUrl)
     UploadACommunityBuildingsSchedulePage.verifyPageTitle(UploadACommunityBuildingsSchedulePage.pageTitle)
     UploadACommunityBuildingsSchedulePage.verifyPageCaption(UploadACommunityBuildingsSchedulePage.pageCaption)
-    UploadACommunityBuildingsSchedulePage.verifyPageHeader(UploadACommunityBuildingsSchedulePage.pageHeader)
+    UploadACommunityBuildingsSchedulePage.verifyPageHeading(UploadACommunityBuildingsSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =
     UploadACommunityBuildingsSchedulePage.verifyEntirePageContent(
       UploadACommunityBuildingsSchedulePage.createSingleStringFromMany(
         UploadACommunityBuildingsSchedulePage.pageCaption,
-        UploadACommunityBuildingsSchedulePage.pageHeader,
+        UploadACommunityBuildingsSchedulePage.pageHeading,
         UploadACommunityBuildingsSchedulePage.pageText1,
         UploadACommunityBuildingsSchedulePage.pageText2,
         UploadACommunityBuildingsSchedulePage.pageText3,

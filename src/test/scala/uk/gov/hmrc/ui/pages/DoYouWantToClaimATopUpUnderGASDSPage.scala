@@ -30,7 +30,7 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?"
 
   def pageHint: String =
@@ -47,14 +47,14 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.pageUrl)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeader(DoYouWantToClaimATopUpUnderGASDSPage.pageHeader)
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(DoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
   }
 
   def validateChangeNavigation(): Unit = {
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.changePageUrl)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
     DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeader(DoYouWantToClaimATopUpUnderGASDSPage.pageHeader)
+    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(DoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
   }
 
   def validateHint(): Unit =

@@ -28,7 +28,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageCaption: String =
     "HMRC Charities reference:"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Make a charity repayment claim"
 
   def pageSubheading1: String =
@@ -79,7 +79,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def validateNavigation(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
     ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
-    ClaimsTaskListPage_InProgress.verifyPageHeader(ClaimsTaskListPage_InProgress.pageHeader)
+    ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
   }

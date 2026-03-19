@@ -46,7 +46,7 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject extends BasePage {
     ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageTitle(
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageTitle
     )
-    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageHeader(
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageHeading(
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageHeading
     )
   }

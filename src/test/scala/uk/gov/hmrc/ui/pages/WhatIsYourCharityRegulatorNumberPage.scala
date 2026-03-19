@@ -29,7 +29,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
   def pageCaption: String =
     "Provide organisation details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "What is the charity regulator number?"
 
   def pageHint: String =
@@ -55,7 +55,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
     WhatIsYourCharityRegulatorNumberPage.verifyPageUrl(WhatIsYourCharityRegulatorNumberPage.pageUrl)
     WhatIsYourCharityRegulatorNumberPage.verifyPageTitle(WhatIsYourCharityRegulatorNumberPage.pageTitle)
     WhatIsYourCharityRegulatorNumberPage.verifyPageCaption(WhatIsYourCharityRegulatorNumberPage.pageCaption)
-    WhatIsYourCharityRegulatorNumberPage.verifyPageHeader(WhatIsYourCharityRegulatorNumberPage.pageHeader)
+    WhatIsYourCharityRegulatorNumberPage.verifyPageHeading(WhatIsYourCharityRegulatorNumberPage.pageHeading)
   }
 
   def validateHint(): Unit =

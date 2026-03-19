@@ -28,7 +28,7 @@ object ConnectedCharitiesPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Connected charities and Community Amateur Sports Clubs"
 
   def pageParagraph: String =
@@ -48,7 +48,7 @@ object ConnectedCharitiesPage extends BasePage {
     ConnectedCharitiesPage.verifyPageUrl(ConnectedCharitiesPage.pageUrl)
     ConnectedCharitiesPage.verifyPageTitle(ConnectedCharitiesPage.pageTitle)
     ConnectedCharitiesPage.verifyPageCaption(ConnectedCharitiesPage.pageCaption)
-    ConnectedCharitiesPage.verifyPageHeader(ConnectedCharitiesPage.pageHeader)
+    ConnectedCharitiesPage.verifyPageHeading(ConnectedCharitiesPage.pageHeading)
   }
 
   def validateParagraph(): Unit = {

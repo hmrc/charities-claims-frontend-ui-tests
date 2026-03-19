@@ -28,7 +28,7 @@ object UploadAGiftAidSchedulePage extends BasePage {
   def pageCaption: String =
     "Add Gift Aid schedule"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "Upload a Gift Aid schedule"
 
   def pageText1: String =
@@ -67,14 +67,14 @@ object UploadAGiftAidSchedulePage extends BasePage {
     UploadAGiftAidSchedulePage.verifyPageUrl(UploadAGiftAidSchedulePage.pageUrl)
     UploadAGiftAidSchedulePage.verifyPageTitle(UploadAGiftAidSchedulePage.pageTitle)
     UploadAGiftAidSchedulePage.verifyPageCaption(UploadAGiftAidSchedulePage.pageCaption)
-    UploadAGiftAidSchedulePage.verifyPageHeader(UploadAGiftAidSchedulePage.pageHeader)
+    UploadAGiftAidSchedulePage.verifyPageHeading(UploadAGiftAidSchedulePage.pageHeading)
   }
 
   def validatePageContent(): Unit =
     UploadAGiftAidSchedulePage.verifyEntirePageContent(
       UploadAGiftAidSchedulePage.createSingleStringFromMany(
         UploadAGiftAidSchedulePage.pageCaption,
-        UploadAGiftAidSchedulePage.pageHeader,
+        UploadAGiftAidSchedulePage.pageHeading,
         UploadAGiftAidSchedulePage.pageText1,
         UploadAGiftAidSchedulePage.pageText2,
         UploadAGiftAidSchedulePage.pageText3,

@@ -23,7 +23,7 @@ object AboutTheOrganisationPage extends BasePage {
   override def pageTitle: String =
     "About the organisation - Charities - GOV.UK"
 
-  def pageHeader: String =
+  def pageHeading: String =
     "About the organisation"
 
   def pageCaption: String =
@@ -42,14 +42,14 @@ object AboutTheOrganisationPage extends BasePage {
     AboutTheOrganisationPage.verifyPageUrl(AboutTheOrganisationPage.pageUrl)
     AboutTheOrganisationPage.verifyPageTitle(AboutTheOrganisationPage.pageTitle)
     AboutTheOrganisationPage.verifyPageCaption(AboutTheOrganisationPage.pageCaption)
-    AboutTheOrganisationPage.verifyPageHeader(AboutTheOrganisationPage.pageHeader)
+    AboutTheOrganisationPage.verifyPageHeading(AboutTheOrganisationPage.pageHeading)
   }
 
   def validatePageContent(): Unit =
     AboutTheOrganisationPage.verifyEntirePageContent(
       AboutTheOrganisationPage.createSingleStringFromMany(
         AboutTheOrganisationPage.pageCaption,
-        AboutTheOrganisationPage.pageHeader,
+        AboutTheOrganisationPage.pageHeading,
         AboutTheOrganisationPage.listItem1,
         AboutTheOrganisationPage.listItem2,
         AboutTheOrganisationPage.listItem3
