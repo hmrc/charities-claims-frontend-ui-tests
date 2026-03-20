@@ -230,7 +230,7 @@ class AboutTheOrgJourneySpec
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
-      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactly(
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"       -> "Charity Commission for England and Wales",
         "Charity regulator number"     -> "1234567890",
         "Corporate trustee claim"      -> "Yes",

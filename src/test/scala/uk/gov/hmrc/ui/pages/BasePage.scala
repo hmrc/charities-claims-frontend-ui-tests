@@ -486,10 +486,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual error message is: " + actualErrorMsg)
   }
 
-  // ----------------------------------------------------------------------------
-
   /** Helper methods for validating Check your Answers Page's field and value pairs */
-
   def norm(s: String): String =
     Option(s)
       .getOrElse("")
@@ -499,54 +496,52 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       .trim
       .replaceAll("\\s+", " ")
 
-  // Extract ALL actual dt->dd1 pairs from the page (once)
+  // Extract pairs from ONE WebElement (one summary-list block)
+  private def extractPairsFrom(dl: WebElement): Map[String, String] = {
+    val rows = dl.findElements(Locators.rowLocator).asScala.toList
 
-  private def extractAllActualPairs(): Map[String, String] = {
-
-    val dl: WebElement =
-      waitForVisibilityOfElement(Locators.dlLocator)
-
-    val rows: List[WebElement] = dl.findElements(Locators.rowLocator).asScala.toList
-
-    val pairs: List[(String, String)] = rows.flatMap { row =>
-      val keyOpt =
-        row.findElements(Locators.dtLocator).asScala.headOption.map(e => norm(e.getText))
-
-      // Only FIRST dd1 per row; ignores 2nd/3rd dd
-      val valueOpt =
-        row.findElements(Locators.dd1Locator).asScala.headOption.map(e => norm(e.getText))
-
+    val pairs = rows.flatMap { row =>
+      val keyOpt   = row.findElements(Locators.dtLocator).asScala.headOption.map(e => norm(e.getText))
+      val valueOpt = row.findElements(Locators.dd1Locator).asScala.headOption.map(e => norm(e.getText))
       (keyOpt, valueOpt) match {
         case (Some(k), Some(v)) => Some(k -> v)
         case _                  => None
       }
     }
 
-    // Check DT elements text is unique
     val dupKeys = pairs.groupBy(_._1).collect { case (k, vs) if vs.size > 1 => k }.toList
     if (dupKeys.nonEmpty)
-      throw new AssertionError(s"Duplicate dt text keys found (expected unique): ${dupKeys.mkString(", ")}")
+      throw new AssertionError(s"Duplicate dt keys in this summary-list block: ${dupKeys.mkString(", ")}")
+
     pairs.toMap
+  }
+
+  // Get the index of summary-list blocks on the page and extract pairs based on index
+  private def extractAllActualPairsAt(index: Int): Map[String, String] = {
+
+    fluentWait.until(_ => driver.findElements(Locators.dlLocator).size() > index)
+    val allBlocks = driver.findElements(Locators.dlLocator).asScala.toList
+    val targetDl  = allBlocks(index)
+    extractPairsFrom(targetDl)
   }
 
   /** Helper method final to be used in SPEC for validating Check your Answers Page's field and value pairs */
   /** Lines/texts with single/many 'br' '\n' 'blank spaces' etc to input with a single blank space */
-
-  def assertAllSummaryPairsExactly(expectedPairs: (String, String)*): Unit = {
-    val actual = extractAllActualPairs()
-
+  def assertAllSummaryPairsExactlyAt(index: Int)(expectedPairs: (String, String)*): Unit = {
+    val actual         = extractAllActualPairsAt(index)
     val expectedNormed = expectedPairs.toMap.map { case (k, v) => norm(k) -> norm(v) }
+    val missing        = expectedNormed.keySet -- actual.keySet
+    val extra          = actual.keySet -- expectedNormed.keySet
 
     assert(
       actual == expectedNormed,
-      s"""Summary table mismatch!
+      s"""Summary table mismatch! (Block index=$index)
          |Expected: $expectedNormed
          |Actual  : $actual
-         |Missing keys: ${(expectedNormed.keySet -- actual.keySet).mkString(", ")}
-         |Extra keys  : ${(actual.keySet -- expectedNormed.keySet).mkString(", ")}
+         |Missing keys: ${missing.mkString(", ")}
+         |Extra keys  : ${extra.mkString(", ")}
          |""".stripMargin
     )
-
   }
 
 }
