@@ -200,7 +200,7 @@ class GiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactly(
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
         "Repayment claim type"                                     -> "Gift Aid Top up payments for small cash donations under Gift Aid Small Donations Scheme UK tax deducted from Other Income",
         "Claim reference number"                                   -> "Yes",
         "Reference number"                                         -> "TESTREF123",
