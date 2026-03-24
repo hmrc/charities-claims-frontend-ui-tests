@@ -22,6 +22,8 @@ object AuthorisedOfficialDetailsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/authorised-official-details"
 
+  def changePageUrl: String = s"$hostname/change-authorised-official-details"
+
   override def pageTitle: String =
     "What are the authorised official details? - Charities - GOV.UK"
 
@@ -130,6 +132,13 @@ object AuthorisedOfficialDetailsPage extends BasePage {
 
   def validateNavigation(): Unit = {
     AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.pageUrl)
+    AuthorisedOfficialDetailsPage.verifyPageTitle(AuthorisedOfficialDetailsPage.pageTitle)
+    AuthorisedOfficialDetailsPage.verifyPageCaption(AuthorisedOfficialDetailsPage.pageCaption)
+    AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.changePageUrl)
     AuthorisedOfficialDetailsPage.verifyPageTitle(AuthorisedOfficialDetailsPage.pageTitle)
     AuthorisedOfficialDetailsPage.verifyPageCaption(AuthorisedOfficialDetailsPage.pageCaption)
     AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
