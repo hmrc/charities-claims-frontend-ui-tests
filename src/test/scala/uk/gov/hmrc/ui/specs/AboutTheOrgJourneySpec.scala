@@ -98,6 +98,17 @@ class AboutTheOrgJourneySpec
       CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Charity regulator name"       -> "Charity is not registered with a regulator",
+        "Registered with regulator"    -> "Your charity is excepted",
+        "Corporate trustee claim"      -> "Yes",
+        "Corporate trustee UK address" -> "No",
+        "Corporate trustee details"    -> "TEST TRUSTEE 00-1-332-555-2368"
+      )
+      And("User navigates to 'Make a charity repayment claim' claim task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -169,6 +180,17 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Charity regulator name"         -> "Charity is not registered with a regulator",
+        "Registered with regulator"      -> "Your charity is exempt",
+        "Corporate trustee claim"        -> "No",
+        "Authorised official UK address" -> "Yes",
+        "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+      )
+      And("User navigates to 'Make a charity repayment claim' claim task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -237,7 +259,9 @@ class AboutTheOrgJourneySpec
         "Corporate trustee UK address" -> "Yes",
         "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
+      And("User navigates to 'Make a charity repayment claim' claim task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
   }
 }

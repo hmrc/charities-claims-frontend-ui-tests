@@ -60,6 +60,11 @@ class GiftAidJourneySpec
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
+        "Repayment claim type"   -> "Gift Aid",
+        "Claim reference number" -> "No"
+      )
     }
 
     Scenario(
@@ -92,6 +97,12 @@ class GiftAidJourneySpec
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
+        "Repayment claim type"   -> "Gift Aid UK tax deducted from Other Income",
+        "Claim reference number" -> "Yes",
+        "Reference number"       -> "TESTREF123"
+      )
     }
 
     Scenario(
@@ -140,6 +151,14 @@ class GiftAidJourneySpec
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
+        "Repayment claim type"                                     -> "Top up payments for small cash donations under Gift Aid Small Donations Scheme",
+        "Claim reference number"                                   -> "No",
+        "Gift Aid Small Donations Scheme Payment"                  -> "No",
+        "Donations from community buildings"                       -> "No",
+        "Connected to charities or Community Amateur Sports Clubs" -> "Yes"
+      )
     }
 
     Scenario(

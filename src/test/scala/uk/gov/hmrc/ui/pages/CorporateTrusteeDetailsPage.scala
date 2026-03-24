@@ -23,6 +23,8 @@ object CorporateTrusteeDetailsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-details"
 
+  def changePageUrl: String = s"$hostname/change-corporate-trustee-details"
+
   override def pageTitle: String =
     "What are the corporate trustee details? - Charities - GOV.UK"
 
@@ -91,6 +93,13 @@ object CorporateTrusteeDetailsPage extends BasePage {
 
   def validateNavigation(): Unit = {
     CorporateTrusteeDetailsPage.verifyPageUrl(CorporateTrusteeDetailsPage.pageUrl)
+    CorporateTrusteeDetailsPage.verifyPageTitle(CorporateTrusteeDetailsPage.pageTitle)
+    CorporateTrusteeDetailsPage.verifyPageCaption(CorporateTrusteeDetailsPage.pageCaption)
+    CorporateTrusteeDetailsPage.verifyPageHeading(CorporateTrusteeDetailsPage.pageHeading)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    CorporateTrusteeDetailsPage.verifyPageUrl(CorporateTrusteeDetailsPage.changePageUrl)
     CorporateTrusteeDetailsPage.verifyPageTitle(CorporateTrusteeDetailsPage.pageTitle)
     CorporateTrusteeDetailsPage.verifyPageCaption(CorporateTrusteeDetailsPage.pageCaption)
     CorporateTrusteeDetailsPage.verifyPageHeading(CorporateTrusteeDetailsPage.pageHeading)
