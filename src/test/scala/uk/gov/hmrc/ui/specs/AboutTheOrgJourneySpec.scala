@@ -106,7 +106,7 @@ class AboutTheOrgJourneySpec
         "Corporate trustee UK address" -> "No",
         "Corporate trustee details"    -> "TEST TRUSTEE 00-1-332-555-2368"
       )
-      And("User navigates to 'Make a charity repayment claim' claim task list page")
+      And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
     }
@@ -188,7 +188,7 @@ class AboutTheOrgJourneySpec
         "Authorised official UK address" -> "Yes",
         "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
-      And("User navigates to 'Make a charity repayment claim' claim task list page")
+      And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
     }
@@ -259,7 +259,7 @@ class AboutTheOrgJourneySpec
         "Corporate trustee UK address" -> "Yes",
         "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
-      And("User navigates to 'Make a charity repayment claim' claim task list page")
+      And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
     }
