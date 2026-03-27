@@ -66,9 +66,9 @@ object DeclarationPage extends BasePage {
     )
     DeclarationPage.verifyPageWarning(
       DeclarationPage.createSingleStringFromMany(
-      DeclarationPage.pageWarningIcon,
-      DeclarationPage.pageWarningHeading,
-      DeclarationPage.pageWarningText
+        DeclarationPage.pageWarningIcon,
+        DeclarationPage.pageWarningHeading,
+        DeclarationPage.pageWarningText
       )
     )
   }

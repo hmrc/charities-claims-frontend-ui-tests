@@ -29,7 +29,13 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
   def pageHeading: String =
     "There is a problem with the data in your Connected Charities schedule"
 
-  def pageWarning: String =
+  def pageWarningIcon: String =
+    "!"
+
+  def pageWarningHeading: String =
+    "Warning"
+
+  def pageWarningText: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
   def pageHeading2: String =
@@ -59,8 +65,15 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageHeading(
       CheckYourConnectedCharitiesScheduleErrorPage.pageHeading
     )
+  }
+
+  def validatePageContent(): Unit = {
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageWarning(
-      CheckYourConnectedCharitiesScheduleErrorPage.pageWarning
+      CheckYourConnectedCharitiesScheduleErrorPage.createSingleStringFromMany(
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningIcon,
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningHeading,
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningText
+      )
     )
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading1(
       CheckYourConnectedCharitiesScheduleErrorPage.pageHeading2
@@ -68,9 +81,6 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
     CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading2(
       CheckYourConnectedCharitiesScheduleErrorPage.pageHeading3
     )
-  }
-
-  def validatePageContent(): Unit =
     CheckYourConnectedCharitiesScheduleErrorPage.verifyScheduleErrorHelpList(
       CheckYourConnectedCharitiesScheduleErrorPage.createSingleStringFromMany(
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp1,
@@ -79,4 +89,5 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp4
       )
     )
+  }
 }
