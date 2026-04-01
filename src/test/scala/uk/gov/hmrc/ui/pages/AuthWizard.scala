@@ -58,11 +58,15 @@ object AuthWizard extends BasePage {
     Redirect
   }
 
-  def fillInputs(affGrp: String, enrolKey: String, enrolId: String, enrolVal: String): this.type = {
+  def fillInputs(affGrp: String, enrolKey: String, enrolId: String, enrolVal: String, authId: String = ""): this.type = {
     driver.findElement(affinityGroup).sendKeys(affGrp)
     driver.findElement(enrolmentKey).sendKeys(enrolKey)
     driver.findElement(enrolmentId).sendKeys(enrolId)
     driver.findElement(enrolmentValue).sendKeys(enrolVal)
+    if (authId.nonEmpty) {
+      driver.findElement(credId).sendKeys(authId)
+    }
+
     this
   }
 
@@ -72,11 +76,12 @@ object AuthWizard extends BasePage {
     affGrp: String,
     enrolKey: String,
     enrolId: String,
-    enrolVal: String
+    enrolVal: String,
+    authId: String = ""
   ): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
-    fillInputs(affGrp, enrolKey, enrolId, enrolVal)
+    fillInputs(affGrp, enrolKey, enrolId, enrolVal, authId)
     click(btnSubmit)
   }
 }
