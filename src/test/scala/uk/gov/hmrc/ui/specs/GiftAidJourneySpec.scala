@@ -71,7 +71,15 @@ class GiftAidJourneySpec
       "User navigates to the 'Repayment claim details' page and validates the page elements - Non GASDS with reference number"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - R2")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "JOURNEYTEST - R2",
+        "usernametest1"
+      )
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
