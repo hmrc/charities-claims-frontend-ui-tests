@@ -50,6 +50,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val lnkBack                    = "Back"
     val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
     val lnkDeleteSchedule          = "//a[contains(text(), 'Delete schedule')]"
+    val lnkSignOut                 = "//a[contains(text(), 'Sign out')]"
+    val buttonSignIn               = "//button[@type='submit' and normalize-space(text())='Sign in']"
     val rdoYes                     = "#value_0"
     val rdoNo                      = "#value_1"
     val txtFileName                = ".govuk-body"
@@ -216,6 +218,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 //  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
 
   def clickDeleteScheduleLink(): Unit = click(By.xpath(Locators.lnkDeleteSchedule))
+  def signOut(): Unit                 = click(By.xpath(Locators.lnkSignOut))
 
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
@@ -451,6 +454,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
+  }
+
+  def verifySignInPage(expectedText: String): Unit = {
+    waitForElementToBeClickable(By.xpath(Locators.buttonSignIn))
+    val actualText = driver.findElement(By.xpath(Locators.buttonSignIn)).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual form content is: " + driver.findElement(By.xpath(Locators.buttonSignIn)).getText)
   }
 
   /** Helper method for passing one string to verify list text instead of multiple */
