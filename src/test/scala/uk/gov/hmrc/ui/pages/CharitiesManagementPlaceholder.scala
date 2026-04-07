@@ -18,33 +18,18 @@ package uk.gov.hmrc.ui.pages
 
 object CharitiesManagementPlaceholder extends BasePage {
 
-//  val managementHostname =
-//    if (hostname.startsWith("localhost"))
-//      hostname
-//        .replaceFirst(":\\d+", ":8033")
-//        .replaceFirst("/.*$", "/")
-//    else
-//      hostname.replaceFirst("/.*$", "/")
-//
-//  val finalUrl = s"${managementHostname}charities-management"
-//
-//  hostname.replace("charities-claims", "")
   override def pageUrl: String = s"$hostname/charities-management/charity-repayment-dashboard"
 
   override def pageTitle: String =
     "Charity repayment dashboard - Charities - GOV.UK"
 
-//  def pageCaption: String =
-//    "Add Gift Aid schedule"
-
   def pageHeading: String =
     "Charity repayment dashboard"
 
-
   def validateNavigation(): Unit = {
-    //CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
+    // CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
     CharitiesManagementPlaceholder.verifyPageTitle(CharitiesManagementPlaceholder.pageTitle)
-    //CharitiesManagementPlaceholder.verifyPageCaption(CharitiesManagementPlaceholder.pageCaption)
+    // CharitiesManagementPlaceholder.verifyPageCaption(CharitiesManagementPlaceholder.pageCaption)
     CharitiesManagementPlaceholder.verifyPageHeading(CharitiesManagementPlaceholder.pageHeading)
   }
 
