@@ -57,6 +57,11 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
 
   def inputMaxLength = 351
 
+  def enterAdjustmentDetails(adjustmentDetails: String): Unit = {
+    input(adjustmentDetailsFieldLocator, adjustmentDetails)
+    clickContinue()
+  }
+
   def validateNavigation(): Unit = {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageUrl(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageTitle(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageTitle)

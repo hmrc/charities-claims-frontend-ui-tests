@@ -29,7 +29,13 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
   def pageHeading: String =
     "There is a problem with the data in your Gift Aid schedule"
 
-  def pageWarning: String =
+  def pageWarningIcon: String =
+    "!"
+
+  def pageWarningHeading: String =
+    "Warning"
+
+  def pageWarningText: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
   def pageHeading2: String =
@@ -55,12 +61,18 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
     CheckYourGiftAidScheduleErrorPage.verifyPageTitle(CheckYourGiftAidScheduleErrorPage.pageTitle)
     CheckYourGiftAidScheduleErrorPage.verifyPageCaption(CheckYourGiftAidScheduleErrorPage.pageCaption)
     CheckYourGiftAidScheduleErrorPage.verifyPageHeading(CheckYourGiftAidScheduleErrorPage.pageHeading)
-    CheckYourGiftAidScheduleErrorPage.verifyPageWarning(CheckYourGiftAidScheduleErrorPage.pageWarning)
-    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading1(CheckYourGiftAidScheduleErrorPage.pageHeading2)
-    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading2(CheckYourGiftAidScheduleErrorPage.pageHeading3)
   }
 
-  def validatePageContent(): Unit =
+  def validatePageContent(): Unit = {
+    CheckYourGiftAidScheduleErrorPage.verifyPageWarning(
+      CheckYourGiftAidScheduleErrorPage.createSingleStringFromMany(
+        CheckYourGiftAidScheduleErrorPage.pageWarningIcon,
+        CheckYourGiftAidScheduleErrorPage.pageWarningHeading,
+        CheckYourGiftAidScheduleErrorPage.pageWarningText
+      )
+    )
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading1(CheckYourGiftAidScheduleErrorPage.pageHeading2)
+    CheckYourGiftAidScheduleErrorPage.verifyPageSubHeading2(CheckYourGiftAidScheduleErrorPage.pageHeading3)
     CheckYourGiftAidScheduleErrorPage.verifyScheduleErrorHelpList(
       CheckYourGiftAidScheduleErrorPage.createSingleStringFromMany(
         CheckYourGiftAidScheduleErrorPage.errorHelp1,
@@ -69,5 +81,5 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
         CheckYourGiftAidScheduleErrorPage.errorHelp4
       )
     )
-
+  }
 }

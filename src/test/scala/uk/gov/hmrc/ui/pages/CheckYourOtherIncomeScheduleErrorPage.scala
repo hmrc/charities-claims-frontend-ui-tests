@@ -29,7 +29,13 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
   def pageHeading: String =
     "There is a problem with the data in your Other Income schedule"
 
-  def pageWarning: String =
+  def pageWarningIcon: String =
+    "!"
+
+  def pageWarningHeading: String =
+    "Warning"
+
+  def pageWarningText: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
   def pageHeading2: String =
@@ -55,12 +61,18 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
     CheckYourOtherIncomeScheduleErrorPage.verifyPageTitle(CheckYourOtherIncomeScheduleErrorPage.pageTitle)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageCaption(CheckYourOtherIncomeScheduleErrorPage.pageCaption)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageHeading(CheckYourOtherIncomeScheduleErrorPage.pageHeading)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageWarning(CheckYourOtherIncomeScheduleErrorPage.pageWarning)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading1(CheckYourOtherIncomeScheduleErrorPage.pageHeading2)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading2(CheckYourOtherIncomeScheduleErrorPage.pageHeading3)
   }
 
-  def validatePageContent(): Unit =
+  def validatePageContent(): Unit = {
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageWarning(
+      CheckYourOtherIncomeScheduleErrorPage.createSingleStringFromMany(
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningIcon,
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningHeading,
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningText
+      )
+    )
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading1(CheckYourOtherIncomeScheduleErrorPage.pageHeading2)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading2(CheckYourOtherIncomeScheduleErrorPage.pageHeading3)
     CheckYourOtherIncomeScheduleErrorPage.verifyScheduleErrorHelpList(
       CheckYourOtherIncomeScheduleErrorPage.createSingleStringFromMany(
         CheckYourOtherIncomeScheduleErrorPage.errorHelp1,
@@ -69,4 +81,5 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
         CheckYourOtherIncomeScheduleErrorPage.errorHelp4
       )
     )
+  }
 }

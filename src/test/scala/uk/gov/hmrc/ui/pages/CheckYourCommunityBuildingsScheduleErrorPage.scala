@@ -29,7 +29,13 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
   def pageHeading: String =
     "There is a problem with the data in your Community Buildings schedule"
 
-  def pageWarning: String =
+  def pageWarningIcon: String =
+    "!"
+
+  def pageWarningHeading: String =
+    "Warning"
+
+  def pageWarningText: String =
     "We cannot accept the file because it has errors. You must fix these errors and upload the updated file before you can continue."
 
   def pageHeading2: String =
@@ -59,8 +65,15 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeading(
       CheckYourCommunityBuildingsScheduleErrorPage.pageHeading
     )
+  }
+
+  def validatePageContent(): Unit = {
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageWarning(
-      CheckYourCommunityBuildingsScheduleErrorPage.pageWarning
+      CheckYourCommunityBuildingsScheduleErrorPage.createSingleStringFromMany(
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningIcon,
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningHeading,
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningText
+      )
     )
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading1(
       CheckYourCommunityBuildingsScheduleErrorPage.pageHeading2
@@ -68,9 +81,6 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
     CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading2(
       CheckYourCommunityBuildingsScheduleErrorPage.pageHeading3
     )
-  }
-
-  def validatePageContent(): Unit =
     CheckYourCommunityBuildingsScheduleErrorPage.verifyScheduleErrorHelpList(
       CheckYourCommunityBuildingsScheduleErrorPage.createSingleStringFromMany(
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp1,
@@ -79,5 +89,5 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp4
       )
     )
-
+  }
 }

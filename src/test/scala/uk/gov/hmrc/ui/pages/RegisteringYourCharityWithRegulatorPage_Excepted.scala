@@ -66,7 +66,11 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
 
   def validatePageContent(): Unit = {
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyPageWarning(
-      RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningText
+      RegisteringYourCharityWithRegulatorPage_Excepted.createSingleStringFromMany(
+        RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningIcon,
+        RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningHeading,
+        RegisteringYourCharityWithRegulatorPage_Excepted.pageWarningText
+      )
     )
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyParagraphText(
       RegisteringYourCharityWithRegulatorPage_Excepted.textParagraph1

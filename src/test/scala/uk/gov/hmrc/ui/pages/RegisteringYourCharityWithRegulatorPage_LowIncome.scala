@@ -66,7 +66,11 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
 
   def validatePageContent(): Unit = {
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageWarning(
-      RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningText
+      RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningIcon,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningHeading,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningText
+      )
     )
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyParagraphText(
       RegisteringYourCharityWithRegulatorPage_LowIncome.textParagraph1
