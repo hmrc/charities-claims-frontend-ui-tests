@@ -84,9 +84,13 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
   }
 
-  val linkGoToDashboard: By                 = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
-  val linkProvideRepaymentClaimDetails: By  = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
-  val linkProvideOrganisationDetails: By    = By.xpath("//a[@href='/charities-claims/about-the-organisation']")
+  val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
+  val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
+  val linkProvideOrganisationDetails: By   = By.xpath("//a[@href='/charities-claims/about-the-organisation']")
+
+  val linkCheckYourRepaymentClaim: By      = By.xpath("//a[@href='/charities-claims/check-your-repayment-claim']")
+  val linkCheckYourOrganisationDetails: By = By.xpath("//a[@href='/charities-claims/check-your-organisation-details']")
+
   val linkProvideGASDSDetails: By           = By.xpath("//a[@href='/charities-claims/TODO']")
   val linkAddGiftAidSchedule: By            = By.xpath("//a[@href='/charities-claims/about-gift-aid-schedule']")
   val linkAddOtherIncomeSchedule: By        = By.xpath("//a[@href='/charities-claims/about-other-income-schedule']")
@@ -107,8 +111,18 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     element.click()
   }
 
+  def clickCheckYourRepaymentClaimDetails(): Unit = {
+    val element = waitForElementToBeClickable(linkCheckYourRepaymentClaim)
+    element.click()
+  }
+
   def clickProvideOrganisationDetails(): Unit = {
     val element = waitForElementToBeClickable(linkProvideOrganisationDetails)
+    element.click()
+  }
+
+  def clickCheckYourOrganisationDetails(): Unit = {
+    val element = waitForElementToBeClickable(linkCheckYourOrganisationDetails)
     element.click()
   }
 
