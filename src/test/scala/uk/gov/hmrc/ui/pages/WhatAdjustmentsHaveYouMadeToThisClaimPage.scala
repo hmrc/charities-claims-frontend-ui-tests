@@ -98,8 +98,6 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyEntirePageContent(
       WhatAdjustmentsHaveYouMadeToThisClaimPage.createSingleStringFromMany(
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
-        // TODO revisit when form approach clarified
-        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraph,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenHint,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount,
