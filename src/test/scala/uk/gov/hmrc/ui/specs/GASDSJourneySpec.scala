@@ -89,7 +89,12 @@ class GASDSJourneySpec
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Gift Aid Small Donations Scheme details' page")
+      And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
+      ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
+      And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
+      AboutGASDSPage.validateNavigation()
+      Then("User Validates page content  heading/caption/paragraph/button texts on about GASDS page")
+      AboutGASDSPage.validatePageContent()
     }
   }
 }
