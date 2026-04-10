@@ -46,47 +46,50 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Locator values */
   object Locators {
-    val btnContinue                = "//button[@type='submit']"
-    val lnkBack                    = "Back"
-    val lnkHeader                  = ".govuk-header__link.govuk-header__service-name"
-    val lnkDeleteSchedule          = "//a[contains(text(), 'Delete schedule')]"
-    val lnkSignOut                 = "//a[contains(text(), 'Sign out')]"
-    val buttonSignIn               = "//button[@type='submit' and normalize-space(text())='Sign in']"
-    val rdoYes                     = "#value_0"
-    val rdoNo                      = "#value_1"
-    val txtFileName                = ".govuk-body"
-    val txtCaption                 = By.ByClassName("govuk-caption-l")
-    val txtHeading: By             = By.xpath("//h1")
-    val txtWarning                 = By.ByClassName("govuk-warning-text")
-    val txtSubHeading1: By         = By.xpath("//main//h2[1]")
-    val txtSubHeading2: By         = By.xpath("//main//h2[2]")
-    val txtSubHeading3: By         = By.xpath("//main//h2[3]")
-    val txtAddressPostCode         = By.ById("addressPostcode")
-    val inputReferenceNumber       = By.ByClassName("govuk-input")
-    val inputYourUserId: By        = By.xpath("//input[@name='authorityId']")
-    val hintText                   = By.ById("value-hint")
-    val paragraphText              = By.ByClassName("govuk-body")
-    val errorSummary               = By.ByClassName("govuk-error-summary__body")
-    val errorMsg                   = By.ByClassName("govuk-error-message")
-    val listText                   = By.ByClassName("govuk-list")
-    val taskList1Text: By          = By.xpath("//main//ul[1]")
-    val taskList2Text: By          = By.xpath("//main//ul[2]")
-    val taskList3Text: By          = By.xpath("//main//ul[3]")
-    val scheduleErrorHelpList: By  = By.xpath("//ol[contains(@class, 'govuk-list')]")
-    val legendText                 = By.ByClassName("govuk-fieldset__legend")
-    val checkYouAnswersSummaryList = By.ByClassName("govuk-summary-list__row")
-    val txtEntirePageContent       = By.ByClassName("govuk-grid-row")
-    val txtSummaryCardContent      = By.ByClassName("govuk-summary-card")
-    val txtTrusteeName             = By.ById("nameOfCorporateTrustee")
-    val txtTrusteePhoneNo          = By.ById("corporateTrusteeDaytimeTelephoneNumber")
-    val txtTrusteePostcode         = By.ById("corporateTrusteePostcode")
-    val txtAuthOfficialTitle       = By.ById("title")
-    val txtAuthOfficialForename    = By.ById("firstName")
-    val txtAuthOfficialSurname     = By.ById("lastName")
-    val txtAuthOfficialPhoneNo     = By.ById("phoneNumber")
-    val txtAuthOfficialPostcode    = By.ById("postcode")
-    val fileUploadFieldLocator     = By.ById("file-input")
-    val txtFormFieldset: By        = By.xpath("//form//fieldset")
+    val btnContinue                    = "//button[@type='submit']"
+    val lnkBack                        = "Back"
+    val lnkHeader                      = ".govuk-header__link.govuk-header__service-name"
+    val lnkDeleteSchedule              = "//a[contains(text(), 'Delete schedule')]"
+    val lnkSignOut                     = "//a[contains(text(), 'Sign out')]"
+    val buttonSignIn                   = "//button[@type='submit' and normalize-space(text())='Sign in']"
+    val rdoYes                         = "#value_0"
+    val rdoNo                          = "#value_1"
+    val txtFileName                    = ".govuk-body"
+    val txtCaption                     = By.ByClassName("govuk-caption-l")
+    val txtHeading: By                 = By.xpath("//h1")
+    val txtWarning                     = By.ByClassName("govuk-warning-text")
+    val txtSubHeading1: By             = By.xpath("//main//h2[1]")
+    val txtSubHeading2: By             = By.xpath("//main//h2[2]")
+    val txtSubHeading3: By             = By.xpath("//main//h2[3]")
+    val txtAddressPostCode             = By.ById("addressPostcode")
+    val inputReferenceNumber           = By.ByClassName("govuk-input")
+    val inputYourUserId: By            = By.xpath("//input[@name='authorityId']")
+    val hintText                       = By.ById("value-hint")
+    val paragraphText                  = By.ByClassName("govuk-body")
+    val errorSummary                   = By.ByClassName("govuk-error-summary__body")
+    val errorMsg                       = By.ByClassName("govuk-error-message")
+    val listText                       = By.ByClassName("govuk-list")
+    val taskList1Text: By              = By.xpath("//main//ul[1]")
+    val taskList2Text: By              = By.xpath("//main//ul[2]")
+    val taskList3Text: By              = By.xpath("//main//ul[3]")
+    val scheduleErrorHelpList: By      = By.xpath("//ol[contains(@class, 'govuk-list')]")
+    val legendText                     = By.ByClassName("govuk-fieldset__legend")
+    val checkYouAnswersSummaryList     = By.ByClassName("govuk-summary-list__row")
+    val txtEntirePageContent           = By.ByClassName("govuk-grid-row")
+    val txtSummaryCardContent          = By.ByClassName("govuk-summary-card")
+    val txtTrusteeName                 = By.ById("nameOfCorporateTrustee")
+    val txtTrusteePhoneNo              = By.ById("corporateTrusteeDaytimeTelephoneNumber")
+    val txtTrusteePostcode             = By.ById("corporateTrusteePostcode")
+    val txtAuthOfficialTitle           = By.ById("title")
+    val txtAuthOfficialForename        = By.ById("firstName")
+    val txtAuthOfficialSurname         = By.ById("lastName")
+    val txtAuthOfficialPhoneNo         = By.ById("phoneNumber")
+    val txtAuthOfficialPostcode        = By.ById("postcode")
+    val fileUploadFieldLocator         = By.ById("file-input")
+    val txtFormFieldset: By            = By.xpath("//form//fieldset")
+    val txtBelowConfirmationPanel1: By = By.xpath("//main//p[1]")
+    val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")
+    val txtBelowConfirmationPanel3: By = By.xpath("//main//p[3]")
 
     val dlLocator: By  = By.className("govuk-summary-list")
     val rowLocator: By = By.className("govuk-summary-list__row")
@@ -454,6 +457,36 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
+  }
+
+  def verifyPageContentBelowPanel1(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtBelowConfirmationPanel1)
+    val actualText = driver.findElement(Locators.txtBelowConfirmationPanel1).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel1).getText)
+  }
+
+  def verifyPageContentBelowPanel2(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtBelowConfirmationPanel2)
+    val actualText = driver.findElement(Locators.txtBelowConfirmationPanel2).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel2).getText)
+  }
+
+  def verifyPageContentBelowPanel3(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtBelowConfirmationPanel3)
+    val actualText = driver.findElement(Locators.txtBelowConfirmationPanel3).getText
+    assert(
+      actualText == expectedText,
+      s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel3).getText)
   }
 
   def verifySignInPage(expectedText: String): Unit = {
