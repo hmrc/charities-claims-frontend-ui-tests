@@ -40,10 +40,10 @@ object ClaimCompletePage extends BasePage {
   def txtParagraph2: String =
     "They will contact you to confirm your repayment, or to ask for more information."
 
-  def txtPrintClaimSummaryLink: String = 
+  def txtPrintClaimSummaryLink: String =
     "Print a summary of your claim"
 
-  val lnkPrintClaimSummaryLink: By      = By.xpath("//a[@href='/charities-claims/charity-repayment-claim-summary']")
+  val lnkPrintClaimSummaryLink: By = By.xpath("//a[@href='/charities-claims/charity-repayment-claim-summary']")
 
   def clickPrintClaimSummaryLink(): Unit = {
     val element = waitForElementToBeClickable(lnkPrintClaimSummaryLink)
