@@ -1,0 +1,339 @@
+/*
+ * Copyright 2026 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.gov.hmrc.ui.specs
+
+import org.scalatest.featurespec.AnyFeatureSpec
+import org.scalatest.verbs.ShouldVerb
+import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
+import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
+import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.pages.AuthWizard.hostname
+import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
+import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+
+class DataGuardSpec
+  extends AnyFeatureSpec
+    with BaseSpec
+    with GivenWhenThen
+    with ShouldVerb
+    with BeforeAndAfterAll
+    with BeforeAndAfterEach
+    with Browser
+    with ScreenshotOnFailure {
+
+  Feature("Charities - DataGuard Checks via URL hopping ") {
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Repayment Claim Details' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-R1-FLOW")
+      Then("User URL hops to R1.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(RepaymentClaimDetailsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DoYouWantToClaimATopUpUnderGASDSPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(GiftAidSmallDonationsSchemeClaimPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ConnectedCharitiesPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.6 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.7 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R1.8 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to R2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      ClaimCompletePage.validateNavigation()
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'About The Organisation' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-A2-FLOW")
+      Then("User URL hops to A2.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(AboutTheOrganisationPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(WhyIsTheCharityNotRegisteredPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourCharityIsExceptedPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourCharityIsExemptPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(WhatIsYourCharityRegulatorNumberPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.6 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.7 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.8 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(AuthorisedOfficialDetailsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.9 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CorporateTrusteeDetailsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.10 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(AuthorisedOfficialDetailsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to A2.11 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourOrganisationDetailsPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Gift Aid Schedule' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-GAS-FLOW")
+      Then("User URL hops to G1.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(AboutGiftAidSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to G1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UploadAGiftAidSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to G1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourGiftAidScheduleUploadPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to G1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourGiftAidSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to G1.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourGiftAidScheduleErrorPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to G1.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(GiftAidUploadSuccessfulPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN1.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DeleteGiftAidSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN8.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UpdateGiftAidSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+
+
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Other Income Schedule' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-OI-FLOW")
+      Then("User URL hops to O1.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(AboutOtherIncomeSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to O1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UploadAnOtherIncomeSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to O1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourOtherIncomeScheduleUploadPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to O1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourOtherIncomeSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to O1.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourOtherIncomeScheduleErrorPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to O1.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(OtherIncomeUploadSuccessfulPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DeleteOtherIncomeSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN8.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UpdateOtherIncomeSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Community Buildings Schedule' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-CB-FLOW")
+      Then("User URL hops to B1.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(AboutCommunityBuildingsSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to B1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UploadACommunityBuildingsSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to B1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourCommunityBuildingsScheduleUploadPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to B1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourCommunityBuildingsSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to B1.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourCommunityBuildingsScheduleErrorPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to B1.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DeleteGASDSCommunityBuildingsSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN8.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UpdateCommunityBuildingSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Connected Charities' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-CC-FLOW")
+      Then("User URL hops to CC1.0 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(AboutConnectedCharitiesSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to CC1.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UploadAConnectedCharitiesSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to CC1.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(YourConnectedCharitiesScheduleUploadPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to CC1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourConnectedCharitiesSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to CC1.4 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(CheckYourConnectedCharitiesScheduleErrorPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to CC1.5 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ConnectedCharitiesUploadSuccessfulPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN1.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(DeleteGASDSConnectedCharitiesSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.0 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.1 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN7.2 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN8.3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UpdateConnectedCharitiesSchedulePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+    }
+
+    Scenario(
+      "User submits claim then URL hops to all pages in the 'Declaration' flow to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-D1-FLOW")
+      Then("User URL hops to D1.1 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to D1.2 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(DeclarationPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to D1.3 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(ClaimCompletePage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      //      Then("User URL hops to D1.4 and checks to see if the data guard works, user should be taken to D1.4 ")
+      //      ClaimCompletePage.navigateToPage(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
+      //      ClaimCompletePage.validateNavigation()
+
+    }
+
+    Scenario(
+      "User submits claim then URL hops to 'Warning' pages to validate data guards"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-WRN-SCREENS")
+      Then("User URL hops to WRN2 and checks to see if the data guard works, user should be taken to D1.3 ")
+      ClaimCompletePage.navigateToPage(DeleteRepaymentClaimPage.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN3 and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(UpdateRepaymentClaimDetails.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN5 Low Income and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(RegisteringYourCharityWithRegulatorPage_LowIncome.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN5 Excepted and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(RegisteringYourCharityWithRegulatorPage_Excepted.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN6 Repayment Details and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThisClaimCannotBeSetupPage_Repayment.pageUrl)
+      ClaimCompletePage.validateNavigation()
+      Then("User URL hops to WRN6 Organisation Details and checks to see if the data guard works, user should be taken to D1.3")
+      ClaimCompletePage.navigateToPage(ThisClaimCannotBeSetupPage_Organisation.pageUrl)
+      ClaimCompletePage.validateNavigation()
+//      Then("User URL hops to WRN6 GASDS Donation Details and checks to see if the data guard works, user should be taken to D1.3")
+//      ClaimCompletePage.navigateToPage(.pageUrl)
+//      ClaimCompletePage.validateNavigation()
+//      Then("User URL hops to WRN9 and checks to see if the data guard works, user should be taken to D1.3")
+//      ClaimCompletePage.navigateToPage(.pageUrl)
+//      ClaimCompletePage.validateNavigation()
+//      Then("User URL hops to WRN10 and checks to see if the data guard works, user should be taken to D1.3")
+//      ClaimCompletePage.navigateToPage(.pageUrl)
+//      ClaimCompletePage.validateNavigation()
+    }
+
+    //    GASDS to be done
+
+  }
+}
