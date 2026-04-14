@@ -38,7 +38,8 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
     CheckYourGASDSAdjustmentAmountPage.verifyPageHeading(CheckYourGASDSAdjustmentAmountPage.pageHeading)
   }
 
-  val linkChangeGASDSAdjustmentAmount: By = By.xpath("//a[@href='/charities-claims/adjustment-to-gift-aid-overclaimed']")
+  val linkChangeGASDSAdjustmentAmount: By =
+    By.xpath("//a[@href='/charities-claims/adjustment-to-gift-aid-overclaimed']")
 
   def clickChangeGASDSAdjustmentAmount(): Unit = {
     val element = waitForElementToBeClickable(linkChangeGASDSAdjustmentAmount)
