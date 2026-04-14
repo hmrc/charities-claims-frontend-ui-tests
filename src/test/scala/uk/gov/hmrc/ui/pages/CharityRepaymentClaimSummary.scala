@@ -20,8 +20,8 @@ import org.openqa.selenium.By
 
 object CharityRepaymentClaimSummary extends BasePage {
 
-  val GiftAidDetails: By  = By.xpath("//h1[normalize-space(text())='Gift Aid details']")
-  val OtherIncomeDetails: By  = By.xpath("//h1[normalize-space(text())='Other Income details']")
+  val GiftAidDetails: By     = By.xpath("//h1[normalize-space(text())='Gift Aid details']")
+  val OtherIncomeDetails: By = By.xpath("//h1[normalize-space(text())='Other Income details']")
   val AdjustmentDetails: By  = By.xpath("//h1[normalize-space(text())='Adjustment for overclaimed tax relief details']")
 
   override def pageUrl: String = s"$hostname/charity-repayment-claim-summary"
@@ -58,7 +58,7 @@ object CharityRepaymentClaimSummary extends BasePage {
     )
     println("Actual page sub-heading is: " + driver.findElement(AdjustmentDetails).getText)
   }
-  
+
   def pageHeading: String =
     "Charity repayment claim summary"
 
