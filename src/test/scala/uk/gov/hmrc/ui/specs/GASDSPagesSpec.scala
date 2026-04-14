@@ -36,10 +36,10 @@ class GASDSPagesSpec
 
   Feature("Charities - Organisation - GASDS Page Validations") {
     Scenario(
-      "User navigates to the 'About Gift Aid Small Donations Scheme schedule' page from the Gift Aid flow and validates the page elements"
+      "User navigates to the 'About Gift Aid Small Donations Scheme schedule' page from the GASDS flow and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S1-0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S2.1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -88,13 +88,79 @@ class GASDSPagesSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.verifyPageHeading("Make a charity repayment claim")
+      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
       And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
       ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
       AboutGASDSPage.validateNavigation()
-      Then("User Validates page content  heading/caption/paragraph/button texts on about GASDS page")
+      Then("User Validates page content heading/caption/paragraph/button texts on about GASDS page")
       AboutGASDSPage.validatePageContent()
+    }
+
+    Scenario(
+      "User navigates to the 'Check your GASDS adjustment amount' page from the GASDS flow and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S2.3")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
+      ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
+      And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
+      AboutGASDSPage.validateNavigation()
+      Then("User Validates page content heading/caption/paragraph/button texts on about GASDS page")
+      AboutGASDSPage.validatePageContent()
+      Then("User navigates to Check your GASDS adjustment amount page")
+      CheckYourGASDSAdjustmentAmountPage.navigateToPage(CheckYourGASDSAdjustmentAmountPage.pageUrl)
+      And("Validates Navigation of the Check your GASDS adjustment amount page")
+      CheckYourGASDSAdjustmentAmountPage.validateNavigation()
     }
   }
 }
