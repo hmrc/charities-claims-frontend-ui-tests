@@ -34,7 +34,7 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine ext
     "Upload a new schedule"
 
   def txtReturnToDashboard: String =
-    "No, return to dashboard"
+    "No, return to manage charity repayment claims"
 
   val linkReturnToDashboard: By = By.xpath("//a[@href='/charities-claims/make-a-charity-repayment-claim']")
 

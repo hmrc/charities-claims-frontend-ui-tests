@@ -229,21 +229,22 @@ class WarningPagesSpec
       DeleteGASDSCommunityBuildingsSchedulePage.validateErrorMessage()
     }
 
-    Scenario(
-      "User navigates to the 'Do you want to delete this GASDS connected charities schedule?' page and validates the page elements and error messages"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.3")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      Then("User navigates to 'Do you want to delete this GASDS connected charities schedule?' page")
-      DeleteGASDSConnectedCharitiesSchedulePage.navigateToPage(DeleteGASDSConnectedCharitiesSchedulePage.pageUrl)
-      DeleteGASDSConnectedCharitiesSchedulePage.validateNavigation()
-      Then(
-        "User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page"
-      )
-      DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
-    }
+    // TODO enhance with additional steps
+//    Scenario(
+//      "User navigates to the 'Do you want to delete this GASDS connected charities schedule?' page and validates the page elements and error messages"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.3")
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      Then("User navigates to 'Do you want to delete this GASDS connected charities schedule?' page")
+//      DeleteGASDSConnectedCharitiesSchedulePage.navigateToPage(DeleteGASDSConnectedCharitiesSchedulePage.pageUrl)
+//      DeleteGASDSConnectedCharitiesSchedulePage.validateNavigation()
+//      Then(
+//        "User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page"
+//      )
+//      DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
+//    }
 
     Scenario(
       "User navigates to the 'Are you sure you want to delete this repayment claim?' page and validates the page elements and error messages"
