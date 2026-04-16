@@ -40,87 +40,16 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'Repayment Claim Details' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-R1-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      Then("User navigates to 'What adjustments have you made to this claim?' page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationRFlow"
+      )
+      Then("User navigates to 'Declaration' Flow")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
       Then("User navigates to 'Declaration' page")
@@ -165,86 +94,15 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'About The Organisation' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-A2-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationAFlow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -296,86 +154,15 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'Gift Aid Schedule' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-GAS-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationGASFlow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -425,86 +212,15 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'Other Income Schedule' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-OI-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationOIFlow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -554,86 +270,15 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'Community Buildings Schedule' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-CB-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationCBFlow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -682,86 +327,15 @@ class DataGuardSpec
       "User submits claim then URL hops to all pages in the 'Connected Charities' flow to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-CC-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationCCFlow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -811,85 +385,15 @@ class DataGuardSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-D1-FLOW")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationD1Flow"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -918,86 +422,15 @@ class DataGuardSpec
       "User submits claim then URL hops to 'Warning' pages to validate data guards"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATA-GUARD-WRN-SCREENS")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'About the organisation' page")
-      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
-      AboutTheOrganisationPage.validateNavigation()
-      Then("User selects continue on 'About the organisation' page")
-      AboutTheOrganisationPage.clickContinue()
-      And("User navigates to 'What is the name of the charity regulator?' page")
-      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
-      And("User selects they are not registered with a regulator")
-      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
-      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
-      And("User navigates to 'Why is the charity not registered with a regulator?' page")
-      WhatIsYourCharityRegulatorNumberPage.validateNavigation()
-      And("User inputs a Charity Regulator number")
-      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
-      And("User selects a corporate trustee is making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the corporate trustee have a UK address?' page")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
-      And("User selects a corporate trustee does not have a UK address")
-      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.no)
-      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the corporate trustee details?' page")
-      CorporateTrusteeDetailsPage.validateNavigation()
-      And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("TEST TRUSTEE", "00-1-332-555-2368")
-      And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUpload()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then("User navigates to 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateNavigation()
-      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
-      CheckYourGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Successful Gift Aid Upload' page")
-      GiftAidUploadSuccessfulPage.validateNavigation()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      GiftAidUploadSuccessfulPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckdeclarationWRNPages"
+      )
       Then("User navigates to 'What adjustments have you made to this claim?' page")
       ClaimsTaskListPage_InProgress.clickReadDeclaration()
       WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
@@ -1029,18 +462,603 @@ class DataGuardSpec
       )
       ClaimCompletePage.navigateToPage(ThisClaimCannotBeSetupPage_Organisation.pageUrl)
       ClaimCompletePage.validateNavigation()
-//      Then("User URL hops to WRN6 GASDS Donation Details and checks to see if the data guard works, user should be taken to D1.3")
-//      ClaimCompletePage.navigateToPage(.pageUrl)
-//      ClaimCompletePage.validateNavigation()
-//      Then("User URL hops to WRN9 and checks to see if the data guard works, user should be taken to D1.3")
-//      ClaimCompletePage.navigateToPage(.pageUrl)
-//      ClaimCompletePage.validateNavigation()
-//      Then("User URL hops to WRN10 and checks to see if the data guard works, user should be taken to D1.3")
-//      ClaimCompletePage.navigateToPage(.pageUrl)
-//      ClaimCompletePage.validateNavigation()
+      ////      Then("User URL hops to WRN6 GASDS Donation Details and checks to see if the data guard works, user should be taken to D1.3")
+      ////      ClaimCompletePage.navigateToPage(.pageUrl)
+      ////      ClaimCompletePage.validateNavigation()
+      ////      Then("User URL hops to WRN9 and checks to see if the data guard works, user should be taken to D1.3")
+      ////      ClaimCompletePage.navigateToPage(.pageUrl)
+      ////      ClaimCompletePage.validateNavigation()
+      ////      Then("User URL hops to WRN10 and checks to see if the data guard works, user should be taken to D1.3")
+      ////      ClaimCompletePage.navigateToPage(.pageUrl)
+      ////      ClaimCompletePage.validateNavigation()
     }
 
-    //    GASDS to be done
+    Scenario(
+      "User attempts to URL hop to G1.0 after selecting in checkbox but not continuing in CYA"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.0 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(AboutGiftAidSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to G1.1 after selecting in checkbox but not continuing in CYA"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.1 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(UploadAGiftAidSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to G1.2 after selecting in checkbox but not continuing in CYA"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.2 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(YourGiftAidScheduleUploadPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to G1.3 after selecting in checkbox but not continuing in CYA"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.3 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourGiftAidSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to G1.4 after selecting in checkbox but not continuing in CYA"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.4 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourGiftAidScheduleErrorPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to G1.5 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckGAS"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to G1.5 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(GiftAidUploadSuccessfulPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.0 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.0 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(AboutOtherIncomeSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.1 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.1 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(UploadAnOtherIncomeSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.2 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.2 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(YourOtherIncomeScheduleUploadPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.3 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.3 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourOtherIncomeSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.4 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.4 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourOtherIncomeScheduleErrorPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to O1.5 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckOI"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User tries to URL hop to O1.5 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(OtherIncomeUploadSuccessfulPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.0 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.0 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(AboutCommunityBuildingsSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.1 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.1 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(UploadACommunityBuildingsSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.2 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.2 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(YourCommunityBuildingsScheduleUploadPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.3 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.3 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourCommunityBuildingsSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.4 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.4 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourCommunityBuildingsScheduleErrorPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to B1.5 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCB"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.yes
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to B1.5 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
 
   }
 }
