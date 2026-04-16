@@ -33,10 +33,10 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
     "Warning"
 
   def pageWarningText: String =
-    "You have made claims for Gift Aid repayments on donations over £5,000 in the last 12 months."
+    "You have made claims for Gift Aid repayments on donations of £5,000 or more in the last 12 months."
 
   def textParagraph1: String =
-    "If your annual income is more than £5,000, you need to register your charity with a regulator (opens in new tab)."
+    "If your annual income is £5,000 or more, you need to register your charity with a regulator (opens in new tab)."
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to register with a regulator"
 
