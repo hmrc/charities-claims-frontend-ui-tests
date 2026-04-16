@@ -1415,5 +1415,111 @@ class DataGuardSpec
     }
 
 
+    Scenario(
+      "User attempts to URL hop to A2 Flow after creating a claim"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckClaimCreated"
+      )
+      Then("User URL hops to A2.0 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(AboutTheOrganisationPage.pageUrl)
+      AboutTheOrganisationPage.validateNavigation()
+      Then("User URL hops to A2.1 to test the data Guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
+      WhatIsTheNameOfTheCharityRegulatorPage.validateNavigation()
+      Then("User URL hops to A2.2 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhyIsTheCharityNotRegisteredPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.3 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(YourCharityIsExceptedPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.4 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(YourCharityIsExemptPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.5 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhatIsYourCharityRegulatorNumberPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.6 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.7 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.8 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.9 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(CorporateTrusteeDetailsPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.10 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(AuthorisedOfficialDetailsPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.11 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(CheckYourOrganisationDetailsPage.pageUrl)
+      CheckYourOrganisationDetailsPage.validateNavigation()
+    }
+
+
+    Scenario(
+      "User attempts to URL hop to A2 Flow before creating a claim"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckClaimNotCreated"
+      )
+      Then("User URL hops to A2.0 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(AboutTheOrganisationPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.1 to test the data Guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.2 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhyIsTheCharityNotRegisteredPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.3 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(YourCharityIsExceptedPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.4 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(YourCharityIsExemptPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.5 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(WhatIsYourCharityRegulatorNumberPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.6 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.7 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(DoesTheCorporateTrusteeHaveAUKAddressPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.8 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.9 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(CorporateTrusteeDetailsPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.10 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(AuthorisedOfficialDetailsPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User URL hops to A2.11 to test the data guards")
+      ClaimsTaskListPage_InProgress.navigateToPage(CheckYourOrganisationDetailsPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+
   }
 }
