@@ -590,4 +590,11 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
   }
 
+  /** Helper methods for validating Check your Answers Page's field and value pairs */
+
+  def isUpperCaseBase32Unpadded(s: String): Boolean =
+    s != null &&
+      s.nonEmpty &&
+      s.matches("^[A-Z2-7]+$")
+
 }
