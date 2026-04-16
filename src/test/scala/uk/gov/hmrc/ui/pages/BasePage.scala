@@ -590,7 +590,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
   }
 
-  /** Helper methods for validating Check your Answers Page's field and value pairs */
+  /** Helper methods for validating IRMark generated is in BASE32 format */
 
   def isUpperCaseBase32Unpadded(s: String): Boolean =
     s != null &&
