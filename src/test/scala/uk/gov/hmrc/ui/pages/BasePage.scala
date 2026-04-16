@@ -590,4 +590,11 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     )
   }
 
+  /** Helper methods for validating IRMark generated is in BASE32 format */
+
+  def isUpperCaseBase32Unpadded(s: String): Boolean =
+    s != null &&
+      s.nonEmpty &&
+      s.matches("^[A-Z2-7]{24,32}$")
+
 }
