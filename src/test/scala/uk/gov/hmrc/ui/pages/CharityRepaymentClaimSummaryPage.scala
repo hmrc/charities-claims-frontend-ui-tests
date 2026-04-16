@@ -26,6 +26,9 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
   val GASDSDetails: By              = By.xpath("//h2[normalize-space(text())='Gift Aid Small Donations Scheme (GASDS)']")
   val SubmissionReferenceNumber: By =
     By.xpath("//dt[normalize-space(text())='Submission receipt reference number']/following-sibling::dd[1]")
+  val linkLogOutHMRC: By            = By.xpath("//a[@href and contains(text(),'Log out and go back')]")
+  val linkPrintSummary: By          = By.xpath("//a[@href and contains(text(),'Print summary')]")
+  val linkGoToYourHMRCServices: By  = By.xpath("//a[@href and contains(text(),'Go to Your HMRC services')]")
 
   override def pageUrl: String = s"$hostname/charity-repayment-claim-summary"
 
@@ -49,6 +52,15 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
 
   def pageHeadingAdjustmentDetails: String =
     "Adjustment for overclaimed tax relief details"
+
+  def printSummaryLink: String =
+    "Print summary"
+
+  def logOutAndGoBackLink: String =
+    "Log out and go back HMRC online services"
+
+  def goToYourHMRCServicesLink: String =
+    "Go to Your HMRC services"
 
   def verifyGiftAidDetailsH2(expectedSubHeading: String): Unit = {
     waitForVisibilityOfElement(GiftAidDetails)
@@ -126,5 +138,40 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
     CharityRepaymentClaimSummaryPage.verifyAdjustmentDetailsH2(
       CharityRepaymentClaimSummaryPage.pageHeadingAdjustmentDetails
     )
+
+  def validatePrintSummaryLink(expectedLink: String): Unit =
+    waitForVisibilityOfElement(linkPrintSummary)
+    val actualLinkText = driver.findElement(linkPrintSummary).getText.trim
+    assert(
+      actualLinkText == expectedLink,
+      s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
+    )
+    println("Actual page Link is: " + driver.findElement(linkPrintSummary).getText.trim)
+
+  def validateLogOutAndGoBackLink(expectedLink: String): Unit =
+    waitForVisibilityOfElement(linkLogOutHMRC)
+    val actualLinkText = driver.findElement(linkLogOutHMRC).getText.trim
+    assert(
+      actualLinkText == expectedLink,
+      s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
+    )
+    println("Actual page Link is: " + driver.findElement(linkLogOutHMRC).getText.trim)
+
+  def validateGoToYourHMRCServicesLink(expectedLink: String): Unit =
+    waitForVisibilityOfElement(linkGoToYourHMRCServices)
+    val actualLinkText = driver.findElement(linkGoToYourHMRCServices).getText.trim
+    assert(
+      actualLinkText == expectedLink,
+      s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
+    )
+    println("Actual page Link is: " + driver.findElement(linkGoToYourHMRCServices).getText.trim)
+
+  def validateSummaryPageLinks(): Unit = {
+    CharityRepaymentClaimSummaryPage.validatePrintSummaryLink(CharityRepaymentClaimSummaryPage.printSummaryLink)
+    CharityRepaymentClaimSummaryPage.validateLogOutAndGoBackLink(CharityRepaymentClaimSummaryPage.logOutAndGoBackLink)
+    CharityRepaymentClaimSummaryPage.validateGoToYourHMRCServicesLink(
+      CharityRepaymentClaimSummaryPage.goToYourHMRCServicesLink
+    )
+  }
 
 }
