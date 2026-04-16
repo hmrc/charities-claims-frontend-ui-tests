@@ -26,8 +26,8 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
   val GASDSDetails: By              = By.xpath("//h2[normalize-space(text())='Gift Aid Small Donations Scheme (GASDS)']")
   val SubmissionReferenceNumber: By =
     By.xpath("//dt[normalize-space(text())='Submission receipt reference number']/following-sibling::dd[1]")
+  val linkPrintSummary: By          = By.xpath("//a[@data-module='hmrc-print-link']")
   val linkLogOutHMRC: By            = By.xpath("//a[@href and contains(text(),'Log out and go back')]")
-  val linkPrintSummary: By          = By.xpath("//a[@href and contains(text(),'Print summary')]")
   val linkGoToYourHMRCServices: By  = By.xpath("//a[@href and contains(text(),'Go to Your HMRC services')]")
 
   override def pageUrl: String = s"$hostname/charity-repayment-claim-summary"

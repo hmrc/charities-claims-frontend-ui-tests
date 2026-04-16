@@ -595,6 +595,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def isUpperCaseBase32Unpadded(s: String): Boolean =
     s != null &&
       s.nonEmpty &&
-      s.matches("^[A-Z2-7]+$")
+      s.matches("^[A-Z2-7]{24,32}$")
 
 }
