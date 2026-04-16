@@ -474,7 +474,7 @@ class DataGuardSpec
     }
 
     Scenario(
-      "User attempts to URL hop to G1.0 after selecting in checkbox but not continuing in CYA"
+      "User attempts to URL hop to pages in the G1.0 after selecting in checkbox but not continuing in CYA"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(
@@ -1059,6 +1059,361 @@ class DataGuardSpec
       CheckYourRepaymentClaimPage.navigateToPage(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
       ClaimsTaskListPage_InProgress.validateNavigation()
     }
+
+    Scenario(
+      "User attempts to URL hop to C1.0 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.0 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(AboutConnectedCharitiesSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to C1.1 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.1 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(UploadAConnectedCharitiesSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to C1.2 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.2 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(YourConnectedCharitiesScheduleUploadPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to C1.3 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.3 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourConnectedCharitiesSchedulePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to C1.4 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.4 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourConnectedCharitiesScheduleErrorPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to C1.5 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckCC"
+      )
+      Then("User clicks 'Check Your Repayment Claim Details'")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User clicks 'Repayment Claim Type'")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User selects 'Gift aid' and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User selects 'No' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.yes)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User tries to URL hop to C1.5 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(ConnectedCharitiesUploadSuccessfulPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to D1.1 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckD"
+      )
+      Then("User clicks 'Provide Organisation Details'")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      Then("User selects 'Charity Commission for England and Wales'")
+      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
+      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
+      Then("User inputs a valid charity reg number")
+      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
+      WhatIsYourCharityRegulatorNumberPage.clickContinue()
+      Then("User selects 'Yes' on the 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      Then("User selects 'No' on the 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      Then("User selects inputs valid data in the 'What are the corporate trustee details?' page ")
+      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("Test", "0101010101")
+      CorporateTrusteeDetailsPage.clickContinue()
+      Then("User tries to URL hop to D1.1 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to D1.2 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckD"
+      )
+      Then("User clicks 'Provide Organisation Details'")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      Then("User selects 'Charity Commission for England and Wales'")
+      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
+      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
+      Then("User inputs a valid charity reg number")
+      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
+      WhatIsYourCharityRegulatorNumberPage.clickContinue()
+      Then("User selects 'Yes' on the 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      Then("User selects 'No' on the 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      Then("User selects inputs valid data in the 'What are the corporate trustee details?' page ")
+      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("Test", "0101010101")
+      CorporateTrusteeDetailsPage.clickContinue()
+      Then("User tries to URL hop to D1.2 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(DeclarationPage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User attempts to URL hop to D1.3 after selecting in checkbox but not continuing in CYA"
+    ) {
+
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(
+        HASDIRECT,
+        Organisation,
+        "Organisation",
+        "HMRC-CHAR-ORG",
+        "CHARID",
+        "DATAGUARDCHECKURLHOP",
+        "dataguardcheckD"
+      )
+      Then("User clicks 'Provide Organisation Details'")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      Then("User selects 'Charity Commission for England and Wales'")
+      WhatIsTheNameOfTheCharityRegulatorPage.radioButton(WhatIsTheNameOfTheCharityRegulatorPage.EngWal)
+      WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
+      Then("User inputs a valid charity reg number")
+      WhatIsYourCharityRegulatorNumberPage.enterCharityRegulatorNumber("123456")
+      WhatIsYourCharityRegulatorNumberPage.clickContinue()
+      Then("User selects 'Yes' on the 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      Then("User selects 'No' on the 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      Then("User selects inputs valid data in the 'What are the corporate trustee details?' page ")
+      CorporateTrusteeDetailsPage.enterNonUKTrusteeDetails("Test", "0101010101")
+      CorporateTrusteeDetailsPage.clickContinue()
+      Then("User tries to URL hop to D1.3 to test the data guards")
+      CheckYourRepaymentClaimPage.navigateToPage(ClaimCompletePage.pageUrl)
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
 
   }
 }
