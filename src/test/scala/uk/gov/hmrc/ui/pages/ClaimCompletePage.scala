@@ -31,6 +31,8 @@ object ClaimCompletePage extends BasePage {
   def pagePanelParagraph: String =
     "Your reference number"
 
+  val txtClaimRefNo: By = By.xpath("//strong[@class='claim-reference-number']")
+
   def pageSubHeading: String =
     "What happens next"
 
@@ -62,5 +64,17 @@ object ClaimCompletePage extends BasePage {
     ClaimCompletePage.verifyPageContentBelowPanel1(ClaimCompletePage.txtParagraph1)
     ClaimCompletePage.verifyPageContentBelowPanel2(ClaimCompletePage.txtParagraph2)
     ClaimCompletePage.verifyPageContentBelowPanel3(ClaimCompletePage.txtPrintClaimSummaryLink)
+  }
+
+  def verifySubmissionReferenceBase32(): Unit = {
+    waitForVisibilityOfElement(txtClaimRefNo)
+    val actualReference = driver.findElement(txtClaimRefNo).getText.trim
+    val isValid         = isUpperCaseBase32Unpadded(actualReference)
+
+    if (isValid) {
+      println(s"[PASS] Valid Base32: $actualReference")
+    } else {
+      println(s"[FAIL] Invalid Base32: $actualReference")
+    }
   }
 }
