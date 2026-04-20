@@ -75,12 +75,9 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyParagraphText(
       RegisteringYourCharityWithRegulatorPage_LowIncome.textParagraph1
     )
-    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyLegendText(
-      RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestion
-    )
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
-        RegisteringYourCharityWithRegulatorPage_LowIncome.pageHeading,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestion,
         RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonYes,
         RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonNo
       )

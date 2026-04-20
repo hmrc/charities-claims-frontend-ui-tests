@@ -75,12 +75,9 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyParagraphText(
       RegisteringYourCharityWithRegulatorPage_Excepted.textParagraph1
     )
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyLegendText(
-      RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion
-    )
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_Excepted.createSingleStringFromMany(
-        RegisteringYourCharityWithRegulatorPage_Excepted.pageHeading,
+        RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion,
         RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonYes,
         RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonNo
       )
