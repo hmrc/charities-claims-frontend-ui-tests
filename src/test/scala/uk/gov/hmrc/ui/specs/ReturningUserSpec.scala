@@ -59,7 +59,7 @@ class ReturningUserSpec
       RepaymentClaimDetailsPage.clickContinue()
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigation()
-      And("User selects Gift Aid checkbox and clicks continue")
+      And("User selects 'Tax repayments on Gift Aid' checkbox and clicks continue")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
@@ -170,7 +170,9 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
       RepaymentCheckboxPage.verifyPageUrl(s"$hostname/change-repayment-claim-type")
       RepaymentCheckboxPage.verifyPageHeading("Which type of repayment claim do you want to make?")
-      Then("User Unselects Gift aid and Selects Other Income")
+      Then(
+        "User unselects 'Tax repayments on Gift aid' checkbox and selects 'UK tax deducted from Other Income'checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
       RepaymentCheckboxPage.clickContinue()
