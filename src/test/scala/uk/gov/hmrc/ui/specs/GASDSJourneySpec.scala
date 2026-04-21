@@ -50,7 +50,9 @@ class GASDSJourneySpec
       RepaymentClaimDetailsPage.clickContinue()
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Top up payments for donations under the GASDS' checkbox and clicks continue")
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
