@@ -263,5 +263,135 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
     }
+
+    Scenario(
+      "User charity Reference starts with CH, navigates to the 'About the organisation', CONTINUEs directly to and corporate trustee page, selects UK address"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CH1JOURNEY4")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Gift Aid' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'About the organisation' page")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      AboutTheOrganisationPage.validateNavigation()
+      Then("User selects continue on 'About the organisation' page")
+      AboutTheOrganisationPage.clickContinue()
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
+      And("User selects a corporate trustee is making this claim")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.yes)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      And("User navigates to 'Does the corporate trustee have a UK address?' page")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.validateNavigation()
+      And("User selects a corporate trustee has a UK address")
+      DoesTheCorporateTrusteeHaveAUKAddressPage.radioButton(DoesTheCorporateTrusteeHaveAUKAddressPage.yes)
+      DoesTheCorporateTrusteeHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the corporate trustee details?' page")
+      CorporateTrusteeDetailsPage.validateNavigation()
+      And("User enters their Non UK Trustee details and clicks continue")
+      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Corporate trustee claim"      -> "Yes",
+        "Corporate trustee UK address" -> "Yes",
+        "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+      )
+      And("User navigates to 'Make a charity repayment claim' task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
+
+    Scenario(
+      "User charity Reference starts with CF, navigates to the 'About the organisation', CONTINUEs directly to and corporate trustee page, selects AuthOfficial with UK address"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CF2JOURNEY5")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Other Income' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'What is your claim reference number?' page")
+      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      And("User enters their claim reference number and clicks continue")
+      WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("CFREF123")
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'About the organisation' page")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      AboutTheOrganisationPage.validateNavigation()
+      Then("User selects continue on 'About the organisation' page")
+      AboutTheOrganisationPage.clickContinue()
+      And("User navigates to 'Is a corporate trustee making this claim?' page")
+      IsACorporateTrusteeMakingThisClaimPage.validateNavigation()
+      And("User selects a corporate trustee is not making this claim")
+      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
+      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
+      And("User navigates to 'Does the authorised official have a UK address?' page")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.validateNavigation()
+      And("User selects a authorised official does have a UK address")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What are the authorised official details?' page")
+      AuthorisedOfficialDetailsPage.validateNavigation()
+      And("User enters their UK Authorised Official details and clicks continue")
+      AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
+        "TEST",
+        "TESTFORENAME",
+        "TESTSURNAME",
+        "01632 960999",
+        "WG7 7FU"
+      )
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Corporate trustee claim"        -> "No",
+        "Authorised official UK address" -> "Yes",
+        "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+      )
+      And("User navigates to 'Make a charity repayment claim' task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
+    }
   }
 }
