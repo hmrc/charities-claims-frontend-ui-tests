@@ -40,9 +40,6 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageTaskListItemCompletedStatus: String =
     "Completed"
 
-  def pageTaskListItemIncompleteStatus: String =
-    "Incomplete"
-
   def pageTaskList1_RepaymentClaimDetails: String =
     "Provide repayment claim details"
 
@@ -182,12 +179,12 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def validateTaskList2_GA(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList2Text(
-      ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+      ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
     )
 
   def validateTaskList2_OI(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList2Text(
-      ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+      ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
     )
 
   def validateTaskList3_NoDeclaration(): Unit =
