@@ -265,7 +265,7 @@ class AboutTheOrgJourneySpec
     }
 
     Scenario(
-      "User charity Reference starts with CH, navigates to the 'About the organisation', CONTINUEs directly to and corporate trustee page, selects UK address"
+      "User charity Reference starts with CH, navigates to the 'About the organisation', 'Continue' button redirects to 'corporate trustee making this claim' page, selects Corporate trustee with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CH1JOURNEY4")
@@ -325,7 +325,7 @@ class AboutTheOrgJourneySpec
     }
 
     Scenario(
-      "User charity Reference starts with CF, navigates to the 'About the organisation', CONTINUEs directly to and corporate trustee page, selects AuthOfficial with UK address"
+      "User charity Reference starts with CF, navigates to the 'About the organisation', 'Continue' button redirects to 'corporate trustee making this claim' page, selects AuthOfficial with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CF2JOURNEY5")
