@@ -516,6 +516,8 @@ class DeclarationJourneySpec
       ClaimCompletePage.validateNavigation()
       And("User validates 'Claim complete' page elements")
       ClaimCompletePage.validatePageContent()
+      And("User validates Submission Reference Number is in BASE32 format")
+      ClaimCompletePage.verifySubmissionReferenceBase32()
 //      Then("User navigates to 'Charity repayment claim summary' page")
 //      ClaimCompletePage.clickPrintClaimSummaryLink()
 //      CharityRepaymentClaimSummaryPage.validateNavigation()

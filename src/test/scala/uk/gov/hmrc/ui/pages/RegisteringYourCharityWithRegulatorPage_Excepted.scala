@@ -33,10 +33,10 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
     "Warning"
 
   def pageWarningText: String =
-    "You have made claims for Gift Aid repayments on donations over £100,000 in the last 12 months."
+    "You have made claims for Gift Aid repayments on donations of £100,000 or more in the last 12 months."
 
   def textParagraph1: String =
-    "If your annual income is more than £100,000, you need to register your charity with a regulator (opens in new tab)."
+    "If your annual income is £100,000 or more, you need to register your charity with a regulator (opens in new tab)."
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to register with a regulator"
 
@@ -75,12 +75,9 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyParagraphText(
       RegisteringYourCharityWithRegulatorPage_Excepted.textParagraph1
     )
-    RegisteringYourCharityWithRegulatorPage_Excepted.verifyLegendText(
-      RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion
-    )
     RegisteringYourCharityWithRegulatorPage_Excepted.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_Excepted.createSingleStringFromMany(
-        RegisteringYourCharityWithRegulatorPage_Excepted.pageHeading,
+        RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonQuestion,
         RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonYes,
         RegisteringYourCharityWithRegulatorPage_Excepted.textRadioButtonNo
       )

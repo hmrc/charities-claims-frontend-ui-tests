@@ -34,6 +34,9 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageSubheading1: String =
     "About the claim"
 
+  def pageTaskListItemNotYetStartedStatus: String =
+    "Not yet started"
+
   def pageTaskListItemCompletedStatus: String =
     "Completed"
 
@@ -165,7 +168,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
         ClaimsTaskListPage_InProgress.pageTaskList1_RepaymentClaimDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
-        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemIncompleteStatus
+        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
       )
     )
 
