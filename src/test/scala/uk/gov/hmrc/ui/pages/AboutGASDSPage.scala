@@ -21,7 +21,7 @@ object AboutGASDSPage extends BasePage {
   override def pageUrl: String = s"$hostname/about-gift-aid-small-donations-scheme"
 
   override def pageTitle: String =
-    "About Gift Aid Small Donations Scheme schedule - Charities - GOV.UK"
+    "About Gift Aid Small Donations Scheme schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide GASDS donation details"

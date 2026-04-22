@@ -23,7 +23,7 @@ object DeleteGASDSCommunityBuildingsSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/delete-gasds-community-buildings-schedule"
 
   override def pageTitle: String =
-    "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule? - Charities - GOV.UK"
+    "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule?"

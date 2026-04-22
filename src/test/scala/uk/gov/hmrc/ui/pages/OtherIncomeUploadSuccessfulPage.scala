@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.pages
 object OtherIncomeUploadSuccessfulPage extends BasePage {
   override def pageUrl: String = s"$hostname/other-income-schedule-upload-successful"
 
-  override def pageTitle: String = "Upload successful - Charities - GOV.UK"
+  override def pageTitle: String = "Upload successful - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Upload successful"
 

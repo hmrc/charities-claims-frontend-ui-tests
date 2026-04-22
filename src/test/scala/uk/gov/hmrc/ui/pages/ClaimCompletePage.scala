@@ -23,7 +23,7 @@ object ClaimCompletePage extends BasePage {
   override def pageUrl: String = s"$hostname/claim-complete"
 
   override def pageTitle: String =
-    "Claim complete - Charities - GOV.UK"
+    "Claim complete - Make a charity tax repayment claim - GOV.UK"
 
   def pagePanelHeading: String =
     "Claim complete"

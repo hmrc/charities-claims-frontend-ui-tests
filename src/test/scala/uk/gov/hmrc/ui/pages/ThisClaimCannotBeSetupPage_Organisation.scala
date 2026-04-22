@@ -21,7 +21,7 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
   override def pageUrl: String = s"$hostname/cannot-set-up-organisation-details"
 
   override def pageTitle: String =
-    "This claim cannot be setup - Charities - GOV.UK"
+    "This claim cannot be setup - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "This claim cannot be setup"

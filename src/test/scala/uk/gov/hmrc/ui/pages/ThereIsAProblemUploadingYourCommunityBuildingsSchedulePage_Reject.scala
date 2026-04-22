@@ -16,14 +16,12 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject extends BasePage {
 
   override def pageUrl: String = s"$hostname/problem-uploading-community-buildings-schedule-rejected"
 
   override def pageTitle: String =
-    "There is a problem uploading your Community Buildings schedule - Charities - GOV.UK"
+    "There is a problem uploading your Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "There is a problem uploading your Community Buildings schedule"
@@ -36,8 +34,6 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject extends
 
   def txtReturnToDashboard: String =
     "No, return to manage charity repayment claims"
-
-  val linkReturnToDashboard: By = By.xpath("//a[@href='/charities-claims/make-a-charity-repayment-claim']")
 
   def validateNavigation(): Unit = {
     ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.verifyPageUrl(

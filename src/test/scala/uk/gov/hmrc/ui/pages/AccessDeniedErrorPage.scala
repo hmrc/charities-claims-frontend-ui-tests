@@ -20,7 +20,8 @@ object AccessDeniedErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/there-is-a-problem-access-denied"
 
-  override def pageTitle: String = "Sorry, there is a problem with the service - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Sorry, there is a problem with the service - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Sorry, there is a problem with the service"
 

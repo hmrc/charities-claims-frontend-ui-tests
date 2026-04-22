@@ -23,7 +23,7 @@ object DeleteOtherIncomeSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/delete-other-income-schedule"
 
   override def pageTitle: String =
-    "Do you want to delete this Other Income schedule? - Charities - GOV.UK"
+    "Do you want to delete this Other Income schedule? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Do you want to delete this Other Income schedule?"

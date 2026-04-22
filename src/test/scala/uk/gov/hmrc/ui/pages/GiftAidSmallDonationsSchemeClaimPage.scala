@@ -23,7 +23,7 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
   override def pageUrl: String = s"$hostname/change-previous-gasds-claim"
 
   override def pageTitle: String =
-    "Gift Aid Small Donations Scheme claim - Charities - GOV.UK"
+    "Gift Aid Small Donations Scheme claim - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"

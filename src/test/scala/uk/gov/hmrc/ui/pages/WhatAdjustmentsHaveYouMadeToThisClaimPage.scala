@@ -23,7 +23,7 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   override def pageUrl: String = s"$hostname/adjustments-to-this-claim"
 
   override def pageTitle: String =
-    "What adjustments have you made to this claim? - Charities - GOV.UK"
+    "What adjustments have you made to this claim? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "What adjustments have you made to this claim?"

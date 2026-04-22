@@ -22,7 +22,8 @@ object RegisteringYourCharityWithRegulatorPage_Excepted extends BasePage {
 
   override def pageUrl: String = s"$hostname/registering-your-charity-with-a-regulator"
 
-  override def pageTitle: String = "Registering your charity with a regulator - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Registering your charity with a regulator - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Registering your charity with a regulator"
 

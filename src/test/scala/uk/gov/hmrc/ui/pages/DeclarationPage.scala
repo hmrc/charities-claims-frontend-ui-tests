@@ -21,7 +21,7 @@ object DeclarationPage extends BasePage {
   override def pageUrl: String = s"$hostname/declaration"
 
   override def pageTitle: String =
-    "Declaration - Charities - GOV.UK"
+    "Declaration - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Declaration"

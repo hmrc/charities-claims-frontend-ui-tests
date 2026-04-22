@@ -23,7 +23,7 @@ object UpdateConnectedCharitiesSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/update-connected-charities-schedule"
 
   override def pageTitle: String =
-    "Are you sure you want to update this Connected Charities schedule? - Charities - GOV.UK"
+    "Are you sure you want to update this Connected Charities schedule? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Are you sure you want to update this Connected Charities schedule?"

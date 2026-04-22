@@ -22,7 +22,7 @@ object UploadAConnectedCharitiesSchedulePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/upload-connected-charities-schedule"
 
-  override def pageTitle: String = "Upload a Connected Charities schedule - Charities - GOV.UK"
+  override def pageTitle: String = "Upload a Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Upload a Connected Charities schedule"
 

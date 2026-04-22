@@ -33,7 +33,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
   override def pageUrl: String = s"$hostname/charity-repayment-claim-summary"
 
   override def pageTitle: String =
-    "Charity repayment claim summary - Charities - GOV.UK"
+    "Charity repayment claim summary - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Charity repayment claim summary"
