@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject extends BasePage {
 
   override def pageUrl: String = s"$hostname/problem-uploading-other-income-schedule-rejected"
@@ -36,8 +34,6 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject extends BasePa
 
   def txtReturnToDashboard: String =
     "No, return to manage charity repayment claims"
-
-  val linkReturnToDashboard: By = By.xpath("//a[@href='/charities-claims/make-a-charity-repayment-claim']")
 
   def validateNavigation(): Unit = {
     ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageUrl(
