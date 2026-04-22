@@ -25,7 +25,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   def changePageUrl: String = s"$hostname/change-authorised-official-details"
 
   override def pageTitle: String =
-    "What are the authorised official details? - Charities - GOV.UK"
+    "What are the authorised official details? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"

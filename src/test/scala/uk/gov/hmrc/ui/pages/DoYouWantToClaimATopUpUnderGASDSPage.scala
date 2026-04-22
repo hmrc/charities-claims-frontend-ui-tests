@@ -25,7 +25,7 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
   def changePageUrl: String = s"$hostname/change-claim-gasds-payment"
 
   override def pageTitle: String =
-    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme? - Charities - GOV.UK"
+    "Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"

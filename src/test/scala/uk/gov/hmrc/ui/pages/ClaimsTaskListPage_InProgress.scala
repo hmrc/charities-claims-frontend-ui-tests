@@ -23,7 +23,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   override def pageUrl: String = s"$hostname/make-a-charity-repayment-claim"
 
   override def pageTitle: String =
-    "Make a charity repayment claim - Charities - GOV.UK"
+    "Make a charity repayment claim - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "HMRC Charities reference:"

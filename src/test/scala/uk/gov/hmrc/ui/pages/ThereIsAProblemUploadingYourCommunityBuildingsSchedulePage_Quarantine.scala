@@ -21,7 +21,7 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine ext
   override def pageUrl: String = s"$hostname/problem-uploading-community-buildings-schedule-quarantine"
 
   override def pageTitle: String =
-    "There is a problem uploading your Community Buildings schedule - Charities - GOV.UK"
+    "There is a problem uploading your Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "There is a problem uploading your Community Buildings schedule"

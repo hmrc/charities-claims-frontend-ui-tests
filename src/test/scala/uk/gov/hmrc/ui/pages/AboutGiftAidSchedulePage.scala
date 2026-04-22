@@ -21,7 +21,7 @@ object AboutGiftAidSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/about-gift-aid-schedule"
 
   override def pageTitle: String =
-    "About Gift Aid schedule - Charities - GOV.UK"
+    "About Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Gift Aid schedule"

@@ -21,7 +21,7 @@ object YourCharityIsExemptPage extends BasePage {
   override def pageUrl: String = s"$hostname/charity-exempt"
 
   override def pageTitle: String =
-    "Your charity is exempt - Charities - GOV.UK"
+    "Your charity is exempt - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"

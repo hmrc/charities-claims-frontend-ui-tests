@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.pages
 object AboutOtherIncomeSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/about-other-income-schedule"
 
-  override def pageTitle: String = "About Other Income schedule - Charities - GOV.UK"
+  override def pageTitle: String = "About Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "About Other Income schedule"
 

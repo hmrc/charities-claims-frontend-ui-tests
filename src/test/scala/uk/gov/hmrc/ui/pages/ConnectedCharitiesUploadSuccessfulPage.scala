@@ -21,7 +21,7 @@ object ConnectedCharitiesUploadSuccessfulPage extends BasePage {
   override def pageUrl: String = s"$hostname/connected-charities-schedule-upload-successful"
 
   override def pageTitle: String =
-    "Upload successful - Charities - GOV.UK"
+    "Upload successful - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Upload successful"

@@ -26,7 +26,7 @@ object CorporateTrusteeDetailsPage extends BasePage {
   def changePageUrl: String = s"$hostname/change-corporate-trustee-details"
 
   override def pageTitle: String =
-    "What are the corporate trustee details? - Charities - GOV.UK"
+    "What are the corporate trustee details? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"

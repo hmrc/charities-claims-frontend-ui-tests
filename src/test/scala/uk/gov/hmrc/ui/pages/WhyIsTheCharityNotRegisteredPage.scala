@@ -22,7 +22,8 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/charity-not-registered"
 
-  override def pageTitle: String = "Why is the charity not registered with a regulator? - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Why is the charity not registered with a regulator? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String = "Provide organisation details"
 

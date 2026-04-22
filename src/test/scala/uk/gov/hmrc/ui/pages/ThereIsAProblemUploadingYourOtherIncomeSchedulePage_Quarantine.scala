@@ -21,7 +21,7 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine extends Ba
   override def pageUrl: String = s"$hostname/problem-uploading-other-income-schedule-quarantine"
 
   override def pageTitle: String =
-    "There is a problem uploading your Other Income schedule - Charities - GOV.UK"
+    "There is a problem uploading your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "There is a problem uploading your Other Income schedule"

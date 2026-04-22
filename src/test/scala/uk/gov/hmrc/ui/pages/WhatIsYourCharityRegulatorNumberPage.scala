@@ -24,7 +24,7 @@ object WhatIsYourCharityRegulatorNumberPage extends BasePage {
   override def pageUrl: String = s"$hostname/charity-regulator-number"
 
   override def pageTitle: String =
-    "What is the charity regulator number? - Charities - GOV.UK"
+    "What is the charity regulator number? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"

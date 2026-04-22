@@ -22,7 +22,7 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/upload-other-income-schedule"
 
-  override def pageTitle: String = "Upload an Other Income schedule - Charities - GOV.UK"
+  override def pageTitle: String = "Upload an Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Upload an Other Income schedule"
 

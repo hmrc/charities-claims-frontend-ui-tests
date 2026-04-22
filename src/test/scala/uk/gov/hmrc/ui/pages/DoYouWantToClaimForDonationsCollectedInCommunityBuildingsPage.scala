@@ -23,7 +23,7 @@ object DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends Bas
   override def pageUrl: String = s"$hostname/claim-community-building-donations"
 
   override def pageTitle: String =
-    "Do you want to claim for donations collected in community buildings? - Charities - GOV.UK"
+    "Do you want to claim for donations collected in community buildings? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Do you want to claim for donations collected in community buildings?"

@@ -22,7 +22,8 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/corporate-trustee-claim"
 
-  override def pageTitle: String = "Is a corporate trustee making this claim? - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Is a corporate trustee making this claim? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Is a corporate trustee making this claim?"
 

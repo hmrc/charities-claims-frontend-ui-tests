@@ -23,7 +23,7 @@ object RepaymentCheckboxPage extends BasePage {
   override def pageUrl: String = s"$hostname/repayment-claim-type"
 
   override def pageTitle: String =
-    "Which type of repayment claim do you want to make? - Charities - GOV.UK"
+    "Which type of repayment claim do you want to make? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"

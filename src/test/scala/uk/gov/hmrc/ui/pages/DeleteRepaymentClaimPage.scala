@@ -23,7 +23,7 @@ object DeleteRepaymentClaimPage extends BasePage {
   override def pageUrl: String = s"$hostname/delete-repayment-claim"
 
   override def pageTitle: String =
-    "Are you sure you want to delete this repayment claim? - Charities - GOV.UK"
+    "Are you sure you want to delete this repayment claim? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Are you sure you want to delete this repayment claim?"
