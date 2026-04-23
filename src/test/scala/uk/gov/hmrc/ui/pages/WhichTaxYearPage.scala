@@ -77,7 +77,6 @@ object WhichTaxYearPage extends BasePage {
     WhichTaxYearPage.verifyPageTitle(WhichTaxYearPage.pageTitle)
     WhichTaxYearPage.verifyPageCaption(WhichTaxYearPage.pageCaption1)
     WhichTaxYearPage.verifyPageHeading(WhichTaxYearPage.pageHeading)
-
   }
 
   def validatePageProperties1(): Unit = {
@@ -91,7 +90,6 @@ object WhichTaxYearPage extends BasePage {
     WhichTaxYearPage.verifyPageTitle(WhichTaxYearPage.pageTitle)
     WhichTaxYearPage.verifyPageCaption(WhichTaxYearPage.pageCaption2)
     WhichTaxYearPage.verifyPageHeading(WhichTaxYearPage.pageHeading)
-
   }
 
   def validatePageProperties2(): Unit = {
@@ -105,7 +103,6 @@ object WhichTaxYearPage extends BasePage {
     WhichTaxYearPage.verifyPageTitle(WhichTaxYearPage.pageTitle)
     WhichTaxYearPage.verifyPageCaption(WhichTaxYearPage.pageCaption3)
     WhichTaxYearPage.verifyPageHeading(WhichTaxYearPage.pageHeading)
-
   }
 
   def validatePageProperties3(): Unit = {
@@ -194,5 +191,4 @@ object WhichTaxYearPage extends BasePage {
       WhichTaxYearPage.yearInputLocator,
       WhichTaxYearPage.yearInputErrorLocator
     )
-
 }

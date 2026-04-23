@@ -65,6 +65,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val inputReferenceNumber           = By.ByClassName("govuk-input")
     val inputYourUserId: By            = By.xpath("//input[@name='authorityId']")
     val hintText                       = By.ById("value-hint")
+    val amountHintText                 = By.ById("amount-hint")
     val paragraphText                  = By.ByClassName("govuk-body")
     val errorSummary                   = By.ByClassName("govuk-error-summary__body")
     val errorMsg                       = By.ByClassName("govuk-error-message")
@@ -380,6 +381,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page hint is: " + driver.findElement(Locators.hintText).getText)
+  }
+
+  def verifyAmountHintText(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.amountHintText)
+    val actualText = driver.findElement(Locators.amountHintText).getText
+    assert(
+      actualText == expectedText,
+      s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page hint is: " + driver.findElement(Locators.amountHintText).getText)
   }
 
   /** Verify that a paragraph includes expected message */
