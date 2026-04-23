@@ -28,54 +28,43 @@ object WhichTaxYearPage extends BasePage {
 
   def pageUrl3: String = s"$hostname/which-tax-year-are-you-claiming-for/3"
 
-  override def pageTitle:
-  String = "Which tax year are you claiming for? - Charities - GOV.UK"
+  override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
-  def pageCaption1:
-  String = "Provide GASDS donation details"
+  def pageCaption1: String = "Provide GASDS donation details"
 
-  def pageCaption2:
-  String = "Provide GASDS donation details - Tax year 2"
+  def pageCaption2: String = "Provide GASDS donation details - Tax year 2"
 
-  def pageCaption3:
-  String = "Provide GASDS donation details - Tax year 3"
+  def pageCaption3: String = "Provide GASDS donation details - Tax year 3"
 
-  def pageHeading:
-  String = "Which tax year are you claiming for?"
+  def pageHeading: String = "Which tax year are you claiming for?"
 
-  def pageParagraph:
-  String = "The tax year covers April to April. For example, tax year 2016 runs from 6 April 2015 to 5 April 2016."
+  def pageParagraph: String =
+    "The tax year covers April to April. For example, tax year 2016 runs from 6 April 2015 to 5 April 2016."
 
-  def pageHint:
-  String = "For example, 2016"
+  def pageHint: String = "For example, 2016"
 
   val errorSummary = By.ByClassName("govuk-error-summary__body")
 
   def inputMaxYearLength = 4
 
-  val yearInputLocator = By.ById("taxYear")
-  val yearInputErrorLocator = By.ById("taxYear-error")
+  val yearInputLocator      = By.ById("value")
+  val yearInputErrorLocator = By.ById("value-error")
 
-  def pageErrorEmpty:
-  String = "Enter a first tax year"
+  def pageErrorEmpty: String = "Enter a first tax year"
 
-  def pageErrorMaxLength:
-  String = "Enter a first tax year in the correct format"
+  def pageErrorMaxLength: String = "Enter a first tax year in the correct format"
 
-  def pageUnderYearError:
-  String = "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than 2024"
+  def pageUnderYearError: String =
+    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than 2024"
 
-  def pageOverYearError:
-  String = "Gift Aid Small Donations Scheme community buildings claim tax year must be this year or earlier"
+  def pageOverYearError: String =
+    "Gift Aid Small Donations Scheme community buildings claim tax year must be this year or earlier"
 
-  def pageErrorWrongFormat1:
-  String = "Enter a first tax year in the correct format"
+  def pageErrorWrongFormat1: String = "Enter a first tax year in the correct format"
 
-  def pageErrorWrongFormat2:
-  String = "Enter a second tax year in the correct format"
+  def pageErrorWrongFormat2: String = "Enter a second tax year in the correct format"
 
-  def pageErrorWrongFormat3:
-  String = "Enter a third tax year in the correct format"
+  def pageErrorWrongFormat3: String = "Enter a third tax year in the correct format"
 
   def validateNavigation1(): Unit = {
     WhichTaxYearPage.verifyPageUrl(WhichTaxYearPage.pageUrl1)
@@ -118,7 +107,6 @@ object WhichTaxYearPage extends BasePage {
     WhichTaxYearPage.verifyParagraphText(WhichTaxYearPage.pageParagraph)
     WhichTaxYearPage.verifyHintText(WhichTaxYearPage.pageHint)
   }
-
 
   def validateErrorMessages1(): Unit =
     WhichTaxYearPage.validateGenericPageError(
@@ -173,35 +161,32 @@ object WhichTaxYearPage extends BasePage {
       WhichTaxYearPage.yearInputLocator,
       WhichTaxYearPage.yearInputErrorLocator
     )
-  
-    
+
   def validateErrorMessages3(): Unit =
-      WhichTaxYearPage.validateGenericPageError(
-        WhichTaxYearPage.pageErrorEmpty,
-        WhichTaxYearPage.errorSummary
-      )
-      WhichTaxYearPage.triggerTooManyCharInputError(
-        WhichTaxYearPage.inputMaxYearLength,
-        WhichTaxYearPage.pageErrorMaxLength,
-        WhichTaxYearPage.yearInputLocator,
-        WhichTaxYearPage.yearInputErrorLocator
-      )
-      WhichTaxYearPage.triggerNonWesternEuropeanAlphabetError(
-        WhichTaxYearPage.pageErrorWrongFormat3,
-        WhichTaxYearPage.yearInputLocator,
-        WhichTaxYearPage.yearInputErrorLocator
-      )
-      WhichTaxYearPage.triggerBefore2024TaxYearError(
-        WhichTaxYearPage.pageUnderYearError,
-        WhichTaxYearPage.yearInputLocator,
-        WhichTaxYearPage.yearInputErrorLocator
-      )
-      WhichTaxYearPage.triggerAfterCurrentTaxYearError(
-        WhichTaxYearPage.pageOverYearError,
-        WhichTaxYearPage.yearInputLocator,
-        WhichTaxYearPage.yearInputErrorLocator
-      )
+    WhichTaxYearPage.validateGenericPageError(
+      WhichTaxYearPage.pageErrorEmpty,
+      WhichTaxYearPage.errorSummary
+    )
+    WhichTaxYearPage.triggerTooManyCharInputError(
+      WhichTaxYearPage.inputMaxYearLength,
+      WhichTaxYearPage.pageErrorMaxLength,
+      WhichTaxYearPage.yearInputLocator,
+      WhichTaxYearPage.yearInputErrorLocator
+    )
+    WhichTaxYearPage.triggerNonWesternEuropeanAlphabetError(
+      WhichTaxYearPage.pageErrorWrongFormat3,
+      WhichTaxYearPage.yearInputLocator,
+      WhichTaxYearPage.yearInputErrorLocator
+    )
+    WhichTaxYearPage.triggerBefore2024TaxYearError(
+      WhichTaxYearPage.pageUnderYearError,
+      WhichTaxYearPage.yearInputLocator,
+      WhichTaxYearPage.yearInputErrorLocator
+    )
+    WhichTaxYearPage.triggerAfterCurrentTaxYearError(
+      WhichTaxYearPage.pageOverYearError,
+      WhichTaxYearPage.yearInputLocator,
+      WhichTaxYearPage.yearInputErrorLocator
+    )
 
-  }
-
-
+}
