@@ -380,7 +380,7 @@ class GASDSPagesSpec
 //      WhichTaxYearPage.validateNavigation1()
 //      WhichTaxYearPage.enterValidTaxYear("2024")
 //      WhichTaxYearPage.clickContinue()
-//      //      To complete when other S2.5/S2.6/S2.7 Automation completed
+//      //TODO To complete when other S2.5/S2.6/S2.7 Automation completed
 //      Then("User validates the navigation to 'Which Tax Year Are You Claiming For' page 2 ")
 //      WhichTaxYearPage.validateNavigation2()
 //      Then("User validates the page properties on 'Which Tax Year Are You Claiming For' page 2")
@@ -458,14 +458,14 @@ class GASDSPagesSpec
 //      WhichTaxYearPage.validateNavigation1()
 //      WhichTaxYearPage.enterValidTaxYear("2024")
 //      WhichTaxYearPage.clickContinue()
-////        To complete when other S2.5/S2.6/S2.7 Automation completed
+//      //TODO To complete when other S2.5/S2.6/S2.7 Automation completed
 //      Then("User validates the navigation to 'Which Tax Year Are You Claiming For' page 2 ")
 //      WhichTaxYearPage.validateNavigation2()
 //      Then("User validates the page properties on 'Which Tax Year Are You Claiming For' page 2")
 //      WhichTaxYearPage.validatePageProperties2()
 //      Then("User validates the error messages on 'Which Tax Year Are You Claiming For ' Page 2")
 //      WhichTaxYearPage.validateErrorMessages2()
-////        To complete when other S2.9/S2.10/S2.11 Automation completed
+//      //TODO To complete when other S2.9/S2.10/S2.11 Automation completed
 //      Then("User validates the navigation to 'Which Tax Year Are You Claiming For' page 3 ")
 //      WhichTaxYearPage.validateNavigation3()
 //      Then("User validates the page properties on 'Which Tax Year Are You Claiming For' page 3")
