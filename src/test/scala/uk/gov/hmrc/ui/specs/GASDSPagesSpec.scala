@@ -314,7 +314,7 @@ class GASDSPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'Which Tax Year Are You Claiming For' page 1 from the GASDS flow and validates the page elements"
+      "User navigates to the 'Which Tax Year Are You Claiming For' page 3 from the GASDS flow and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S2.12")
