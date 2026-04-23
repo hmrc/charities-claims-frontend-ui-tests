@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.ui.pages.CorporateTrusteeDetailsPage.{clickContinue, input}
 
 object WhichTaxYearPage extends BasePage {
 
@@ -42,6 +43,11 @@ object WhichTaxYearPage extends BasePage {
     "The tax year covers April to April. For example, tax year 2016 runs from 6 April 2015 to 5 April 2016."
 
   def pageHint: String = "For example, 2016"
+
+  def enterValidTaxYear(taxYear: String): Unit = {
+    input(Locators.txtTaxYear, taxYear)
+    clickContinue()
+  }
 
   val errorSummary = By.ByClassName("govuk-error-summary__body")
 
