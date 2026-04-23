@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.pages
 object AboutConnectedCharitiesSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/about-connected-charities-schedule"
 
-  override def pageTitle: String = "About Connected Charities schedule - Charities - GOV.UK"
+  override def pageTitle: String = "About Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "About Connected Charities schedule"
 

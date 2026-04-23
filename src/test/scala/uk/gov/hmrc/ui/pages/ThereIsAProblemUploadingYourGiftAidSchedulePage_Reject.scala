@@ -16,14 +16,12 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject extends BasePage {
 
   override def pageUrl: String = s"$hostname/problem-uploading-gift-aid-schedule-rejected"
 
   override def pageTitle: String =
-    "There is a problem uploading your Gift Aid schedule - Charities - GOV.UK"
+    "There is a problem uploading your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "There is a problem uploading your Gift Aid schedule"
@@ -36,8 +34,6 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject extends BasePage {
 
   def txtReturnToDashboard: String =
     "No, return to manage charity repayment claims"
-
-  val linkReturnToDashboard: By = By.xpath("//a[@href='/charities-claims/make-a-charity-repayment-claim']")
 
   def validateNavigation(): Unit = {
     ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageUrl(

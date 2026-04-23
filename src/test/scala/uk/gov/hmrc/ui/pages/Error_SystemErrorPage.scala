@@ -20,7 +20,8 @@ object Error_SystemErrorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/there-is-a-problem"
 
-  override def pageTitle: String = "Sorry, there is a problem with this service - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Sorry, there is a problem with this service - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String = "Sorry, there is a problem with this service"
 

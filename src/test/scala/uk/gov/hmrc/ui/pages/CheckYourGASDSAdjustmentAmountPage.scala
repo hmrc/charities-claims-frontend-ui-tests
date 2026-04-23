@@ -23,7 +23,7 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
   override def pageUrl: String = s"$hostname/check-gasds-adjustment-amount"
 
   override def pageTitle: String =
-    "Check your GASDS adjustment amount - Charities - GOV.UK"
+    "Check your GASDS adjustment amount - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide GASDS donation details"

@@ -24,7 +24,7 @@ object UpdateRepaymentClaimDetails extends BasePage {
   override def pageUrl: String = s"$hostname/change-repayment-claim-type"
 
   override def pageTitle: String =
-    "Do you want to update this repayment claim? - Charities - GOV.UK"
+    "Do you want to update this repayment claim? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Do you want to update this repayment claim?"

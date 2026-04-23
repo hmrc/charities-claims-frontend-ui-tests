@@ -21,7 +21,7 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
   override def pageUrl: String = s"$hostname/problem-with-other-income-schedule"
 
   override def pageTitle: String =
-    "There is a problem with the data in your Other Income schedule - Charities - GOV.UK"
+    "There is a problem with the data in your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Other Income schedule"

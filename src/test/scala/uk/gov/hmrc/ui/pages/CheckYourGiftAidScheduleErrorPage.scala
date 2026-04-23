@@ -21,7 +21,7 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
   override def pageUrl: String = s"$hostname/problem-with-gift-aid-schedule"
 
   override def pageTitle: String =
-    "There is a problem with the data in your Gift Aid schedule - Charities - GOV.UK"
+    "There is a problem with the data in your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Gift Aid schedule"

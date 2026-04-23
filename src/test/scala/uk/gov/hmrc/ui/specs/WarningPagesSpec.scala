@@ -81,12 +81,17 @@ class WarningPagesSpec
       YourGiftAidScheduleUploadPage.clickContinue()
       Then("User navigates to 'There is a problem with the data in your Gift Aid schedule' page")
       CheckYourGiftAidScheduleErrorPage.validateNavigation()
-      And("User selects 'Delete Schedule' 'There is a problem with the data in your Gift Aid schedule' page")
+      And("User selects 'Delete Schedule' on 'There is a problem with the data in your Gift Aid schedule' page")
       CheckYourGiftAidScheduleErrorPage.clickDeleteScheduleLink()
       Then("User navigates to 'Do you want to delete this Gift Aid schedule?' page")
       DeleteGiftAidSchedulePage.validateNavigation()
       Then("User validates the 'no input' error on the 'Do you want to delete this Gift Aid schedule?' page")
       DeleteGiftAidSchedulePage.validateErrorMessage()
+      And("User selects 'Yes' and clicks continue on 'Do you want to delete this Gift Aid schedule?' page")
+      DeleteGiftAidSchedulePage.radioButton(DeleteGiftAidSchedulePage.yes)
+      DeleteGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -142,6 +147,11 @@ class WarningPagesSpec
       DeleteOtherIncomeSchedulePage.validateNavigation()
       Then("User validates the 'no input' error on the 'Do you want to delete this Other Income schedule?' page")
       DeleteOtherIncomeSchedulePage.validateErrorMessage()
+      And("User selects 'Yes' and clicks continue on 'Do you want to delete this Other Income schedule?' page")
+      DeleteOtherIncomeSchedulePage.radioButton(DeleteOtherIncomeSchedulePage.yes)
+      DeleteOtherIncomeSchedulePage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -227,9 +237,16 @@ class WarningPagesSpec
         "User validates the 'no input' error on the 'Do you want to delete this GASDS community buildings schedule?' page"
       )
       DeleteGASDSCommunityBuildingsSchedulePage.validateErrorMessage()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to delete this GASDS community buildings schedule?' page"
+      )
+      DeleteGASDSCommunityBuildingsSchedulePage.radioButton(DeleteGASDSCommunityBuildingsSchedulePage.yes)
+      DeleteGASDSCommunityBuildingsSchedulePage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
-    // TODO enhance with additional steps
+//    // TODO enhance with additional steps
 //    Scenario(
 //      "User navigates to the 'Do you want to delete this GASDS connected charities schedule?' page and validates the page elements and error messages"
 //    ) {
@@ -281,6 +298,12 @@ class WarningPagesSpec
         "User validates the 'no input' error on the 'Are you sure you want to delete this repayment claim?' page"
       )
       DeleteRepaymentClaimPage.validateErrorMessage()
+      And(
+        "User selects 'Yes' and clicks continue on 'Are you sure you want to delete this repayment claim?' page"
+      )
+      DeleteRepaymentClaimPage.radioButton(DeleteRepaymentClaimPage.yes)
+      DeleteRepaymentClaimPage.clickContinue()
+      // TODO Charities Management dashboard
     }
 
     Scenario(
@@ -318,6 +341,8 @@ class WarningPagesSpec
       UpdateRepaymentClaimDetails.validateErrorMessages()
       UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
       UpdateRepaymentClaimDetails.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
     }
 
     Scenario(
@@ -425,6 +450,13 @@ class WarningPagesSpec
       RegisteringYourCharityWithRegulatorPage_LowIncome.validatePageContent()
       And("User validates 'Registering your charity with a regulator' page error message")
       RegisteringYourCharityWithRegulatorPage_LowIncome.validateErrorMessage()
+      And("User selects 'Yes' and clicks continue on 'Registering your charity with a regulator' page")
+      RegisteringYourCharityWithRegulatorPage_LowIncome.radioButton(
+        RegisteringYourCharityWithRegulatorPage_LowIncome.yes
+      )
+      RegisteringYourCharityWithRegulatorPage_LowIncome.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -530,6 +562,13 @@ class WarningPagesSpec
       RegisteringYourCharityWithRegulatorPage_Excepted.validatePageContent()
       And("User validates 'Registering your charity with a regulator' page error message")
       RegisteringYourCharityWithRegulatorPage_Excepted.validateErrorMessage()
+      And("User selects 'Yes' and clicks continue on 'Registering your charity with a regulator' page")
+      RegisteringYourCharityWithRegulatorPage_Excepted.radioButton(
+        RegisteringYourCharityWithRegulatorPage_Excepted.yes
+      )
+      RegisteringYourCharityWithRegulatorPage_Excepted.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
 
     Scenario(
@@ -747,6 +786,12 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.validateNavigation()
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.validatePageContent()
+      Then(
+        "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
+      )
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.clickUploadANewSchedule()
+      Then("User navigates to 'Upload a Community Buildings schedule' page")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
     }
 
     Scenario(
@@ -826,6 +871,12 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.validateNavigation()
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.validatePageContent()
+      Then(
+        "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
+      )
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.clickUploadANewSchedule()
+      Then("User navigates to 'Upload a Community Buildings schedule' page")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
     }
 
     Scenario(
@@ -905,6 +956,12 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validateNavigation()
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validatePageContent()
+      Then(
+        "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
+      )
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.clickUploadANewSchedule()
+      Then("User navigates to 'Upload a Community Buildings schedule' page")
+      UploadACommunityBuildingsSchedulePage.validateNavigation()
     }
 
     Scenario(
@@ -956,6 +1013,11 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validateNavigation()
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContent()
+      Then(
+        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+      )
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.clickReturnToDashboard()
+      // TODO Charities management dashboard
     }
 
     Scenario(
@@ -1007,6 +1069,11 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validateNavigation()
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validatePageContent()
+      Then(
+        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+      )
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.clickReturnToDashboard()
+      // TODO Charities management dashboard
     }
 
     Scenario(
@@ -1058,6 +1125,11 @@ class WarningPagesSpec
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validateNavigation()
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContent()
+      Then(
+        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+      )
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.clickReturnToDashboard()
+      // TODO Charities management dashboard
     }
 
     Scenario(
@@ -1479,6 +1551,11 @@ class WarningPagesSpec
       UpdateGiftAidSchedulePage.clickContinue()
       Then("User validates the error message on the 'Update your Gift Aid Schedule' page ")
       UpdateGiftAidSchedulePage.validateErrorMessage()
+      And("User selects 'Yes' and clicks continue on 'Update your Gift Aid Schedule' page")
+      UpdateGiftAidSchedulePage.radioButton(UpdateGiftAidSchedulePage.yes)
+      UpdateGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigation()
     }
 
     Scenario(
@@ -1534,6 +1611,11 @@ class WarningPagesSpec
       UpdateOtherIncomeSchedulePage.clickContinue()
       Then("User validates the error message on the 'Update Other Income schedule' page")
       UpdateOtherIncomeSchedulePage.validateErrorMessage()
+      And("User selects 'No' and clicks continue on 'Update your Other Income Schedule' page")
+      UpdateOtherIncomeSchedulePage.radioButton(UpdateOtherIncomeSchedulePage.no)
+      UpdateOtherIncomeSchedulePage.clickContinue()
+      Then("User navigates to 'Check your Other Income schedule' page")
+      CheckYourOtherIncomeSchedulePage.validateNavigation()
     }
 
     Scenario(

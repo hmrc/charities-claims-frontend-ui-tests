@@ -21,7 +21,7 @@ object Error_PageNotFoundPage extends BasePage {
   override def pageUrl: String = s"$hostname/page-not-found"
 
   override def pageTitle: String =
-    "Page not found - Charities - GOV.UK"
+    "Page not found - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Page not found"

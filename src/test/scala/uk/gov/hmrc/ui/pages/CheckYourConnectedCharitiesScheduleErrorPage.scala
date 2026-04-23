@@ -21,7 +21,7 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
   override def pageUrl: String = s"$hostname/problem-with-connected-charities-schedule"
 
   override def pageTitle: String =
-    "There is a problem with the data in your Connected Charities schedule - Charities - GOV.UK"
+    "There is a problem with the data in your Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Connected Charities schedule"

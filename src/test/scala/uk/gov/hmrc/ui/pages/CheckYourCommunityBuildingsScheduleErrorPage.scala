@@ -21,7 +21,7 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
   override def pageUrl: String = s"$hostname/problem-with-community-buildings-schedule"
 
   override def pageTitle: String =
-    "There is a problem with the data in your Community Buildings schedule (page 1 of 2) - Charities - GOV.UK"
+    "There is a problem with the data in your Community Buildings schedule (page 1 of 2) - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Community Buildings schedule"

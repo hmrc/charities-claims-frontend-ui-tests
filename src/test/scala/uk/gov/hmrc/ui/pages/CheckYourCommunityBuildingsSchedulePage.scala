@@ -23,7 +23,7 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
   override def pageUrl: String = s"$hostname/check-your-community-buildings-schedule"
 
   override def pageTitle: String =
-    "Check your Community Buildings schedule (page 1 of 50) - Charities - GOV.UK"
+    "Check your Community Buildings schedule (page 1 of 50) - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Add Community Buildings schedule"

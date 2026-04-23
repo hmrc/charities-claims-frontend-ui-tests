@@ -21,7 +21,7 @@ object AboutTheOrganisationPage extends BasePage {
   override def pageUrl: String = s"$hostname/about-the-organisation"
 
   override def pageTitle: String =
-    "About the organisation - Charities - GOV.UK"
+    "About the organisation - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "About the organisation"

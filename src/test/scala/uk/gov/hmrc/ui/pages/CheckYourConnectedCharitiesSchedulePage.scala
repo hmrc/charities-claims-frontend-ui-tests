@@ -22,7 +22,8 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/check-your-connected-charities-schedule"
 
-  override def pageTitle: String = "Check your Connected Charities schedule - Charities - GOV.UK"
+  override def pageTitle: String =
+    "Check your Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String = "Add Connected Charities schedule"
 
