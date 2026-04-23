@@ -184,6 +184,32 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
+  /** Trigger Invalid Tax Year error message - <= 2023 */
+  def triggerBefore2024TaxYearError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val before2024TaxYear = "2020"
+    val element           = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(before2024TaxYear)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
+
+  /** Trigger Invalid Tax Year error message - after current tax year */
+  def triggerAfterCurrentTaxYearError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val afterCurrentTaxYear = "2030"
+    val element             = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(afterCurrentTaxYear)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
+
   /** Generic input method */
   def input(selector: By, value: String): Unit = {
     val element = waitForVisibilityOfElement(selector)
