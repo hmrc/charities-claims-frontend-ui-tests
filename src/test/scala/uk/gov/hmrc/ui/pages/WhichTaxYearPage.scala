@@ -23,11 +23,11 @@ object WhichTaxYearPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/which-tax-year-are-you-claiming-for"
 
-  def pageUrl1: String = s"$hostname/which-tax-year-are-you-claiming-for/1"
+  def pageUrl1: String = pageUrl + "/1"
 
-  def pageUrl2: String = s"$hostname/which-tax-year-are-you-claiming-for/2"
+  def pageUrl2: String = pageUrl + "/2"
 
-  def pageUrl3: String = s"$hostname/which-tax-year-are-you-claiming-for/3"
+  def pageUrl3: String = pageUrl + "/3"
 
   override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
