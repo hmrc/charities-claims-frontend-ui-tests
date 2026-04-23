@@ -85,15 +85,14 @@ object CheckYourDonationDetailsPage extends BasePage {
 
   }
 
-
-  val linkChangeTaxYear1: By      = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/1']")
-  val linkChangeDonationAmount1: By   = By.xpath("//a[@href='/charities-claims/donation-amount-you-are-claiming/1']")
-  val linkChangeTaxYear2: By = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/2']")
+  val linkChangeTaxYear1: By        = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/1']")
+  val linkChangeDonationAmount1: By = By.xpath("//a[@href='/charities-claims/donation-amount-you-are-claiming/1']")
+  val linkChangeTaxYear2: By        = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/2']")
   val linkChangeDonationAmount2: By = By.xpath("//a[@href='/charities-claims/donation-amount-you-are-claiming/2']")
-  val linkChangeTaxYear3: By = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/3']")
+  val linkChangeTaxYear3: By        = By.xpath("//a[@href='/charities-claims/change-which-tax-year-are-you-claiming-for/3']")
   val linkChangeDonationAmount3: By = By.xpath("//a[@href='/charities-claims/donation-amount-you-are-claiming/3']")
 
-  def clickChangeTaxYear1() : Unit = {
+  def clickChangeTaxYear1(): Unit = {
     val element = waitForElementToBeClickable(linkChangeTaxYear1)
     element.click()
   }
