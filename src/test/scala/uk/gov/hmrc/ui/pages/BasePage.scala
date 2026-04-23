@@ -86,6 +86,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialPhoneNo         = By.ById("phoneNumber")
     val txtAuthOfficialPostcode        = By.ById("postcode")
     val fileUploadFieldLocator         = By.ById("file-input")
+    val txtTaxYear                     = By.ById("value")
     val txtFormFieldset: By            = By.xpath("//form//fieldset")
     val txtBelowConfirmationPanel1: By = By.xpath("//main//p[1]")
     val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")
@@ -182,6 +183,32 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val element        = waitForVisibilityOfElement(inputLocatorValue)
     element.clear()
     element.sendKeys(heartCharacter)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
+
+  /** Trigger Invalid Tax Year error message - <= 2023 */
+  def triggerBefore2024TaxYearError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val before2024TaxYear = "2020"
+    val element           = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(before2024TaxYear)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
+
+  /** Trigger Invalid Tax Year error message - after current tax year */
+  def triggerAfterCurrentTaxYearError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val afterCurrentTaxYear = "2030"
+    val element             = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(afterCurrentTaxYear)
     validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
