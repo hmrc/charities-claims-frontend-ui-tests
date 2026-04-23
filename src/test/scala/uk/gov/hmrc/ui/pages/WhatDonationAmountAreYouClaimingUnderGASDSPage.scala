@@ -66,7 +66,9 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   }
 
   def validateNavigation_Year1(): Unit = {
-    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/1")
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/1"
+    )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
@@ -79,7 +81,9 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   }
 
   def validateNavigation_Year2(): Unit = {
-    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/2")
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/2"
+    )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
@@ -92,7 +96,9 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   }
 
   def validateNavigation_Year3(): Unit = {
-    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/3")
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/3"
+    )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
