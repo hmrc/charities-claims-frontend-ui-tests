@@ -37,6 +37,12 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
   def pageHeading: String =
     "You have added a claim for 1 tax year"
 
+  def pageHeading2: String =
+    "You have added a claim for 2 tax years"
+
+  def pageHeading3: String =
+    "You have added a claim for 3 tax years"
+
   def pageLegend: String =
     "Do you want to add a claim for another tax year?"
 
@@ -61,7 +67,7 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
     YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
     YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle2)
     YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
-    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading2)
     YouHaveAddedAClaimForXTaxYearPage.verifyHintText(YouHaveAddedAClaimForXTaxYearPage.pageHint)
   }
 
@@ -69,7 +75,7 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
     YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
     YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle3)
     YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
-    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading3)
   }
 
   def validateErrorMessage(): Unit =

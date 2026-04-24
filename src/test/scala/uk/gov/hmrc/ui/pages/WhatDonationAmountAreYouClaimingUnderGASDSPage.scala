@@ -88,7 +88,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
-      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 2"
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeading
@@ -103,7 +103,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
-      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 3"
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeading
