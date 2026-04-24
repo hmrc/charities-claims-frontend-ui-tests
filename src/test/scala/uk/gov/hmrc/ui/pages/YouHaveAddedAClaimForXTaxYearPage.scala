@@ -1,0 +1,80 @@
+/*
+ * Copyright 2026 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.gov.hmrc.ui.pages
+
+import org.openqa.selenium.By
+
+object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
+
+  override def pageUrl: String = s"$hostname/claim-added-for-tax-year"
+
+  override def pageTitle: String =
+    "You have added a claim for 1 tax year - Make a charity tax repayment claim - GOV.UK"
+
+  def pageTitle2: String =
+    "You have added a claim for 2 tax years - Make a charity tax repayment claim - GOV.UK"
+
+  def pageTitle3: String =
+    "You have added a claim for 3 tax years - Make a charity tax repayment claim - GOV.UK"
+
+  def pageCaption: String =
+    "Provide GASDS donation details"
+
+  def pageHeading: String =
+    "You have added a claim for 1 tax year"
+
+  def pageLegend: String =
+    "Do you want to add a claim for another tax year?"
+
+  def pageHint: String =
+    "You can only make claims for up to 3 tax years."
+
+  def pageErrorMsg: String =
+    "Select ‘Yes’ if you want to make a claim for another tax year"
+
+  val yes: String     = "#value"
+  val no: String      = "#value-no"
+  val errorMsgLocator = By.ById("value-error")
+
+  def validateNavigation1(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+  }
+
+  def validateNavigation2(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle2)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+    YouHaveAddedAClaimForXTaxYearPage.verifyHintText(YouHaveAddedAClaimForXTaxYearPage.pageHint)
+  }
+
+  def validateNavigation3(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle3)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+  }
+
+  def validateErrorMessage(): Unit =
+    YouHaveAddedAClaimForXTaxYearPage.validateGenericPageError(
+      YouHaveAddedAClaimForXTaxYearPage.pageErrorMsg,
+      YouHaveAddedAClaimForXTaxYearPage.errorMsgLocator
+    )
+}

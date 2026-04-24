@@ -63,6 +63,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtSubHeading3: By             = By.xpath("//main//h2[3]")
     val txtAddressPostCode             = By.ById("addressPostcode")
     val inputReferenceNumber           = By.ByClassName("govuk-input")
+    val inputAmount                    = By.ByClassName("govuk-input")
     val inputYourUserId: By            = By.xpath("//input[@name='authorityId']")
     val hintText                       = By.ById("value-hint")
     val amountHintText                 = By.ById("amount-hint")
