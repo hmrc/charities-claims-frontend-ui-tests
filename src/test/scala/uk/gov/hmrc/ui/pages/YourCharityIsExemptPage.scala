@@ -30,16 +30,16 @@ object YourCharityIsExemptPage extends BasePage {
     "Your charity is exempt"
 
   def pageParagraph: String =
-    "Your charity is exempt from registering with a regulator because:"
+    "The charity is exempt from registering with a regulator because it is a:"
 
   def pageListItem1: String =
-    "it is an educational institution such as a university or school"
+    "university or school"
 
   def pageListItem2: String =
-    "it is a museum or gallery"
+    "museum or gallery"
 
   def pageListItem3: String =
-    "it is a housing association"
+    "housing association"
 
   def validateNavigation(): Unit = {
     YourCharityIsExemptPage.verifyPageUrl(YourCharityIsExemptPage.pageUrl)
