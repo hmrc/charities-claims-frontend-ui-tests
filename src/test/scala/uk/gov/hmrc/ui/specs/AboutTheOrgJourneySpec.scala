@@ -186,7 +186,7 @@ class AboutTheOrgJourneySpec
         "Registered with regulator"      -> "Your charity is exempt",
         "Corporate trustee claim"        -> "No",
         "Authorised official UK address" -> "Yes",
-        "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Authorised official's details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -325,7 +325,7 @@ class AboutTheOrgJourneySpec
     }
 
     Scenario(
-      "User charity Reference starts with CF, navigates to the 'About the organisation', 'Continue' button redirects to 'corporate trustee making this claim' page, selects AuthOfficial with UK address"
+      "User charity Reference starts with CF, navigates to the 'About the organisation', is redirected to 'corporate trustee making this claim' page, selects AuthOfficial with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CF2JOURNEY5")
@@ -387,7 +387,7 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Corporate trustee claim"        -> "No",
         "Authorised official UK address" -> "Yes",
-        "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Authorised official's details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()

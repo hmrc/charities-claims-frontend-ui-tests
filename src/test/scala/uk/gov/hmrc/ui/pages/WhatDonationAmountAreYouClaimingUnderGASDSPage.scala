@@ -60,8 +60,8 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   val amountFieldLocator = By.ById("amount")
   val errorMsgLocator    = By.ById("amount-error")
 
-  def enterClaimReferenceNumber(referenceNo: String): Unit = {
-    input(Locators.inputReferenceNumber, referenceNo)
+  def enterDonationAmount(amount: String): Unit = {
+    input(Locators.inputAmount, amount)
     clickContinue()
   }
 
@@ -88,7 +88,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
-      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 2"
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeading
@@ -103,7 +103,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitle
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
-      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 3"
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeading

@@ -169,7 +169,7 @@ class ReturningUserSpec
       Then("User clicks Change link for 'Repayment claim type' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
       RepaymentCheckboxPage.verifyPageUrl(s"$hostname/change-repayment-claim-type")
-      RepaymentCheckboxPage.verifyPageHeading("Which type of repayment claim do you want to make?")
+      RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
       Then(
         "User unselects 'Tax repayments on Gift aid' checkbox and selects 'UK tax deducted from Other Income'checkbox and clicks continue"
       )
@@ -192,13 +192,13 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.clickChangeClaimReference()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(s"$hostname/change-claim-reference-number")
-      DoYouHaveAClaimReferenceNumberPage.verifyPageHeading("Do you have a claim reference number?")
+      DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeading)
       And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'What is your claim reference number?' page")
       WhatIsYourClaimReferenceNumberPage.verifyPageUrl(s"$hostname/change-enter-claim-reference-number")
-      WhatIsYourClaimReferenceNumberPage.verifyPageHeading("What is your claim reference number?")
+      WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeading)
       And("User enters their claim reference number and clicks continue")
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
       Then("User navigates to 'Check your repayment claim' page")
@@ -241,19 +241,21 @@ class ReturningUserSpec
       CheckYourOrganisationDetailsPage.clickChangeCorporateTrusteeClaim()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
       IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(s"$hostname/change-corporate-trustee-claim")
-      IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading("Is a corporate trustee making this claim?")
+      IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
       And("User selects a corporate trustee is not making this claim")
       IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
       IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the authorised official have a UK address?' page")
       DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(s"$hostname/change-authorised-official-address")
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading("Does the authorised official have a UK address?")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading(
+        DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeading
+      )
       And("User selects a authorised official does have a UK address")
       DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What are the authorised official details?' page")
       AuthorisedOfficialDetailsPage.verifyPageUrl(s"$hostname/change-authorised-official-details")
-      AuthorisedOfficialDetailsPage.verifyPageHeading("What are the authorised official details?")
+      AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
       And("User enters their UK Authorised Official details and clicks continue")
       AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
         "TEST",
@@ -275,7 +277,7 @@ class ReturningUserSpec
         "Charity regulator number"       -> "1234567890",
         "Corporate trustee claim"        -> "No",
         "Authorised official UK address" -> "Yes",
-        "Authorised official details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Authorised official's details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       CheckYourOrganisationDetailsPage.clickContinue()
       And("User navigates to 'Make a charity repayment claim' task list page")
