@@ -52,6 +52,51 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you want to make a claim for another tax year"
 
+  val lnkChangeRow1: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Change'])[1]")
+  val lnkRemoveRow1: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Remove'])[1]")
+
+  val lnkChangeRow2: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Change'])[2]")
+  val lnkRemoveRow2: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Remove'])[2]")
+
+  val lnkChangeRow3: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Change'])[3]")
+  val lnkRemoveRow3: By =
+    By.xpath("(//a[@class='govuk-link']/span[contains(@class, 'link-text') and text() = 'Remove'])[3]")
+
+  def clickChangeRow1Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkChangeRow1)
+    element.click()
+  }
+
+  def clickRemoveRow1Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkRemoveRow1)
+    element.click()
+  }
+
+  def clickChangeRow2Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkChangeRow2)
+    element.click()
+  }
+
+  def clickRemoveRow2Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkRemoveRow2)
+    element.click()
+  }
+
+  def clickChangeRow3Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkChangeRow3)
+    element.click()
+  }
+
+  def clickRemoveRow3Link(): Unit = {
+    val element = waitForElementToBeClickable(lnkRemoveRow3)
+    element.click()
+  }
+
   val yes: String     = "#value"
   val no: String      = "#value-no"
   val errorMsgLocator = By.ById("value-error")
