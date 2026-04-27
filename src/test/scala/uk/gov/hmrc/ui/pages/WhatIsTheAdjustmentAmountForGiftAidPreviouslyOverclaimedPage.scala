@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 
 object WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/adjustment-to-gift-aid-overclaimed"
+  override def pageUrl: String = s"$hostname/adjustment-for-gift-aid-small-donations-scheme-overclaimed"
 
   override def pageTitle: String =
     "What is the adjustment amount for Gift Aid previously overclaimed? - Make a charity tax repayment claim - GOV.UK"
