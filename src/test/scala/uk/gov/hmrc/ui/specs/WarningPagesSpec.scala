@@ -1865,7 +1865,7 @@ class WarningPagesSpec
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
       Then("User navigates to 'You have added a claim for x tax year' page and clicks remove link")
       YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
-      YouHaveAddedAClaimForXTaxYearPage.clickRemoveLink1()
+      YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow1Link()
       Then("User navigates to 'Remove claim for tax year page'")
       RemoveClaimForTaxYearPage.validateNavigation1()
       Then("User validates error messages on 'Remove claim for tax year' page")
