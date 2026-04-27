@@ -381,7 +381,7 @@ class GASDSPagesSpec
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page and continues"
       )
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
-      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("1000")
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterClaimReferenceNumber("1000")
       Then("User navigates to 'Check your claim details for tax year 1' page and validate navigation")
       CheckYourDonationDetailsPage.validateNavigation1()
       Then("User validates the 'Tax Year Change Link' in the 'Check your claim details for tax year 1' page")

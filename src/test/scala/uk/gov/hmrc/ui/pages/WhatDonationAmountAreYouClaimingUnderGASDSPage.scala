@@ -60,8 +60,8 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   val amountFieldLocator = By.ById("amount")
   val errorMsgLocator    = By.ById("amount-error")
 
-  def enterDonationAmount(donationAmount: String): Unit = {
-    input(Locators.txtDonationAmount, donationAmount)
+  def enterClaimReferenceNumber(referenceNo: String): Unit = {
+    input(Locators.inputReferenceNumber, referenceNo)
     clickContinue()
   }
 

@@ -23,19 +23,9 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/which-tax-year-are-you-claiming-for"
 
-  def pageUrl1: String = pageUrl + "/1"
-
-  def pageUrl2: String = pageUrl + "/2"
-
-  def pageUrl3: String = pageUrl + "/3"
-
   override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String = "Provide GASDS donation details"
-
-  def pageCaption2: String = pageCaption + " - Tax year 2"
-
-  def pageCaption3: String = pageCaption + " - Tax year 3"
 
   def pageHeading: String = "Which tax year are you claiming for?"
 
@@ -73,7 +63,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorWrongFormat3: String = "Enter a third tax year in the correct format"
 
   def validateNavigation1(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl1)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl+"/1" )
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
     WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption)
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
@@ -86,27 +76,27 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   }
 
   def validateNavigation2(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl+"/2")
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
   def validatePageProperties2(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
     WhichTaxYearAreYouClaimingForPage.verifyHintText(WhichTaxYearAreYouClaimingForPage.pageHint)
   }
 
   def validateNavigation3(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl+"/3")
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
   def validatePageProperties3(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
     WhichTaxYearAreYouClaimingForPage.verifyHintText(WhichTaxYearAreYouClaimingForPage.pageHint)
   }
