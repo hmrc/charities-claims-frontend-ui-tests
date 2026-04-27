@@ -33,7 +33,7 @@ object AboutTheOrganisationPage extends BasePage {
     "You need to provide information about the organisation you are claiming for."
 
   def listItem2: String =
-    "The person making this claim must be an approved official or corporate trustee recognised by HM Revenue Customs."
+    "The person making this claim must be an approved official or corporate trustee recognised by HM Revenue & Customs."
 
   def listItem3: String =
     "Continue"
