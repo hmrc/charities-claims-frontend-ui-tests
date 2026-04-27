@@ -518,16 +518,13 @@ class DeclarationJourneySpec
       ClaimCompletePage.validatePageContent()
       And("User validates Submission Reference Number is in BASE32 format")
       ClaimCompletePage.verifySubmissionReferenceBase32()
-//      Then("User navigates to 'Charity repayment claim summary' page")
-//      ClaimCompletePage.clickPrintClaimSummaryLink()
-//      CharityRepaymentClaimSummaryPage.validateNavigation()
     }
 
     Scenario(
       "User navigates to the 'Charity Repayment Claim Summary' page from the Gift Aid/Other Income/Adjustments and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-D1-5-GA-OI-Adj")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-D1-4-GA-OI-Adj")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")

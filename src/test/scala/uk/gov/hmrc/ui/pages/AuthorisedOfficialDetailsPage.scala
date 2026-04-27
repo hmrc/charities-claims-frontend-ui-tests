@@ -25,13 +25,13 @@ object AuthorisedOfficialDetailsPage extends BasePage {
   def changePageUrl: String = s"$hostname/change-authorised-official-details"
 
   override def pageTitle: String =
-    "What are the authorised official's details? - Make a charity tax repayment claim - GOV.UK"
+    "What are the authorised official’s details? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeading: String =
-    "What are the authorised official's details?"
+    "What are the authorised official’s details?"
 
   val errorSummary = By.ByClassName("govuk-error-summary__body")
 

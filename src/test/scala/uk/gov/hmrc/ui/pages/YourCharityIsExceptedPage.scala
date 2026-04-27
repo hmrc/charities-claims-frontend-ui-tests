@@ -45,7 +45,7 @@ object YourCharityIsExceptedPage extends BasePage {
     "a charitable service of the armed forces"
 
   def pageListItem5: String =
-    "a students' union"
+    "a students’ union"
 
   def validateNavigation(): Unit = {
     YourCharityIsExceptedPage.verifyPageUrl(YourCharityIsExceptedPage.pageUrl)
