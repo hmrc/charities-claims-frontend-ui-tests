@@ -199,7 +199,6 @@ class GASDSJourneySpec
       Then("User navigates to 'You have added a claim for 2 tax years' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
       YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
-      Thread.sleep(30000)
       Then("User selects 'Yes' on 'You have added a claim for 2 tax year' page to add another tax year")
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
