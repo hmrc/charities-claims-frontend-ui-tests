@@ -219,7 +219,7 @@ class GASDSJourneySpec
       YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
       Then("User selects to remove the 2nd tax year from 'You have added a claim for 3 tax years' page")
       YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow2Link()
-      //TODO WRN9 and CYA
+      // TODO WRN9 and CYA
     }
   }
 }
