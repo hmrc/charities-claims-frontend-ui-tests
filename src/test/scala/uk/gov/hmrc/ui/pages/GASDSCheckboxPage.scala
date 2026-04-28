@@ -87,7 +87,7 @@ object GASDSCheckboxPage extends BasePage {
     GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaption)
     GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
   }
-  
+
   def validatePageContent(): Unit =
     GASDSCheckboxPage.verifyEntirePageContent(
       GASDSCheckboxPage.createSingleStringFromMany(
