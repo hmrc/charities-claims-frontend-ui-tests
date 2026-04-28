@@ -18,21 +18,18 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object AgentDetailsDoYouHaveAUKAddressPage_Agent extends BasePage {
+object DoYouHaveAUKAddressPage_Agent extends BasePage {
   override def pageUrl: String = s"$hostname/do-you-have-a-uk-address"
 
   override def pageTitle: String =
     "Do you have a UK address? - Make a charity tax repayment claim - GOV.UK"
 
-  def pageHeading: String =
-    "Agent Details"
-
-  def pageSubHeading: String =
-    "Do you have a UK address?"
-
   def pageCaption: String =
     "Provide organisation details"
-
+    
+  def pageHeading: String =
+    "Do you have a UK address?"
+  
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
     "Select ‘Yes’ if you have a UK address"
@@ -42,22 +39,19 @@ object AgentDetailsDoYouHaveAUKAddressPage_Agent extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.verifyPageUrl(AgentDetailsDoYouHaveAUKAddressPage_Agent.pageUrl)
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.verifyPageTitle(AgentDetailsDoYouHaveAUKAddressPage_Agent.pageTitle)
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.verifyPageHeading(
-      AgentDetailsDoYouHaveAUKAddressPage_Agent.pageHeading
+    DoYouHaveAUKAddressPage_Agent.verifyPageUrl(DoYouHaveAUKAddressPage_Agent.pageUrl)
+    DoYouHaveAUKAddressPage_Agent.verifyPageTitle(DoYouHaveAUKAddressPage_Agent.pageTitle)
+    DoYouHaveAUKAddressPage_Agent.verifyPageHeading(
+      DoYouHaveAUKAddressPage_Agent.pageHeading
     )
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.verifyPageCaption(
-      AgentDetailsDoYouHaveAUKAddressPage_Agent.pageCaption
+    DoYouHaveAUKAddressPage_Agent.verifyPageCaption(
+      DoYouHaveAUKAddressPage_Agent.pageCaption
     )
   }
 
-  def validatePage(): Unit =
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.verifyLegendText(AgentDetailsDoYouHaveAUKAddressPage_Agent.pageSubHeading)
-
   def validateErrorMessage(): Unit =
-    AgentDetailsDoYouHaveAUKAddressPage_Agent.validateGenericPageError(
-      AgentDetailsDoYouHaveAUKAddressPage_Agent.pageErrorMsg,
-      AgentDetailsDoYouHaveAUKAddressPage_Agent.errorMsgLocator
+    DoYouHaveAUKAddressPage_Agent.validateGenericPageError(
+      DoYouHaveAUKAddressPage_Agent.pageErrorMsg,
+      DoYouHaveAUKAddressPage_Agent.errorMsgLocator
     )
 }

@@ -43,8 +43,12 @@ object WhatIsTheNameOfTheCharityRegulatorPage_Agent extends BasePage {
   def validateNavigation(): Unit = {
     WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageUrl)
     WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageTitle(WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageTitle)
-    WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageCaption(WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageCaption)
-    WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageHeading(WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageHeading)
+    WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageCaption(
+      WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageCaption
+    )
+    WhatIsTheNameOfTheCharityRegulatorPage_Agent.verifyPageHeading(
+      WhatIsTheNameOfTheCharityRegulatorPage_Agent.pageHeading
+    )
   }
 
   /** Validate that the error message is correct */

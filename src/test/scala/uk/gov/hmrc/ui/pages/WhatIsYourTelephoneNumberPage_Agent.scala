@@ -18,20 +18,17 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object AgentDetailsTelephoneNumberPage_Agent extends BasePage {
+object WhatIsYourTelephoneNumberPage_Agent extends BasePage {
 
   override def pageUrl: String = s"$hostname/enter-claim-reference-number"
 
   override def pageTitle: String =
-    "What is your claim reference number? - Make a charity tax repayment claim - GOV.UK"
+    "What is your telephone number? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"
 
   def pageHeading: String =
-    "Agent Details"
-
-  def pageSubHeading: String =
     "What is your telephone number?"
 
   def pageParagraph: String =
@@ -57,35 +54,35 @@ object AgentDetailsTelephoneNumberPage_Agent extends BasePage {
   }
 
   def validateNavigation(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageUrl(AgentDetailsTelephoneNumberPage_Agent.pageUrl)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageTitle(AgentDetailsTelephoneNumberPage_Agent.pageTitle)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageCaption(AgentDetailsTelephoneNumberPage_Agent.pageCaption)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageHeading(AgentDetailsTelephoneNumberPage_Agent.pageHeading)
+    WhatIsYourTelephoneNumberPage_Agent.verifyPageUrl(WhatIsYourTelephoneNumberPage_Agent.pageUrl)
+    WhatIsYourTelephoneNumberPage_Agent.verifyPageTitle(WhatIsYourTelephoneNumberPage_Agent.pageTitle)
+    WhatIsYourTelephoneNumberPage_Agent.verifyPageCaption(WhatIsYourTelephoneNumberPage_Agent.pageCaption)
+    WhatIsYourTelephoneNumberPage_Agent.verifyPageHeading(WhatIsYourTelephoneNumberPage_Agent.pageHeading)
   }
 
   def validatePage(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.verifyLegendText(AgentDetailsTelephoneNumberPage_Agent.pageParagraph)
-    AgentDetailsTelephoneNumberPage_Agent.verifyHintText(AgentDetailsTelephoneNumberPage_Agent.pageHint)
+    WhatIsYourTelephoneNumberPage_Agent.verifyLegendText(WhatIsYourTelephoneNumberPage_Agent.pageParagraph)
+    WhatIsYourTelephoneNumberPage_Agent.verifyHintText(WhatIsYourTelephoneNumberPage_Agent.pageHint)
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.validateGenericPageError(
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorMsg,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourTelephoneNumberPage_Agent.validateGenericPageError(
+      WhatIsYourTelephoneNumberPage_Agent.pageErrorMsg,
+      WhatIsYourTelephoneNumberPage_Agent.errorMsgLocator
     )
 
     /** Number defines string length */
-    AgentDetailsTelephoneNumberPage_Agent.triggerTooManyCharInputError(
-      AgentDetailsTelephoneNumberPage_Agent.inputMaxLength,
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorInvalidFormat,
-      AgentDetailsTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourTelephoneNumberPage_Agent.triggerTooManyCharInputError(
+      WhatIsYourTelephoneNumberPage_Agent.inputMaxLength,
+      WhatIsYourTelephoneNumberPage_Agent.pageErrorInvalidFormat,
+      WhatIsYourTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
+      WhatIsYourTelephoneNumberPage_Agent.errorMsgLocator
     )
-    AgentDetailsTelephoneNumberPage_Agent.triggerNonWesternEuropeanAlphabetError(
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorInvalidFormat,
-      AgentDetailsTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourTelephoneNumberPage_Agent.triggerNonWesternEuropeanAlphabetError(
+      WhatIsYourTelephoneNumberPage_Agent.pageErrorInvalidFormat,
+      WhatIsYourTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
+      WhatIsYourTelephoneNumberPage_Agent.errorMsgLocator
     )
   }
 }

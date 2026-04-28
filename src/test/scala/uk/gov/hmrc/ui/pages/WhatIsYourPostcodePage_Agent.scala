@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object AgentDetailsPostcodePage_Agent extends BasePage {
+object WhatIsYourPostcodePage_Agent extends BasePage {
 
   override def pageUrl: String = s"$hostname/what-is-your-postcode"
 
@@ -29,9 +29,6 @@ object AgentDetailsPostcodePage_Agent extends BasePage {
     "Provide repayment claim details"
 
   def pageHeading: String =
-    "Agent Details"
-
-  def pageSubHeading: String =
     "What is your postcode?"
 
   def pageParagraph: String =
@@ -49,7 +46,7 @@ object AgentDetailsPostcodePage_Agent extends BasePage {
   def inputMaxLength = 36
 
   val agentTelephoneNumberFieldLocator = By.ById("value")
-  val errorMsgLocator = By.ById("value-error")
+  val errorMsgLocator                  = By.ById("value-error")
 
   def enterTelephoneNumber(telephoneNo: String): Unit = {
     input(Locators.inputAgentTelephoneNumberFieldLocator, telephoneNo)
@@ -57,35 +54,35 @@ object AgentDetailsPostcodePage_Agent extends BasePage {
   }
 
   def validateNavigation(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageUrl(AgentDetailsTelephoneNumberPage_Agent.pageUrl)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageTitle(AgentDetailsTelephoneNumberPage_Agent.pageTitle)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageCaption(AgentDetailsTelephoneNumberPage_Agent.pageCaption)
-    AgentDetailsTelephoneNumberPage_Agent.verifyPageHeading(AgentDetailsTelephoneNumberPage_Agent.pageHeading)
+    WhatIsYourPostcodePage_Agent.verifyPageUrl(WhatIsYourPostcodePage_Agent.pageUrl)
+    WhatIsYourPostcodePage_Agent.verifyPageTitle(WhatIsYourPostcodePage_Agent.pageTitle)
+    WhatIsYourPostcodePage_Agent.verifyPageCaption(WhatIsYourPostcodePage_Agent.pageCaption)
+    WhatIsYourPostcodePage_Agent.verifyPageHeading(WhatIsYourPostcodePage_Agent.pageHeading)
   }
 
   def validatePage(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.verifyLegendText(AgentDetailsTelephoneNumberPage_Agent.pageParagraph)
-    AgentDetailsTelephoneNumberPage_Agent.verifyHintText(AgentDetailsTelephoneNumberPage_Agent.pageHint)
+    WhatIsYourPostcodePage_Agent.verifyLegendText(WhatIsYourPostcodePage_Agent.pageParagraph)
+    WhatIsYourPostcodePage_Agent.verifyHintText(WhatIsYourPostcodePage_Agent.pageHint)
   }
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
-    AgentDetailsTelephoneNumberPage_Agent.validateGenericPageError(
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorMsg,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourPostcodePage_Agent.validateGenericPageError(
+      WhatIsYourPostcodePage_Agent.pageErrorMsg,
+      WhatIsYourPostcodePage_Agent.errorMsgLocator
     )
 
     /** Number defines string length */
-    AgentDetailsTelephoneNumberPage_Agent.triggerTooManyCharInputError(
-      AgentDetailsTelephoneNumberPage_Agent.inputMaxLength,
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorInvalidFormat,
-      AgentDetailsTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourPostcodePage_Agent.triggerTooManyCharInputError(
+      WhatIsYourPostcodePage_Agent.inputMaxLength,
+      WhatIsYourPostcodePage_Agent.pageErrorInvalidFormat,
+      WhatIsYourPostcodePage_Agent.agentTelephoneNumberFieldLocator,
+      WhatIsYourPostcodePage_Agent.errorMsgLocator
     )
-    AgentDetailsTelephoneNumberPage_Agent.triggerNonWesternEuropeanAlphabetError(
-      AgentDetailsTelephoneNumberPage_Agent.pageErrorInvalidFormat,
-      AgentDetailsTelephoneNumberPage_Agent.agentTelephoneNumberFieldLocator,
-      AgentDetailsTelephoneNumberPage_Agent.errorMsgLocator
+    WhatIsYourPostcodePage_Agent.triggerNonWesternEuropeanAlphabetError(
+      WhatIsYourPostcodePage_Agent.pageErrorInvalidFormat,
+      WhatIsYourPostcodePage_Agent.agentTelephoneNumberFieldLocator,
+      WhatIsYourPostcodePage_Agent.errorMsgLocator
     )
   }
 }
