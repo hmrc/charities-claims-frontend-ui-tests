@@ -31,7 +31,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
 
   override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
-  def pageCaption1: String = "Provide GASDS donation details"
+  def pageCaption: String = "Provide GASDS donation details"
 
   def pageCaption2: String = "Provide GASDS donation details - Tax year 2"
 
@@ -44,8 +44,8 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
 
   def pageHint: String = "For example, 2016"
 
-  def enterValidTaxYear(taxYear: String): Unit = {
-    input(Locators.txtTaxYear, taxYear)
+  def enterValidTaxYear(currentTaxYear: String): Unit = {
+    input(Locators.txtTaxYear, currentTaxYear)
     clickContinue()
   }
 
@@ -61,7 +61,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorMaxLength: String = "Enter a first tax year in the correct format"
 
   def pageUnderYearError: String =
-    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than 2024"
+    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than " + (currentTaxYear - 3).toString
 
   def pageOverYearError: String =
     "Gift Aid Small Donations Scheme community buildings claim tax year must be this year or earlier"
@@ -73,40 +73,40 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorWrongFormat3: String = "Enter a third tax year in the correct format"
 
   def validateNavigation1(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl1)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/1")
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption1)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption)
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
   def validatePageProperties1(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption1)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption)
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
     WhichTaxYearAreYouClaimingForPage.verifyHintText(WhichTaxYearAreYouClaimingForPage.pageHint)
   }
 
   def validateNavigation2(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/2")
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
   def validatePageProperties2(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption2)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
     WhichTaxYearAreYouClaimingForPage.verifyHintText(WhichTaxYearAreYouClaimingForPage.pageHint)
   }
 
   def validateNavigation3(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/3")
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
   def validatePageProperties3(): Unit = {
-    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption3)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
     WhichTaxYearAreYouClaimingForPage.verifyHintText(WhichTaxYearAreYouClaimingForPage.pageHint)
   }
@@ -127,7 +127,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
     )
-    WhichTaxYearAreYouClaimingForPage.triggerBefore2024TaxYearError(
+    WhichTaxYearAreYouClaimingForPage.triggerMoreThan3TaxYearsAgoError(
       WhichTaxYearAreYouClaimingForPage.pageUnderYearError,
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
@@ -154,7 +154,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
     )
-    WhichTaxYearAreYouClaimingForPage.triggerBefore2024TaxYearError(
+    WhichTaxYearAreYouClaimingForPage.triggerMoreThan3TaxYearsAgoError(
       WhichTaxYearAreYouClaimingForPage.pageUnderYearError,
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
@@ -181,7 +181,7 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
     )
-    WhichTaxYearAreYouClaimingForPage.triggerBefore2024TaxYearError(
+    WhichTaxYearAreYouClaimingForPage.triggerMoreThan3TaxYearsAgoError(
       WhichTaxYearAreYouClaimingForPage.pageUnderYearError,
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator

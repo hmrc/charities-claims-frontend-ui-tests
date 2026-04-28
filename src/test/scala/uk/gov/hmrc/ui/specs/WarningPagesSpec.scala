@@ -21,6 +21,7 @@ import org.scalatest.verbs.ShouldVerb
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.pages.AuthWizard.currentTaxYear
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -1841,7 +1842,7 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -1856,7 +1857,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2025")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 2).toString)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year2()
       WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
@@ -1868,7 +1869,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2026")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 1).toString)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
       WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
@@ -1950,10 +1951,8 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
-      Then(
-        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
-      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
+      Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
         "User inputs a value on 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
@@ -1967,10 +1966,8 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2025")
-      Then(
-        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
-      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 2).toString)
+      Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year2()
       WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
       Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
@@ -1981,7 +1978,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2026")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 1).toString)
       Then(
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
       )
@@ -2065,7 +2062,7 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
       Then(
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
       )
@@ -2082,7 +2079,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2025")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 2).toString)
       Then(
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
       )
@@ -2096,7 +2093,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2026")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 1).toString)
       Then(
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
       )

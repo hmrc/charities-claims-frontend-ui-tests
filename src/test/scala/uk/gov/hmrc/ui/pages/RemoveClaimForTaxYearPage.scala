@@ -34,7 +34,7 @@ object RemoveClaimForTaxYearPage extends BasePage {
   val TaxYearNow: String            = currentTaxYear.toString
   val earliestTaxYear: String       = (currentTaxYear - 3).toString
   val secondEarliestTaxYear: String = (currentTaxYear - 2).toString
-  val recentTaxYear: String = (currentTaxYear-1).toString
+  val recentTaxYear: String         = (currentTaxYear - 1).toString
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
