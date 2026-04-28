@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 
 object CheckYourGASDSAdjustmentAmountPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/check-gasds-adjustment-amount"
+  override def pageUrl: String = s"$hostname/check-gift-aid-small-donations-scheme-adjustment-amount"
 
   override def pageTitle: String =
     "Check your GASDS adjustment amount - Make a charity tax repayment claim - GOV.UK"
@@ -39,7 +39,7 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
   }
 
   val linkChangeGASDSAdjustmentAmount: By =
-    By.xpath("//a[@href='/charities-claims/adjustment-to-gift-aid-overclaimed']")
+    By.xpath("//a[@href='/charities-claims/adjustment-for-gift-aid-small-donations-scheme-overclaimed']")
 
   def clickChangeGASDSAdjustmentAmount(): Unit = {
     val element = waitForElementToBeClickable(linkChangeGASDSAdjustmentAmount)

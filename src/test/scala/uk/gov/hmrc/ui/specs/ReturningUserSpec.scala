@@ -277,7 +277,7 @@ class ReturningUserSpec
         "Charity regulator number"       -> "1234567890",
         "Corporate trustee claim"        -> "No",
         "Authorised official UK address" -> "Yes",
-        "Authorised official's details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Authorised official’s details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       CheckYourOrganisationDetailsPage.clickContinue()
       And("User navigates to 'Make a charity repayment claim' task list page")
