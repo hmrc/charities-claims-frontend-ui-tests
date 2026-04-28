@@ -1778,10 +1778,10 @@ class WarningPagesSpec
 //    }
 
     Scenario(
-      "User navigates to the 'Remove claim for tax year' page from the GASDS flow and validates the page elements"
+      "User navigates to the 'Remove claim for tax year 1' page from the GASDS flow and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row1")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1863,8 +1863,20 @@ class WarningPagesSpec
       Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for X tax year' page and creates a 3rd year of claims")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
+      WhichTaxYearPage.validateNavigation3()
+      WhichTaxYearPage.enterValidTaxYear("2026")
+      Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation3()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
       Then("User navigates to 'You have added a claim for x tax year' page and clicks remove link")
-      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
       YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow1Link()
       Then("User navigates to 'Remove claim for tax year page'")
       RemoveClaimForTaxYearPage.validateNavigation1()
@@ -1872,5 +1884,236 @@ class WarningPagesSpec
       RemoveClaimForTaxYearPage.validateErrorMessage()
 
     }
+    Scenario(
+      "User navigates to the 'Remove claim for tax year 2' page from the GASDS flow and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row2")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
+      ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
+      And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
+      AboutGASDSPage.validateNavigation()
+      Then("User navigates to 'Which tax year are you claiming for?' page")
+      AboutGASDSPage.clickContinue()
+      WhichTaxYearPage.validateNavigation1()
+      Then("User inputs a value on 'Which tax year are you claiming for?' page")
+      WhichTaxYearPage.enterValidTaxYear("2024")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
+      Then(
+        "User inputs a value on 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 1' page and clicks continue")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for Tax year' page ")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
+      WhichTaxYearPage.validateNavigation2()
+      WhichTaxYearPage.enterValidTaxYear("2025")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year2()
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for X tax year' page and creates a 3rd year of claims")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
+      WhichTaxYearPage.validateNavigation3()
+      WhichTaxYearPage.enterValidTaxYear("2026")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation3()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for x tax year' page and clicks remove link")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
+      YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow2Link()
+      Then("User navigates to 'Remove claim for tax year page'")
+      RemoveClaimForTaxYearPage.validateNavigation2()
+      Then("User validates error messages on 'Remove claim for tax year' page")
+      RemoveClaimForTaxYearPage.validateErrorMessage()
+    }
+
+    Scenario(
+      "User navigates to the 'Remove claim for tax year 3' page from the GASDS flow and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row3")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then(
+        "User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      And(
+        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
+      )
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      And(
+        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      )
+      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
+      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
+      ConnectedCharitiesPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
+      ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
+      And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
+      AboutGASDSPage.validateNavigation()
+      Then("User navigates to 'Which tax year are you claiming for?' page")
+      AboutGASDSPage.clickContinue()
+      WhichTaxYearPage.validateNavigation1()
+      Then("User inputs a value on 'Which tax year are you claiming for?' page")
+      WhichTaxYearPage.enterValidTaxYear("2024")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
+      Then(
+        "User inputs a value on 'What donation amount are you claiming under GASDS, in pounds?' for the first year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 1' page and clicks continue")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for Tax year' page ")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
+      WhichTaxYearPage.validateNavigation2()
+      WhichTaxYearPage.enterValidTaxYear("2025")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year2()
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for X tax year' page and creates a 3rd year of claims")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Which Tax Year' page,inputs valid value and clicks continue ")
+      WhichTaxYearPage.validateNavigation3()
+      WhichTaxYearPage.enterValidTaxYear("2026")
+      Then(
+        "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
+      )
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.enterDonationAmount("123.45")
+      Then("User navigates to 'Check your claim details for tax year 2' page and clicks change link")
+      CheckYourClaimDetailsForTaxYearPage.validateNavigation3()
+      CheckYourClaimDetailsForTaxYearPage.clickContinue()
+      Then("User navigates to 'You have added a claim for x tax year' page and clicks remove link")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
+      YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow3Link()
+      Then("User navigates to 'Remove claim for tax year page'")
+      RemoveClaimForTaxYearPage.validateNavigation3()
+      Then("User validates error messages on 'Remove claim for tax year' page")
+      RemoveClaimForTaxYearPage.validateErrorMessage()
+
+    }
+
   }
 }
