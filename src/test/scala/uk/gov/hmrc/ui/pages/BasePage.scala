@@ -31,9 +31,11 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 import java.time.Duration
+import java.time.LocalDate.now
 import scala.util.Random
-
-import scala.jdk.CollectionConverters._
+import java.time.{LocalDate, ZoneId}
+import java.time.format.DateTimeFormatter
+import scala.jdk.CollectionConverters.*
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
 
@@ -638,5 +640,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     s != null &&
       s.nonEmpty &&
       s.matches("^[A-Z2-7]{28,32}$")
+
+  def currentTaxYear: Int =
+    if now.isAfter(LocalDate.of(now.getYear, 4, 5)) then now.getYear + 1 else now.getYear
 
 }

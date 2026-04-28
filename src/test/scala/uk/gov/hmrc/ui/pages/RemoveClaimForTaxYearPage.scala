@@ -31,9 +31,10 @@ object RemoveClaimForTaxYearPage extends BasePage {
   def pageErrorMsg: String =
     "Select ‘Yes’ if you want to remove the claim for tax year"
 
-  def taxYear1 = "2024"
-  def taxYear2 = "2025"
-  def taxYear3 = "2026"
+  val TaxYearNow: String            = currentTaxYear.toString
+  val earliestTaxYear: String       = (currentTaxYear - 3).toString
+  val secondEarliestTaxYear: String = (currentTaxYear - 2).toString
+  val recentTaxYear: String = (currentTaxYear-1).toString
 
   val yes: String     = "#value"
   val no: String      = "#value-no"
@@ -42,25 +43,25 @@ object RemoveClaimForTaxYearPage extends BasePage {
   def validateNavigation1(): Unit = {
     RemoveClaimForTaxYearPage.verifyPageUrl(RemoveClaimForTaxYearPage.pageUrl + "/1")
     RemoveClaimForTaxYearPage.verifyPageTitle(
-      RemoveClaimForTaxYearPage.pageTitle + taxYear1 + "? - Make a charity tax repayment claim - GOV.UK"
+      RemoveClaimForTaxYearPage.pageTitle + earliestTaxYear + "? - Make a charity tax repayment claim - GOV.UK"
     )
-    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + taxYear1 + "?")
+    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + earliestTaxYear + "?")
   }
 
   def validateNavigation2(): Unit = {
     RemoveClaimForTaxYearPage.verifyPageUrl(RemoveClaimForTaxYearPage.pageUrl + "/2")
     RemoveClaimForTaxYearPage.verifyPageTitle(
-      RemoveClaimForTaxYearPage.pageTitle + taxYear2 + "? - Make a charity tax repayment claim - GOV.UK"
+      RemoveClaimForTaxYearPage.pageTitle + secondEarliestTaxYear + "? - Make a charity tax repayment claim - GOV.UK"
     )
-    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + taxYear2 + "?")
+    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + secondEarliestTaxYear + "?")
   }
 
   def validateNavigation3(): Unit = {
     RemoveClaimForTaxYearPage.verifyPageUrl(RemoveClaimForTaxYearPage.pageUrl + "/3")
     RemoveClaimForTaxYearPage.verifyPageTitle(
-      RemoveClaimForTaxYearPage.pageTitle + taxYear3 + "? - Make a charity tax repayment claim - GOV.UK"
+      RemoveClaimForTaxYearPage.pageTitle + recentTaxYear + "? - Make a charity tax repayment claim - GOV.UK"
     )
-    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + taxYear3 + "?")
+    RemoveClaimForTaxYearPage.verifyPageHeading(RemoveClaimForTaxYearPage.pageHeading + recentTaxYear + "?")
   }
 
   def validateErrorMessage(): Unit =

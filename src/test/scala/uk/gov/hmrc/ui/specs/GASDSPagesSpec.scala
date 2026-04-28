@@ -305,11 +305,11 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       AboutGASDSPage.clickContinue()
       Then("User validates the navigation to 'Which Tax Year Are You Claiming For' page 1 ")
-      WhichTaxYearPage.validateNavigation1()
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User validates the page properties on 'Which Tax Year Are You Claiming For' page 1")
-      WhichTaxYearPage.validatePageProperties1()
+      WhichTaxYearAreYouClaimingForPage.validatePageProperties1()
       Then("User validates the error messages on 'Which Tax Year Are You Claiming For ' Page 1")
-      WhichTaxYearPage.validateErrorMessages1()
+      WhichTaxYearAreYouClaimingForPage.validateErrorMessages1()
     }
 
     Scenario(
@@ -374,9 +374,9 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -451,9 +451,9 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -530,9 +530,9 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear("2024")
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
