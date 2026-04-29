@@ -21,7 +21,6 @@ import org.scalatest.verbs.ShouldVerb
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
-import uk.gov.hmrc.ui.pages.AuthWizard.currentTaxYear
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -241,7 +240,7 @@ class GASDSPagesSpec
       Then("User clicks 'Change' link on 'Check your GASDS adjustment amount' page")
       CheckYourGASDSAdjustmentAmountPage.clickChangeGASDSAdjustmentAmount()
       Then("User navigates to 'What is the adjustment amount for Gift Aid previously overclaimed?' page")
-      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.validateNavigation()
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.validateChangeNavigation()
     }
 
     Scenario(
