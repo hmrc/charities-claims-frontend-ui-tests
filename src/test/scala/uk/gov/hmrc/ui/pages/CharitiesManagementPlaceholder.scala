@@ -21,10 +21,10 @@ object CharitiesManagementPlaceholder extends BasePage {
   override def pageUrl: String = s"$hostname/charities-management/charity-repayment-dashboard"
 
   override def pageTitle: String =
-    "Charity repayment dashboard - Make a charity tax repayment claim - GOV.UK"
+    "Manage Charity repayment claims - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
-    "Charity repayment dashboard"
+    "Manage Charity repayment claims"
 
   def validateNavigation(): Unit = {
     // CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
