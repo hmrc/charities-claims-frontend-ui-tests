@@ -377,7 +377,7 @@ class GASDSPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
@@ -456,7 +456,7 @@ class GASDSPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
@@ -537,7 +537,7 @@ class GASDSPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")

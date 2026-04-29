@@ -170,7 +170,7 @@ class GASDSJourneySpec
       CheckYourGASDSAdjustmentAmountPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
@@ -190,7 +190,7 @@ class GASDSJourneySpec
       Then("User navigates to 'Which tax year are you claiming for?' year 2 page")
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 2 years before the current tax year: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.secondEarliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
@@ -210,7 +210,7 @@ class GASDSJourneySpec
       Then("User navigates to 'Which tax year are you claiming for?' year 3 page")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 1 years before the current tax year: " + RemoveClaimForTaxYearPage.recentTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.recentTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.recentTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the third year page")

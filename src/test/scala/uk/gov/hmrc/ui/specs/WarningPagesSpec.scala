@@ -1842,7 +1842,7 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then(
@@ -1860,7 +1860,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs tax year 2 years before the current tax year: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.secondEarliestTaxYear)
@@ -1876,7 +1876,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 1 year before the current tax year: " + RemoveClaimForTaxYearPage.recentTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.recentTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.recentTaxYear)
@@ -1961,7 +1961,7 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then(
@@ -1979,7 +1979,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs tax year 2 years before the current tax year: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.secondEarliestTaxYear)
@@ -1995,10 +1995,8 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 1 year before the current tax year: " + RemoveClaimForTaxYearPage.recentTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.recentTaxYear
       )
-      WhichTaxYearAreYouClaimingForPage.validateNavigation3()
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.recentTaxYear)
       Then(
         "User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page"
       )
@@ -2082,7 +2080,7 @@ class WarningPagesSpec
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then(
@@ -2100,7 +2098,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs tax year 2 years before the current tax year: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.secondEarliestTaxYear)
@@ -2116,7 +2114,7 @@ class WarningPagesSpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 1 year before the current tax year: " + RemoveClaimForTaxYearPage.recentTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.recentTaxYear
       )
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.recentTaxYear)
