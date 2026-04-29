@@ -376,8 +376,10 @@ class GASDSPagesSpec
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -453,8 +455,10 @@ class GASDSPagesSpec
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -464,7 +468,7 @@ class GASDSPagesSpec
       Then("User navigates to 'Check your claim details for tax year 1' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year"        -> (currentTaxYear - 3).toString,
+        "Tax year"        -> RemoveClaimForTaxYearPage.earliestTaxYear,
         "Donation amount" -> "£123.45"
       )
     }
@@ -532,8 +536,10 @@ class GASDSPagesSpec
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear((currentTaxYear - 3).toString)
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs a tax year 3 years before the current tax year: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
