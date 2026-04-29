@@ -26,10 +26,10 @@ object DoYouHaveAUKAddressPage_Agent extends BasePage {
 
   def pageCaption: String =
     "Provide organisation details"
-    
+
   def pageHeading: String =
     "Do you have a UK address?"
-  
+
   /* Error Messages To Be Confirmed */
   def pageErrorMsg: String =
     "Select ‘Yes’ if you have a UK address"
