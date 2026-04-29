@@ -248,5 +248,30 @@ class GiftAidPagesSpec
       CheckYourRepaymentClaimPage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
       CheckYourRepaymentClaimPage.validateNavigation()
     }
+
+    Scenario(
+      "User navigates to the 'Gift Aid Small Donations Scheme (GASDS) details' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - NEW R1.4")
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User navigates to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentClaimDetailsPage.clickContinue()
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      GASDSCheckboxPage.navigateToPage(GASDSCheckboxPage.pageUrl)
+      GASDSCheckboxPage.validateNavigation()
+      Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      GASDSCheckboxPage.validatePageContent()
+      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      GASDSCheckboxPage.validateErrorMessage()
+    }
   }
 }
