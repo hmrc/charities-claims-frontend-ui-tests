@@ -31,8 +31,10 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 import java.time.Duration
+import java.time.LocalDate.now
 import scala.util.Random
-
+import java.time.{LocalDate, ZoneId}
+import java.time.format.DateTimeFormatter
 import scala.jdk.CollectionConverters._
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
@@ -185,32 +187,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val element        = waitForVisibilityOfElement(inputLocatorValue)
     element.clear()
     element.sendKeys(heartCharacter)
-    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
-  }
-
-  /** Trigger Invalid Tax Year error message - <= 2023 */
-  def triggerBefore2024TaxYearError(
-    expectedMessage: String,
-    inputLocatorValue: By,
-    errorMsgLocatorValue: By
-  ): Unit = {
-    val before2024TaxYear = "2020"
-    val element           = waitForVisibilityOfElement(inputLocatorValue)
-    element.clear()
-    element.sendKeys(before2024TaxYear)
-    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
-  }
-
-  /** Trigger Invalid Tax Year error message - after current tax year */
-  def triggerAfterCurrentTaxYearError(
-    expectedMessage: String,
-    inputLocatorValue: By,
-    errorMsgLocatorValue: By
-  ): Unit = {
-    val afterCurrentTaxYear = "2030"
-    val element             = waitForVisibilityOfElement(inputLocatorValue)
-    element.clear()
-    element.sendKeys(afterCurrentTaxYear)
     validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
@@ -638,5 +614,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     s != null &&
       s.nonEmpty &&
       s.matches("^[A-Z2-7]{28,32}$")
+
+  def currentTaxYear: Int =
+    if now.isAfter(LocalDate.of(now.getYear, 4, 5)) then now.getYear + 1 else now.getYear
 
 }

@@ -21,6 +21,7 @@ import org.scalatest.verbs.ShouldVerb
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.pages.AuthWizard.currentTaxYear
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -305,11 +306,11 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       AboutGASDSPage.clickContinue()
       Then("User validates the navigation to 'Which Tax Year Are You Claiming For' page 1 ")
-      WhichTaxYearPage.validateNavigation1()
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then("User validates the page properties on 'Which Tax Year Are You Claiming For' page 1")
-      WhichTaxYearPage.validatePageProperties1()
+      WhichTaxYearAreYouClaimingForPage.validatePageProperties1()
       Then("User validates the error messages on 'Which Tax Year Are You Claiming For ' Page 1")
-      WhichTaxYearPage.validateErrorMessages1()
+      WhichTaxYearAreYouClaimingForPage.validateErrorMessages1()
     }
 
     Scenario(
@@ -374,9 +375,11 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -451,9 +454,11 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -463,7 +468,7 @@ class GASDSPagesSpec
       Then("User navigates to 'Check your claim details for tax year 1' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year"        -> "2024",
+        "Tax year"        -> RemoveClaimForTaxYearPage.earliestTaxYear,
         "Donation amount" -> "£123.45"
       )
     }
@@ -530,9 +535,11 @@ class GASDSPagesSpec
       AboutGASDSPage.validateNavigation()
       Then("User navigates to 'Which tax year are you claiming for?' page")
       AboutGASDSPage.clickContinue()
-      WhichTaxYearPage.validateNavigation1()
-      Then("User inputs a value on 'Which tax year are you claiming for?' page")
-      WhichTaxYearPage.enterValidTaxYear("2024")
+      WhichTaxYearAreYouClaimingForPage.validateNavigation1()
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
+      )
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
