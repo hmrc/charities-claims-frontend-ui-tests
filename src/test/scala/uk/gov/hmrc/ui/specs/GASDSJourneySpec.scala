@@ -226,7 +226,18 @@ class GASDSJourneySpec
       YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
       Then("User selects to remove the 2nd tax year from 'You have added a claim for 3 tax years' page")
       YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow2Link()
-      // TODO WRN9 and CYA
+      Then("User navigates to 'Do you want to remove the claim for tax year 2025?' page")
+      RemoveClaimForTaxYearPage.validateNavigation2()
+      Then("User confirms to remove the 2nd tax year from 'You have added a claim for 3 tax years' page")
+      RemoveClaimForTaxYearPage.radioButton(RemoveClaimForTaxYearPage.yes)
+      Then("User navigates to 'You have added a claim for 2 tax years' page")
+      RemoveClaimForTaxYearPage.clickContinue()
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
+      Then("User selects 'No' on 'You have added a claim for 2 tax year' page to add another tax year")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Check your GASDS donation details' page")
+      // TODO CYA
     }
   }
 }
