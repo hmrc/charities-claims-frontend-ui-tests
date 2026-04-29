@@ -23,19 +23,9 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/which-tax-year-are-you-claiming-for"
 
-  def pageUrl1: String = pageUrl + "/1"
-
-  def pageUrl2: String = pageUrl + "/2"
-
-  def pageUrl3: String = pageUrl + "/3"
-
   override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String = "Provide GASDS donation details"
-
-  def pageCaption2: String = "Provide GASDS donation details - Tax year 2"
-
-  def pageCaption3: String = "Provide GASDS donation details - Tax year 3"
 
   def pageHeading: String = "Which tax year are you claiming for?"
 
@@ -49,19 +39,22 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     clickContinue()
   }
 
-  val errorSummary = By.ByClassName("govuk-error-summary__body")
-
   def inputMaxYearLength = 4
 
-  val yearInputLocator      = By.ById("value")
-  val yearInputErrorLocator = By.ById("value-error")
+  val yearInputLocator              = By.ById("value")
+  val yearInputErrorLocator         = By.ById("value-error")
+  val TaxYearNow: String            = currentTaxYear.toString
+  val earliestTaxYear: String       = (currentTaxYear - 3).toString
+  val secondEarliestTaxYear: String = (currentTaxYear - 2).toString
+  val recentTaxYear: String         = (currentTaxYear - 1).toString
+  val errorSummary                  = By.ByClassName("govuk-error-summary__body")
 
   def pageErrorEmpty: String = "Enter a first tax year"
 
   def pageErrorMaxLength: String = "Enter a first tax year in the correct format"
 
   def pageUnderYearError: String =
-    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than " + (currentTaxYear - 3).toString
+    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than " + earliestTaxYear
 
   def pageOverYearError: String =
     "Gift Aid Small Donations Scheme community buildings claim tax year must be this year or earlier"
@@ -71,6 +64,32 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorWrongFormat2: String = "Enter a second tax year in the correct format"
 
   def pageErrorWrongFormat3: String = "Enter a third tax year in the correct format"
+
+  /** Trigger Invalid Tax Year error message - <= 2023 */
+  def triggerMoreThan3TaxYearsAgoError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val moreThan3TaxYearsAgo = (currentTaxYear - 4).toString
+    val element              = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(moreThan3TaxYearsAgo)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
+
+  /** Trigger Invalid Tax Year error message - after current tax year */
+  def triggerAfterCurrentTaxYearError(
+    expectedMessage: String,
+    inputLocatorValue: By,
+    errorMsgLocatorValue: By
+  ): Unit = {
+    val afterCurrentTaxYear = (currentTaxYear + 1).toString
+    val element             = waitForVisibilityOfElement(inputLocatorValue)
+    element.clear()
+    element.sendKeys(afterCurrentTaxYear)
+    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
+  }
 
   def validateNavigation1(): Unit = {
     WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/1")

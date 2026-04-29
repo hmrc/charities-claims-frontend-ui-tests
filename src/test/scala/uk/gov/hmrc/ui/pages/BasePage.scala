@@ -35,7 +35,7 @@ import java.time.LocalDate.now
 import scala.util.Random
 import java.time.{LocalDate, ZoneId}
 import java.time.format.DateTimeFormatter
-import scala.jdk.CollectionConverters.*
+import scala.jdk.CollectionConverters._
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
 
@@ -187,32 +187,6 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val element        = waitForVisibilityOfElement(inputLocatorValue)
     element.clear()
     element.sendKeys(heartCharacter)
-    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
-  }
-
-  /** Trigger Invalid Tax Year error message - <= 2023 */
-  def triggerMoreThan3TaxYearsAgoError(
-    expectedMessage: String,
-    inputLocatorValue: By,
-    errorMsgLocatorValue: By
-  ): Unit = {
-    val moreThan3TaxYearsAgo = (currentTaxYear - 4).toString
-    val element              = waitForVisibilityOfElement(inputLocatorValue)
-    element.clear()
-    element.sendKeys(moreThan3TaxYearsAgo)
-    validateGenericPageError(expectedMessage, errorMsgLocatorValue)
-  }
-
-  /** Trigger Invalid Tax Year error message - after current tax year */
-  def triggerAfterCurrentTaxYearError(
-    expectedMessage: String,
-    inputLocatorValue: By,
-    errorMsgLocatorValue: By
-  ): Unit = {
-    val afterCurrentTaxYear = (currentTaxYear + 1).toString
-    val element             = waitForVisibilityOfElement(inputLocatorValue)
-    element.clear()
-    element.sendKeys(afterCurrentTaxYear)
     validateGenericPageError(expectedMessage, errorMsgLocatorValue)
   }
 
