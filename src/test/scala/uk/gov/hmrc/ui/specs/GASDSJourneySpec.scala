@@ -100,7 +100,7 @@ class GASDSJourneySpec
     }
 
     Scenario(
-      "User navigates a GASDS Journey for multiple years"
+      "User navigates a GASDS Journey for multiple years and verifies 'Check your GASDS donation details' page"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEY-TEST-GASDS-FLOW")
@@ -235,8 +235,39 @@ class GASDSJourneySpec
       Then("User selects 'No' on 'You have added a claim for 2 tax year' page to add another tax year")
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
-      Then("User navigates to 'Check your GASDS donation details' page")
-
+      Then("User navigates to 'Check your GASDS donation details' page and validates page details")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      And("User validates the sub-headings of Adjustment Amount and GASDS Claims Tax Years")
+      CheckYourGASDSDonationDetailsPage.validateGASDSAdjustmentHeading()
+      CheckYourGASDSDonationDetailsPage.validateGASDSClaimTaxHeading()
+      Then("User Validates the Key and Value pairs on 'Check your GASDS Donation Details' Page")
+      CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Amount of GASDS previously overclaimed" -> "£123.45"
+      )
+      CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "Number of tax years added"              -> "2"
+      )
+      Then("User Clicks 'Change' Link of GASDS Previously overclaimed Adjustment Amount")
+      CheckYourGASDSDonationDetailsPage.clickChangeGASDSAdjustmentAmount()
+      And("User navigates to 'Check Your GASDS Adjustment Amount page' and validates Navigation")
+      CheckYourGASDSAdjustmentAmountPage.validateChangeNavigation()
+      Then("User Clicks CONTINUE to reach directly to 'Check your GASDS Donation details' Page")
+      CheckYourGASDSAdjustmentAmountPage.clickContinue()
+      And("Validates Navigation of Check your GASDS Donation Details Page")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      Then("User Clicks 'Change' Link of GASDS Number of Tax Years Added ")
+      CheckYourGASDSDonationDetailsPage.clickChangeGASDSTaxYears()
+      Then("User navigates to 'You have added a claim for 2 tax years' page")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
+      Then("User selects 'No' on 'You have added a claim for 2 tax year' page to add another tax year")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Check your GASDS donation details' page and validates page details")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      Then("User clicks CONTINUE to reach task list: 'Make a repayment Claim' Page")
+      CheckYourGASDSDonationDetailsPage.clickContinue()
+      And("User validates navigation to 'Make a repayment Claim' Page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
   }
 }

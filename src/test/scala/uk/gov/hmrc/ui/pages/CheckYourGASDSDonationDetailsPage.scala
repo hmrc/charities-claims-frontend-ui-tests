@@ -31,12 +31,19 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
   def pageHeading: String =
     "Check your GASDS donation details"
 
-  val linkAdjustmentAmount: By     = By.xpath("//a[@href='/charities-claims/change-check-gift-aid-small-donations-scheme-adjustment-amount']")
-  val linkGASDSTaxYears: By     = By.xpath("//a[@href='/charities-claims/claim-added-for-tax-year']")
-  val GASDSAdjustmentAmountH2: By = By.xpath("//h2[normalize-space(text())='GASDS claim adjustment']")
-  val GASDSClaimsH2: By = By.xpath("//h2[normalize-space(text())='GASDS claims']")
+  def pageHeadingGASDSAdjustment: String =
+    "GASDS claim adjustment"
 
-  def clickChangeAdjustmentAmount(): Unit = {
+  def pageHeadingGASDSClaimTax: String =
+    "GASDS claims"
+
+  val linkAdjustmentAmount: By    =
+    By.xpath("//a[@href='/charities-claims/change-check-gift-aid-small-donations-scheme-adjustment-amount']")
+  val linkGASDSTaxYears: By       = By.xpath("//a[@href='/charities-claims/claim-added-for-tax-year']")
+  val GASDSAdjustmentAmountH2: By = By.xpath("//h2[normalize-space(text())='GASDS claim adjustment']")
+  val GASDSClaimsH2: By           = By.xpath("//h2[normalize-space(text())='GASDS claims']")
+
+  def clickChangeGASDSAdjustmentAmount(): Unit = {
     val element = waitForElementToBeClickable(linkAdjustmentAmount)
     element.click()
   }
@@ -46,7 +53,7 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
     element.click()
   }
 
-  def validateNavigation(): Unit = {
+  def validateNavigation(): Unit                                = {
     CheckYourGASDSDonationDetailsPage.verifyPageUrl(CheckYourGASDSDonationDetailsPage.pageUrl)
     CheckYourGASDSDonationDetailsPage.verifyPageTitle(CheckYourGASDSDonationDetailsPage.pageTitle)
     CheckYourGASDSDonationDetailsPage.verifyPageCaption(CheckYourGASDSDonationDetailsPage.pageCaption)
@@ -71,5 +78,15 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
     )
     println("Actual page sub-heading is: " + driver.findElement(GASDSClaimsH2).getText)
   }
+
+  def validateGASDSAdjustmentHeading(): Unit =
+    CheckYourGASDSDonationDetailsPage.verifyGASDSAdjustmentH2(
+      CheckYourGASDSDonationDetailsPage.pageHeadingGASDSAdjustment
+    )
+
+  def validateGASDSClaimTaxHeading(): Unit =
+    CheckYourGASDSDonationDetailsPage.verifyGASDSClaimsH2(
+      CheckYourGASDSDonationDetailsPage.pageHeadingGASDSClaimTax
+    )
 
 }
