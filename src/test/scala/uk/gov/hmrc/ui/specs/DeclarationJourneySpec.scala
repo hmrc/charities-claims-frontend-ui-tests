@@ -368,7 +368,9 @@ class DeclarationJourneySpec
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Which tax year are you claiming for?' year 3 page")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
-      Then(s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + WhichTaxYearAreYouClaimingForPage.recentTaxYear)
+      Then(
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + WhichTaxYearAreYouClaimingForPage.recentTaxYear
+      )
       WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(WhichTaxYearAreYouClaimingForPage.recentTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the third year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
