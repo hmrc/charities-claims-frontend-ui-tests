@@ -84,6 +84,14 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
   }
 
+  def validateNavigationGASDSOnlyComplete(): Unit = {
+    ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
+    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)
+  }
+
   val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
   val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
   val linkProvideOrganisationDetails: By   = By.xpath("//a[@href='/charities-claims/about-the-organisation']")
