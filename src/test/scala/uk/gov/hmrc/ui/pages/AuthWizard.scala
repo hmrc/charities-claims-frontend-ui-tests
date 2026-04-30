@@ -53,7 +53,7 @@ object AuthWizard extends BasePage {
         Env.baseUrl.equals(
           "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
         )
-      ) "http://localhost:8030/charities-claims"
+      ) "http://localhost:8033/charities-management"
       else s"${Env.baseUrl}/charities-claims"
     Redirect
   }

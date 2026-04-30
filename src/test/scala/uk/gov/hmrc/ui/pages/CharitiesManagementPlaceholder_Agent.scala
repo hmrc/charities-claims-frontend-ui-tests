@@ -23,33 +23,76 @@ object CharitiesManagementPlaceholder_Agent extends BasePage {
   override def pageUrl: String = s"$hostname/charities-management/charity-repayment-dashboard"
 
   override def pageTitle: String =
-    "Manage Charity repayment claims - Make a charity tax repayment claim - GOV.UK"
+    "Manage charity repayment claims - Make a charity tax repayment claim - GOV.UK"
 
   val pageCaptionAgentID: By = By.xpath("//span[@class='govuk-caption-l'][1]")
 
+  def pageCaption1: String =
+    "Agent AGTJOURNEYTEST"
+
   val pageCaptionAgentRef: By = By.xpath("//span[@class='govuk-caption-l'][2]")
 
+  def pageCaption2: String =
+    "Charities Agent reference: AGTJOURNEYTEST"
+
   def pageHeading: String =
-    "Manage Charity repayment claims"
+    "Manage charity repayment claims"
 
   val pageParagraph1: By = By.xpath("//p[@class='govuk-body'][1]")
+
+  def pageParagraph1Text: String =
+    "Complete any Gift Aid, Other Income or Community Building (opens in new tab) schedule spreadsheets before making a new claim."
 
   def pageSubHeading1: String =
     "Make a repayment claim"
 
-  val pageParagraph2: By = By.xpath("//p[@class='govuk-body'][2]")
+  val linkMakeANewClaim: By = By.xpath("//p[@class='govuk-body'][2]")
 
-  val pageParagraph3: By = By.xpath("//p[@class='govuk-body'][3]")
+  def pageParagraph2Text: String =
+    "Use this to make a repayment claim"
+
+  val linkToRecognisedSoftware: By = By.xpath("//p[@class='govuk-body'][3]")
+
+  def pageParagraph3Text: String =
+    "Use HMRC-recognised software (opens in new tab)"
 
   def pageSubHeading2: String =
     "Draft charity repayment claims"
 
   val pageParagraph4: By = By.xpath("//p[@class='govuk-body'][4]")
 
-  def validateNavigation(): Unit = {
-    // CharitiesManagementPlaceholder_Agent.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
-    CharitiesManagementPlaceholder_Agent.verifyPageTitle(CharitiesManagementPlaceholder.pageTitle)
-    // CharitiesManagementPlaceholder_Agent.verifyPageCaption(CharitiesManagementPlaceholder.pageCaption)
-    CharitiesManagementPlaceholder_Agent.verifyPageHeading(CharitiesManagementPlaceholder.pageHeading)
+  def pageParagraph4Text: String =
+    "You have 0 claims in draft."
+
+  def clickLinkToMakeANewClaim(): Unit = {
+    val element = waitForElementToBeClickable(linkMakeANewClaim)
+    element.click()
   }
+
+  def clickLinkToRecognisedSoftware(): Unit = {
+    val element = waitForElementToBeClickable(linkToRecognisedSoftware)
+    element.click()
+  }
+
+  def validateNavigation(): Unit = {
+    // CharitiesManagementPlaceholder_Agent.verifyPageUrl(CharitiesManagementPlaceholder_Agent.pageUrl)
+    CharitiesManagementPlaceholder_Agent.verifyPageTitle(CharitiesManagementPlaceholder_Agent.pageTitle)
+    // CharitiesManagementPlaceholder_Agent.verifyPageCaption(CharitiesManagementPlaceholder_Agent.pageCaption)
+    CharitiesManagementPlaceholder_Agent.verifyPageHeading(CharitiesManagementPlaceholder_Agent.pageHeading)
+  }
+
+  def validatePageContent(): Unit =
+    CharitiesManagementPlaceholder_Agent.verifyEntirePageContent(
+      CharitiesManagementPlaceholder_Agent.createSingleStringFromMany(
+        CharitiesManagementPlaceholder_Agent.pageCaption1,
+        CharitiesManagementPlaceholder_Agent.pageCaption2,
+        CharitiesManagementPlaceholder_Agent.pageHeading,
+        CharitiesManagementPlaceholder_Agent.pageParagraph1Text,
+        CharitiesManagementPlaceholder_Agent.pageSubHeading1,
+        CharitiesManagementPlaceholder_Agent.pageParagraph2Text,
+        CharitiesManagementPlaceholder_Agent.pageParagraph3Text,
+        CharitiesManagementPlaceholder_Agent.pageSubHeading2,
+        CharitiesManagementPlaceholder_Agent.pageParagraph4Text
+      )
+    )
 }
