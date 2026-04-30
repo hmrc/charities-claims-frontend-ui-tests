@@ -39,14 +39,20 @@ object ThisGASDSClaimCannotBeSetUpPage extends BasePage {
   def textGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
-//  def textConfirmRegulatorName: String =
-//    "confirm your charity regulator name"
-//
-//  def textConfirmIfCorporateTrustee: String =
-//    "confirm if you are a corporate trustee"
-//
-//  def textConfirmCorporateTrusteeDetails: String =
-//    "confirm the corporate trustee details"
+  def textConfirmAmountOfGASDSOverclaimed: String =
+    "confirm the amount of GASDS previously overclaimed "
+
+  def textConfirmNumberOfTaxYears: String =
+    "confirm the number of tax years you are claiming for"
+
+  def textConfirmTheDonationAmount1: String =
+    "confirm the donation amount you are claiming for tax year 1"
+
+  def textConfirmTheDonationAmount2: String =
+    "confirm the donation amount you are claiming for tax year 2"
+
+  def textConfirmTheDonationAmount3: String =
+    "confirm the donation amount you are claiming for tax year 3"
 
   def validateNavigation(): Unit = {
     ThisGASDSClaimCannotBeSetUpPage.verifyPageUrl(ThisGASDSClaimCannotBeSetUpPage.pageUrl)
@@ -62,7 +68,7 @@ object ThisGASDSClaimCannotBeSetUpPage extends BasePage {
         ThisGASDSClaimCannotBeSetUpPage.pageWarningHeading,
         ThisGASDSClaimCannotBeSetUpPage.pageWarningText,
         ThisGASDSClaimCannotBeSetUpPage.textParagraph1,
-//        ThisGASDSClaimCannotBeSetUpPage.textConfirmCorporateTrusteeDetails,
+        ThisGASDSClaimCannotBeSetUpPage.textConfirmAmountOfGASDSOverclaimed,
         ThisGASDSClaimCannotBeSetUpPage.textGoBackToProvideMissingInfo
       )
     )

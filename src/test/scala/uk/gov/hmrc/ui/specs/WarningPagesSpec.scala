@@ -742,7 +742,7 @@ class WarningPagesSpec
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
+      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.no)
       DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
       DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
@@ -778,8 +778,7 @@ class WarningPagesSpec
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
       AboutGASDSPage.validateNavigation()
       Then("User URL hops to 'Check your GASDS details page' and clicks continue")
-//    GASDSCYAPage.navigateToTpage(GASDSCYAPage.pageUrl)
-//    GASDSCYAPage.clickContinue()
+//    TODO Implement URL hop to CYA when CYA automation is complete
       Then("User validates navigation to 'This claim cannot be set up 'page")
       ThisGASDSClaimCannotBeSetUpPage.validateNavigation()
       ThisGASDSClaimCannotBeSetUpPage.validatePageContent()
