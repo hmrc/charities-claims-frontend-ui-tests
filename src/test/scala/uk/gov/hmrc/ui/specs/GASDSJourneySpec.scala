@@ -236,7 +236,7 @@ class GASDSJourneySpec
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then("User navigates to 'Check your GASDS donation details' page")
-      // TODO CYA
+
     }
   }
 }
