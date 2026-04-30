@@ -44,7 +44,7 @@ object CharitiesManagementPlaceholder_Agent extends BasePage {
   def pageSubHeading2: String =
     "Draft charity repayment claims"
 
-  val pageParagraph4: By = By.xpath("//p[@class='govuk-body'][4]")  
+  val pageParagraph4: By = By.xpath("//p[@class='govuk-body'][4]")
 
   def validateNavigation(): Unit = {
     // CharitiesManagementPlaceholder_Agent.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
