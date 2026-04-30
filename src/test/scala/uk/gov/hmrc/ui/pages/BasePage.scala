@@ -33,8 +33,7 @@ import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 import java.time.Duration
 import java.time.LocalDate.now
 import scala.util.Random
-import java.time.{LocalDate, ZoneId}
-import java.time.format.DateTimeFormatter
+import java.time.LocalDate
 import scala.jdk.CollectionConverters._
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {

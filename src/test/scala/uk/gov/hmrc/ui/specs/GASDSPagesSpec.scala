@@ -239,12 +239,8 @@ class GASDSPagesSpec
       )
       Then("User clicks 'Change' link on 'Check your GASDS adjustment amount' page")
       CheckYourGASDSAdjustmentAmountPage.clickChangeGASDSAdjustmentAmount()
-      Then(
-        "User navigates to 'What is the adjustment amount for Gift Aid previously overclaimed?' page and validates page heading"
-      )
-      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageHeading(
-        WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageHeading
-      )
+      Then("User navigates to 'What is the adjustment amount for Gift Aid previously overclaimed?' page")
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.validateChangeNavigation()
     }
 
     Scenario(
