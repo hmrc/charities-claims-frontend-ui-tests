@@ -22,6 +22,8 @@ object WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage extends Base
 
   override def pageUrl: String = s"$hostname/adjustment-for-gift-aid-small-donations-scheme-overclaimed"
 
+  def changePageUrl: String = s"$hostname/change-adjustment-for-gift-aid-small-donations-scheme-overclaimed"
+
   override def pageTitle: String =
     "What is the adjustment amount for Gift Aid previously overclaimed? - Make a charity tax repayment claim - GOV.UK"
 
@@ -56,6 +58,21 @@ object WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage extends Base
   def validateNavigation(): Unit = {
     WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageUrl(
       WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageUrl
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageTitle(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageTitle
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageCaption(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageCaption
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageHeading(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageHeading
+    )
+  }
+
+  def validateChangeNavigation(): Unit = {
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageUrl(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.changePageUrl
     )
     WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageTitle(
       WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageTitle
