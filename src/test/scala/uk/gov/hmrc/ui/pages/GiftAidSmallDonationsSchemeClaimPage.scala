@@ -20,22 +20,22 @@ import org.openqa.selenium.By
 
 object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/change-previous-gasds-claim"
+  override def pageUrl: String = s"$hostname/change-previous-gift-aid-small-donations-scheme-claim"
 
   override def pageTitle: String =
-    "Gift Aid Small Donations Scheme claim - Make a charity tax repayment claim - GOV.UK"
+    "Gift Aid Small Donations Scheme (GASDS) details - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide repayment claim details"
 
   def pageHeading: String =
-    "Gift Aid Small Donations Scheme claim"
+    "Gift Aid Small Donations Scheme (GASDS) details"
 
   def pageParagraph: String =
-    "If a Community Amateur Sports Club has received an over-payment, we will deduct the over-payment from this claim."
+    "If your charity or CASC has received an over-payment, we will deduct the over-payment from this claim."
 
   def pageLegend: String =
-    "Do you want to change a previous Gift Aid Small Donations Scheme claim?"
+    "Do you want to make an adjustment to the GASDS claim?"
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you want to change a previous Gift Aid Small Donations Scheme claim"

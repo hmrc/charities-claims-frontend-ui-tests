@@ -250,7 +250,7 @@ class GiftAidPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'Gift Aid Small Donations Scheme (GASDS) details' page and validates the page elements and error messages"
+      "User navigates to the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - NEW R1.4")
@@ -265,12 +265,12 @@ class GiftAidPagesSpec
       Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
-      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.navigateToPage(GASDSCheckboxPage.pageUrl)
       GASDSCheckboxPage.validateNavigation()
-      Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validatePageContent()
-      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' page")
+      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateErrorMessage()
     }
   }

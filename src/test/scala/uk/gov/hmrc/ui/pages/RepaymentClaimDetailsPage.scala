@@ -36,7 +36,7 @@ object RepaymentClaimDetailsPage extends BasePage {
     "tax repayments on Gift Aid donations"
 
   def listItem2: String =
-    "top-up payments under the Gift Aid Small Donations Scheme"
+    "top-up payments under the Gift Aid Small Donations Scheme (GASDS)"
 
   def listItem3: String =
     "UK tax deducted from Other Income"
