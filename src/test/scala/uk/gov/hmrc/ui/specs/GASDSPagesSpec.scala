@@ -56,31 +56,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -120,31 +120,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -187,31 +187,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -264,31 +264,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -333,31 +333,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -412,31 +412,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -493,31 +493,31 @@ class GASDSPagesSpec
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page")
-      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
       And(
         "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
       )
-      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
       Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
       And(
         "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
       )
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
       Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.validateNavigation()
+      OldConnectedCharitiesPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-      ConnectedCharitiesPage.clickContinue()
+      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+      OldConnectedCharitiesPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateNavigation()
       And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -576,31 +576,31 @@ class GASDSPagesSpec
 ////      Then(
 ////        "User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
 ////      )
-////      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
 ////      And(
 ////        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
 ////      )
-////      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-////      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
 ////      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
 ////      And(
 ////        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
 ////      )
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-////        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+////        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
 ////      )
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
 ////      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
 ////      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
 ////      And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
 ////      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
 ////      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
 ////      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-////      ConnectedCharitiesPage.validateNavigation()
+////      OldConnectedCharitiesPage.validateNavigation()
 ////      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-////      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-////      ConnectedCharitiesPage.clickContinue()
+////      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+////      OldConnectedCharitiesPage.clickContinue()
 ////      Then("User navigates to 'Do you have a claim reference number?' page")
 ////      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
 ////      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
@@ -654,31 +654,31 @@ class GASDSPagesSpec
 ////      Then(
 ////        "User navigates to 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
 ////      )
-////      DoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.validateNavigation()
 ////      And(
 ////        "User selects 'Yes' and clicks continue on 'Do you want to claim a top-up payment under the Gift Aid Small Donations Scheme?' page"
 ////      )
-////      DoYouWantToClaimATopUpUnderGASDSPage.radioButton(DoYouWantToClaimATopUpUnderGASDSPage.yes)
-////      DoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.radioButton(OldDoYouWantToClaimATopUpUnderGASDSPage.yes)
+////      OldDoYouWantToClaimATopUpUnderGASDSPage.clickContinue()
 ////      Then("User navigates to 'Do you want to claim for donations collected in community buildings?' page")
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateNavigation()
 ////      And(
 ////        "User selects 'No' and clicks continue on 'Do you want to claim for donations collected in community buildings?' page"
 ////      )
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
-////        DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.radioButton(
+////        OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.no
 ////      )
-////      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
+////      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.clickContinue()
 ////      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
 ////      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
 ////      And("User selects 'Yes' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
 ////      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
 ////      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
 ////      Then("User navigates to 'Connected charities and Community Amateur Sports Clubs' page")
-////      ConnectedCharitiesPage.validateNavigation()
+////      OldConnectedCharitiesPage.validateNavigation()
 ////      And("User selects 'No' and clicks continue on 'Connected charities and Community Amateur Sports Clubs' page")
-////      ConnectedCharitiesPage.radioButton(ConnectedCharitiesPage.no)
-////      ConnectedCharitiesPage.clickContinue()
+////      OldConnectedCharitiesPage.radioButton(OldConnectedCharitiesPage.no)
+////      OldConnectedCharitiesPage.clickContinue()
 ////      Then("User navigates to 'Do you have a claim reference number?' page")
 ////      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
 ////      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
