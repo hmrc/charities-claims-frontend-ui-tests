@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
+object OldDoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-gasds-payment"
 
@@ -44,26 +44,26 @@ object DoYouWantToClaimATopUpUnderGASDSPage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.pageUrl)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(DoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(OldDoYouWantToClaimATopUpUnderGASDSPage.pageUrl)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(OldDoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(OldDoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(OldDoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
   }
 
   def validateChangeNavigation(): Unit = {
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(DoYouWantToClaimATopUpUnderGASDSPage.changePageUrl)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(DoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(DoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(DoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageUrl(OldDoYouWantToClaimATopUpUnderGASDSPage.changePageUrl)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageTitle(OldDoYouWantToClaimATopUpUnderGASDSPage.pageTitle)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageCaption(OldDoYouWantToClaimATopUpUnderGASDSPage.pageCaption)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyPageHeading(OldDoYouWantToClaimATopUpUnderGASDSPage.pageHeading)
   }
 
   def validateHint(): Unit =
-    DoYouWantToClaimATopUpUnderGASDSPage.verifyHintText(DoYouWantToClaimATopUpUnderGASDSPage.pageHint)
+    OldDoYouWantToClaimATopUpUnderGASDSPage.verifyHintText(OldDoYouWantToClaimATopUpUnderGASDSPage.pageHint)
 
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit =
-    DoYouWantToClaimATopUpUnderGASDSPage.validateGenericPageError(
-      DoYouWantToClaimATopUpUnderGASDSPage.pageErrorMsg,
-      DoYouWantToClaimATopUpUnderGASDSPage.errorMsgLocator
+    OldDoYouWantToClaimATopUpUnderGASDSPage.validateGenericPageError(
+      OldDoYouWantToClaimATopUpUnderGASDSPage.pageErrorMsg,
+      OldDoYouWantToClaimATopUpUnderGASDSPage.errorMsgLocator
     )
 }

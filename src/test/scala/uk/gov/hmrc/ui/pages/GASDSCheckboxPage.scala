@@ -76,10 +76,10 @@ object GASDSCheckboxPage extends BasePage {
   def pageErrorMsg: String =
     "Select which type of GASDS claim(s) you want to make"
 
-  val GiftAid: String     = "#value"
-  val GASDSclaim: String  = "#value_1"
-  val OtherIncome: String = "#value_2"
-  val errorMsgLocator     = By.ById("value-error")
+  val GASDSTopUp: String     = "#value"
+  val GASDSBuilding: String  = "#value_1"
+  val GASDSConnected: String = "#value_2"
+  val errorMsgLocator        = By.ById("value-error")
 
   def validateNavigation(): Unit = {
     GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.pageUrl)
@@ -105,6 +105,27 @@ object GASDSCheckboxPage extends BasePage {
         GASDSCheckboxPage.pageHintSelectAtLeastOne,
         GASDSCheckboxPage.pageCheckbox1,
         GASDSCheckboxPage.pageCheckbox2,
+        GASDSCheckboxPage.pageCheckbox3,
+        GASDSCheckboxPage.btnContinue
+      )
+    )
+
+  def validatePageContentCASC(): Unit =
+    GASDSCheckboxPage.verifyEntirePageContent(
+      GASDSCheckboxPage.createSingleStringFromMany(
+        GASDSCheckboxPage.pageCaption,
+        GASDSCheckboxPage.pageHeading,
+        GASDSCheckboxPage.pageParagraph,
+        GASDSCheckboxPage.pageSubHeading1,
+        GASDSCheckboxPage.pageBullet1,
+        GASDSCheckboxPage.pageHint1,
+        GASDSCheckboxPage.pageBullet2,
+        GASDSCheckboxPage.pageHint2,
+        GASDSCheckboxPage.pageBullet3,
+        GASDSCheckboxPage.pageHint3,
+        GASDSCheckboxPage.pageSubHeading2,
+        GASDSCheckboxPage.pageHintSelectAtLeastOne,
+        GASDSCheckboxPage.pageCheckbox1,
         GASDSCheckboxPage.pageCheckbox3,
         GASDSCheckboxPage.btnContinue
       )

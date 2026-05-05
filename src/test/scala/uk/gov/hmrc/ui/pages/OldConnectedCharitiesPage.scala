@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object ConnectedCharitiesPage extends BasePage {
+object OldConnectedCharitiesPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/connected-to-charities"
 
@@ -45,20 +45,20 @@ object ConnectedCharitiesPage extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    ConnectedCharitiesPage.verifyPageUrl(ConnectedCharitiesPage.pageUrl)
-    ConnectedCharitiesPage.verifyPageTitle(ConnectedCharitiesPage.pageTitle)
-    ConnectedCharitiesPage.verifyPageCaption(ConnectedCharitiesPage.pageCaption)
-    ConnectedCharitiesPage.verifyPageHeading(ConnectedCharitiesPage.pageHeading)
+    OldConnectedCharitiesPage.verifyPageUrl(OldConnectedCharitiesPage.pageUrl)
+    OldConnectedCharitiesPage.verifyPageTitle(OldConnectedCharitiesPage.pageTitle)
+    OldConnectedCharitiesPage.verifyPageCaption(OldConnectedCharitiesPage.pageCaption)
+    OldConnectedCharitiesPage.verifyPageHeading(OldConnectedCharitiesPage.pageHeading)
   }
 
   def validateParagraph(): Unit = {
-    ConnectedCharitiesPage.verifyParagraphText(ConnectedCharitiesPage.pageParagraph)
-    ConnectedCharitiesPage.verifyLegendText(ConnectedCharitiesPage.pageLegend)
+    OldConnectedCharitiesPage.verifyParagraphText(OldConnectedCharitiesPage.pageParagraph)
+    OldConnectedCharitiesPage.verifyLegendText(OldConnectedCharitiesPage.pageLegend)
   }
 
   def validateErrorMessage(): Unit =
-    ConnectedCharitiesPage.validateGenericPageError(
-      ConnectedCharitiesPage.pageErrorMsg,
-      ConnectedCharitiesPage.errorMsgLocator
+    OldConnectedCharitiesPage.validateGenericPageError(
+      OldConnectedCharitiesPage.pageErrorMsg,
+      OldConnectedCharitiesPage.errorMsgLocator
     )
 }
