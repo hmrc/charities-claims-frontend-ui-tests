@@ -31,6 +31,21 @@ object CheckYourRepaymentClaimPage extends BasePage {
   def pageHeading: String =
     "Check your repayment claim"
 
+  def repaymentClaimType: String =
+    "Repayment claim type"
+
+  def claimReferenceProvided: String =
+    "Claim reference provided"
+
+  def claimReferenceNumber: String =
+    "Claim reference number"
+
+  def GASDSClaimType: String =
+    "GASDS claim type"
+
+  def GASDSAdjustment: String =
+    "GASDS adjustment"
+
   def validateNavigation(): Unit = {
     CheckYourRepaymentClaimPage.verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
     CheckYourRepaymentClaimPage.verifyPageTitle(CheckYourRepaymentClaimPage.pageTitle)

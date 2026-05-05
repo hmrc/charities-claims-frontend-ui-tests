@@ -31,6 +31,27 @@ object CheckYourOrganisationDetailsPage extends BasePage {
   def pageHeading: String =
     "Check your organisation details"
 
+  def charityRegulatorName: String =
+    "Charity regulator name"
+
+  def charityRegulatorNumber: String =
+    "Charity regulator number"
+
+  def corporateTrusteeClaim: String =
+    "Corporate trustee claim"
+
+  def corporateTrusteeUKAddress: String =
+    "Corporate trustee UK address"
+
+  def corporateTrusteeDetails: String =
+    "Corporate trustee details"
+
+  def authorisedOfficialUKAddress: String =
+    "Authorised official UK address"
+
+  def authorisedOfficialDetails: String =
+    "Authorised official’s details"
+
   def validateNavigation(): Unit = {
     CheckYourOrganisationDetailsPage.verifyPageUrl(CheckYourOrganisationDetailsPage.pageUrl)
     CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
