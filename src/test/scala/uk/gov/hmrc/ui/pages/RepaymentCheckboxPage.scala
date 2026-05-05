@@ -32,7 +32,7 @@ object RepaymentCheckboxPage extends BasePage {
   def pageHeading: String =
     "Which type of repayment claim do you want to make?"
 
-  def pageHintSelectAll: String =
+  def pageHintSelectAtLeastOne: String =
     "Select at least one"
 
   def pageHintCheckbox: String =
@@ -64,7 +64,7 @@ object RepaymentCheckboxPage extends BasePage {
   }
 
   def validateHints(): Unit = {
-    RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAll)
+    RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAtLeastOne)
     RepaymentCheckboxPage.verifyHintCheckbox(RepaymentCheckboxPage.pageHintCheckbox)
   }
 
