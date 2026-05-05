@@ -21,7 +21,7 @@ import org.openqa.selenium.By
 object RepaymentCheckboxPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/select-repayment-claim-type"
-  def changePageUrl: String = s"$hostname/change-select-repayment-claim-type"
+  def changePageUrl: String    = s"$hostname/change-select-repayment-claim-type"
 
   override def pageTitle: String =
     "Which type of repayment claim do you want to make? - Make a charity tax repayment claim - GOV.UK"

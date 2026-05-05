@@ -219,8 +219,8 @@ class ReturningUserSpec
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
         CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided                         -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber                           -> "TESTREF123"
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
       )
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
