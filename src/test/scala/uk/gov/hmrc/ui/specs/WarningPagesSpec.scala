@@ -777,11 +777,12 @@ class WarningPagesSpec
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
       AboutGASDSPage.validateNavigation()
       Then("User URL hops to 'Check your GASDS details page' and clicks continue")
-//    TODO Implement URL hop to CYA when CYA automation is complete
+      CheckYourGASDSDonationDetailsPage.navigateToPage(CheckYourGASDSDonationDetailsPage.pageUrl)
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      CheckYourGASDSDonationDetailsPage.clickContinue()
       Then("User validates navigation to 'This claim cannot be set up 'page")
       ThisGASDSClaimCannotBeSetUpPage.validateNavigation()
       ThisGASDSClaimCannotBeSetUpPage.validatePageContent()
-
     }
 
     Scenario(
