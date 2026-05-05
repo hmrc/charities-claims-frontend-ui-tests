@@ -22,6 +22,8 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/check-gift-aid-small-donations-scheme-adjustment-amount"
 
+  def changePageUrl: String = s"$hostname/change-check-gift-aid-small-donations-scheme-adjustment-amount"
+
   override def pageTitle: String =
     "Check your GASDS adjustment amount - Make a charity tax repayment claim - GOV.UK"
 
@@ -36,6 +38,21 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
     CheckYourGASDSAdjustmentAmountPage.verifyPageTitle(CheckYourGASDSAdjustmentAmountPage.pageTitle)
     CheckYourGASDSAdjustmentAmountPage.verifyPageCaption(CheckYourGASDSAdjustmentAmountPage.pageCaption)
     CheckYourGASDSAdjustmentAmountPage.verifyPageHeading(CheckYourGASDSAdjustmentAmountPage.pageHeading)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    CheckYourGASDSAdjustmentAmountPage.verifyPageUrl(
+      CheckYourGASDSAdjustmentAmountPage.changePageUrl
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageTitle(
+      CheckYourGASDSAdjustmentAmountPage.pageTitle
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageCaption(
+      CheckYourGASDSAdjustmentAmountPage.pageCaption
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageHeading(
+      CheckYourGASDSAdjustmentAmountPage.pageHeading
+    )
   }
 
   val linkChangeGASDSAdjustmentAmount: By =

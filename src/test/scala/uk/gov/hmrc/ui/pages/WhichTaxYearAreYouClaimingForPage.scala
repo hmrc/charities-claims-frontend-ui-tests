@@ -54,10 +54,10 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorMaxLength: String = "Enter a first tax year in the correct format"
 
   def pageUnderYearError: String =
-    "Gift Aid Small Donations Scheme community buildings claim cannot be earlier than " + earliestTaxYear
+    "Gift Aid Small Donations Scheme claim cannot be earlier than " + earliestTaxYear
 
   def pageOverYearError: String =
-    "Gift Aid Small Donations Scheme community buildings claim tax year must be this year or earlier"
+    "Gift Aid Small Donations Scheme claim tax year must be this year or earlier"
 
   def pageErrorWrongFormat1: String = "Enter a first tax year in the correct format"
 

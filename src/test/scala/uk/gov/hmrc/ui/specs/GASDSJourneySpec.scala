@@ -21,7 +21,6 @@ import org.scalatest.verbs.ShouldVerb
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
-import uk.gov.hmrc.ui.pages.AuthWizard.currentTaxYear
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -101,7 +100,7 @@ class GASDSJourneySpec
     }
 
     Scenario(
-      "User navigates a GASDS Journey for multiple years"
+      "User navigates a GASDS Journey for multiple years and verifies 'Check your GASDS donation details' page"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEY-TEST-GASDS-FLOW")
@@ -170,9 +169,9 @@ class GASDSJourneySpec
       CheckYourGASDSAdjustmentAmountPage.clickContinue()
       WhichTaxYearAreYouClaimingForPage.validateNavigation1()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.earliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + WhichTaxYearAreYouClaimingForPage.earliestTaxYear
       )
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.earliestTaxYear)
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(WhichTaxYearAreYouClaimingForPage.earliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the first year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year1()
       Then(
@@ -190,9 +189,9 @@ class GASDSJourneySpec
       Then("User navigates to 'Which tax year are you claiming for?' year 2 page")
       WhichTaxYearAreYouClaimingForPage.validateNavigation2()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.secondEarliestTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear
       )
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.secondEarliestTaxYear)
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the second year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year2()
       Then(
@@ -210,9 +209,9 @@ class GASDSJourneySpec
       Then("User navigates to 'Which tax year are you claiming for?' year 3 page")
       WhichTaxYearAreYouClaimingForPage.validateNavigation3()
       Then(
-        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + RemoveClaimForTaxYearPage.recentTaxYear
+        s"User navigates to 'Which tax year are you claiming for?' page and inputs: " + WhichTaxYearAreYouClaimingForPage.recentTaxYear
       )
-      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(RemoveClaimForTaxYearPage.recentTaxYear)
+      WhichTaxYearAreYouClaimingForPage.enterValidTaxYear(WhichTaxYearAreYouClaimingForPage.recentTaxYear)
       Then("User navigates to 'What donation amount are you claiming under GASDS, in pounds?' for the third year page")
       WhatDonationAmountAreYouClaimingUnderGASDSPage.validateNavigation_Year3()
       Then(
@@ -226,7 +225,49 @@ class GASDSJourneySpec
       YouHaveAddedAClaimForXTaxYearPage.validateNavigation3()
       Then("User selects to remove the 2nd tax year from 'You have added a claim for 3 tax years' page")
       YouHaveAddedAClaimForXTaxYearPage.clickRemoveRow2Link()
-      // TODO WRN9 and CYA
+      Then("User navigates to 'Do you want to remove the claim for tax year 2025?' page")
+      RemoveClaimForTaxYearPage.validateNavigation2()
+      Then("User confirms to remove the 2nd tax year from 'You have added a claim for 3 tax years' page")
+      RemoveClaimForTaxYearPage.radioButton(RemoveClaimForTaxYearPage.yes)
+      Then("User navigates to 'You have added a claim for 2 tax years' page")
+      RemoveClaimForTaxYearPage.clickContinue()
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
+      Then("User selects 'No' on 'You have added a claim for 2 tax year' page to add another tax year")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Check your GASDS donation details' page and validates page details")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      And("User validates the sub-headings of Adjustment Amount and GASDS Claims Tax Years")
+      CheckYourGASDSDonationDetailsPage.validateGASDSAdjustmentHeading()
+      CheckYourGASDSDonationDetailsPage.validateGASDSClaimTaxHeading()
+      Then("User Validates the Key and Value pairs on 'Check your GASDS Donation Details' Page")
+      CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Amount of GASDS previously overclaimed" -> "£123.45"
+      )
+      CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "Number of tax years added"              -> "2"
+      )
+      Then("User Clicks 'Change' Link of GASDS Previously overclaimed Adjustment Amount")
+      CheckYourGASDSDonationDetailsPage.clickChangeGASDSAdjustmentAmount()
+      And("User navigates to 'Check Your GASDS Adjustment Amount page' and validates Navigation")
+      CheckYourGASDSAdjustmentAmountPage.validateChangeNavigation()
+      Then("User Clicks CONTINUE to reach directly to 'Check your GASDS Donation details' Page")
+      CheckYourGASDSAdjustmentAmountPage.clickContinue()
+      And("Validates Navigation of Check your GASDS Donation Details Page")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      Then("User Clicks 'Change' Link of GASDS Number of Tax Years Added ")
+      CheckYourGASDSDonationDetailsPage.clickChangeGASDSTaxYears()
+      Then("User navigates to 'You have added a claim for 2 tax years' page")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
+      Then("User selects 'No' on 'You have added a claim for 2 tax year' page to add another tax year")
+      YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.no)
+      YouHaveAddedAClaimForXTaxYearPage.clickContinue()
+      Then("User navigates to 'Check your GASDS donation details' page and validates page details")
+      CheckYourGASDSDonationDetailsPage.validateNavigation()
+      Then("User clicks CONTINUE to reach task list: 'Make a repayment Claim' Page")
+      CheckYourGASDSDonationDetailsPage.clickContinue()
+      And("User validates navigation to 'Make a repayment Claim' Page")
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
   }
 }
