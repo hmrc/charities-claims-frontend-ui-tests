@@ -48,6 +48,13 @@ object RepaymentClaimDetailsPage extends BasePage {
     RepaymentClaimDetailsPage.verifyPageCaption(RepaymentClaimDetailsPage.pageCaption)
   }
 
+  def validateNavigationAgent(): Unit = {
+    RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.pageUrl)
+    RepaymentCheckboxPage.verifyPageTitle(RepaymentCheckboxPage.pageTitle)
+    RepaymentCheckboxPage.verifyPageCaption(RepaymentCheckboxPage.pageCaptionAgent)
+    RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
+  }
+
   def validateParagraph(): Unit = {
     RepaymentClaimDetailsPage.verifyParagraphText(
       RepaymentClaimDetailsPage.pageParagraph

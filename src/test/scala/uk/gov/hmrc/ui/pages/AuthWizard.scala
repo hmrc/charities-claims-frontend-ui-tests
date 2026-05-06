@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.ui.pages.AuthWizard.{click, sendKeys}
 import uk.gov.hmrc.ui.util.Env
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
-import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+import uk.gov.hmrc.ui.util.Users.UserTypes.{Agent, Organisation}
 import uk.gov.hmrc.ui.util.Users.{LoginTypes, UserTypes}
 
 object AuthWizard extends BasePage {
@@ -87,6 +87,21 @@ object AuthWizard extends BasePage {
   ): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
+    fillInputs(affGrp, enrolKey, enrolId, enrolVal, authId)
+    click(btnSubmit)
+  }
+
+  def loginAgent(
+    loginType: LoginTypes,
+    userType: UserTypes,
+    affGrp: String,
+    enrolKey: String,
+    enrolId: String,
+    enrolVal: String,
+    authId: String = ""
+  ): Unit = {
+    AuthWizard.navigateToPage(url)
+    sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Agent))
     fillInputs(affGrp, enrolKey, enrolId, enrolVal, authId)
     click(btnSubmit)
   }

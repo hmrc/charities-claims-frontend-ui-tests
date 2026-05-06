@@ -22,9 +22,9 @@ import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
-import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+import uk.gov.hmrc.ui.util.Users.UserTypes.{Agent, Organisation}
 
-class GiftAidPagesSpec
+class AgentGiftAidPagesSpec
     extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
@@ -49,13 +49,13 @@ class GiftAidPagesSpec
       "User navigates to the 'Repayment claim details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.0")
+      AuthWizard.login(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "CHARAGENT", "PAGETEST - R1.0")
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
       ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
       Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
+      RepaymentClaimDetailsPage.validateNavigationAgent()
       RepaymentClaimDetailsPage.validateParagraph()
     }
 
