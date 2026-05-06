@@ -29,6 +29,9 @@ object RepaymentCheckboxPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "Which type of repayment claim do you want to make?"
 
