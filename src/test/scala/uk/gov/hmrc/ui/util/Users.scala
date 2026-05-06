@@ -30,8 +30,8 @@ object Users {
           enrolVal = "contact/paye"
         )
 
-    case object Agent_Trust
-        extends UserTypes(affinity = "Agent", enrolKey = "org/trust", enrolId = "aboutyourclient", enrolVal = "")
+    case object Agent
+        extends UserTypes(affinity = "Agent", enrolKey = "HMRC-CHAR-AGENT", enrolId = "CHARAGENT", enrolVal = "AG123")
 
   }
 
