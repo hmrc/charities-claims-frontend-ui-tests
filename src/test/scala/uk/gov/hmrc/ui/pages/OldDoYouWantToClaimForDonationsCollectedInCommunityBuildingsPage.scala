@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends BasePage {
+object OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/claim-community-building-donations"
 
@@ -42,28 +42,28 @@ object DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage extends Bas
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageUrl(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageUrl
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageUrl(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageUrl
     )
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageTitle(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageTitle
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageTitle(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageTitle
     )
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageCaption(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageCaption
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageCaption(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageCaption
     )
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageHeading(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHeading
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyPageHeading(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHeading
     )
   }
 
   def validateHint(): Unit =
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyHintText(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHint
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.verifyHintText(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.pageHint
     )
 
   def validateErrorMessage(): Unit =
-    DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateGenericPageError(
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsg,
-      DoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsgLocator
+    OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.validateGenericPageError(
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsg,
+      OldDoYouWantToClaimForDonationsCollectedInCommunityBuildingsPage.errorMsgLocator
     )
 }

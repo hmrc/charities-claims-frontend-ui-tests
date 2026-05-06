@@ -20,9 +20,9 @@ import org.openqa.selenium.By
 
 object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/claim-reference-number"
+  override def pageUrl: String = s"$hostname/claim-reference-number-check"
 
-  def changePageUrl: String = s"$hostname/change-claim-reference-number"
+  def changePageUrl: String = s"$hostname/change-claim-reference-number-check"
 
   override def pageTitle: String =
     "Do you have a claim reference number? - Make a charity tax repayment claim - GOV.UK"

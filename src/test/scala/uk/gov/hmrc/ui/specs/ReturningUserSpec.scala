@@ -71,8 +71,8 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        "Repayment claim type"           -> "Gift Aid",
-        "Claim reference number"         -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
       )
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
@@ -109,11 +109,11 @@ class ReturningUserSpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"         -> "Charity Commission for England and Wales",
-        "Charity regulator number"       -> "1234567890",
-        "Corporate trustee claim"        -> "Yes",
-        "Corporate trustee UK address"   -> "Yes",
-        "Corporate trustee details"      -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Charity regulator name"                           -> "Charity Commission for England and Wales",
+        "Charity regulator number"                         -> "1234567890",
+        "Corporate trustee claim"                          -> "Yes",
+        "Corporate trustee UK address"                     -> "Yes",
+        "Corporate trustee details"                        -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -163,8 +163,8 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        "Repayment claim type"           -> "Gift Aid",
-        "Claim reference number"         -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
       )
       Then("User clicks Change link for 'Repayment claim type' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
@@ -185,8 +185,8 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        "Repayment claim type"           -> "UK tax deducted from Other Income",
-        "Claim reference number"         -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
       )
       Then("User clicks Change link for 'Claim reference number' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeClaimReference()
@@ -205,9 +205,9 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        "Repayment claim type"           -> "UK tax deducted from Other Income",
-        "Claim reference number"         -> "Yes",
-        "Reference number"               -> "TESTREF123"
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
       )
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
@@ -218,9 +218,9 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        "Repayment claim type"           -> "UK tax deducted from Other Income",
-        "Claim reference number"         -> "Yes",
-        "Reference number"               -> "TESTREF123"
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
       )
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
@@ -231,11 +231,11 @@ class ReturningUserSpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"         -> "Charity Commission for England and Wales",
-        "Charity regulator number"       -> "1234567890",
-        "Corporate trustee claim"        -> "Yes",
-        "Corporate trustee UK address"   -> "Yes",
-        "Corporate trustee details"      -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Charity regulator name"                           -> "Charity Commission for England and Wales",
+        "Charity regulator number"                         -> "1234567890",
+        "Corporate trustee claim"                          -> "Yes",
+        "Corporate trustee UK address"                     -> "Yes",
+        "Corporate trustee details"                        -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
       Then("User clicks on Change Link for Corporate trustee and navigates to that page")
       CheckYourOrganisationDetailsPage.clickChangeCorporateTrusteeClaim()
@@ -273,11 +273,11 @@ class ReturningUserSpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"         -> "Charity Commission for England and Wales",
-        "Charity regulator number"       -> "1234567890",
-        "Corporate trustee claim"        -> "No",
-        "Authorised official UK address" -> "Yes",
-        "Authorised official’s details"  -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Charity regulator name"                           -> "Charity Commission for England and Wales",
+        "Charity regulator number"                         -> "1234567890",
+        "Corporate trustee claim"                          -> "No",
+        "Authorised official UK address"                   -> "Yes",
+        "Authorised official’s details"                    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       CheckYourOrganisationDetailsPage.clickContinue()
       And("User navigates to 'Make a charity repayment claim' task list page")

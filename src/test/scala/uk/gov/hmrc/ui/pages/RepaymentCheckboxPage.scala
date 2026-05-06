@@ -20,7 +20,8 @@ import org.openqa.selenium.By
 
 object RepaymentCheckboxPage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/repayment-claim-type"
+  override def pageUrl: String = s"$hostname/select-repayment-claim-type"
+  def changePageUrl: String    = s"$hostname/change-select-repayment-claim-type"
 
   override def pageTitle: String =
     "Which type of repayment claim do you want to make? - Make a charity tax repayment claim - GOV.UK"
@@ -31,8 +32,8 @@ object RepaymentCheckboxPage extends BasePage {
   def pageHeading: String =
     "Which type of repayment claim do you want to make?"
 
-  def pageHintSelectAll: String =
-    "Select all that apply"
+  def pageHintSelectAtLeastOne: String =
+    "Select at least one"
 
   def pageHintCheckbox: String =
     "These are not your Gift Aid donations"
@@ -63,7 +64,7 @@ object RepaymentCheckboxPage extends BasePage {
   }
 
   def validateHints(): Unit = {
-    RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAll)
+    RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAtLeastOne)
     RepaymentCheckboxPage.verifyHintCheckbox(RepaymentCheckboxPage.pageHintCheckbox)
   }
 

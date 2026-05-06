@@ -31,6 +31,21 @@ object CheckYourRepaymentClaimPage extends BasePage {
   def pageHeading: String =
     "Check your repayment claim"
 
+  def repaymentClaimType: String =
+    "Repayment claim type"
+
+  def claimReferenceProvided: String =
+    "Claim reference provided"
+
+  def claimReferenceNumber: String =
+    "Claim reference number"
+
+  def GASDSClaimType: String =
+    "GASDS claim type"
+
+  def GASDSAdjustment: String =
+    "GASDS adjustment"
+
   def validateNavigation(): Unit = {
     CheckYourRepaymentClaimPage.verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
     CheckYourRepaymentClaimPage.verifyPageTitle(CheckYourRepaymentClaimPage.pageTitle)
@@ -41,13 +56,10 @@ object CheckYourRepaymentClaimPage extends BasePage {
   val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")
   val linkChangeClaimReference: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number']")
   val linkChangeReferenceNumber: By    = By.xpath("//a[@href='/charities-claims/change-enter-claim-reference-number']")
-  val linkChangeGasdsPayment: By       = By.xpath("//a[@href='/charities-claims/change-claim-gasds-payment']")
-  val linkChangeBuilding: By           =
-    By.xpath("//a[@href='/charities-claims/change-claim-community-building-donations']")
-  val linkChangeChangeGasds: By        =
-    By.xpath("//a[@href='/charities-claims/change-change-previous-gasds-claim']")
-  val linkChangeConnectedCharities: By =
-    By.xpath("//a[@href='/charities-claims/change-connected-to-charities']")
+  val linkChangeGASDSClaimType: By     =
+    By.xpath("//a[@href='/charities-claims/change-select-gift-aid-small-donations-scheme-claim-type']")
+  val linkChangeGASDSAdjustment: By    =
+    By.xpath("//a[@href='/charities-claims/change-change-previous-gift-aid-small-donations-scheme-claim']")
 
   def clickChangeRepaymentClaimType(): Unit = {
     val element = waitForElementToBeClickable(linkChangeRepaymentClaimType)
@@ -64,23 +76,13 @@ object CheckYourRepaymentClaimPage extends BasePage {
     element.click()
   }
 
-  def clickChangeGasdsPayment(): Unit = {
-    val element = waitForElementToBeClickable(linkChangeGasdsPayment)
+  def clickChangeGASDSClaimType(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeGASDSClaimType)
     element.click()
   }
 
-  def clickChangeBuilding(): Unit = {
-    val element = waitForElementToBeClickable(linkChangeBuilding)
-    element.click()
-  }
-
-  def clickChangeChangeGasds(): Unit = {
-    val element = waitForElementToBeClickable(linkChangeChangeGasds)
-    element.click()
-  }
-
-  def clickChangeConnectedCharities(): Unit = {
-    val element = waitForElementToBeClickable(linkChangeConnectedCharities)
+  def clickChangeGASDSAdjustment(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeGASDSAdjustment)
     element.click()
   }
 
