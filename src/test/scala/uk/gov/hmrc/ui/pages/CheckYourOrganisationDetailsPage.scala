@@ -47,7 +47,7 @@ object CheckYourOrganisationDetailsPage extends BasePage {
     "Corporate trustee details"
 
   def authorisedOfficialUKAddress: String =
-    "Authorised official UK address"
+    "Authorised official’s UK address"
 
   def authorisedOfficialDetails: String =
     "Authorised official’s details"

@@ -29,6 +29,9 @@ object RepaymentClaimDetailsPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide repayment claim details"
+
   def pageParagraph: String =
     "Use this service to claim:"
 
