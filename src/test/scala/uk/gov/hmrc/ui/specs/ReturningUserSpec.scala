@@ -46,7 +46,7 @@ class ReturningUserSpec
         "Organisation",
         "HMRC-CHAR-ORG",
         "CHARID",
-        "RETURNING USER TEST",
+        "RE1234",
         "returnuser"
       )
       Then("User navigates to 'Make a charity repayment claim' page")
@@ -152,7 +152,7 @@ class ReturningUserSpec
         "Organisation",
         "HMRC-CHAR-ORG",
         "CHARID",
-        "RETURNING USER TEST",
+        "RE1234",
         "returnuser"
       )
       Then("User navigates to 'Make a charity repayment claim' page")
@@ -168,7 +168,7 @@ class ReturningUserSpec
       )
       Then("User clicks Change link for 'Repayment claim type' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
-      RepaymentCheckboxPage.verifyPageUrl(s"$hostname/change-repayment-claim-type")
+      RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.changePageUrl)
       RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
       Then(
         "User unselects 'Tax repayments on Gift aid' checkbox and selects 'UK tax deducted from Other Income'checkbox and clicks continue"

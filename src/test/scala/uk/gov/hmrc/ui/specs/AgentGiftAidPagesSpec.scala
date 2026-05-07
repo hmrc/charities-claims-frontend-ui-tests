@@ -69,7 +69,7 @@ class AgentGiftAidPagesSpec
       And("User navigates to 'Which type of repayment claim do you want to make?' checkbox page")
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
       RepaymentCheckboxPage.validateNavigation()
-      RepaymentCheckboxPage.validateHints()
+      RepaymentCheckboxPage.validateHint()
       // And("user selects all 3 types of checkboxes")
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)

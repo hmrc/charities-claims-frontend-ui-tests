@@ -21,7 +21,7 @@ import uk.gov.hmrc.ui.pages
 
 object UpdateRepaymentClaimDetails extends BasePage {
 
-  override def pageUrl: String = s"$hostname/change-repayment-claim-type"
+  override def pageUrl: String = s"$hostname/change-select-repayment-claim-type"
 
   override def pageTitle: String =
     "Do you want to update this repayment claim? - Make a charity tax repayment claim - GOV.UK"
