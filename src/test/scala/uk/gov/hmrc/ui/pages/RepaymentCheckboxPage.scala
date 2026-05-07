@@ -38,9 +38,6 @@ object RepaymentCheckboxPage extends BasePage {
   def pageHintSelectAtLeastOne: String =
     "Select at least one"
 
-  def pageHintCheckbox: String =
-    "These are not your Gift Aid donations"
-
   def pageErrorMsg: String =
     "Select repayment claim type"
 
@@ -66,10 +63,8 @@ object RepaymentCheckboxPage extends BasePage {
     RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
   }
 
-  def validateHints(): Unit = {
+  def validateHint(): Unit =
     RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAtLeastOne)
-    RepaymentCheckboxPage.verifyHintCheckbox(RepaymentCheckboxPage.pageHintCheckbox)
-  }
 
   def validateErrorMessage(): Unit =
     RepaymentCheckboxPage.validateGenericPageError(

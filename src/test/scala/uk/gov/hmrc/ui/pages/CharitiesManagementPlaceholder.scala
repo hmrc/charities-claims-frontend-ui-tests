@@ -18,13 +18,13 @@ package uk.gov.hmrc.ui.pages
 
 object CharitiesManagementPlaceholder extends BasePage {
 
-  override def pageUrl: String = s"$hostname/charities-management/charity-repayment-dashboard"
+  override def pageUrl: String = s"$hostname/charities-management/manage-charity-repayment-claim"
 
   override def pageTitle: String =
-    "Manage Charity repayment claims - Make a charity tax repayment claim - GOV.UK"
+    "Manage charity repayment claim - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
-    "Manage Charity repayment claims"
+    "Manage charity repayment claim"
 
   def validateNavigation(): Unit = {
     // CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)

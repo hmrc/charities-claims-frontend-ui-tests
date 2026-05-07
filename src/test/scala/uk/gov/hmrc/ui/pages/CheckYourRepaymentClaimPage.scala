@@ -53,8 +53,8 @@ object CheckYourRepaymentClaimPage extends BasePage {
     CheckYourRepaymentClaimPage.verifyPageHeading(CheckYourRepaymentClaimPage.pageHeading)
   }
 
-  val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-repayment-claim-type']")
-  val linkChangeClaimReference: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number']")
+  val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-select-repayment-claim-type']")
+  val linkChangeClaimReference: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number-check']")
   val linkChangeReferenceNumber: By    = By.xpath("//a[@href='/charities-claims/change-enter-claim-reference-number']")
   val linkChangeGASDSClaimType: By     =
     By.xpath("//a[@href='/charities-claims/change-select-gift-aid-small-donations-scheme-claim-type']")
