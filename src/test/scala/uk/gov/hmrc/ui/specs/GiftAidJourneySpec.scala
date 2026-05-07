@@ -209,7 +209,7 @@ class GiftAidJourneySpec
     }
 
     Scenario(
-      "User navigates to the 'Repayment claim details' page and validates the page elements - GASDS,GA,OI with reference number"
+      "User navigates to the 'Repayment claim details' page and validates the page elements - Community Buildings and Connected Charities, with reference number"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST - R4")
