@@ -252,11 +252,11 @@ class GiftAidJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.repaymentClaimType -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType -> "Community building top-up payment Connected charity or CASC claim",
-        CheckYourRepaymentClaimPage.GASDSAdjustment -> "No"
+        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
+        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Community building top-up payment Connected charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSAdjustment        -> "No"
       )
     }
   }

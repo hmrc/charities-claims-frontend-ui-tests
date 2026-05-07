@@ -21,6 +21,7 @@ import org.openqa.selenium.By
 object GASDSCheckboxPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/select-gift-aid-small-donations-scheme-claim-type"
+  def changePageUrl: String    = s"$hostname/change-select-gift-aid-small-donations-scheme-claim-type"
 
   override def pageTitle: String =
     "Gift Aid Small Donations Scheme (GASDS) details - Make a charity tax repayment claim - GOV.UK"
@@ -83,6 +84,13 @@ object GASDSCheckboxPage extends BasePage {
 
   def validateNavigation(): Unit = {
     GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.pageUrl)
+    GASDSCheckboxPage.verifyPageTitle(GASDSCheckboxPage.pageTitle)
+    GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaption)
+    GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.changePageUrl)
     GASDSCheckboxPage.verifyPageTitle(GASDSCheckboxPage.pageTitle)
     GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaption)
     GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
