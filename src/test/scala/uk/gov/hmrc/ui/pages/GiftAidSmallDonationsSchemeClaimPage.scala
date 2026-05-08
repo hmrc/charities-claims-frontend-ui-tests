@@ -28,11 +28,17 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "Gift Aid Small Donations Scheme (GASDS) details"
 
   def pageParagraph: String =
     "If your charity or CASC has received an over-payment, we will deduct the over-payment from this claim."
+
+  def pageParagraphAgent: String =
+    "If the charity or CASC has received an over-payment, we will deduct the over-payment from this claim."
 
   def pageLegend: String =
     "Do you want to make an adjustment to the GASDS claim?"
@@ -51,8 +57,20 @@ object GiftAidSmallDonationsSchemeClaimPage extends BasePage {
     GiftAidSmallDonationsSchemeClaimPage.verifyPageHeading(GiftAidSmallDonationsSchemeClaimPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    GiftAidSmallDonationsSchemeClaimPage.verifyPageUrl(GiftAidSmallDonationsSchemeClaimPage.pageUrl)
+    GiftAidSmallDonationsSchemeClaimPage.verifyPageTitle(GiftAidSmallDonationsSchemeClaimPage.pageTitle)
+    GiftAidSmallDonationsSchemeClaimPage.verifyPageCaption(GiftAidSmallDonationsSchemeClaimPage.pageCaptionAgent)
+    GiftAidSmallDonationsSchemeClaimPage.verifyPageHeading(GiftAidSmallDonationsSchemeClaimPage.pageHeading)
+  }
+
   def validateParagraph(): Unit = {
     GiftAidSmallDonationsSchemeClaimPage.verifyParagraphText(GiftAidSmallDonationsSchemeClaimPage.pageParagraph)
+    GiftAidSmallDonationsSchemeClaimPage.verifyLegendText(GiftAidSmallDonationsSchemeClaimPage.pageLegend)
+  }
+
+  def validateParagraphAgent(): Unit = {
+    GiftAidSmallDonationsSchemeClaimPage.verifyParagraphText(GiftAidSmallDonationsSchemeClaimPage.pageParagraphAgent)
     GiftAidSmallDonationsSchemeClaimPage.verifyLegendText(GiftAidSmallDonationsSchemeClaimPage.pageLegend)
   }
 
