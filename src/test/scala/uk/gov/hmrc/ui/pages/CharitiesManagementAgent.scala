@@ -18,12 +18,12 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-object CharitiesManagementPlaceholder extends BasePage {
+object CharitiesManagementAgent extends BasePage {
 
   override def pageUrl: String = s"$hostname/charities-management/manage-charity-repayment-claim"
 
   override def pageTitle: String =
-    "Manage charity repayment claim - Make a charity tax repayment claim - GOV.UK"
+    "Manage charity repayment claims - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
     "Manage charity repayment claims"
@@ -31,11 +31,11 @@ object CharitiesManagementPlaceholder extends BasePage {
   val lnkUseTheCharities: By = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
   val lnkContinueClaim: By   = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
 
-  def validateNavigation(): Unit = {
-    // CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
-    CharitiesManagementPlaceholder.verifyPageTitle(CharitiesManagementPlaceholder.pageTitle)
-    // CharitiesManagementPlaceholder.verifyPageCaption(CharitiesManagementPlaceholder.pageCaption)
-    CharitiesManagementPlaceholder.verifyPageHeading(CharitiesManagementPlaceholder.pageHeading)
+  def validateNavigationAgent(): Unit = {
+    // CharitiesManagementAgent.verifyPageUrl(CharitiesManagementAgent.pageUrl)
+    CharitiesManagementAgent.verifyPageTitle(CharitiesManagementAgent.pageTitle)
+    // CharitiesManagementAgent.verifyPageCaption(CharitiesManagementAgent.pageCaption)
+    CharitiesManagementAgent.verifyPageHeading(CharitiesManagementAgent.pageHeading)
   }
 
   def clickUseTheCharitiesLink(): Unit = {

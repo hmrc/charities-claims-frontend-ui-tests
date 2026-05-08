@@ -39,7 +39,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'About community buildings schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B10")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -88,7 +94,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'Upload a Community Buildings schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B11")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -148,7 +160,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'Your Community Buildings schedule upload' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.2")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B12")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -211,7 +229,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'Check your Community Buildings schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B13")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -278,7 +302,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'Check your Community Buildings schedule' error page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.4")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B14")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -358,7 +388,13 @@ class AddCommunityBuildingsSchedulePageSpec
       "User navigates to the 'Community Buildings schedule upload successful' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - B1.5")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-B15")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")

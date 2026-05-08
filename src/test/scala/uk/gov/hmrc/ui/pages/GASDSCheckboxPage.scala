@@ -29,14 +29,23 @@ object GASDSCheckboxPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "Gift Aid Small Donations Scheme (GASDS) details"
 
   def pageParagraph: String =
     "We need to know what you want to claim under GASDS."
 
+  def pageParagraphAgent: String =
+    "We need to know what the charity is claiming under GASDS."
+
   def pageSubHeading1: String =
     "You can claim:"
+
+  def pageSubHeading1Agent: String =
+    "The charity can claim:"
 
   def pageBullet1: String =
     "GASDS top-up payments"
@@ -58,6 +67,9 @@ object GASDSCheckboxPage extends BasePage {
 
   def pageSubHeading2: String =
     "Which type of GASDS claim(s) do you want to make?"
+
+  def pageSubHeading2Agent: String =
+    "Which type of GASDS claim(s) do you want to make for the charity?"
 
   def pageHintSelectAtLeastOne: String =
     "Select at least one"
@@ -89,10 +101,24 @@ object GASDSCheckboxPage extends BasePage {
     GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.pageUrl)
+    GASDSCheckboxPage.verifyPageTitle(GASDSCheckboxPage.pageTitle)
+    GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaptionAgent)
+    GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
+  }
+
   def validateChangeNavigation(): Unit = {
     GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.changePageUrl)
     GASDSCheckboxPage.verifyPageTitle(GASDSCheckboxPage.pageTitle)
     GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaption)
+    GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
+  }
+
+  def validateChangeNavigationAgent(): Unit = {
+    GASDSCheckboxPage.verifyPageUrl(GASDSCheckboxPage.changePageUrl)
+    GASDSCheckboxPage.verifyPageTitle(GASDSCheckboxPage.pageTitle)
+    GASDSCheckboxPage.verifyPageCaption(GASDSCheckboxPage.pageCaptionAgent)
     GASDSCheckboxPage.verifyPageHeading(GASDSCheckboxPage.pageHeading)
   }
 
@@ -132,6 +158,49 @@ object GASDSCheckboxPage extends BasePage {
         GASDSCheckboxPage.pageBullet3,
         GASDSCheckboxPage.pageHint3,
         GASDSCheckboxPage.pageSubHeading2,
+        GASDSCheckboxPage.pageHintSelectAtLeastOne,
+        GASDSCheckboxPage.pageCheckbox1,
+        GASDSCheckboxPage.pageCheckbox3,
+        GASDSCheckboxPage.btnContinue
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    GASDSCheckboxPage.verifyEntirePageContent(
+      GASDSCheckboxPage.createSingleStringFromMany(
+        GASDSCheckboxPage.pageCaptionAgent,
+        GASDSCheckboxPage.pageHeading,
+        GASDSCheckboxPage.pageParagraphAgent,
+        GASDSCheckboxPage.pageSubHeading1Agent,
+        GASDSCheckboxPage.pageBullet1,
+        GASDSCheckboxPage.pageHint1,
+        GASDSCheckboxPage.pageBullet2,
+        GASDSCheckboxPage.pageHint2,
+        GASDSCheckboxPage.pageBullet3,
+        GASDSCheckboxPage.pageHint3,
+        GASDSCheckboxPage.pageSubHeading2Agent,
+        GASDSCheckboxPage.pageHintSelectAtLeastOne,
+        GASDSCheckboxPage.pageCheckbox1,
+        GASDSCheckboxPage.pageCheckbox2,
+        GASDSCheckboxPage.pageCheckbox3,
+        GASDSCheckboxPage.btnContinue
+      )
+    )
+
+  def validatePageContentCASCAgent(): Unit =
+    GASDSCheckboxPage.verifyEntirePageContent(
+      GASDSCheckboxPage.createSingleStringFromMany(
+        GASDSCheckboxPage.pageCaptionAgent,
+        GASDSCheckboxPage.pageHeading,
+        GASDSCheckboxPage.pageParagraphAgent,
+        GASDSCheckboxPage.pageSubHeading1Agent,
+        GASDSCheckboxPage.pageBullet1,
+        GASDSCheckboxPage.pageHint1,
+        GASDSCheckboxPage.pageBullet2,
+        GASDSCheckboxPage.pageHint2,
+        GASDSCheckboxPage.pageBullet3,
+        GASDSCheckboxPage.pageHint3,
+        GASDSCheckboxPage.pageSubHeading2Agent,
         GASDSCheckboxPage.pageHintSelectAtLeastOne,
         GASDSCheckboxPage.pageCheckbox1,
         GASDSCheckboxPage.pageCheckbox3,

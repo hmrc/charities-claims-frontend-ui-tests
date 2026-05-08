@@ -39,7 +39,13 @@ class WarningPagesSpec
       "User navigates to the 'Do you want to delete this Gift Aid schedule?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN 1.0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN10")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -98,7 +104,13 @@ class WarningPagesSpec
       "User navigates to the 'Do you want to delete this Other Income schedule?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN 1.1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN11")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -158,7 +170,13 @@ class WarningPagesSpec
       "User navigates to the 'Do you want to delete this GASDS community buildings schedule?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN 1.2")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN12")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -253,7 +271,13 @@ class WarningPagesSpec
       "User navigates to the 'Are you sure you want to delete this repayment claim?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN 2")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST-WRN2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -296,7 +320,13 @@ class WarningPagesSpec
       "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN3")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -343,6 +373,12 @@ class WarningPagesSpec
         "CHARID",
         "ORG-PAGETEST-WRN5-5K"
       )
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -457,6 +493,12 @@ class WarningPagesSpec
         "CHARID",
         "ORG-PAGETEST-WRN5-100K"
       )
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -567,8 +609,14 @@ class WarningPagesSpec
         "Organisation",
         "HMRC-CHAR-ORG",
         "CHARID",
-        "PAGETEST - Organisation WRN6"
+        "PAGETEST-OrganisationWRN6"
       )
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -649,7 +697,13 @@ class WarningPagesSpec
       "User navigates to the 'Check your repayment claim' page with missing information and validates correct warning screen is displayed on submission"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - Repayment WRN6")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-RepaymentWRN6")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -699,7 +753,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Community Buildings schedule upload' page and attempt to upload a quarantined file,then a rejected file, then an unknown file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-CB")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETES-WRN70-CB")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -811,7 +871,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a quarantined file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-GA")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN70-GA")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -867,7 +933,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a rejected file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.1-GA")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN71-GA")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -923,7 +995,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload an unknown file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.2-GA")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN72-GA")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -979,7 +1057,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Connected Charities schedule upload' page and attempt to upload a quarantined file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-CC")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN70-CC")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1039,7 +1123,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Connected Charities schedule upload' page and attempt to upload a rejected file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.1-CC")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN71-CC")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1099,7 +1189,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Connected Charities schedule upload' page and attempt to upload an unknown file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.2-CC")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN72-CC")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1159,7 +1255,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Other Income schedule upload' page and attempts to upload a quarantined file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.0-OI")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN70-OI")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1208,7 +1310,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Other Income schedule upload' page and attempt to upload a rejected file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.1-OI")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN71-OI")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1257,7 +1365,13 @@ class WarningPagesSpec
       "User navigates to the 'Your Other Income schedule upload' page and attempt to upload a unknown file"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN7.2-OI")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN72-OI")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1305,7 +1419,13 @@ class WarningPagesSpec
       "User navigates to the 'Update Gift Aid Schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN8.0")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN80")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1363,7 +1483,13 @@ class WarningPagesSpec
       "User navigates to the 'Update Other Income Schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN8.1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN81")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1423,7 +1549,13 @@ class WarningPagesSpec
       "User navigates to the 'Update Community Buildings Schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN8.2")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN82")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1490,7 +1622,13 @@ class WarningPagesSpec
       "User navigates to the 'Update Connected Charities Schedule' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE TEST - WRN8.3")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN83")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1555,6 +1693,12 @@ class WarningPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row1")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1658,6 +1802,12 @@ class WarningPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -1763,6 +1913,12 @@ class WarningPagesSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-WRN9Row3")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")

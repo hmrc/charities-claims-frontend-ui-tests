@@ -27,11 +27,20 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   override def pageTitle: String =
     "Do you have a claim reference number? - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Does the charity have a claim reference number? - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "Do you have a claim reference number?"
+
+  def pageHeadingAgent: String =
+    "Does the charity have a claim reference number?"
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you have a claim reference number"
@@ -52,6 +61,20 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
     DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
     DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaption)
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitleAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
+  }
+
+  def validateChangeNavigationAgent(): Unit = {
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitleAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
   }
 
   /** Validate that the error message is correct */

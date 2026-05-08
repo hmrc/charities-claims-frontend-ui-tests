@@ -44,6 +44,9 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   def textConfirmTopUpPaymentUnderGASDS: String =
     "confirm if you are claiming a top-up payment under the Gift Aid Small Donations Scheme"
 
+  def textConfirmWhichTypeOfGASDS: String =
+    "confirm which type of GASDS claim(s) you want you want to make"
+
   def textConfirmDonationsCollectedInCommunityBuildings: String =
     "confirm if you are claiming for donations collected in community buildings"
 
@@ -70,9 +73,7 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
         ThisClaimCannotBeSetupPage_Repayment.pageWarningHeading,
         ThisClaimCannotBeSetupPage_Repayment.pageWarningText,
         ThisClaimCannotBeSetupPage_Repayment.textParagraph1,
-        ThisClaimCannotBeSetupPage_Repayment.textConfirmTopUpPaymentUnderGASDS,
-        ThisClaimCannotBeSetupPage_Repayment.textConfirmDonationsCollectedInCommunityBuildings,
-        ThisClaimCannotBeSetupPage_Repayment.textConfirmIfConnectedToOtherCharitiesOrCASC,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmWhichTypeOfGASDS,
         ThisClaimCannotBeSetupPage_Repayment.linkGoBackToProvideMissingInfo
       )
     )

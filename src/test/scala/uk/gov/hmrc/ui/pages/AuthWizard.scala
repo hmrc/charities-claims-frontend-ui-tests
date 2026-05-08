@@ -47,14 +47,25 @@ object AuthWizard extends BasePage {
   val btnSubmit: By       = By.id("submit")
   val btnAddEnrolment: By = By.id("add-ident-btn-0")
 
+  def buildRedirectUrlHostname(loginType: LoginTypes, userType: UserTypes): String = {
+    val Redirect =
+      if (
+        Env.baseUrl.equals(
+          "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8033/charities-management"
+        )
+      ) "http://localhost:8030/charities-claims"
+      else s"${Env.baseUrl}/charities-claims"
+    Redirect
+  }
+
   def buildRedirectUrl(loginType: LoginTypes, userType: UserTypes): String = {
     val Redirect =
       if (
         Env.baseUrl.equals(
-          "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8030/charities-claims"
+          "http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:8033/charities-management"
         )
-      ) "http://localhost:8030/charities-claims"
-      else s"${Env.baseUrl}/charities-claims"
+      ) "http://localhost:8033/charities-management"
+      else s"${Env.baseUrl}/charities-management"
     Redirect
   }
 

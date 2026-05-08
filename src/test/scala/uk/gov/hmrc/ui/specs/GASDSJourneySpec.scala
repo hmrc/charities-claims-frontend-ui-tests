@@ -40,6 +40,12 @@ class GASDSJourneySpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S1-0")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -90,6 +96,12 @@ class GASDSJourneySpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEY-TEST-GASDS-FLOW")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")

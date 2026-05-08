@@ -25,11 +25,26 @@ object CheckYourRepaymentClaimPage extends BasePage {
   override def pageTitle: String =
     "Check your repayment claim - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check repayment claim details - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "Check your repayment claim"
+
+  def pageHeadingAgent: String =
+    "Check repayment claim details"
+
+  def charityNameAgent: String =
+    "Charity name"
+
+  def charitiesReferenceAgent: String =
+    "HMRC Charities reference"
 
   def repaymentClaimType: String =
     "Repayment claim type"
@@ -53,13 +68,34 @@ object CheckYourRepaymentClaimPage extends BasePage {
     CheckYourRepaymentClaimPage.verifyPageHeading(CheckYourRepaymentClaimPage.pageHeading)
   }
 
-  val linkChangeRepaymentClaimType: By = By.xpath("//a[@href='/charities-claims/change-select-repayment-claim-type']")
-  val linkChangeClaimReference: By     = By.xpath("//a[@href='/charities-claims/change-claim-reference-number-check']")
-  val linkChangeReferenceNumber: By    = By.xpath("//a[@href='/charities-claims/change-enter-claim-reference-number']")
-  val linkChangeGASDSClaimType: By     =
+  def validateNavigationAgent(): Unit = {
+    CheckYourRepaymentClaimPage.verifyPageUrl(CheckYourRepaymentClaimPage.pageUrl)
+    CheckYourRepaymentClaimPage.verifyPageTitle(CheckYourRepaymentClaimPage.pageTitleAgent)
+    CheckYourRepaymentClaimPage.verifyPageCaption(CheckYourRepaymentClaimPage.pageCaptionAgent)
+    CheckYourRepaymentClaimPage.verifyPageHeading(CheckYourRepaymentClaimPage.pageHeadingAgent)
+  }
+
+  val linkChangeRepaymentClaimType: By   = By.xpath("//a[@href='/charities-claims/change-select-repayment-claim-type']")
+  val linkChangeClaimReference: By       = By.xpath("//a[@href='/charities-claims/change-claim-reference-number-check']")
+  val linkChangeReferenceNumber: By      = By.xpath("//a[@href='/charities-claims/change-enter-claim-reference-number']")
+  val linkChangeGASDSClaimType: By       =
     By.xpath("//a[@href='/charities-claims/change-select-gift-aid-small-donations-scheme-claim-type']")
-  val linkChangeGASDSAdjustment: By    =
+  val linkChangeGASDSAdjustment: By      =
     By.xpath("//a[@href='/charities-claims/change-change-previous-gift-aid-small-donations-scheme-claim']")
+  val linkChangeCharityName: By          =
+    By.xpath("//a[@href='/charities-claims/change-the-charity-name']")
+  val linkChangeHMRCCharityReference: By =
+    By.xpath("//a[@href='/charities-claims/change-charities-reference-number']")
+
+  def clickChangeCharityName(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeCharityName)
+    element.click()
+  }
+
+  def clickChangeHMRCCharityReference(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeHMRCCharityReference)
+    element.click()
+  }
 
   def clickChangeRepaymentClaimType(): Unit = {
     val element = waitForElementToBeClickable(linkChangeRepaymentClaimType)

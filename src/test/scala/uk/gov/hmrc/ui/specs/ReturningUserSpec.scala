@@ -21,7 +21,6 @@ import org.scalatest.verbs.ShouldVerb
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
-import uk.gov.hmrc.ui.pages.AuthWizard.hostname
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
@@ -49,6 +48,12 @@ class ReturningUserSpec
         "RE1234",
         "returnuser"
       )
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_Empty.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -155,6 +160,12 @@ class ReturningUserSpec
         "RE1234",
         "returnuser"
       )
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickContinueClaimLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigation()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -191,13 +202,13 @@ class ReturningUserSpec
       Then("User clicks Change link for 'Claim reference number' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeClaimReference()
       Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(s"$hostname/change-claim-reference-number")
+      DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
       DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeading)
       And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       Then("User navigates to 'What is your claim reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.verifyPageUrl(s"$hostname/change-enter-claim-reference-number")
+      WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
       WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeading)
       And("User enters their claim reference number and clicks continue")
       WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
@@ -240,13 +251,13 @@ class ReturningUserSpec
       Then("User clicks on Change Link for Corporate trustee and navigates to that page")
       CheckYourOrganisationDetailsPage.clickChangeCorporateTrusteeClaim()
       And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(s"$hostname/change-corporate-trustee-claim")
+      IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.changePageUrl)
       IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
       And("User selects a corporate trustee is not making this claim")
       IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
       IsACorporateTrusteeMakingThisClaimPage.clickContinue()
       And("User navigates to 'Does the authorised official have a UK address?' page")
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(s"$hostname/change-authorised-official-address")
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.pageUrl)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading(
         DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeading
       )
@@ -254,7 +265,7 @@ class ReturningUserSpec
       DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What are the authorised official details?' page")
-      AuthorisedOfficialDetailsPage.verifyPageUrl(s"$hostname/change-authorised-official-details")
+      AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.pageUrl)
       AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
       And("User enters their UK Authorised Official details and clicks continue")
       AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
