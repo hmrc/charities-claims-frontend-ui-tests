@@ -30,7 +30,13 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide repayment claim details"
+
   def pageHeading: String =
+    "Do you have a claim reference number?"
+
+  def pageHeadingAgent: String =
     "Do you have a claim reference number?"
 
   def pageErrorMsg: String =
@@ -47,11 +53,25 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
+  }
+
   def validateChangeNavigation(): Unit = {
     DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
     DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
     DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaption)
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeading)
+  }
+
+  def validateChangeNavigationAgent(): Unit = {
+    DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
   }
 
   /** Validate that the error message is correct */
