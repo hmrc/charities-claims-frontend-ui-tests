@@ -63,6 +63,13 @@ object RepaymentCheckboxPage extends BasePage {
     RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.pageUrl)
+    RepaymentCheckboxPage.verifyPageTitle(RepaymentCheckboxPage.pageTitle)
+    RepaymentCheckboxPage.verifyPageCaption(RepaymentCheckboxPage.pageCaptionAgent)
+    RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
+  }
+
   def validateHint(): Unit =
     RepaymentCheckboxPage.verifyHintText(RepaymentCheckboxPage.pageHintSelectAtLeastOne)
 

@@ -28,13 +28,13 @@ import uk.gov.hmrc.ui.driver.BrowserDriver
 
 import java.nio.file.Paths
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
-import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
+import uk.gov.hmrc.ui.util.Users.UserTypes.{Agent, Organisation}
 
 import java.time.Duration
 import java.time.LocalDate.now
 import scala.util.Random
 import java.time.LocalDate
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 trait BasePage extends PageObject with Eventually with Matchers with LazyLogging with BrowserDriver {
 
@@ -233,7 +233,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
   def navigateBackToPage(): Unit        = driver.navigate().back()
-  val hostname: String                  = AuthWizard.buildRedirectUrl(HASDIRECT, Organisation)
+  val hostname: String                  = AuthWizard.buildRedirectUrlHostname(HASDIRECT, Organisation)
+  val hostnameAgent: String             = AuthWizard.buildRedirectUrlHostname(HASDIRECT, Agent)
 
   /** Page validation methods */
   def isCurrentPage: Boolean         = pageTitle.startsWith(getPageTitle)

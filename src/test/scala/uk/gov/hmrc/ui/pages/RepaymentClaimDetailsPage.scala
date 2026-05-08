@@ -30,10 +30,13 @@ object RepaymentClaimDetailsPage extends BasePage {
     "Provide repayment claim details"
 
   def pageCaptionAgent: String =
-    "Provide repayment claim details"
+    "Provide charity repayment claim details"
 
   def pageParagraph: String =
     "Use this service to claim:"
+
+  def pageParagraphAgent: String =
+    "Use this service to claim the following for the charity:"
 
   def listItem1: String =
     "tax repayments on Gift Aid donations"
@@ -52,15 +55,27 @@ object RepaymentClaimDetailsPage extends BasePage {
   }
 
   def validateNavigationAgent(): Unit = {
-    RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.pageUrl)
-    RepaymentCheckboxPage.verifyPageTitle(RepaymentCheckboxPage.pageTitle)
-    RepaymentCheckboxPage.verifyPageCaption(RepaymentCheckboxPage.pageCaptionAgent)
-    RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
+    RepaymentClaimDetailsPage.verifyPageTitle(RepaymentClaimDetailsPage.pageTitle)
+    RepaymentClaimDetailsPage.verifyPageCaption(RepaymentClaimDetailsPage.pageCaptionAgent)
+    RepaymentClaimDetailsPage.verifyPageHeading(RepaymentClaimDetailsPage.pageHeading)
   }
 
   def validateParagraph(): Unit = {
     RepaymentClaimDetailsPage.verifyParagraphText(
       RepaymentClaimDetailsPage.pageParagraph
+    )
+    RepaymentClaimDetailsPage.verifyListText(
+      RepaymentClaimDetailsPage.createSingleStringFromMany(
+        RepaymentClaimDetailsPage.listItem1,
+        RepaymentClaimDetailsPage.listItem2,
+        RepaymentClaimDetailsPage.listItem3
+      )
+    )
+  }
+
+  def validateParagraphAgent(): Unit = {
+    RepaymentClaimDetailsPage.verifyParagraphText(
+      RepaymentClaimDetailsPage.pageParagraphAgent
     )
     RepaymentClaimDetailsPage.verifyListText(
       RepaymentClaimDetailsPage.createSingleStringFromMany(

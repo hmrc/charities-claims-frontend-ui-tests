@@ -22,7 +22,7 @@ import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 import uk.gov.hmrc.ui.pages.*
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
-import uk.gov.hmrc.ui.util.Users.UserTypes.{Agent, Organisation}
+import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
 class AgentGiftAidPagesSpec
     extends AnyFeatureSpec
@@ -34,41 +34,37 @@ class AgentGiftAidPagesSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation - Gift Aid Page Validations") {
-    Scenario(
-      "User navigates to the 'Make a charity repayment claim' page and validates the page elements"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R2.0")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      ClaimsTaskListPage_Empty.validatePageContent()
-    }
-
+  Feature("Charities - Agent - Gift Aid Page Validations") {
     Scenario(
       "User navigates to the 'Repayment claim details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "CHARAGENT", "PAGETEST - R1.0")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR10")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
-      RepaymentClaimDetailsPage.validateParagraph()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
     }
 
     Scenario(
       "User navigates to the 'Which type of repayment claim do you want to make?' Checkbox page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.1")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR11")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Which type of repayment claim do you want to make?' checkbox page")
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
-      RepaymentCheckboxPage.validateNavigation()
+      RepaymentCheckboxPage.validateNavigationAgent()
       RepaymentCheckboxPage.validateHint()
       // And("user selects all 3 types of checkboxes")
       // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
@@ -84,25 +80,29 @@ class AgentGiftAidPagesSpec
       "User navigates to the 'Gift Aid Small Donations Scheme claim' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.4")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR12")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Type of Repayment Claim' checkbox page")
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
-      RepaymentCheckboxPage.validateNavigation()
+      RepaymentCheckboxPage.validateNavigationAgent()
       Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-      GASDSCheckboxPage.validateNavigation()
+      GASDSCheckboxPage.validateNavigationAgent()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-      GASDSCheckboxPage.validatePageContent()
+      GASDSCheckboxPage.validatePageContentAgent()
       And("User selects 'GASDS top-up' checkbox and clicks continue")
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSTopUp, true)
       GASDSCheckboxPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme claim' page")
-      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
-      GiftAidSmallDonationsSchemeClaimPage.validateParagraph()
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigationAgent()
+      GiftAidSmallDonationsSchemeClaimPage.validateParagraphAgent()
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.validateErrorMessage()
     }
@@ -111,12 +111,16 @@ class AgentGiftAidPagesSpec
       "User navigates to the 'Do you have a claim reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.6")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR13")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      DoYouHaveAClaimReferenceNumberPage.validateNavigationAgent()
       Then("User validates the 'no input' error on the 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.validateErrorMessage()
     }
@@ -125,19 +129,23 @@ class AgentGiftAidPagesSpec
       "User navigates to the 'What is your claim reference number?' page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.7")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR14")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Do you have a claim reference number?' page")
       DoYouHaveAClaimReferenceNumberPage.navigateToPage(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      DoYouHaveAClaimReferenceNumberPage.validateNavigationAgent()
       Then("User clicks 'yes' radio button")
       DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
       Then("User clicks 'continue' button")
       DoYouHaveAClaimReferenceNumberPage.clickContinue()
       And("User navigates to 'What is your claim reference number?' page")
       WhatIsYourClaimReferenceNumberPage.navigateToPage(WhatIsYourClaimReferenceNumberPage.pageUrl)
-      WhatIsYourClaimReferenceNumberPage.validateNavigation()
+      WhatIsYourClaimReferenceNumberPage.validateNavigationAgent()
       Then("User validates the elements on the 'What is your claim reference number?' page")
       WhatIsYourClaimReferenceNumberPage.validateHint()
       Then("User validates the 'no input' error on the 'What is your claim reference number?' page")
@@ -148,35 +156,42 @@ class AgentGiftAidPagesSpec
       "User navigates to the 'Check your Repayment Claim details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - R1.8")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR15")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Check your Repayment Claim details' page")
       CheckYourRepaymentClaimPage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
-      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.validateNavigationAgent()
     }
 
     Scenario(
       "User navigates to the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page and validates the page elements and error messages"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST - NEW R1.4")
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETESTR16")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       And("User navigates to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      RepaymentClaimDetailsPage.validateNavigation()
+      RepaymentClaimDetailsPage.validateNavigationAgent()
       And("User navigates to 'Type of Repayment Claim' checkbox page")
-      RepaymentClaimDetailsPage.clickContinue()
-      RepaymentCheckboxPage.validateNavigation()
+      RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
+      RepaymentCheckboxPage.validateNavigationAgent()
       Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.navigateToPage(GASDSCheckboxPage.pageUrl)
-      GASDSCheckboxPage.validateNavigation()
+      GASDSCheckboxPage.validateNavigationAgent()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-      GASDSCheckboxPage.validatePageContent()
+      GASDSCheckboxPage.validatePageContentAgent()
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateErrorMessage()
     }
