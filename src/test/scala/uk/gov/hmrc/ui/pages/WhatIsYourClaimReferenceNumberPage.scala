@@ -25,11 +25,20 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
   override def pageTitle: String =
     "What is your claim reference number? - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "What is the charity’s claim reference number? - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide repayment claim details"
 
+  def pageCaptionAgent: String =
+    "Provide charity repayment claim details"
+
   def pageHeading: String =
     "What is your claim reference number?"
+
+  def pageHeadingAgent: String =
+    "What is the charity’s claim reference number?"
 
   def pageHint: String =
     "This can be up to 20 characters and include numerical characters like 123456789 and letters from A to Z. It can be found on the payment advice note when the claim is paid."
