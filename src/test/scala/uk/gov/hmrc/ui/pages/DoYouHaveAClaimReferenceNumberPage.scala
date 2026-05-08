@@ -27,6 +27,9 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
   override def pageTitle: String =
     "Do you have a claim reference number? - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Does the charity have a claim reference number? - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide repayment claim details"
 
@@ -55,7 +58,7 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.pageUrl)
-    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitleAgent)
     DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
   }
@@ -69,7 +72,7 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
 
   def validateChangeNavigationAgent(): Unit = {
     DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
-    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitle)
+    DoYouHaveAClaimReferenceNumberPage.verifyPageTitle(DoYouHaveAClaimReferenceNumberPage.pageTitleAgent)
     DoYouHaveAClaimReferenceNumberPage.verifyPageCaption(DoYouHaveAClaimReferenceNumberPage.pageCaptionAgent)
     DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
   }
