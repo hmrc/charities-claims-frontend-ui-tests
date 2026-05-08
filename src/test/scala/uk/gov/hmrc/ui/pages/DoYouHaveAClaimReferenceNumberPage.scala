@@ -31,13 +31,13 @@ object DoYouHaveAClaimReferenceNumberPage extends BasePage {
     "Provide repayment claim details"
 
   def pageCaptionAgent: String =
-    "Provide repayment claim details"
+    "Provide charity repayment claim details"
 
   def pageHeading: String =
     "Do you have a claim reference number?"
 
   def pageHeadingAgent: String =
-    "Do you have a claim reference number?"
+    "Does the charity have a claim reference number?"
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you have a claim reference number"
