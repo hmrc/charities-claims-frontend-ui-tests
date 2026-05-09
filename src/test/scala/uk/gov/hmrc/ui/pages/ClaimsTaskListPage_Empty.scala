@@ -64,6 +64,14 @@ object ClaimsTaskListPage_Empty extends BasePage {
     ClaimsTaskListPage_Empty.verifyPageSubHeading2(ClaimsTaskListPage_Empty.pageSubheading2)
   }
 
+  def validateNavigationAgent(): Unit = {
+    ClaimsTaskListPage_Empty.verifyPageTitle(ClaimsTaskListPage_Empty.pageTitle)
+    ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
+    ClaimsTaskListPage_Empty.verifyPageHeading(ClaimsTaskListPage_Empty.pageHeading)
+    ClaimsTaskListPage_Empty.verifyPageSubHeading1(ClaimsTaskListPage_Empty.pageSubheading1)
+    ClaimsTaskListPage_Empty.verifyPageSubHeading2(ClaimsTaskListPage_Empty.pageSubheading2)
+  }
+
   val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
   val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
 

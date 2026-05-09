@@ -92,6 +92,22 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)
   }
 
+  def validateNavigationAgent(): Unit = {
+    ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
+    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
+  }
+
+  def validateNavigationGASDSOnlyCompleteAgent(): Unit = {
+    ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
+    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)
+  }
+
   val linkGoToDashboard: By                = By.xpath("//a[@href='/charities-claims/charity-repayment-dashboard']")
   val linkProvideRepaymentClaimDetails: By = By.xpath("//a[@href='/charities-claims/repayment-claim-details']")
   val linkProvideOrganisationDetails: By   = By.xpath("//a[@href='/charities-claims/about-the-organisation']")
@@ -108,6 +124,9 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     By.xpath("//a[@href='/charities-claims/about-connected-charities-schedule']")
   val linkReadDeclaration: By               = By.xpath("//a[@href='/charities-claims/adjustments-to-this-claim']")
   val linkDeleteClaim: By                   = By.xpath("//a[@href='/charities-claims/delete-repayment-claim']")
+
+  val linkGoToCharityManagementAgent: By =
+    By.xpath("//a[@href and contains(text(),'Go to manage charity repayment claims')]")
 
   def clickGoToDashboard(): Unit = {
     val element = waitForElementToBeClickable(linkGoToDashboard)
@@ -166,6 +185,11 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def clickDeleteClaim(): Unit = {
     val element = waitForElementToBeClickable(linkDeleteClaim)
+    element.click()
+  }
+
+  def clickGoToCharityManagementAgent(): Unit = {
+    val element = waitForElementToBeClickable(linkGoToCharityManagementAgent)
     element.click()
   }
 

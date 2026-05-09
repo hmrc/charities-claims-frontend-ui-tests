@@ -40,6 +40,12 @@ object CheckYourRepaymentClaimPage extends BasePage {
   def pageHeadingAgent: String =
     "Check repayment claim details"
 
+  def pageSubheadingCharityDetailsAgent: String =
+    "Charity details"
+
+  def pageSubheadingClaimDetailsAgent: String =
+    "Claim details"
+
   def charityNameAgent: String =
     "Charity name"
 
@@ -74,6 +80,9 @@ object CheckYourRepaymentClaimPage extends BasePage {
     CheckYourRepaymentClaimPage.verifyPageCaption(CheckYourRepaymentClaimPage.pageCaptionAgent)
     CheckYourRepaymentClaimPage.verifyPageHeading(CheckYourRepaymentClaimPage.pageHeadingAgent)
   }
+
+  val CharityDetailsAgent: By = By.xpath("//h2[normalize-space(text())='Charity details']")
+  val ClaimDetailsAgent: By   = By.xpath("//h2[normalize-space(text())='Claim details']")
 
   val linkChangeRepaymentClaimType: By   = By.xpath("//a[@href='/charities-claims/change-select-repayment-claim-type']")
   val linkChangeClaimReference: By       = By.xpath("//a[@href='/charities-claims/change-claim-reference-number-check']")
@@ -120,6 +129,26 @@ object CheckYourRepaymentClaimPage extends BasePage {
   def clickChangeGASDSAdjustment(): Unit = {
     val element = waitForElementToBeClickable(linkChangeGASDSAdjustment)
     element.click()
+  }
+
+  def verifyCharityDetailsH2Agent(expectedSubHeading: String): Unit = {
+    waitForVisibilityOfElement(CharityDetailsAgent)
+    val actualSubHeading = driver.findElement(CharityDetailsAgent).getText
+    assert(
+      actualSubHeading == expectedSubHeading,
+      s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
+    )
+    println("Actual page sub-heading is: " + driver.findElement(CharityDetailsAgent).getText)
+  }
+
+  def verifyClaimDetailsH2Agent(expectedSubHeading: String): Unit = {
+    waitForVisibilityOfElement(ClaimDetailsAgent)
+    val actualSubHeading = driver.findElement(ClaimDetailsAgent).getText
+    assert(
+      actualSubHeading == expectedSubHeading,
+      s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
+    )
+    println("Actual page sub-heading is: " + driver.findElement(ClaimDetailsAgent).getText)
   }
 
 }

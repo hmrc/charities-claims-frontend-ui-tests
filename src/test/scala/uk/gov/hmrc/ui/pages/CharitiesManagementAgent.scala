@@ -17,6 +17,9 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
+import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
+import scala.util.Random
 
 object CharitiesManagementAgent extends BasePage {
 
@@ -47,4 +50,47 @@ object CharitiesManagementAgent extends BasePage {
     val element = waitForElementToBeClickable(lnkContinueClaim)
     element.click()
   }
+
+  def randomVarchar6(): String =
+    Random.alphanumeric.take(6).mkString
+
+  val RandomUsername = randomVarchar6()
+
+  def createNClaims(n: Int): Unit = {
+    val agentReferenceNumber   = "A" + n
+    val charityReferenceNumber = "C" + n
+    val charityName            = "Charity name" + n
+    AuthWizard.loginAgent(
+      HASDIRECT,
+      Agent,
+      "Agent",
+      "HMRC-CHAR-AGENT",
+      "AGENTCHARID",
+      agentReferenceNumber,
+      RandomUsername
+    )
+    CharitiesManagementAgent.verifyPageHeading(CharitiesManagementAgent.pageHeading)
+    CharitiesManagementAgent.clickUseTheCharitiesLink()
+    RepaymentClaimDetailsPage.validateNavigationAgent()
+    RepaymentClaimDetailsPage.clickContinue()
+    WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+    WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber(charityReferenceNumber)
+    WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+    WhatIsTheNameOfCharityOrCASC.enterCharityName(charityName)
+    RepaymentCheckboxPage.validateNavigationAgent()
+    RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+    RepaymentCheckboxPage.clickContinue()
+    DoYouHaveAClaimReferenceNumberPage.validateNavigationAgent()
+    DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+    DoYouHaveAClaimReferenceNumberPage.clickContinue()
+    CheckYourRepaymentClaimPage.validateNavigationAgent()
+    CheckYourRepaymentClaimPage.clickContinue()
+    ClaimsTaskListPage_InProgress.validateNavigationAgent()
+  }
+
+  def runCreateNClaims(n: Int): Unit =
+    for (i <- 1 to n)
+      createNClaims(i)
+      println(s"[DEBUG] using Agent Username:" + CharitiesManagementAgent.RandomUsername)
+
 }
