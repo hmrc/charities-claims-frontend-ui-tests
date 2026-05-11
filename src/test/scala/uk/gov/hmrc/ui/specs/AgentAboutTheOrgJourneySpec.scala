@@ -93,10 +93,10 @@ class AgentAboutTheOrgJourneySpec
       Then("User selects continue on 'Your charity is excepted' page")
       YourCharityIsExceptedPage.clickContinue()
       And("User navigates to 'Who should HMRC send payment to?' page")
-      WhoShouldHMRCSendPaymentToPage.validateNavigation()
-      WhoShouldHMRCSendPaymentToPage.validateFormFieldset()
+      WhoShouldHMRCSendPaymentToPage.validateNavigationAgent()
+      WhoShouldHMRCSendPaymentToPage.validateFormFieldsetAgent()
       And("User validates no input Error on 'Who should HMRC send payment to?' page")
-      WhoShouldHMRCSendPaymentToPage.validateErrorMessage()
+      WhoShouldHMRCSendPaymentToPage.validateErrorMessageAgent()
     }
   }
 }

@@ -44,21 +44,21 @@ object WhoShouldHMRCSendPaymentToPage extends BasePage {
   val Agent: String   = "#Agent\\/Nominee"
   val errorMsgLocator = By.ById("value-error")
 
-  def validateNavigation(): Unit = {
+  def validateNavigationAgent(): Unit = {
     WhoShouldHMRCSendPaymentToPage.verifyPageUrl(WhoShouldHMRCSendPaymentToPage.pageUrl)
     WhoShouldHMRCSendPaymentToPage.verifyPageTitle(WhoShouldHMRCSendPaymentToPage.pageTitle)
     WhoShouldHMRCSendPaymentToPage.verifyPageCaption(WhoShouldHMRCSendPaymentToPage.pageCaption)
     WhoShouldHMRCSendPaymentToPage.verifyPageHeading(WhoShouldHMRCSendPaymentToPage.pageHeading)
   }
 
-  def validateChangeNavigation(): Unit = {
+  def validateChangeNavigationAgent(): Unit = {
     WhoShouldHMRCSendPaymentToPage.verifyPageUrl(WhoShouldHMRCSendPaymentToPage.changePageUrl)
     WhoShouldHMRCSendPaymentToPage.verifyPageTitle(WhoShouldHMRCSendPaymentToPage.pageTitle)
     WhoShouldHMRCSendPaymentToPage.verifyPageCaption(WhoShouldHMRCSendPaymentToPage.pageCaption)
     WhoShouldHMRCSendPaymentToPage.verifyPageHeading(WhoShouldHMRCSendPaymentToPage.pageHeading)
   }
 
-  def validateFormFieldset(): Unit =
+  def validateFormFieldsetAgent(): Unit =
     WhoShouldHMRCSendPaymentToPage.verifyFormFieldsetContent(
       WhoShouldHMRCSendPaymentToPage.createSingleStringFromMany(
         WhoShouldHMRCSendPaymentToPage.pageHeading,
@@ -68,7 +68,7 @@ object WhoShouldHMRCSendPaymentToPage extends BasePage {
     )
 
   /** Validate that the error message is correct */
-  def validateErrorMessage(): Unit =
+  def validateErrorMessageAgent(): Unit =
     WhoShouldHMRCSendPaymentToPage.validateGenericPageError(
       WhoShouldHMRCSendPaymentToPage.pageErrorMsg,
       WhoShouldHMRCSendPaymentToPage.errorMsgLocator
