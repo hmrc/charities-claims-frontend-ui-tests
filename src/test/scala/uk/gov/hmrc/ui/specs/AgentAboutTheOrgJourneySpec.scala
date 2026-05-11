@@ -97,6 +97,15 @@ class AgentAboutTheOrgJourneySpec
       WhoShouldHMRCSendPaymentToPage.validateFormFieldsetAgent()
       And("User validates no input Error on 'Who should HMRC send payment to?' page")
       WhoShouldHMRCSendPaymentToPage.validateErrorMessageAgent()
+      And("User selects to send payment to Agent/Trustee")
+      WhoShouldHMRCSendPaymentToPage.radioButton(WhoShouldHMRCSendPaymentToPage.Agent)
+      Then("User selects continue on 'Who should HMRC send payment to?' page")
+      WhoShouldHMRCSendPaymentToPage.clickContinue()
+      And("User navigates to 'What is your telephone number?' page")
+      WhatIsYourTelephoneNumberPage.validateNavigationAgent()
+      WhatIsYourTelephoneNumberPage.validatePageContentAgent()
+      And("User validates Error messages on 'What is your telephone number?' page")
+      WhatIsYourTelephoneNumberPage.validateErrorMessageAgent()
     }
   }
 }
