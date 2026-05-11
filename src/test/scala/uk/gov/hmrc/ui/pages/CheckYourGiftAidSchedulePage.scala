@@ -31,6 +31,9 @@ object CheckYourGiftAidSchedulePage extends BasePage {
   def pageHeading: String =
     "Check your Gift Aid schedule"
 
+  def pageHeadingAgent: String =
+    "Check this Gift Aid schedule"
+
   def pageErrorMsg: String =
     "Select ‘Yes’ if you need to update this Gift Aid schedule"
 
@@ -101,4 +104,11 @@ object CheckYourGiftAidSchedulePage extends BasePage {
       CheckYourGiftAidSchedulePage.pageErrorMsg,
       CheckYourGiftAidSchedulePage.errorMsgLocator
     )
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourGiftAidSchedulePage.verifyPageUrl(CheckYourGiftAidSchedulePage.pageUrl)
+    CheckYourGiftAidSchedulePage.verifyPageTitle(CheckYourGiftAidSchedulePage.pageTitle)
+    CheckYourGiftAidSchedulePage.verifyPageCaption(CheckYourGiftAidSchedulePage.pageCaption)
+    CheckYourGiftAidSchedulePage.verifyPageHeading(CheckYourGiftAidSchedulePage.pageHeadingAgent)
+  }
 }

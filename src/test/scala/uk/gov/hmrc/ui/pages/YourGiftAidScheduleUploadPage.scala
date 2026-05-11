@@ -31,8 +31,14 @@ object YourGiftAidScheduleUploadPage extends BasePage {
   def pageHeading: String =
     "Your Gift Aid schedule upload"
 
+  def pageHeadingAgent: String =
+    "Gift Aid schedule upload"
+
   def pageParagraph: String =
     "You can upload your Gift Aid schedule as a spreadsheet. The selected file must be smaller than 250KB."
+
+  def pageParagraphAgent: String =
+    "You can upload the Gift Aid schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   val linkRemoveUploadedFile: By = By.xpath("//a[@href='/charities-claims/your-gift-aid-schedule-upload/remove']")
 
@@ -79,4 +85,16 @@ object YourGiftAidScheduleUploadPage extends BasePage {
     val element = waitForElementToBeClickable(linkRemoveUploadedFile)
     element.click()
   }
+
+  def validateNavigationAgent(): Unit = {
+    YourGiftAidScheduleUploadPage.verifyPageUrl(YourGiftAidScheduleUploadPage.pageUrl)
+    YourGiftAidScheduleUploadPage.verifyPageTitle(YourGiftAidScheduleUploadPage.pageTitle)
+    YourGiftAidScheduleUploadPage.verifyPageCaption(YourGiftAidScheduleUploadPage.pageCaption)
+    YourGiftAidScheduleUploadPage.verifyPageHeading(YourGiftAidScheduleUploadPage.pageHeadingAgent)
+  }
+
+  def validateParagraphAgent(): Unit =
+    YourGiftAidScheduleUploadPage.verifyParagraphText(
+      YourGiftAidScheduleUploadPage.pageParagraphAgent
+    )
 }
