@@ -24,7 +24,7 @@ object YourGiftAidScheduleUploadPage extends BasePage {
 
   override def pageTitle: String =
     "Your Gift Aid schedule upload - Make a charity tax repayment claim - GOV.UK"
-    
+
   def pageTitleAgent: String =
     "Gift Aid schedule upload - Make a charity tax repayment claim - GOV.UK"
 

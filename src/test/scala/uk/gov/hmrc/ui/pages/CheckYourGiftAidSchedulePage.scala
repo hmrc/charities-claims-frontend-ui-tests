@@ -24,7 +24,7 @@ object CheckYourGiftAidSchedulePage extends BasePage {
 
   override def pageTitle: String =
     "Check your Gift Aid schedule (page 1 of 100) - Make a charity tax repayment claim - GOV.UK"
-    
+
   def pageTitleAgent: String =
     "Check this Gift Aid schedule (page 1 of 100) - Make a charity tax repayment claim - GOV.UK"
 
