@@ -88,4 +88,9 @@ object WhatIsYourTelephoneNumberPage extends BasePage {
       WhatIsYourTelephoneNumberPage.errorMsgLocator
     )
   }
+
+  def enterAgentTelephoneNumber(agentTelephoneNumber: String): Unit = {
+    input(Locators.txtAgentTelephoneNum, agentTelephoneNumber)
+    clickContinue()
+  }
 }
