@@ -71,15 +71,17 @@ class AgentGiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page and validates heading and subheadings")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.verifyClaimDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingClaimDetailsAgent)
-      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent)
+      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(
+        CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent
+      )
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "Charity of X1",
-        CheckYourRepaymentClaimPage.charitiesReferenceAgent     -> "X1"
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "Charity of X1",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X1"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType -> "Gift Aid",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Gift Aid",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "No"
       )
     }
 
@@ -123,16 +125,18 @@ class AgentGiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page and validates navigationn/headings/subheadings")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.verifyClaimDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingClaimDetailsAgent)
-      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent)
+      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(
+        CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent
+      )
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "Charity of X1",
-        CheckYourRepaymentClaimPage.charitiesReferenceAgent     -> "X1"
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "Charity of X1",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X1"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType -> "Gift Aid UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Gift Aid UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber    -> "TESTREF123"
       )
     }
 
@@ -179,16 +183,18 @@ class AgentGiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page and validates navigationn/headings/subheadings")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.verifyClaimDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingClaimDetailsAgent)
-      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent)
+      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(
+        CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent
+      )
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "Charity of X1",
-        CheckYourRepaymentClaimPage.charitiesReferenceAgent     -> "X1"
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "Charity of X1",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X1"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Connected charity or CASC claim"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "No",
+        CheckYourRepaymentClaimPage.GASDSClaimType          -> "Connected charity or CASC claim"
       )
     }
 
@@ -248,18 +254,20 @@ class AgentGiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page and validates navigationn/headings/subheadings")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.verifyClaimDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingClaimDetailsAgent)
-      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent)
+      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(
+        CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent
+      )
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "Charity of X1",
-        CheckYourRepaymentClaimPage.charitiesReferenceAgent     -> "X1"
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "Charity of X1",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X1"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS) UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "GASDS top-up payment Community buildings top-up payment Connected charity or CASC claim",
-        CheckYourRepaymentClaimPage.GASDSAdjustment        -> "Yes"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Gift Aid Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS) UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber    -> "TESTREF123",
+        CheckYourRepaymentClaimPage.GASDSClaimType          -> "GASDS top-up payment Community buildings top-up payment Connected charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSAdjustment         -> "Yes"
       )
       Then("User Clicks Continue from CYA page and navigates to R2 Task List page and validates Navigation")
       CheckYourRepaymentClaimPage.clickContinue()
@@ -319,23 +327,27 @@ class AgentGiftAidJourneySpec
       Then("User navigates to 'Check your repayment claim' page and validates navigationn/headings/subheadings")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.verifyClaimDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingClaimDetailsAgent)
-      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent)
+      CheckYourRepaymentClaimPage.verifyCharityDetailsH2Agent(
+        CheckYourRepaymentClaimPage.pageSubheadingCharityDetailsAgent
+      )
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "Charity of X1",
-        CheckYourRepaymentClaimPage.charitiesReferenceAgent     -> "X1"
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "Charity of X1",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X1"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Community buildings top-up payment Connected charity or CASC claim",
-        CheckYourRepaymentClaimPage.GASDSAdjustment        -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber    -> "TESTREF123",
+        CheckYourRepaymentClaimPage.GASDSClaimType          -> "Community buildings top-up payment Connected charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSAdjustment         -> "No"
       )
       Then("User Clicks Continue from CYA page and navigates to R2 Task List page and validates Navigation")
       CheckYourRepaymentClaimPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
-      Then("User Clicks on Link to go back to Charity Management Agent Portal and Attempts to create a claim with same HMRC Charity Ref")
+      Then(
+        "User Clicks on Link to go back to Charity Management Agent Portal and Attempts to create a claim with same HMRC Charity Ref"
+      )
       ClaimsTaskListPage_InProgress.clickGoToCharityManagementAgent()
       CharitiesManagementAgent.validateNavigationAgent()
       And(

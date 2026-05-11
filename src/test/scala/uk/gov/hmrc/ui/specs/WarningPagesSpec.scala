@@ -1470,7 +1470,7 @@ class WarningPagesSpec
       Then("User navigates to 'Update your Gift Aid Schedule' page ")
       UpdateGiftAidSchedulePage.validateNavigation()
       UpdateGiftAidSchedulePage.clickContinue()
-      Then("User validates the error message on the 'Update your Gift Aid Schedule' page ")
+      Then("User validates the error message on the 'Update your Gift Aid Schedule' page")
       UpdateGiftAidSchedulePage.validateErrorMessage()
       And("User selects 'Yes' and clicks continue on 'Update your Gift Aid Schedule' page")
       UpdateGiftAidSchedulePage.radioButton(UpdateGiftAidSchedulePage.yes)

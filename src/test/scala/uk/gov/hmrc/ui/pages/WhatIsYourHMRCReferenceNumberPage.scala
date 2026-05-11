@@ -50,12 +50,12 @@ object WhatIsYourHMRCReferenceNumberPage extends BasePage {
     "Enter an HMRC charities reference number in the correct format"
 
   def pageErrorClaimAlreadyExists =
-      "You have already created a claim for HMRC ref"
+    "You have already created a claim for HMRC ref"
 
   def inputMaxLength = 8
 
   val charitiesReferenceNumberFieldLocator = By.ById("value")
-  val errorMsgLocator                  = By.ById("value-error")
+  val errorMsgLocator                      = By.ById("value-error")
 
   def enterCharitiesReferenceNumber(referenceNo: String): Unit = {
     input(Locators.inputReferenceNumber, referenceNo)
@@ -73,12 +73,12 @@ object WhatIsYourHMRCReferenceNumberPage extends BasePage {
     WhatIsYourHMRCReferenceNumberPage.verifyHintText(WhatIsYourHMRCReferenceNumberPage.pageHint)
 
   /** To add this error validation in Journey Spec not pages spec */
-  def validateErrorMessageClaimAlreadyExists(): Unit = {
+  def validateErrorMessageClaimAlreadyExists(): Unit =
     WhatIsYourHMRCReferenceNumberPage.validateGenericPageError(
       WhatIsYourHMRCReferenceNumberPage.pageErrorClaimAlreadyExists,
       WhatIsYourHMRCReferenceNumberPage.errorMsgLocator
     )
-  }
+
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
     WhatIsYourHMRCReferenceNumberPage.validateGenericPageError(
@@ -101,7 +101,7 @@ object WhatIsYourHMRCReferenceNumberPage extends BasePage {
   }
 
   def validateWrongFormatErrorMessage(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
-    val errorMessage = s"$expectedErrorMessage"
+    val errorMessage       = s"$expectedErrorMessage"
     waitForVisibilityOfElement(By.xpath(Locators.btnContinue))
     enterCharitiesReferenceNumber("12345")
     waitForVisibilityOfElement(Locators.errorSummary)
@@ -118,7 +118,7 @@ object WhatIsYourHMRCReferenceNumberPage extends BasePage {
     )
     println("Actual error summary is: " + actualErrorSummary)
     // Error message - above erroring field
-    val actualErrorMsg = driver.findElement(errorMsgLocatorValue).getText
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
     assert(
       actualErrorMsg contains errorMessage,
       s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"

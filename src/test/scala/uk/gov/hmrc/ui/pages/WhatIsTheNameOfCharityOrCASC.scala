@@ -56,7 +56,7 @@ object WhatIsTheNameOfCharityOrCASC extends BasePage {
     "Continue"
 
   val charityNameFieldLocator = By.ById("value")
-  val errorMsgLocator               = By.ById("value-error")
+  val errorMsgLocator         = By.ById("value-error")
 
   def inputMaxLength = 161
 
