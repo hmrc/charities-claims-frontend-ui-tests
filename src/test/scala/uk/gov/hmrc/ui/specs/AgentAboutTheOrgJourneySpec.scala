@@ -112,11 +112,13 @@ class AgentAboutTheOrgJourneySpec
       DoYouHaveAUKAddressPage.validateNavigationAgent()
       And("User validates no input Error on 'Do you have a UK address?' page")
       DoYouHaveAUKAddressPage.validateErrorMessageAgent()
-//      And("User selects 'Yes' to 'Do you have a UK address'")
-//      DoYouHaveAUKAddressPage.radioButton(DoYouHaveAUKAddressPage.yes)
-//      DoYouHaveAUKAddressPage.clickContinue()
-//      And("User navigates to 'What is your telephone number?' page")
-//      WhatIsYourTelephoneNumberPage.validateNavigationAgent()
+      And("User selects 'Yes' to 'Do you have a UK address'")
+      DoYouHaveAUKAddressPage.radioButton(DoYouHaveAUKAddressPage.yes)
+      DoYouHaveAUKAddressPage.clickContinue()
+      And("User navigates to 'What is your postcode?' page")
+      WhatIsYourPostcodePage.validateNavigationAgent()
+      And("User validates Error messages on 'What is your postcode?' page")
+      WhatIsYourPostcodePage.validateErrorMessageAgent()
     }
   }
 }
