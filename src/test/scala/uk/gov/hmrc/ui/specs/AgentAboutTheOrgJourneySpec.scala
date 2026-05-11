@@ -106,8 +106,12 @@ class AgentAboutTheOrgJourneySpec
       WhatIsYourTelephoneNumberPage.validatePageContentAgent()
       And("User validates Error messages on 'What is your telephone number?' page")
       WhatIsYourTelephoneNumberPage.validateErrorMessageAgent()
-//      Then("User Inputs a Telephone Number on 'What is your telephone number?' page and clicks CONTINUE")
-//      WhatIsYourTelephoneNumberPage.enterAgentTelephoneNumber("01234567890")
+      Then("User Inputs a Telephone Number on 'What is your telephone number?' page and clicks CONTINUE")
+      WhatIsYourTelephoneNumberPage.enterAgentTelephoneNumber("01234567890")
+      And("User navigates to 'Do you have a UK address?' page")
+      DoYouHaveAUKAddressPage.validateNavigationAgent()
+      And("User validates no input Error on 'Do you have a UK address?' page")
+      DoYouHaveAUKAddressPage.validateErrorMessageAgent()
     }
   }
 }
