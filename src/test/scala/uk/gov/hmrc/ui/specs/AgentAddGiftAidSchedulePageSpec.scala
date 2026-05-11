@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
 class AgentAddGiftAidSchedulePageSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -33,7 +33,7 @@ class AgentAddGiftAidSchedulePageSpec
     with BeforeAndAfterEach
     with Browser
     with ScreenshotOnFailure {
-  
+
   Feature("Charities - Organisation - Gift Aid Page Validations") {
     Scenario(
       "User navigates to the 'About Gift Aid Schedule' page and validates the page elements"
@@ -397,4 +397,3 @@ class AgentAddGiftAidSchedulePageSpec
     }
   }
 }
-
