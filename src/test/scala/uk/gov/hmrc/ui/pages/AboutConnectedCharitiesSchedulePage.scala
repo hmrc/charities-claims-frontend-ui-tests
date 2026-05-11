@@ -27,6 +27,8 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
 
   def listText1: String = "Use this service to add a Connected Charities schedule."
 
+  def listTextAgent1: String = "Use this service to add a Connected Charities schedule for your client."
+
   def listText2: String = "You can upload a Connected Charities schedule in a .ods format."
 
   def listText3: String =
@@ -49,6 +51,25 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
         AboutConnectedCharitiesSchedulePage.pageCaption,
         AboutConnectedCharitiesSchedulePage.pageHeading,
         AboutConnectedCharitiesSchedulePage.listText1,
+        AboutConnectedCharitiesSchedulePage.listText2,
+        AboutConnectedCharitiesSchedulePage.listText3,
+        AboutConnectedCharitiesSchedulePage.continueButton
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    AboutConnectedCharitiesSchedulePage.verifyPageUrl(AboutConnectedCharitiesSchedulePage.pageUrl)
+    AboutConnectedCharitiesSchedulePage.verifyPageTitle(AboutConnectedCharitiesSchedulePage.pageTitle)
+    AboutConnectedCharitiesSchedulePage.verifyPageCaption(AboutConnectedCharitiesSchedulePage.pageCaption)
+    AboutConnectedCharitiesSchedulePage.verifyPageHeading(AboutConnectedCharitiesSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    AboutConnectedCharitiesSchedulePage.verifyEntirePageContent(
+      AboutConnectedCharitiesSchedulePage.createSingleStringFromMany(
+        AboutConnectedCharitiesSchedulePage.pageCaption,
+        AboutConnectedCharitiesSchedulePage.pageHeading,
+        AboutConnectedCharitiesSchedulePage.listTextAgent1,
         AboutConnectedCharitiesSchedulePage.listText2,
         AboutConnectedCharitiesSchedulePage.listText3,
         AboutConnectedCharitiesSchedulePage.continueButton

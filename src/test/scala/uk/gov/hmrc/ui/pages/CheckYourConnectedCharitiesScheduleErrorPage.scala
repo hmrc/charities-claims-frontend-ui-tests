@@ -23,11 +23,17 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
   override def pageTitle: String =
     "There is a problem with the data in your Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem with the data in this Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Connected Charities schedule"
 
   def pageHeading: String =
     "There is a problem with the data in your Connected Charities schedule"
+
+  def pageHeadingAgent: String =
+    "There is a problem with the data in this Connected Charities schedule"
 
   def pageWarningIcon: String =
     "!"
@@ -52,6 +58,9 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
 
   def errorHelp3: String =
     "Update your spreadsheet."
+
+  def errorHelpAgent3: String =
+    "Update the spreadsheet."
 
   def errorHelp4: String =
     "Upload the updated spreadsheet."
@@ -86,6 +95,43 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp1,
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp2,
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp3,
+        CheckYourConnectedCharitiesScheduleErrorPage.errorHelp4
+      )
+    )
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageUrl(CheckYourConnectedCharitiesScheduleErrorPage.pageUrl)
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageTitle(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageTitleAgent
+    )
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageCaption(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageCaption
+    )
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageHeading(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit = {
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageWarning(
+      CheckYourConnectedCharitiesScheduleErrorPage.createSingleStringFromMany(
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningIcon,
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningHeading,
+        CheckYourConnectedCharitiesScheduleErrorPage.pageWarningText
+      )
+    )
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading1(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeading2
+    )
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyPageSubHeading2(
+      CheckYourConnectedCharitiesScheduleErrorPage.pageHeading3
+    )
+    CheckYourConnectedCharitiesScheduleErrorPage.verifyScheduleErrorHelpList(
+      CheckYourConnectedCharitiesScheduleErrorPage.createSingleStringFromMany(
+        CheckYourConnectedCharitiesScheduleErrorPage.errorHelp1,
+        CheckYourConnectedCharitiesScheduleErrorPage.errorHelp2,
+        CheckYourConnectedCharitiesScheduleErrorPage.errorHelpAgent3,
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp4
       )
     )
