@@ -28,6 +28,8 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   def pageHeading: String = "Check your Other Income schedule"
 
+  def pageHeadingAgent: String = "Check this Other Income schedule"
+
   def pageErrorMsg: String = "Select ‘Yes’ if you need to update this Other Income schedule"
 
   def textSummaryCardTitle: String = "Other Income schedule details"
@@ -59,6 +61,13 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
     CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitle)
     CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
     CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourOtherIncomeSchedulePage.verifyPageUrl(CheckYourOtherIncomeSchedulePage.pageUrl)
+    CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitle)
+    CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
+    CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeadingAgent)
   }
 
   // TODO Hardcoded values, needs improved
