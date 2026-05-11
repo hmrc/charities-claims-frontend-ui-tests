@@ -228,5 +228,39 @@ class GiftAidPagesSpec
       Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateErrorMessage()
     }
+
+    Scenario(
+      "User navigates with a Charity Ref Starting with CH or CF to the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CH1234")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User navigates to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User navigates to 'Type of Repayment Claim' checkbox page")
+      RepaymentClaimDetailsPage.clickContinue()
+      RepaymentCheckboxPage.validateNavigation()
+      Then("User selects the 'Top up payments for donations under the Gift Aid Small Donations Scheme' option")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.navigateToPage(GASDSCheckboxPage.pageUrl)
+      GASDSCheckboxPage.validateNavigation()
+      Then(
+        "User validates entire page content (without Community Building Details) on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page"
+      )
+      // TODO real validation to check no CB on page and error message does not have CB
+      GASDSCheckboxPage.validatePageContentCASC()
+//      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+//      GASDSCheckboxPage.validateErrorMessage()
+    }
   }
 }

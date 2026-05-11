@@ -36,7 +36,7 @@ class GiftAidJourneySpec
 
   Feature("Charities - Organisation - Gift Aid Journey Validations") {
     Scenario(
-      "User navigates to the 'Repayment claim details' page and validates the page elements - Non GASDS and no reference number"
+      "User navigates to the 'Check your Repayment claim details' page and validates the page elements - Non GASDS and no reference number"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "JOURNEYTEST-R1")
@@ -153,7 +153,7 @@ class GiftAidJourneySpec
       GASDSCheckboxPage.validateNavigation()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validatePageContent()
-      And("User selects 'GASDS top-up' checkbox and clicks continue")
+      And("User selects 'GASDS Connected Charities' checkbox and clicks continue")
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
       GASDSCheckboxPage.clickContinue()
       Then("User navigates to 'Do you have a claim reference number?' page")
@@ -253,14 +253,14 @@ class GiftAidJourneySpec
       RepaymentClaimDetailsPage.clickContinue()
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigation()
-      And("User selects all of the checkboxes and clicks continue")
+      And("User selects GASDS Checkbox and clicks continue")
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateNavigation()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validatePageContent()
-      And("User selects 'GASDS top-up', 'Community Building' and 'Connected Charities' checkbox and clicks continue")
+      And("User selects 'Community Building' and 'Connected Charities' checkbox and clicks continue")
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
       GASDSCheckboxPage.clickContinue()
