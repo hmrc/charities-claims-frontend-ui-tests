@@ -59,7 +59,7 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
   def errorHelp3: String =
     "Update your spreadsheet."
 
-  def errorHelpAgent3: String =
+  def errorHelp3Agent: String =
     "Update the spreadsheet."
 
   def errorHelp4: String =
@@ -131,7 +131,7 @@ object CheckYourConnectedCharitiesScheduleErrorPage extends BasePage {
       CheckYourConnectedCharitiesScheduleErrorPage.createSingleStringFromMany(
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp1,
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp2,
-        CheckYourConnectedCharitiesScheduleErrorPage.errorHelpAgent3,
+        CheckYourConnectedCharitiesScheduleErrorPage.errorHelp3Agent,
         CheckYourConnectedCharitiesScheduleErrorPage.errorHelp4
       )
     )

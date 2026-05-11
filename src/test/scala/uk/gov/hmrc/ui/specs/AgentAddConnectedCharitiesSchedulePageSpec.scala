@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
 class AgentAddConnectedCharitiesSchedulePageSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -52,7 +52,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")
@@ -93,7 +95,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")
@@ -149,7 +153,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")
@@ -207,7 +213,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")
@@ -268,7 +276,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")
@@ -341,7 +351,9 @@ class AgentAddConnectedCharitiesSchedulePageSpec
       WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
-      And("User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue")
+      And(
+        "User selects 'Top-up payments for donations under the Gift Aid Small Donations Scheme(GASDS)' checkbox and clicks continue"
+      )
       RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
       RepaymentCheckboxPage.clickContinue()
       Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' and selects connected charities")

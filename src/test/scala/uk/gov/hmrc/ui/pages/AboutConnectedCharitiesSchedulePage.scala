@@ -27,7 +27,7 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
 
   def listText1: String = "Use this service to add a Connected Charities schedule."
 
-  def listTextAgent1: String = "Use this service to add a Connected Charities schedule for your client."
+  def listText1Agent: String = "Use this service to add a Connected Charities schedule for your client."
 
   def listText2: String = "You can upload a Connected Charities schedule in a .ods format."
 
@@ -69,7 +69,7 @@ object AboutConnectedCharitiesSchedulePage extends BasePage {
       AboutConnectedCharitiesSchedulePage.createSingleStringFromMany(
         AboutConnectedCharitiesSchedulePage.pageCaption,
         AboutConnectedCharitiesSchedulePage.pageHeading,
-        AboutConnectedCharitiesSchedulePage.listTextAgent1,
+        AboutConnectedCharitiesSchedulePage.listText1Agent,
         AboutConnectedCharitiesSchedulePage.listText2,
         AboutConnectedCharitiesSchedulePage.listText3,
         AboutConnectedCharitiesSchedulePage.continueButton
