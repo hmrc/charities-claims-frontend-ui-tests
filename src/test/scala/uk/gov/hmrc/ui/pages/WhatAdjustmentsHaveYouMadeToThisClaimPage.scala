@@ -31,6 +31,9 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
   def pageParagraph: String =
     "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding your charity’s repayment claim."
 
+  def pageParagraphAgent: String =
+    "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding the charity's repayment claim."
+
   def pageHiddenHint: String =
     "You can enter up to 350 characters"
 
@@ -68,6 +71,12 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageHeading(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageUrl(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageUrl)
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageTitle(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageTitle)
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyPageHeading(WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading)
+  }
+
   /** Validate that the error message is correct */
   def validateErrorMessage(): Unit = {
     WhatAdjustmentsHaveYouMadeToThisClaimPage.validateGenericPageError(
@@ -94,11 +103,28 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
       WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraph
     )
 
+  def validateParagraphAgent(): Unit =
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyParagraphText(
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraphAgent
+    )
+
   def validatePageContent(): Unit =
     WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyEntirePageContent(
       WhatAdjustmentsHaveYouMadeToThisClaimPage.createSingleStringFromMany(
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraph,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenHint,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenCharacterCount,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.btnContinue
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    WhatAdjustmentsHaveYouMadeToThisClaimPage.verifyEntirePageContent(
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.createSingleStringFromMany(
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHeading,
+        WhatAdjustmentsHaveYouMadeToThisClaimPage.pageParagraphAgent,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenHint,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageCharacterCount,
         WhatAdjustmentsHaveYouMadeToThisClaimPage.pageHiddenCharacterCount,
