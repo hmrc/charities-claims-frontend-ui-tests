@@ -24,14 +24,23 @@ object YourConnectedCharitiesScheduleUploadPage extends BasePage {
   override def pageTitle: String =
     "Your Connected Charities schedule upload - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Connected Charities schedule upload - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Connected Charities schedule"
 
   def pageHeading: String =
     "Your Connected Charities schedule upload"
 
+  def pageHeadingAgent: String =
+    "Connected Charities schedule upload"
+
   def pageParagraph: String =
     "You can upload your Connected Charities schedule as a spreadsheet. The selected file must be smaller than 250KB."
+
+  def pageParagraphAgent: String =
+    "You can upload the Connected Charities schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   val linkRemoveUploadedFile: By =
     By.xpath("//a[@href='/charities-claims/your-connected-charities-schedule-upload/remove']")
@@ -55,6 +64,20 @@ object YourConnectedCharitiesScheduleUploadPage extends BasePage {
 
   def validateParagraph(): Unit =
     YourConnectedCharitiesScheduleUploadPage.verifyParagraphText(YourConnectedCharitiesScheduleUploadPage.pageParagraph)
+
+  def validateNavigationAgent(): Unit = {
+    YourConnectedCharitiesScheduleUploadPage.verifyPageUrl(YourConnectedCharitiesScheduleUploadPage.pageUrl)
+    YourConnectedCharitiesScheduleUploadPage.verifyPageTitle(YourConnectedCharitiesScheduleUploadPage.pageTitleAgent)
+    YourConnectedCharitiesScheduleUploadPage.verifyPageCaption(YourConnectedCharitiesScheduleUploadPage.pageCaption)
+    YourConnectedCharitiesScheduleUploadPage.verifyPageHeading(
+      YourConnectedCharitiesScheduleUploadPage.pageHeadingAgent
+    )
+  }
+
+  def validateParagraphAgent(): Unit =
+    YourConnectedCharitiesScheduleUploadPage.verifyParagraphText(
+      YourConnectedCharitiesScheduleUploadPage.pageParagraphAgent
+    )
 
   def waitForFileUpload(): Unit =
     YourConnectedCharitiesScheduleUploadPage.waitForElementToContain(

@@ -23,6 +23,9 @@ object CheckYourGiftAidScheduleErrorPage extends BasePage {
   override def pageTitle: String =
     "There is a problem with the data in your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem with the data in this Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Gift Aid schedule"
 

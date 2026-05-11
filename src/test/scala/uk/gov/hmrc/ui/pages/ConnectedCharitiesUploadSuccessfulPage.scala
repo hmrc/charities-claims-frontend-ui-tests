@@ -29,6 +29,9 @@ object ConnectedCharitiesUploadSuccessfulPage extends BasePage {
   def pageParagraph: String =
     "You have successfully attached your Connected Charities schedule."
 
+  def pageParagraphAgent: String =
+    "You have successfully attached this Connected Charities schedule."
+
   def validateNavigation(): Unit = {
     ConnectedCharitiesUploadSuccessfulPage.verifyPageUrl(ConnectedCharitiesUploadSuccessfulPage.pageUrl)
     ConnectedCharitiesUploadSuccessfulPage.verifyPageTitle(ConnectedCharitiesUploadSuccessfulPage.pageTitle)
@@ -37,4 +40,15 @@ object ConnectedCharitiesUploadSuccessfulPage extends BasePage {
 
   def validatePageParagraph(): Unit =
     ConnectedCharitiesUploadSuccessfulPage.verifyParagraphText(ConnectedCharitiesUploadSuccessfulPage.pageParagraph)
+
+  def validateNavigationAgent(): Unit = {
+    ConnectedCharitiesUploadSuccessfulPage.verifyPageUrl(ConnectedCharitiesUploadSuccessfulPage.pageUrl)
+    ConnectedCharitiesUploadSuccessfulPage.verifyPageTitle(ConnectedCharitiesUploadSuccessfulPage.pageTitle)
+    ConnectedCharitiesUploadSuccessfulPage.verifyPageHeading(ConnectedCharitiesUploadSuccessfulPage.pageHeading)
+  }
+
+  def validatePageParagraphAgent(): Unit =
+    ConnectedCharitiesUploadSuccessfulPage.verifyParagraphText(
+      ConnectedCharitiesUploadSuccessfulPage.pageParagraphAgent
+    )
 }
