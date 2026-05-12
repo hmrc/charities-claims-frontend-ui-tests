@@ -123,6 +123,28 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
     YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading3)
   }
 
+  def validateNavigation1Agent(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading)
+  }
+
+  def validateNavigation2Agent(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle2)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading2)
+    YouHaveAddedAClaimForXTaxYearPage.verifyHintText(YouHaveAddedAClaimForXTaxYearPage.pageHint)
+  }
+
+  def validateNavigation3Agent(): Unit = {
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageUrl(YouHaveAddedAClaimForXTaxYearPage.pageUrl)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageTitle(YouHaveAddedAClaimForXTaxYearPage.pageTitle3)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
+    YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading3)
+  }
+
   def validateErrorMessage(): Unit =
     YouHaveAddedAClaimForXTaxYearPage.validateGenericPageError(
       YouHaveAddedAClaimForXTaxYearPage.pageErrorMsg,

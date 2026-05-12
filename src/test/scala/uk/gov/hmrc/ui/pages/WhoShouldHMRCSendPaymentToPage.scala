@@ -40,9 +40,9 @@ object WhoShouldHMRCSendPaymentToPage extends BasePage {
 
   def textRadioButtonAgent: String = "Agent/Nominee"
 
-  val CASC: String    = "#value"
-  val AgentVariable: String   = "#Agent\\/Nominee"
-  val errorMsgLocator = By.ById("value-error")
+  val CASC: String          = "#value"
+  val AgentVariable: String = "#Agent\\/Nominee"
+  val errorMsgLocator       = By.ById("value-error")
 
   def validateNavigationAgent(): Unit = {
     WhoShouldHMRCSendPaymentToPage.verifyPageUrl(WhoShouldHMRCSendPaymentToPage.pageUrl)
