@@ -25,11 +25,17 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
   override def pageTitle: String =
     "Check your GASDS donation details - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check GASDS donation details - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide GASDS donation details"
 
   def pageHeading: String =
     "Check your GASDS donation details"
+
+  def pageHeadingAgent: String =
+    "Check GASDS donation details"
 
   def pageHeadingGASDSAdjustment: String =
     "GASDS claim adjustment"
@@ -53,12 +59,20 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
     element.click()
   }
 
-  def validateNavigation(): Unit                                = {
+  def validateNavigation(): Unit = {
     CheckYourGASDSDonationDetailsPage.verifyPageUrl(CheckYourGASDSDonationDetailsPage.pageUrl)
     CheckYourGASDSDonationDetailsPage.verifyPageTitle(CheckYourGASDSDonationDetailsPage.pageTitle)
     CheckYourGASDSDonationDetailsPage.verifyPageCaption(CheckYourGASDSDonationDetailsPage.pageCaption)
     CheckYourGASDSDonationDetailsPage.verifyPageHeading(CheckYourGASDSDonationDetailsPage.pageHeading)
   }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourGASDSDonationDetailsPage.verifyPageUrl(CheckYourGASDSDonationDetailsPage.pageUrl)
+    CheckYourGASDSDonationDetailsPage.verifyPageTitle(CheckYourGASDSDonationDetailsPage.pageTitleAgent)
+    CheckYourGASDSDonationDetailsPage.verifyPageCaption(CheckYourGASDSDonationDetailsPage.pageCaption)
+    CheckYourGASDSDonationDetailsPage.verifyPageHeading(CheckYourGASDSDonationDetailsPage.pageHeadingAgent)
+  }
+
   def verifyGASDSAdjustmentH2(expectedSubHeading: String): Unit = {
     waitForVisibilityOfElement(GASDSAdjustmentAmountH2)
     val actualSubHeading = driver.findElement(GASDSAdjustmentAmountH2).getText

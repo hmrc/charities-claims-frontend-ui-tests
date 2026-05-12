@@ -31,11 +31,23 @@ object CheckYourClaimDetailsForTaxYearPage extends BasePage {
   def pageTitle3: String =
     "Check your claim details for tax year 3 - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check claim details for tax year 1 - Make a charity tax repayment claim - GOV.UK"
+
+  def pageTitle2Agent: String =
+    "Check claim details for tax year 2 - Make a charity tax repayment claim - GOV.UK"
+
+  def pageTitle3Agent: String =
+    "Check claim details for tax year 3 - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide GASDS donation details"
 
   def pageHeading: String =
     "Check your claim details for tax year"
+
+  def pageHeadingAgent: String =
+    "Check claim details for tax year"
 
   def validateNavigation1(): Unit = {
     CheckYourClaimDetailsForTaxYearPage.verifyPageUrl(CheckYourClaimDetailsForTaxYearPage.pageUrl + "/1")
@@ -69,5 +81,26 @@ object CheckYourClaimDetailsForTaxYearPage extends BasePage {
   def clickChangeDonationAmount(): Unit = {
     val element = waitForElementToBeClickable(linkChangeDonationAmount)
     element.click()
+  }
+
+  def validateNavigation1Agent(): Unit = {
+    CheckYourClaimDetailsForTaxYearPage.verifyPageUrl(CheckYourClaimDetailsForTaxYearPage.pageUrl + "/1")
+    CheckYourClaimDetailsForTaxYearPage.verifyPageTitle(CheckYourClaimDetailsForTaxYearPage.pageTitleAgent)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageCaption(CheckYourClaimDetailsForTaxYearPage.pageCaption)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageHeading(CheckYourClaimDetailsForTaxYearPage.pageHeadingAgent + " 1")
+  }
+
+  def validateNavigation2Agent(): Unit = {
+    CheckYourClaimDetailsForTaxYearPage.verifyPageUrl(CheckYourClaimDetailsForTaxYearPage.pageUrl + "/2")
+    CheckYourClaimDetailsForTaxYearPage.verifyPageTitle(CheckYourClaimDetailsForTaxYearPage.pageTitle2Agent)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageCaption(CheckYourClaimDetailsForTaxYearPage.pageCaption)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageHeading(CheckYourClaimDetailsForTaxYearPage.pageHeadingAgent + " 2")
+  }
+
+  def validateNavigation3Agent(): Unit = {
+    CheckYourClaimDetailsForTaxYearPage.verifyPageUrl(CheckYourClaimDetailsForTaxYearPage.pageUrl + "/3")
+    CheckYourClaimDetailsForTaxYearPage.verifyPageTitle(CheckYourClaimDetailsForTaxYearPage.pageTitle3Agent)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageCaption(CheckYourClaimDetailsForTaxYearPage.pageCaption)
+    CheckYourClaimDetailsForTaxYearPage.verifyPageHeading(CheckYourClaimDetailsForTaxYearPage.pageHeadingAgent + " 3")
   }
 }
