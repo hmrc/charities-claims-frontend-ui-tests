@@ -25,11 +25,17 @@ object CheckYourGiftAidSchedulePage extends BasePage {
   override def pageTitle: String =
     "Check your Gift Aid schedule (page 1 of 100) - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check this Gift Aid schedule (page 1 of 100) - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Gift Aid schedule"
 
   def pageHeading: String =
     "Check your Gift Aid schedule"
+
+  def pageHeadingAgent: String =
+    "Check this Gift Aid schedule"
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you need to update this Gift Aid schedule"
@@ -101,4 +107,11 @@ object CheckYourGiftAidSchedulePage extends BasePage {
       CheckYourGiftAidSchedulePage.pageErrorMsg,
       CheckYourGiftAidSchedulePage.errorMsgLocator
     )
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourGiftAidSchedulePage.verifyPageUrl(CheckYourGiftAidSchedulePage.pageUrl)
+    CheckYourGiftAidSchedulePage.verifyPageTitle(CheckYourGiftAidSchedulePage.pageTitle)
+    CheckYourGiftAidSchedulePage.verifyPageCaption(CheckYourGiftAidSchedulePage.pageCaption)
+    CheckYourGiftAidSchedulePage.verifyPageHeading(CheckYourGiftAidSchedulePage.pageHeadingAgent)
+  }
 }

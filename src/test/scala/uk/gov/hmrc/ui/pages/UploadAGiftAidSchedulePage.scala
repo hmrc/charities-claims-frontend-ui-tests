@@ -34,6 +34,9 @@ object UploadAGiftAidSchedulePage extends BasePage {
   def pageText1: String =
     "To claim Gift Aid, you need to upload a completed Gift Aid schedule with details of your donors and donations. You can save your claim without uploading the Gift Aid schedule, but you need to upload a Gift Aid schedule before submitting your claim."
 
+  def pageTextAgent1: String =
+    "To claim Gift Aid for your client, you need to upload a completed Gift Aid schedule with details of donors and donations. You can save this claim without uploading the Gift Aid schedule, but you need to upload a Gift Aid schedule before submitting this claim."
+
   def pageText2: String =
     "If you have not completed a Gift Aid schedule, download a Gift Aid schedule here (opens in new tab)."
 
@@ -98,5 +101,28 @@ object UploadAGiftAidSchedulePage extends BasePage {
     UploadAGiftAidSchedulePage.validateUploadFilePageError(
       UploadAGiftAidSchedulePage.pageFileTooBigErrorMsg,
       UploadAGiftAidSchedulePage.errorMsgLocator
+    )
+
+  def validateNavigationAgent(): Unit = {
+    UploadAGiftAidSchedulePage.verifyPageUrl(UploadAGiftAidSchedulePage.pageUrl)
+    UploadAGiftAidSchedulePage.verifyPageTitle(UploadAGiftAidSchedulePage.pageTitle)
+    UploadAGiftAidSchedulePage.verifyPageCaption(UploadAGiftAidSchedulePage.pageCaption)
+    UploadAGiftAidSchedulePage.verifyPageHeading(UploadAGiftAidSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    UploadAGiftAidSchedulePage.verifyEntirePageContent(
+      UploadAGiftAidSchedulePage.createSingleStringFromMany(
+        UploadAGiftAidSchedulePage.pageCaption,
+        UploadAGiftAidSchedulePage.pageHeading,
+        UploadAGiftAidSchedulePage.pageTextAgent1,
+        UploadAGiftAidSchedulePage.pageText2,
+        UploadAGiftAidSchedulePage.pageText3,
+        UploadAGiftAidSchedulePage.pageText4,
+        UploadAGiftAidSchedulePage.pageHiddenText,
+        UploadAGiftAidSchedulePage.pageText5,
+        UploadAGiftAidSchedulePage.pageText6,
+        UploadAGiftAidSchedulePage.pageText7
+      )
     )
 }
