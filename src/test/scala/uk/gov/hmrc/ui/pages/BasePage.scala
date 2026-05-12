@@ -90,6 +90,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtAuthOfficialPostcode        = By.ById("postcode")
     val fileUploadFieldLocator         = By.ById("file-input")
     val txtTaxYear                     = By.ById("value")
+    val txtAgentTelephoneNum           = By.ById("value")
+    val txtAgentPostcode               = By.ById("value")
     val txtFormFieldset: By            = By.xpath("//form//fieldset")
     val txtBelowConfirmationPanel1: By = By.xpath("//main//p[1]")
     val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")

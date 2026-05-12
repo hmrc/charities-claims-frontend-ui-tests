@@ -32,6 +32,9 @@ object AboutGASDSPage extends BasePage {
   def listItem1: String =
     "Use this service to claim payments under the Gift Aid Small Donations Scheme (GASDS). You can add claims for up to 3 tax years."
 
+  def listItem1Agent: String =
+    "Use this service to claim payments under the Gift Aid Small Donations Scheme (GASDS) for your client. You can add claims for up to 3 tax years."
+
   def listItem2: String =
     "GASDS applies to cash donations of £30 or less where the charity or Community Amateur Sports Club does not have a Gift Aid declaration."
 
@@ -51,6 +54,24 @@ object AboutGASDSPage extends BasePage {
         AboutGASDSPage.pageCaption,
         AboutGASDSPage.pageHeading,
         AboutGASDSPage.listItem1,
+        AboutGASDSPage.listItem2,
+        AboutGASDSPage.listItem3
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    AboutGASDSPage.verifyPageUrl(AboutGASDSPage.pageUrl)
+    AboutGASDSPage.verifyPageTitle(AboutGASDSPage.pageTitle)
+    AboutGASDSPage.verifyPageCaption(AboutGASDSPage.pageCaption)
+    AboutGASDSPage.verifyPageHeading(AboutGASDSPage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    AboutGASDSPage.verifyEntirePageContent(
+      AboutGASDSPage.createSingleStringFromMany(
+        AboutGASDSPage.pageCaption,
+        AboutGASDSPage.pageHeading,
+        AboutGASDSPage.listItem1Agent,
         AboutGASDSPage.listItem2,
         AboutGASDSPage.listItem3
       )

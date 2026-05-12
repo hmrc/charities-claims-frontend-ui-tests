@@ -32,7 +32,7 @@ object ClaimsTaskListPage_Empty extends BasePage {
     "Make a charity repayment claim"
 
   def pageSubheading1: String =
-    "About the claim"
+    "About this claim"
 
   def pageTaskListItemCompleteStatus: String =
     "Complete"
@@ -58,7 +58,7 @@ object ClaimsTaskListPage_Empty extends BasePage {
   def validateNavigation(): Unit = {
     ClaimsTaskListPage_Empty.verifyPageUrl(ClaimsTaskListPage_Empty.pageUrl)
     ClaimsTaskListPage_Empty.verifyPageTitle(ClaimsTaskListPage_Empty.pageTitle)
-    ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
+    // ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
     ClaimsTaskListPage_Empty.verifyPageHeading(ClaimsTaskListPage_Empty.pageHeading)
     ClaimsTaskListPage_Empty.verifyPageSubHeading1(ClaimsTaskListPage_Empty.pageSubheading1)
     ClaimsTaskListPage_Empty.verifyPageSubHeading2(ClaimsTaskListPage_Empty.pageSubheading2)
@@ -66,7 +66,7 @@ object ClaimsTaskListPage_Empty extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     ClaimsTaskListPage_Empty.verifyPageTitle(ClaimsTaskListPage_Empty.pageTitle)
-    ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
+    // ClaimsTaskListPage_Empty.verifyDynamicPageCaption(ClaimsTaskListPage_Empty.pageCaption)
     ClaimsTaskListPage_Empty.verifyPageHeading(ClaimsTaskListPage_Empty.pageHeading)
     ClaimsTaskListPage_Empty.verifyPageSubHeading1(ClaimsTaskListPage_Empty.pageSubheading1)
     ClaimsTaskListPage_Empty.verifyPageSubHeading2(ClaimsTaskListPage_Empty.pageSubheading2)

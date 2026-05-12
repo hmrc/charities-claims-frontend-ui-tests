@@ -27,11 +27,17 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
   override def pageTitle: String =
     "Check your GASDS adjustment amount - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check this GASDS adjustment amount - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide GASDS donation details"
 
   def pageHeading: String =
     "Check your GASDS adjustment amount"
+
+  def pageHeadingAgent: String =
+    "Check this GASDS adjustment amount"
 
   def validateNavigation(): Unit = {
     CheckYourGASDSAdjustmentAmountPage.verifyPageUrl(CheckYourGASDSAdjustmentAmountPage.pageUrl)
@@ -61,6 +67,28 @@ object CheckYourGASDSAdjustmentAmountPage extends BasePage {
   def clickChangeGASDSAdjustmentAmount(): Unit = {
     val element = waitForElementToBeClickable(linkChangeGASDSAdjustmentAmount)
     element.click()
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourGASDSAdjustmentAmountPage.verifyPageUrl(CheckYourGASDSAdjustmentAmountPage.pageUrl)
+    CheckYourGASDSAdjustmentAmountPage.verifyPageTitle(CheckYourGASDSAdjustmentAmountPage.pageTitleAgent)
+    CheckYourGASDSAdjustmentAmountPage.verifyPageCaption(CheckYourGASDSAdjustmentAmountPage.pageCaption)
+    CheckYourGASDSAdjustmentAmountPage.verifyPageHeading(CheckYourGASDSAdjustmentAmountPage.pageHeadingAgent)
+  }
+
+  def validateChangeNavigationAgent(): Unit = {
+    CheckYourGASDSAdjustmentAmountPage.verifyPageUrl(
+      CheckYourGASDSAdjustmentAmountPage.changePageUrl
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageTitle(
+      CheckYourGASDSAdjustmentAmountPage.pageTitleAgent
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageCaption(
+      CheckYourGASDSAdjustmentAmountPage.pageCaption
+    )
+    CheckYourGASDSAdjustmentAmountPage.verifyPageHeading(
+      CheckYourGASDSAdjustmentAmountPage.pageHeadingAgent
+    )
   }
 
 }

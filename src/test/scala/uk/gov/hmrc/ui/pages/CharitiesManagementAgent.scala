@@ -31,6 +31,9 @@ object CharitiesManagementAgent extends BasePage {
   def pageHeading: String =
     "Manage charity repayment claims"
 
+  def pageSubHeading1: String =
+    "Make a repayment claim"
+
   val lnkUseTheCharities: By = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
   val lnkContinueClaim: By   = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
 

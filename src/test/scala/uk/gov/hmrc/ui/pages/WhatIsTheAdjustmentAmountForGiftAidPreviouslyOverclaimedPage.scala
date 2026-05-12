@@ -111,4 +111,19 @@ object WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage extends Base
       WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.errorMsgLocator
     )
   }
+
+  def validateNavigationAgent(): Unit = {
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageUrl(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageUrl
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageTitle(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageTitle
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageCaption(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageCaption
+    )
+    WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.verifyPageHeading(
+      WhatIsTheAdjustmentAmountForGiftAidPreviouslyOverclaimedPage.pageHeading
+    )
+  }
 }
