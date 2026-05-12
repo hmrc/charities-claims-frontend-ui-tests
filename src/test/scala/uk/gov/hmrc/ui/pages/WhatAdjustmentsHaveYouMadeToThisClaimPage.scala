@@ -32,7 +32,7 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding your charity’s repayment claim."
 
   def pageParagraphAgent: String =
-    "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding the charity's repayment claim."
+    "If you have included any adjustments in this claim, you must enter an explanation below. You can also provide any other information regarding the charity’s repayment claim."
 
   def pageHiddenHint: String =
     "You can enter up to 350 characters"
