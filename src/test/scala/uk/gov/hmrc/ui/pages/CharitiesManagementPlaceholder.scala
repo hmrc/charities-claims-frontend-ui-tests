@@ -26,7 +26,7 @@ object CharitiesManagementPlaceholder extends BasePage {
     "Manage charity repayment claim - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
-    "Manage charity repayment claims"
+    "Manage charity repayment claim"
 
   val lnkUseTheCharities: By = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
   val lnkContinueClaim: By   = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
