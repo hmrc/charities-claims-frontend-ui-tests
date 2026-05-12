@@ -34,6 +34,9 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
   def pageText1: String =
     "To claim Community Buildings top-up payment, you need to upload a completed Community Buildings schedule with details of the community building(s) where donations were collected and amounts received. You can save your claim without uploading the Community Buildings schedule, but you need to upload a Community Buildings schedule before submitting your claim."
 
+  def pageText1Agent: String =
+    "To claim Community Buildings top-up payment for your client, upload a completed Community Buildings schedule with details of the community building(s) where donations were collected and amounts received. You can save this claim without uploading the Community Buildings schedule, but you need to upload a Community Buildings schedule before submitting this claim."
+
   def pageText2: String =
     "If you have not completed a Community Buildings schedule, download a Community Buildings schedule here (opens in new tab)."
 
@@ -76,6 +79,29 @@ object UploadACommunityBuildingsSchedulePage extends BasePage {
         UploadACommunityBuildingsSchedulePage.pageCaption,
         UploadACommunityBuildingsSchedulePage.pageHeading,
         UploadACommunityBuildingsSchedulePage.pageText1,
+        UploadACommunityBuildingsSchedulePage.pageText2,
+        UploadACommunityBuildingsSchedulePage.pageText3,
+        UploadACommunityBuildingsSchedulePage.pageText4,
+        UploadACommunityBuildingsSchedulePage.pageHiddenText,
+        UploadACommunityBuildingsSchedulePage.pageText5,
+        UploadACommunityBuildingsSchedulePage.pageText6,
+        UploadACommunityBuildingsSchedulePage.pageText7
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    UploadACommunityBuildingsSchedulePage.verifyPageUrl(UploadACommunityBuildingsSchedulePage.pageUrl)
+    UploadACommunityBuildingsSchedulePage.verifyPageTitle(UploadACommunityBuildingsSchedulePage.pageTitle)
+    UploadACommunityBuildingsSchedulePage.verifyPageCaption(UploadACommunityBuildingsSchedulePage.pageCaption)
+    UploadACommunityBuildingsSchedulePage.verifyPageHeading(UploadACommunityBuildingsSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    UploadACommunityBuildingsSchedulePage.verifyEntirePageContent(
+      UploadACommunityBuildingsSchedulePage.createSingleStringFromMany(
+        UploadACommunityBuildingsSchedulePage.pageCaption,
+        UploadACommunityBuildingsSchedulePage.pageHeading,
+        UploadACommunityBuildingsSchedulePage.pageText1Agent,
         UploadACommunityBuildingsSchedulePage.pageText2,
         UploadACommunityBuildingsSchedulePage.pageText3,
         UploadACommunityBuildingsSchedulePage.pageText4,

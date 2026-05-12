@@ -29,6 +29,9 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
   def pageParagraph: String =
     "You have successfully attached your Community Buildings schedule."
 
+  def pageParagraphAgent: String =
+    "You have successfully attached this Community Buildings schedule.\n"
+
   def validateNavigation(): Unit = {
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageUrl(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageTitle(
@@ -42,5 +45,20 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
   def validatePageParagraph(): Unit =
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyParagraphText(
       CommunityBuildingsScheduleUploadSuccessfulPage.pageParagraph
+    )
+
+  def validateNavigationAgent(): Unit = {
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageUrl(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageTitle(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageTitle
+    )
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageHeading(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageHeading
+    )
+  }
+
+  def validatePageParagraphAgent(): Unit =
+    CommunityBuildingsScheduleUploadSuccessfulPage.verifyParagraphText(
+      CommunityBuildingsScheduleUploadSuccessfulPage.pageParagraphAgent
     )
 }
