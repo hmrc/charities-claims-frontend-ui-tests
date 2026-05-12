@@ -392,7 +392,7 @@ class AgentAddGiftAidSchedulePageSpec
       CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
       CheckYourGiftAidSchedulePage.clickContinue()
       Then("User navigates and validates 'Successful Gift Aid Upload' page ")
-      GiftAidUploadSuccessfulPage.validateNavigation()
+      GiftAidUploadSuccessfulPage.validateNavigationAgent()
       GiftAidUploadSuccessfulPage.validatePageParagraphAgent()
     }
   }

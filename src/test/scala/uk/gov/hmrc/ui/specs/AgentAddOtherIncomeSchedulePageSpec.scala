@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
 class AgentAddOtherIncomeSchedulePageSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -37,7 +37,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     Scenario("User navigates to the 'About Other Income Schedule' page and validates the page elements") {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O16")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -79,7 +79,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O17")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -133,7 +133,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O18")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -184,7 +184,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O19")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -241,7 +241,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O110")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -309,7 +309,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-O111")
-        CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates and validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigationAgent()
       Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
@@ -361,4 +361,3 @@ class AgentAddOtherIncomeSchedulePageSpec
     }
   }
 }
-
