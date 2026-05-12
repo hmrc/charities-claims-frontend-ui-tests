@@ -196,8 +196,7 @@ class AgentGASDSJourneySpec
       And("User validates navigation to 'Make a repayment Claim' Page")
       ClaimsTaskListPage_InProgress.validateNavigationGASDSOnlyComplete()
     }
-    
-    
+
     Scenario(
       "User navigates to the 'About, Adjustment amount, CYA Adjustment,Tax year 1 pages, CYA Final' pages from the GASDS flow and validates the Page Elements and errors"
     ) {
@@ -292,8 +291,8 @@ class AgentGASDSJourneySpec
       Then("User navigates to 'Check your claim details for tax year 1' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1Agent()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year" -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
-        "Donation amount" -> "£123.45"
+        "Tax year"                               -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
+        "Donation amount"                        -> "£123.45"
       )
       Then("User navigates to 'You have added a claim for 1 tax year' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -306,7 +305,10 @@ class AgentGASDSJourneySpec
       Then(
         s"User navigates to 'Which tax year are you claiming for?' page and inputs to generate duplicate error: " + WhichTaxYearAreYouClaimingForPage.earliestTaxYear
       )
-      WhichTaxYearAreYouClaimingForPage.validateDuplicateErrorMessage(WhichTaxYearAreYouClaimingForPage.pageErrorDuplicateYear,WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator)
+      WhichTaxYearAreYouClaimingForPage.validateDuplicateErrorMessage(
+        WhichTaxYearAreYouClaimingForPage.pageErrorDuplicateYear,
+        WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
+      )
       Then(
         s"User on 'Which tax year are you claiming for?' page inputs: " + WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear
       )
@@ -354,7 +356,7 @@ class AgentGASDSJourneySpec
         "Amount of GASDS previously overclaimed" -> "£55.00"
       )
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "Number of tax years added" -> "3"
+        "Number of tax years added"              -> "3"
       )
 
     }
