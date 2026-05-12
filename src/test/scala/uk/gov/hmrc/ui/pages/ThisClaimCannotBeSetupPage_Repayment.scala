@@ -45,7 +45,7 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
     "confirm if you are claiming a top-up payment under the Gift Aid Small Donations Scheme"
 
   def textConfirmWhichTypeOfGASDS: String =
-    "confirm which type of GASDS claim(s) you want you want to make"
+    "confirm which type of GASDS claim(s) you want to make"
 
   def textConfirmDonationsCollectedInCommunityBuildings: String =
     "confirm if you are claiming for donations collected in community buildings"
