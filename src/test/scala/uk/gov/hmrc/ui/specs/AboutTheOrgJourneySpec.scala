@@ -106,11 +106,13 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"       -> "Charity is not registered with a regulator",
-        "Registered with regulator"    -> "Your charity is excepted",
-        "Corporate trustee claim"      -> "Yes",
-        "Corporate trustee UK address" -> "No",
-        "Corporate trustee details"    -> "TEST TRUSTEE 00-1-332-555-2368"
+        "Charity regulator name"                      -> "Charity is not registered with a regulator",
+        "Registered with regulator"                   -> "The charity is excepted. The charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
+        "Is the corporate trustee making this claim?" -> "Yes"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "UK address"                                  -> "No",
+        "Trustee’s details"                           -> "TEST TRUSTEE 00-1-332-555-2368"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -194,11 +196,13 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"           -> "Charity is not registered with a regulator",
-        "Registered with regulator"        -> "Your charity is exempt",
-        "Corporate trustee claim"          -> "No",
-        "Authorised official’s UK address" -> "Yes",
-        "Authorised official’s details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Charity regulator name"                      -> "Charity is not registered with a regulator",
+        "Registered with regulator"                   -> "The charity is exempt. The charity is exempt from registering with a regulator because it is a: university or school museum or gallery housing association",
+        "Is the corporate trustee making this claim?" -> "No"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "UK address"                                  -> "Yes",
+        "Official’s details"                          -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -271,11 +275,13 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"       -> "Charity Commission for England and Wales",
-        "Charity regulator number"     -> "1234567890",
-        "Corporate trustee claim"      -> "Yes",
-        "Corporate trustee UK address" -> "Yes",
-        "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Charity regulator name"                      -> "Charity Commission for England and Wales",
+        "Charity regulator number"                    -> "1234567890",
+        "Is the corporate trustee making this claim?" -> "Yes"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "UK address"                                  -> "Yes",
+        "Trustee’s details"                           -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -283,7 +289,7 @@ class AboutTheOrgJourneySpec
     }
 
     Scenario(
-      "User charity Reference starts with CH, navigates to the 'About the organisation', 'Continue' button redirects to 'corporate trustee making this claim' page, selects Corporate trustee with UK address"
+      "User charity Reference starts with CH, navigates to the 'About the organisation', redirects to 'corporate trustee making this claim' page, selects trustee with UK address"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "CH1JOURNEY4")
@@ -339,9 +345,11 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Corporate trustee claim"      -> "Yes",
-        "Corporate trustee UK address" -> "Yes",
-        "Corporate trustee details"    -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Is the corporate trustee making this claim?" -> "Yes"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "UK address"                                  -> "Yes",
+        "Trustee’s details"                           -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -415,9 +423,11 @@ class AboutTheOrgJourneySpec
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Corporate trustee claim"          -> "No",
-        "Authorised official’s UK address" -> "Yes",
-        "Authorised official’s details"    -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Is the corporate trustee making this claim?" -> "No"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "UK address"                                  -> "Yes",
+        "Official’s details"                          -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
