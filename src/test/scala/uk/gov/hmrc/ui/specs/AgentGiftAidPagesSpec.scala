@@ -106,11 +106,10 @@ class AgentGiftAidPagesSpec
       WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
       And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
       WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
-      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
       WhatIsTheNameOfCharityOrCASC.validateHintAgent()
       WhatIsTheNameOfCharityOrCASC.validatePageContentAgent()
       Then("User Validates all error messages on 'What is the Name of your Charity or CASC' page")
-      WhatIsYourHMRCReferenceNumberPage.validateErrorMessage()
+      WhatIsTheNameOfCharityOrCASC.validateErrorMessage()
     }
 
     Scenario(
