@@ -37,6 +37,7 @@ object CheckYourOrganisationDetailsPage extends BasePage {
   def charityRegulatorNumber: String =
     "Charity regulator number"
 
+  // TODO review headers and text due to CYA changes
   def corporateTrusteeClaim: String =
     "Corporate trustee claim"
 

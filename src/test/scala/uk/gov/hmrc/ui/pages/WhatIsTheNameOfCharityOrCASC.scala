@@ -28,6 +28,9 @@ object WhatIsTheNameOfCharityOrCASC extends BasePage {
   def pageTitleAgent: String =
     "What is the name of the charity or Community Amateur Sports Club (CASC)? - Make a charity tax repayment claim - GOV.UK"
 
+  def pageCaption: String =
+    "Provide charity repayment claim details"
+
   def pageHeadingAgent: String =
     "What is the name of the charity or Community Amateur Sports Club (CASC)?"
 
@@ -68,6 +71,7 @@ object WhatIsTheNameOfCharityOrCASC extends BasePage {
   def validateNavigationAgent(): Unit = {
     WhatIsTheNameOfCharityOrCASC.verifyPageUrl(WhatIsTheNameOfCharityOrCASC.pageUrl)
     WhatIsTheNameOfCharityOrCASC.verifyPageTitle(WhatIsTheNameOfCharityOrCASC.pageTitleAgent)
+    WhatIsTheNameOfCharityOrCASC.verifyPageCaption(WhatIsTheNameOfCharityOrCASC.pageCaption)
     WhatIsTheNameOfCharityOrCASC.verifyPageHeading(WhatIsTheNameOfCharityOrCASC.pageHeadingAgent)
   }
 
@@ -100,6 +104,7 @@ object WhatIsTheNameOfCharityOrCASC extends BasePage {
   def validatePageContentAgent(): Unit =
     WhatIsTheNameOfCharityOrCASC.verifyEntirePageContent(
       WhatIsTheNameOfCharityOrCASC.createSingleStringFromMany(
+        WhatIsTheNameOfCharityOrCASC.pageCaption,
         WhatIsTheNameOfCharityOrCASC.pageHeadingAgent,
         WhatIsTheNameOfCharityOrCASC.pageHint,
         WhatIsTheNameOfCharityOrCASC.pageHiddenHint,
