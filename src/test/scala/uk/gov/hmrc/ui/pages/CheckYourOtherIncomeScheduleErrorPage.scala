@@ -23,6 +23,9 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
   override def pageTitle: String =
     "There is a problem with the data in your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem with the data in this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Other Income schedule"
 
@@ -91,7 +94,7 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     CheckYourOtherIncomeScheduleErrorPage.verifyPageUrl(CheckYourOtherIncomeScheduleErrorPage.pageUrl)
-    CheckYourOtherIncomeScheduleErrorPage.verifyPageTitle(CheckYourOtherIncomeScheduleErrorPage.pageTitle)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageTitle(CheckYourOtherIncomeScheduleErrorPage.pageTitleAgent)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageCaption(CheckYourOtherIncomeScheduleErrorPage.pageCaption)
     CheckYourOtherIncomeScheduleErrorPage.verifyPageHeading(CheckYourOtherIncomeScheduleErrorPage.pageHeadingAgent)
   }

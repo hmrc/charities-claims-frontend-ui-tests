@@ -24,6 +24,8 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   override def pageTitle: String = "Check your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String = "Check this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String = "Add Other Income schedule"
 
   def pageHeading: String = "Check your Other Income schedule"
@@ -65,7 +67,7 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     CheckYourOtherIncomeSchedulePage.verifyPageUrl(CheckYourOtherIncomeSchedulePage.pageUrl)
-    CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitle)
+    CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitleAgent)
     CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
     CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeadingAgent)
   }
