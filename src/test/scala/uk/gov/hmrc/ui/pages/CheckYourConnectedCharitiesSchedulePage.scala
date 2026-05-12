@@ -25,9 +25,14 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
   override def pageTitle: String =
     "Check your Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check this Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String = "Add Connected Charities schedule"
 
   def pageHeading: String = "Check your Connected Charities schedule"
+
+  def pageHeadingAgent: String = "Check this Connected Charities schedule"
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to update this Connected Charities schedule"
 
@@ -46,6 +51,13 @@ object CheckYourConnectedCharitiesSchedulePage extends BasePage {
     CheckYourConnectedCharitiesSchedulePage.verifyPageTitle(CheckYourConnectedCharitiesSchedulePage.pageTitle)
     CheckYourConnectedCharitiesSchedulePage.verifyPageCaption(CheckYourConnectedCharitiesSchedulePage.pageCaption)
     CheckYourConnectedCharitiesSchedulePage.verifyPageHeading(CheckYourConnectedCharitiesSchedulePage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourConnectedCharitiesSchedulePage.verifyPageUrl(CheckYourConnectedCharitiesSchedulePage.pageUrl)
+    CheckYourConnectedCharitiesSchedulePage.verifyPageTitle(CheckYourConnectedCharitiesSchedulePage.pageTitleAgent)
+    CheckYourConnectedCharitiesSchedulePage.verifyPageCaption(CheckYourConnectedCharitiesSchedulePage.pageCaption)
+    CheckYourConnectedCharitiesSchedulePage.verifyPageHeading(CheckYourConnectedCharitiesSchedulePage.pageHeadingAgent)
   }
 
   def validateFormFieldset(): Unit =
