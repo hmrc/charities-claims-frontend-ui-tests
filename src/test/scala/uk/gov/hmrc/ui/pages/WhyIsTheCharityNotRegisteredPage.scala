@@ -31,6 +31,24 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def pageErrorMsg: String = "Select why the charity is not registered with a regulator"
 
+  def rdoLabel1: String = "Your charity is located in England or Wales and your income is less than £5,000 per year"
+
+  def rdoLabel2: String = "Your charity is excepted"
+
+  def rdoLabel3: String = "Your charity is exempt"
+
+  def rdoLabel4: String =
+    "Your charity is based in Northern Ireland and you are awaiting registration with the Charity Commission for Northern Ireland (CCNI)"
+
+  def rdoLabel1Agent: String = "The charity is located in England or Wales and its income is less than £5,000 per year"
+
+  def rdoLabel2Agent: String = "The charity is excepted"
+
+  def rdoLabel3Agent: String = "The charity is exempt"
+
+  def rdoLabel4Agent: String =
+    "The charity is based in Northern Ireland and it is awaiting registration with the Charity Commission for Northern Ireland (CCNI)"
+
   val LowIncome: String  = "#value"
   val Exempt: String     = "#Exempt"
   val Excepted: String   = "#Excepted"
@@ -43,6 +61,28 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
     WhyIsTheCharityNotRegisteredPage.verifyPageHeading(WhyIsTheCharityNotRegisteredPage.pageHeading)
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
   }
+
+  def validateFormFieldset(): Unit =
+    WhyIsTheCharityNotRegisteredPage.verifyFormFieldsetContent(
+      WhyIsTheCharityNotRegisteredPage.createSingleStringFromMany(
+        WhyIsTheCharityNotRegisteredPage.pageHeading,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel1,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel2,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel3,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel4
+      )
+    )
+
+  def validateFormFieldsetAgent(): Unit =
+    WhyIsTheCharityNotRegisteredPage.verifyFormFieldsetContent(
+      WhyIsTheCharityNotRegisteredPage.createSingleStringFromMany(
+        WhyIsTheCharityNotRegisteredPage.pageHeading,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel1Agent,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel2Agent,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel3Agent,
+        WhyIsTheCharityNotRegisteredPage.rdoLabel4Agent
+      )
+    )
 
   def validateErrorMessage(): Unit =
     WhyIsTheCharityNotRegisteredPage.validateGenericPageError(

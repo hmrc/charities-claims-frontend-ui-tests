@@ -97,6 +97,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")
     val txtBelowConfirmationPanel3: By = By.xpath("//main//p[3]")
     val linkReturnToDashboard          = "//a[@href='/charities-claims/make-a-charity-repayment-claim']"
+    val radioLabelText1: By            = By.xpath("//fieldset//div//div[1]/label")
+    val radioLabelText2: By            = By.xpath("//fieldset//div//div[2]/label")
+    val radioLabelText3: By            = By.xpath("//fieldset//div//div[3]/label")
+    val radioLabelText4: By            = By.xpath("//fieldset//div//div[4]/label")
 
     val dlLocator: By  = By.className("govuk-summary-list")
     val rowLocator: By = By.className("govuk-summary-list__row")
