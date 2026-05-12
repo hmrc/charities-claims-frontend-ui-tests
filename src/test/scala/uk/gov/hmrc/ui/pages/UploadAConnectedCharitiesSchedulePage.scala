@@ -31,6 +31,9 @@ object UploadAConnectedCharitiesSchedulePage extends BasePage {
   def pageText1: String =
     "To claim Connected Charities, you need to upload a completed Connected Charities schedule with details of your Connected Charities or Community Amateur Sports Clubs (CASC). You can save your claim without uploading the Connected Charities schedule, but you need to upload a Connected Charities schedule before submitting your claim."
 
+  def pageTextAgent1: String =
+    "To claim Connected Charities for your client, upload a completed Connected Charities schedule with details of the connected charities or Community Amateur Sports Clubs (CASC). You can save this claim without uploading the Connected Charities schedule, but you need to upload a Connected Charities schedule before submitting this claim."
+
   def pageText2: String =
     "If you have not completed a Connected Charities schedule, download a Connected Charities schedule here (opens in new tab)."
 
@@ -65,6 +68,29 @@ object UploadAConnectedCharitiesSchedulePage extends BasePage {
         UploadAConnectedCharitiesSchedulePage.pageCaption,
         UploadAConnectedCharitiesSchedulePage.pageHeading,
         UploadAConnectedCharitiesSchedulePage.pageText1,
+        UploadAConnectedCharitiesSchedulePage.pageText2,
+        UploadAConnectedCharitiesSchedulePage.pageText3,
+        UploadAConnectedCharitiesSchedulePage.pageText4,
+        UploadAConnectedCharitiesSchedulePage.pageHiddenText,
+        UploadAConnectedCharitiesSchedulePage.pageText5,
+        UploadAConnectedCharitiesSchedulePage.pageText6,
+        UploadAConnectedCharitiesSchedulePage.continueButton
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    UploadAConnectedCharitiesSchedulePage.verifyPageUrl(UploadAConnectedCharitiesSchedulePage.pageUrl)
+    UploadAConnectedCharitiesSchedulePage.verifyPageTitle(UploadAConnectedCharitiesSchedulePage.pageTitle)
+    UploadAConnectedCharitiesSchedulePage.verifyPageCaption(UploadAConnectedCharitiesSchedulePage.pageCaption)
+    UploadAConnectedCharitiesSchedulePage.verifyPageHeading(UploadAConnectedCharitiesSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    UploadAConnectedCharitiesSchedulePage.verifyEntirePageContent(
+      UploadAConnectedCharitiesSchedulePage.createSingleStringFromMany(
+        UploadAConnectedCharitiesSchedulePage.pageCaption,
+        UploadAConnectedCharitiesSchedulePage.pageHeading,
+        UploadAConnectedCharitiesSchedulePage.pageTextAgent1,
         UploadAConnectedCharitiesSchedulePage.pageText2,
         UploadAConnectedCharitiesSchedulePage.pageText3,
         UploadAConnectedCharitiesSchedulePage.pageText4,

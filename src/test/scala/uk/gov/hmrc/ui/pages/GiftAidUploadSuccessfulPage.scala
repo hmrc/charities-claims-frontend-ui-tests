@@ -29,6 +29,9 @@ object GiftAidUploadSuccessfulPage extends BasePage {
   def pageParagraph: String =
     "You have successfully attached your Gift Aid schedule."
 
+  def pageParagraphAgent: String =
+    "You have successfully attached this Gift Aid schedule."
+
   def validateNavigation(): Unit = {
     GiftAidUploadSuccessfulPage.verifyPageUrl(GiftAidUploadSuccessfulPage.pageUrl)
     GiftAidUploadSuccessfulPage.verifyPageTitle(GiftAidUploadSuccessfulPage.pageTitle)
@@ -37,4 +40,7 @@ object GiftAidUploadSuccessfulPage extends BasePage {
 
   def validatePageParagraph(): Unit =
     GiftAidUploadSuccessfulPage.verifyParagraphText(GiftAidUploadSuccessfulPage.pageParagraph)
+
+  def validatePageParagraphAgent(): Unit =
+    GiftAidUploadSuccessfulPage.verifyParagraphText(GiftAidUploadSuccessfulPage.pageParagraphAgent)
 }
