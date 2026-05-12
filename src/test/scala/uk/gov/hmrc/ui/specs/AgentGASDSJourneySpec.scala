@@ -177,7 +177,7 @@ class AgentGASDSJourneySpec
       Then("User Clicks 'Change' Link of GASDS Previously overclaimed Adjustment Amount")
       CheckYourGASDSDonationDetailsPage.clickChangeGASDSAdjustmentAmount()
       And("User navigates to 'Check Your GASDS Adjustment Amount page' and validates Navigation")
-      CheckYourGASDSAdjustmentAmountPage.validateChangeNavigation()
+      CheckYourGASDSAdjustmentAmountPage.validateChangeNavigationAgent()
       Then("User Clicks CONTINUE to reach directly to 'Check your GASDS Donation details' Page")
       CheckYourGASDSAdjustmentAmountPage.clickContinue()
       And("Validates Navigation of Check your GASDS Donation Details Page")
@@ -292,7 +292,7 @@ class AgentGASDSJourneySpec
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1Agent()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
         "Tax year"                               -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
-        "Donation amount"                        -> "£123.45"
+        "Donation amount"                        -> "£999.00"
       )
       Then("User navigates to 'You have added a claim for 1 tax year' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -305,6 +305,7 @@ class AgentGASDSJourneySpec
       Then(
         s"User navigates to 'Which tax year are you claiming for?' page and inputs to generate duplicate error: " + WhichTaxYearAreYouClaimingForPage.earliestTaxYear
       )
+      WhichTaxYearAreYouClaimingForPage.inputDuplicateTaxYear(WhichTaxYearAreYouClaimingForPage.earliestTaxYear)
       WhichTaxYearAreYouClaimingForPage.validateDuplicateErrorMessage(
         WhichTaxYearAreYouClaimingForPage.pageErrorDuplicateYear,
         WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator

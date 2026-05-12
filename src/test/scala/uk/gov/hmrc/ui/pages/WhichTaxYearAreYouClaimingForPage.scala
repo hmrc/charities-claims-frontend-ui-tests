@@ -44,8 +44,9 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     clickContinue()
   }
 
-  def inputTaxYear(currentTaxYear: String): Unit =
+  def inputDuplicateTaxYear(currentTaxYear: String): Unit =
     input(Locators.txtTaxYear, currentTaxYear)
+    clickContinue()
 
   def inputMaxYearLength = 4
 
