@@ -43,8 +43,7 @@ object WhatIsYourPostcodePage extends BasePage {
   def inputMaxLength = 9
 
   val postcodeFieldLocator = By.ById("value")
-  val errorMsgLocator             = By.ById("value-error")
-  
+  val errorMsgLocator      = By.ById("value-error")
 
   def validateNavigationAgent(): Unit = {
     WhatIsYourPostcodePage.verifyPageUrl(WhatIsYourPostcodePage.pageUrl)
@@ -57,7 +56,7 @@ object WhatIsYourPostcodePage extends BasePage {
     input(Locators.txtAgentPostcode, agentPostcode)
     clickContinue()
   }
-  
+
   /** Validate that the error message is correct */
   def validateErrorMessageAgent(): Unit = {
     WhatIsYourPostcodePage.validateGenericPageError(
