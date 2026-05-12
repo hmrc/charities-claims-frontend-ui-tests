@@ -98,7 +98,7 @@ class AgentAboutTheOrgJourneySpec
       And("User validates no input Error on 'Who should HMRC send payment to?' page")
       WhoShouldHMRCSendPaymentToPage.validateErrorMessageAgent()
       And("User selects to send payment to Agent/Trustee")
-      WhoShouldHMRCSendPaymentToPage.radioButton(WhoShouldHMRCSendPaymentToPage.Agent)
+      WhoShouldHMRCSendPaymentToPage.radioButton(WhoShouldHMRCSendPaymentToPage.AgtTtee)
       Then("User selects continue on 'Who should HMRC send payment to?' page")
       WhoShouldHMRCSendPaymentToPage.clickContinue()
       And("User navigates to 'What is your telephone number?' page")
