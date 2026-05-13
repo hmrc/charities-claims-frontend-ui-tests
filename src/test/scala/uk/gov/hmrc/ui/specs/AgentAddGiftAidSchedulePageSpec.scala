@@ -330,7 +330,7 @@ class AgentAddGiftAidSchedulePageSpec
         "User clicks on 'Attach an updated Gift Aid schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a GAS page G1.1' "
       )
-      CheckYourGiftAidScheduleErrorPage.clickContinue()
+      CheckYourGiftAidScheduleErrorPage.clickAttachUpdatedSchedule()
       Then("User validates navigation of 'upload a GAS page G1.1' ")
       UploadAGiftAidSchedulePage.validateNavigationAgent()
     }

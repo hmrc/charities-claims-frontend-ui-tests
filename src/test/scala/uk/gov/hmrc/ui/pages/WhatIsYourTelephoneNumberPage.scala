@@ -41,12 +41,12 @@ object WhatIsYourTelephoneNumberPage extends BasePage {
     "Enter a telephone number"
 
   def pageErrorMsgTooManyChars =
-    "Telephone number must be 35 characters or less"
+    "Telephone number must be 30 characters or less"
 
   def pageErrorMsgInvalidFormat =
     "Enter a telephone number in the correct format"
 
-  def inputMaxLength = 36
+  def inputMaxLength = 31
 
   val telephoneNumberFieldLocator = By.ById("value")
   val errorMsgLocator             = By.ById("value-error")

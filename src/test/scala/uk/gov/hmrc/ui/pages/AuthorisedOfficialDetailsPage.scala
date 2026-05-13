@@ -75,7 +75,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Enter an authorised official last name in the correct format"
 
   // Phone number field
-  def inputPhoneNoMaxLength  = 36
+  def inputPhoneNoMaxLength  = 31
   val phoneNoInputLocator    = By.ById("phoneNumber")
   val phoneNoErrorMsgLocator = By.ById("phoneNumber-error")
 
@@ -83,7 +83,7 @@ object AuthorisedOfficialDetailsPage extends BasePage {
     "Enter an authorised official phone number"
 
   def pageErrorMsgPhoneNoTooManyChars: String =
-    "Authorised official phone number must be 35 characters or less"
+    "Authorised official phone number must be 30 characters or less"
 
   def pageErrorMsgPhoneNoNonWesternChar =
     "Enter an authorised official phone number in the correct format"
