@@ -25,14 +25,23 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
   override def pageTitle: String =
     "Your Community Buildings schedule upload - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Community Buildings schedule upload - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Community Buildings schedule"
 
   def pageHeading: String =
     "Your Community Buildings schedule upload"
 
+  def pageHeadingAgent: String =
+    "Community Buildings schedule upload"
+
   def pageParagraph: String =
     "You can upload your Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB."
+
+  def pageParagraphAgent: String =
+    "You can upload the Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   val linkRemoveUploadedFile: By =
     By.xpath("//a[@href='/charities-claims/your-community-buildings-schedule-upload/remove']")
@@ -60,6 +69,20 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
   def validateParagraph(): Unit =
     YourCommunityBuildingsScheduleUploadPage.verifyParagraphText(
       YourCommunityBuildingsScheduleUploadPage.pageParagraph
+    )
+
+  def validateNavigationAgent(): Unit = {
+    YourCommunityBuildingsScheduleUploadPage.verifyPageUrl(YourCommunityBuildingsScheduleUploadPage.pageUrl)
+    YourCommunityBuildingsScheduleUploadPage.verifyPageTitle(YourCommunityBuildingsScheduleUploadPage.pageTitleAgent)
+    YourCommunityBuildingsScheduleUploadPage.verifyPageCaption(YourCommunityBuildingsScheduleUploadPage.pageCaption)
+    YourCommunityBuildingsScheduleUploadPage.verifyPageHeading(
+      YourCommunityBuildingsScheduleUploadPage.pageHeadingAgent
+    )
+  }
+
+  def validateParagraphAgent(): Unit =
+    YourCommunityBuildingsScheduleUploadPage.verifyParagraphText(
+      YourCommunityBuildingsScheduleUploadPage.pageParagraphAgent
     )
 
   def waitForFileUpload(): Unit =

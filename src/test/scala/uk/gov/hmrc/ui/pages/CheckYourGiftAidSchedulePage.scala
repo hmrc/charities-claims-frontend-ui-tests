@@ -110,7 +110,7 @@ object CheckYourGiftAidSchedulePage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     CheckYourGiftAidSchedulePage.verifyPageUrl(CheckYourGiftAidSchedulePage.pageUrl)
-    CheckYourGiftAidSchedulePage.verifyPageTitle(CheckYourGiftAidSchedulePage.pageTitle)
+    CheckYourGiftAidSchedulePage.verifyPageTitle(CheckYourGiftAidSchedulePage.pageTitleAgent)
     CheckYourGiftAidSchedulePage.verifyPageCaption(CheckYourGiftAidSchedulePage.pageCaption)
     CheckYourGiftAidSchedulePage.verifyPageHeading(CheckYourGiftAidSchedulePage.pageHeadingAgent)
   }
