@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject extends BasePage {
   override def pageTitle: String =
     "There is a problem uploading your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Gift Aid schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Gift Aid schedule"
+
   def listItem1: String =
     "Your file must be an ODS file. Save your schedule as an ODS file and try uploading it again."
+
+  def listItem1Agent: String =
+    "This file must be an ODS file. Save this schedule as an ODS file and try uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject extends BasePage {
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.createSingleStringFromMany(
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageHeading,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.listItem1,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageUrl(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageUrl
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageTitle(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyPageHeading(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.pageHeadingAgent,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.listItem1Agent,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.txtReturnToDashboard
       )

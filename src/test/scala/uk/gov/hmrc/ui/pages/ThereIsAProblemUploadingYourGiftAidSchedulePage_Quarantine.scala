@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine extends BasePa
   override def pageTitle: String =
     "There is a problem uploading your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Gift Aid schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Gift Aid schedule"
+
   def listItem1: String =
     "Your file contains a virus, so it cannot be uploaded. Check the file for viruses or create a new version before uploading it again."
+
+  def listItem1Agent: String =
+    "This file contains a virus, so it cannot be uploaded. Check the file for viruses or create a new version before uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine extends BasePa
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.createSingleStringFromMany(
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageHeading,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.listItem1,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageUrl(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageUrl
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageTitle(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyPageHeading(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.pageHeadingAgent,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.listItem1Agent,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.txtReturnToDashboard
       )

@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown extends BaseP
   override def pageTitle: String =
     "There is a problem uploading your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Other Income schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Other Income schedule"
+
   def listItem1: String =
     "Your file could not be uploaded. You can try uploading the file again."
+
+  def listItem1Agent: String =
+    "This file could not be uploaded. You can try uploading the file again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown extends BaseP
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.createSingleStringFromMany(
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageHeading,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.listItem1,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageUrl(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageUrl
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageTitle(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyPageHeading(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.pageHeadingAgent,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.listItem1Agent,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.txtReturnToDashboard
       )
