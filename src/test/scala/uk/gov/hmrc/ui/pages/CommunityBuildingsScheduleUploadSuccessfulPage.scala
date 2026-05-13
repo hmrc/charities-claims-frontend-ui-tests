@@ -30,7 +30,7 @@ object CommunityBuildingsScheduleUploadSuccessfulPage extends BasePage {
     "You have successfully attached your Community Buildings schedule."
 
   def pageParagraphAgent: String =
-    "You have successfully attached this Community Buildings schedule.\n"
+    "You have successfully attached this Community Buildings schedule."
 
   def validateNavigation(): Unit = {
     CommunityBuildingsScheduleUploadSuccessfulPage.verifyPageUrl(CommunityBuildingsScheduleUploadSuccessfulPage.pageUrl)
