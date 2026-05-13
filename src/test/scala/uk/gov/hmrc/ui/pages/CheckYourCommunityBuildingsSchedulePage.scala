@@ -25,11 +25,17 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
   override def pageTitle: String =
     "Check your Community Buildings schedule (page 1 of 50) - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check this Community Buildings schedule (page 1 of 50) - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Community Buildings schedule"
 
   def pageHeading: String =
     "Check your Community Buildings schedule"
+
+  def pageHeadingAgent: String =
+    "Check this Community Buildings schedule"
 
   def pageErrorMsg: String =
     "Select ‘Yes’ if you need to update this Community Buildings schedule"
@@ -61,6 +67,13 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
     CheckYourCommunityBuildingsSchedulePage.verifyPageTitle(CheckYourCommunityBuildingsSchedulePage.pageTitle)
     CheckYourCommunityBuildingsSchedulePage.verifyPageCaption(CheckYourCommunityBuildingsSchedulePage.pageCaption)
     CheckYourCommunityBuildingsSchedulePage.verifyPageHeading(CheckYourCommunityBuildingsSchedulePage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourCommunityBuildingsSchedulePage.verifyPageUrl(CheckYourCommunityBuildingsSchedulePage.pageUrl)
+    CheckYourCommunityBuildingsSchedulePage.verifyPageTitle(CheckYourCommunityBuildingsSchedulePage.pageTitleAgent)
+    CheckYourCommunityBuildingsSchedulePage.verifyPageCaption(CheckYourCommunityBuildingsSchedulePage.pageCaption)
+    CheckYourCommunityBuildingsSchedulePage.verifyPageHeading(CheckYourCommunityBuildingsSchedulePage.pageHeadingAgent)
   }
 
   // TODO Hardcoded values, needs improved

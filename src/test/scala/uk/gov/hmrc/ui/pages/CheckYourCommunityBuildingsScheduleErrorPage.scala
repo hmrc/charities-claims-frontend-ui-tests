@@ -23,11 +23,17 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
   override def pageTitle: String =
     "There is a problem with the data in your Community Buildings schedule (page 1 of 2) - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem with the data in this Community Buildings schedule (page 1 of 2) - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Community Buildings schedule"
 
   def pageHeading: String =
     "There is a problem with the data in your Community Buildings schedule"
+
+  def pageHeadingAgent: String =
+    "There is a problem with the data in this Community Buildings schedule"
 
   def pageWarningIcon: String =
     "!"
@@ -52,6 +58,9 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
 
   def errorHelp3: String =
     "Update your spreadsheet."
+
+  def errorHelp3Agent: String =
+    "Update the spreadsheet."
 
   def errorHelp4: String =
     "Upload the updated spreadsheet."
@@ -86,6 +95,43 @@ object CheckYourCommunityBuildingsScheduleErrorPage extends BasePage {
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp1,
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp2,
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp3,
+        CheckYourCommunityBuildingsScheduleErrorPage.errorHelp4
+      )
+    )
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageUrl(CheckYourCommunityBuildingsScheduleErrorPage.pageUrl)
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageTitle(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageTitleAgent
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageCaption(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageCaption
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageHeading(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit = {
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageWarning(
+      CheckYourCommunityBuildingsScheduleErrorPage.createSingleStringFromMany(
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningIcon,
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningHeading,
+        CheckYourCommunityBuildingsScheduleErrorPage.pageWarningText
+      )
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading1(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeading2
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyPageSubHeading2(
+      CheckYourCommunityBuildingsScheduleErrorPage.pageHeading3
+    )
+    CheckYourCommunityBuildingsScheduleErrorPage.verifyScheduleErrorHelpList(
+      CheckYourCommunityBuildingsScheduleErrorPage.createSingleStringFromMany(
+        CheckYourCommunityBuildingsScheduleErrorPage.errorHelp1,
+        CheckYourCommunityBuildingsScheduleErrorPage.errorHelp2,
+        CheckYourCommunityBuildingsScheduleErrorPage.errorHelp3Agent,
         CheckYourCommunityBuildingsScheduleErrorPage.errorHelp4
       )
     )

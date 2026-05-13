@@ -32,6 +32,9 @@ object AboutCommunityBuildingsSchedulePage extends BasePage {
   def listItem1: String =
     "Use this service to add a Community Buildings schedule."
 
+  def listItem1Agent: String =
+    "Use this service to add a Community Buildings schedule for your client."
+
   def listItem2: String =
     "You can upload a Community Buildings schedule in a .ods format."
 
@@ -54,6 +57,25 @@ object AboutCommunityBuildingsSchedulePage extends BasePage {
         AboutCommunityBuildingsSchedulePage.pageCaption,
         AboutCommunityBuildingsSchedulePage.pageHeading,
         AboutCommunityBuildingsSchedulePage.listItem1,
+        AboutCommunityBuildingsSchedulePage.listItem2,
+        AboutCommunityBuildingsSchedulePage.listItem3,
+        AboutCommunityBuildingsSchedulePage.listItem4
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    AboutCommunityBuildingsSchedulePage.verifyPageUrl(AboutCommunityBuildingsSchedulePage.pageUrl)
+    AboutCommunityBuildingsSchedulePage.verifyPageTitle(AboutCommunityBuildingsSchedulePage.pageTitle)
+    AboutCommunityBuildingsSchedulePage.verifyPageCaption(AboutCommunityBuildingsSchedulePage.pageCaption)
+    AboutCommunityBuildingsSchedulePage.verifyPageHeading(AboutCommunityBuildingsSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    AboutCommunityBuildingsSchedulePage.verifyEntirePageContent(
+      AboutCommunityBuildingsSchedulePage.createSingleStringFromMany(
+        AboutCommunityBuildingsSchedulePage.pageCaption,
+        AboutCommunityBuildingsSchedulePage.pageHeading,
+        AboutCommunityBuildingsSchedulePage.listItem1Agent,
         AboutCommunityBuildingsSchedulePage.listItem2,
         AboutCommunityBuildingsSchedulePage.listItem3,
         AboutCommunityBuildingsSchedulePage.listItem4
