@@ -48,7 +48,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Locator values */
   object Locators {
     val btnContinue                    = "//button[@type='submit' and contains(text(),'Continue')]"
-    val btnContinueConfirm             = "//button[@type='submit']"
+    val btnContinueConfirm             = "//button[@type='submit' and contains(text(),'Confirm')]"
     val lnkBack                        = "Back"
     val lnkHeader                      = ".govuk-header__link.govuk-header__service-name"
     val lnkDeleteSchedule              = "//a[contains(text(), 'Delete schedule')]"
