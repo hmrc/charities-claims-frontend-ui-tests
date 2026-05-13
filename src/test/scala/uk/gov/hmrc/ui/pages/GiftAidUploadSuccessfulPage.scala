@@ -41,6 +41,12 @@ object GiftAidUploadSuccessfulPage extends BasePage {
   def validatePageParagraph(): Unit =
     GiftAidUploadSuccessfulPage.verifyParagraphText(GiftAidUploadSuccessfulPage.pageParagraph)
 
+  def validateNavigationAgent(): Unit = {
+    GiftAidUploadSuccessfulPage.verifyPageUrl(GiftAidUploadSuccessfulPage.pageUrl)
+    GiftAidUploadSuccessfulPage.verifyPageTitle(GiftAidUploadSuccessfulPage.pageTitle)
+    GiftAidUploadSuccessfulPage.verifyPageHeading(GiftAidUploadSuccessfulPage.pageHeading)
+  }
+
   def validatePageParagraphAgent(): Unit =
     GiftAidUploadSuccessfulPage.verifyParagraphText(GiftAidUploadSuccessfulPage.pageParagraphAgent)
 }

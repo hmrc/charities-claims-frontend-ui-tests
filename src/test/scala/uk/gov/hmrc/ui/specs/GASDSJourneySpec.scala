@@ -249,7 +249,7 @@ class GASDSJourneySpec
       Then("User navigates to 'Check your GASDS donation details' page and validates page details")
       CheckYourGASDSDonationDetailsPage.validateNavigation()
       Then("User clicks CONTINUE to reach task list: 'Make a repayment Claim' Page")
-      CheckYourGASDSDonationDetailsPage.clickContinue()
+      CheckYourGASDSDonationDetailsPage.clickConfirmAndSubmit()
       And("User validates navigation to 'Make a repayment Claim' Page")
       ClaimsTaskListPage_InProgress.validateNavigationGASDSOnlyComplete()
     }

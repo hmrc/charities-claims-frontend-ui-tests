@@ -27,6 +27,8 @@ object AboutOtherIncomeSchedulePage extends BasePage {
 
   def listText1: String = "Use this service to add an Other Income schedule."
 
+  def listTextAgent1: String = "Use this service to add an Other Income schedule for your client."
+
   def listText2: String = "You can upload an Other Income schedule in a .ods format."
 
   def listText3: String =
@@ -47,6 +49,25 @@ object AboutOtherIncomeSchedulePage extends BasePage {
         AboutOtherIncomeSchedulePage.pageCaption,
         AboutOtherIncomeSchedulePage.pageHeading,
         AboutOtherIncomeSchedulePage.listText1,
+        AboutOtherIncomeSchedulePage.listText2,
+        AboutOtherIncomeSchedulePage.listText3,
+        AboutOtherIncomeSchedulePage.continueButton
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    AboutOtherIncomeSchedulePage.verifyPageUrl(AboutOtherIncomeSchedulePage.pageUrl)
+    AboutOtherIncomeSchedulePage.verifyPageTitle(AboutOtherIncomeSchedulePage.pageTitle)
+    AboutOtherIncomeSchedulePage.verifyPageCaption(AboutOtherIncomeSchedulePage.pageCaption)
+    AboutOtherIncomeSchedulePage.verifyPageHeading(AboutOtherIncomeSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    AboutOtherIncomeSchedulePage.verifyEntirePageContent(
+      AboutOtherIncomeSchedulePage.createSingleStringFromMany(
+        AboutOtherIncomeSchedulePage.pageCaption,
+        AboutOtherIncomeSchedulePage.pageHeading,
+        AboutOtherIncomeSchedulePage.listTextAgent1,
         AboutOtherIncomeSchedulePage.listText2,
         AboutOtherIncomeSchedulePage.listText3,
         AboutOtherIncomeSchedulePage.continueButton
