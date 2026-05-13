@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject extends BasePa
   override def pageTitle: String =
     "There is a problem uploading your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Other Income schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Other Income schedule"
+
   def listItem1: String =
     "Your file must be an ODS file. Save your schedule as an ODS file and try uploading it again."
+
+  def listItem1Agent: String =
+    "This file must be an ODS file. Save this schedule as an ODS file and try uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject extends BasePa
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.createSingleStringFromMany(
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageHeading,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.listItem1,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageUrl(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageUrl
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageTitle(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyPageHeading(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.pageHeadingAgent,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.listItem1Agent,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.txtReturnToDashboard
       )

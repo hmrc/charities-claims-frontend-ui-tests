@@ -36,7 +36,7 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject extends
     "Your file must be an ODS file. Save your schedule as an ODS file and try uploading it again."
 
   def listItem1Agent: String =
-    "Your file must be an ODS file. Save your schedule as an ODS file and try uploading it again."
+    "This file must be an ODS file. Save this schedule as an ODS file and try uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
