@@ -47,7 +47,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Locator values */
   object Locators {
-    val btnContinue                    = "//button[@type='submit']"
+    val btnContinue                    = "//button[@type='submit' and contains(text(),'Continue')]"
+    val btnContinueConfirm             = "//button[@type='submit']"
     val lnkBack                        = "Back"
     val lnkHeader                      = ".govuk-header__link.govuk-header__service-name"
     val lnkDeleteSchedule              = "//a[contains(text(), 'Delete schedule')]"
@@ -223,7 +224,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Specific actions */
   def clickContinue(): Unit         = click(By.xpath(Locators.btnContinue))
   def clickBackLink(): Unit         = click(By.linkText(Locators.lnkBack))
-  def clickConfirmAndSubmit(): Unit = click(By.cssSelector(Locators.btnContinue))
+  def clickConfirmAndSubmit(): Unit = click(By.cssSelector(Locators.btnContinueConfirm))
   def header(): Unit                = click(By.cssSelector(Locators.lnkHeader))
 //  def removeFile(): Unit        = click(By.cssSelector(Locators.lnkRemoveFile))
 
