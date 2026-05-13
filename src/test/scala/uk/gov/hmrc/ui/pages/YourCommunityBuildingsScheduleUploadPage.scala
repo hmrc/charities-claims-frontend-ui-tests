@@ -41,7 +41,7 @@ object YourCommunityBuildingsScheduleUploadPage extends BasePage {
     "You can upload your Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   def pageParagraphAgent: String =
-    "You can upload the Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB.\n"
+    "You can upload the Community Buildings schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   val linkRemoveUploadedFile: By =
     By.xpath("//a[@href='/charities-claims/your-community-buildings-schedule-upload/remove']")
