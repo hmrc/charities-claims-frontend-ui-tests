@@ -24,9 +24,13 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   override def pageTitle: String = "Check your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String = "Check this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String = "Add Other Income schedule"
 
   def pageHeading: String = "Check your Other Income schedule"
+
+  def pageHeadingAgent: String = "Check this Other Income schedule"
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to update this Other Income schedule"
 
@@ -59,6 +63,13 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
     CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitle)
     CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
     CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourOtherIncomeSchedulePage.verifyPageUrl(CheckYourOtherIncomeSchedulePage.pageUrl)
+    CheckYourOtherIncomeSchedulePage.verifyPageTitle(CheckYourOtherIncomeSchedulePage.pageTitleAgent)
+    CheckYourOtherIncomeSchedulePage.verifyPageCaption(CheckYourOtherIncomeSchedulePage.pageCaption)
+    CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeadingAgent)
   }
 
   // TODO Hardcoded values, needs improved

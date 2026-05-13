@@ -23,11 +23,17 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
   override def pageTitle: String =
     "There is a problem with the data in your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem with the data in this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Other Income schedule"
 
   def pageHeading: String =
     "There is a problem with the data in your Other Income schedule"
+
+  def pageHeadingAgent: String =
+    "There is a problem with the data in this Other Income schedule"
 
   def pageWarningIcon: String =
     "!"
@@ -52,6 +58,9 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
 
   def errorHelp3: String =
     "Update your spreadsheet."
+
+  def errorHelpAgent3: String =
+    "Update the spreadsheet."
 
   def errorHelp4: String =
     "Upload the updated spreadsheet."
@@ -78,6 +87,33 @@ object CheckYourOtherIncomeScheduleErrorPage extends BasePage {
         CheckYourOtherIncomeScheduleErrorPage.errorHelp1,
         CheckYourOtherIncomeScheduleErrorPage.errorHelp2,
         CheckYourOtherIncomeScheduleErrorPage.errorHelp3,
+        CheckYourOtherIncomeScheduleErrorPage.errorHelp4
+      )
+    )
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageUrl(CheckYourOtherIncomeScheduleErrorPage.pageUrl)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageTitle(CheckYourOtherIncomeScheduleErrorPage.pageTitleAgent)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageCaption(CheckYourOtherIncomeScheduleErrorPage.pageCaption)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageHeading(CheckYourOtherIncomeScheduleErrorPage.pageHeadingAgent)
+  }
+
+  def validatePageContentAgent(): Unit = {
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageWarning(
+      CheckYourOtherIncomeScheduleErrorPage.createSingleStringFromMany(
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningIcon,
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningHeading,
+        CheckYourOtherIncomeScheduleErrorPage.pageWarningText
+      )
+    )
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading1(CheckYourOtherIncomeScheduleErrorPage.pageHeading2)
+    CheckYourOtherIncomeScheduleErrorPage.verifyPageSubHeading2(CheckYourOtherIncomeScheduleErrorPage.pageHeading3)
+    CheckYourOtherIncomeScheduleErrorPage.verifyScheduleErrorHelpList(
+      CheckYourOtherIncomeScheduleErrorPage.createSingleStringFromMany(
+        CheckYourOtherIncomeScheduleErrorPage.errorHelp1,
+        CheckYourOtherIncomeScheduleErrorPage.errorHelp2,
+        CheckYourOtherIncomeScheduleErrorPage.errorHelpAgent3,
         CheckYourOtherIncomeScheduleErrorPage.errorHelp4
       )
     )
