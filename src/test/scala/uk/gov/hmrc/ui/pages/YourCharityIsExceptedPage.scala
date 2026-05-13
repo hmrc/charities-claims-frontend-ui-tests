@@ -23,14 +23,23 @@ object YourCharityIsExceptedPage extends BasePage {
   override def pageTitle: String =
     "Your charity is excepted - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "The charity is excepted - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeading: String =
     "Your charity is excepted"
 
+  def pageHeadingAgent: String =
+    "The charity is excepted"
+
   def pageParagraph: String =
     "Your charity is excepted as the charity’s income is £100,000 or less and is classed as one of the following:"
+
+  def pageParagraphAgent: String =
+    "The charity is excepted as the charity’s income is £100,000 or less and is classed as one of the following:"
 
   def pageListItem1: String =
     "a church or chapel"
@@ -54,9 +63,31 @@ object YourCharityIsExceptedPage extends BasePage {
     YourCharityIsExceptedPage.verifyPageHeading(YourCharityIsExceptedPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    YourCharityIsExceptedPage.verifyPageUrl(YourCharityIsExceptedPage.pageUrl)
+    YourCharityIsExceptedPage.verifyPageTitle(YourCharityIsExceptedPage.pageTitleAgent)
+    YourCharityIsExceptedPage.verifyPageCaption(YourCharityIsExceptedPage.pageCaption)
+    YourCharityIsExceptedPage.verifyPageHeading(YourCharityIsExceptedPage.pageHeadingAgent)
+  }
+
   def validateParagraph(): Unit = {
     YourCharityIsExceptedPage.verifyParagraphText(
       YourCharityIsExceptedPage.pageParagraph
+    )
+    YourCharityIsExceptedPage.verifyListText(
+      YourCharityIsExceptedPage.createSingleStringFromMany(
+        YourCharityIsExceptedPage.pageListItem1,
+        YourCharityIsExceptedPage.pageListItem2,
+        YourCharityIsExceptedPage.pageListItem3,
+        YourCharityIsExceptedPage.pageListItem4,
+        YourCharityIsExceptedPage.pageListItem5
+      )
+    )
+  }
+
+  def validateParagraphAgent(): Unit = {
+    YourCharityIsExceptedPage.verifyParagraphText(
+      YourCharityIsExceptedPage.pageParagraphAgent
     )
     YourCharityIsExceptedPage.verifyListText(
       YourCharityIsExceptedPage.createSingleStringFromMany(
