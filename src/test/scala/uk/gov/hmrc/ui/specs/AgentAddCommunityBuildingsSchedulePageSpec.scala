@@ -358,7 +358,7 @@ class AgentAddCommunityBuildingsSchedulePageSpec
         "User clicks on 'Attach an updated Community Buildings schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a CBS page B1.1' "
       )
-      CheckYourCommunityBuildingsScheduleErrorPage.clickAttach()
+      CheckYourCommunityBuildingsScheduleErrorPage.clickAttachUpdatedSchedule()
       Then("User validates navigation of 'upload a CBS page B1.1' ")
       UploadACommunityBuildingsSchedulePage.validateNavigationAgent()
 

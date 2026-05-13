@@ -33,7 +33,7 @@ class AgentAddConnectedCharitiesSchedulePageSpec
     with BeforeAndAfterEach
     with Browser
     with ScreenshotOnFailure {
-  Feature("Charities - Organisation - Connected Charities Page Validations") {
+  Feature("Charities - Agent - Connected Charities Page Validations") {
     Scenario("User navigates to the 'About Connected Charities schedule' page and validates the page elements") {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETEST-C16")
@@ -326,7 +326,7 @@ class AgentAddConnectedCharitiesSchedulePageSpec
         "User clicks on 'Attach an updated Connected Charities schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a Connected Charities schedule page CC1.1' "
       )
-      CheckYourConnectedCharitiesScheduleErrorPage.clickAttach()
+      CheckYourConnectedCharitiesScheduleErrorPage.clickAttachUpdatedSchedule()
       Then("User validates navigation of 'upload a Connected Charities schedule page CC1.1' ")
       UploadAConnectedCharitiesSchedulePage.validateNavigationAgent()
     }
