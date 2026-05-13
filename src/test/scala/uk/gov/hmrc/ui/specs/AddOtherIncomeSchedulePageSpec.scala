@@ -319,7 +319,7 @@ class AddOtherIncomeSchedulePageSpec
         "User clicks on 'Attach an updated Other Income schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a Other Income schedule page O1.1' "
       )
-      CheckYourOtherIncomeScheduleErrorPage.clickContinue()
+      CheckYourOtherIncomeScheduleErrorPage.clickAttachUpdatedSchedule()
       Then("User validates navigation of 'upload a Other Income schedule page O1.1' ")
       UploadAnOtherIncomeSchedulePage.validateNavigation()
     }
