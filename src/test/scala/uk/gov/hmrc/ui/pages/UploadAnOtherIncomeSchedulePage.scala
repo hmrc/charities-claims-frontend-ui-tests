@@ -31,6 +31,9 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
   def pageText1: String =
     "To claim Other Income, you need to upload a completed Other Income schedule with details of your donors and donations. You can save your claim without uploading the Other Income schedule, but you need to upload an Other Income schedule before submitting your claim."
 
+  def pageTextAgent1: String =
+    "To claim Other Income for your client, you need to upload a completed Other Income schedule with details of donors and donations. You can save this claim without uploading the Other Income schedule, but you need to upload an Other Income schedule before submitting this claim."
+
   def pageText2: String =
     "If you have not completed an Other Income schedule, download an Other Income schedule here (opens in new tab)."
 
@@ -65,6 +68,29 @@ object UploadAnOtherIncomeSchedulePage extends BasePage {
         UploadAnOtherIncomeSchedulePage.pageCaption,
         UploadAnOtherIncomeSchedulePage.pageHeading,
         UploadAnOtherIncomeSchedulePage.pageText1,
+        UploadAnOtherIncomeSchedulePage.pageText2,
+        UploadAnOtherIncomeSchedulePage.pageText3,
+        UploadAnOtherIncomeSchedulePage.pageText4,
+        UploadAnOtherIncomeSchedulePage.pageHiddenText,
+        UploadAnOtherIncomeSchedulePage.pageText5,
+        UploadAnOtherIncomeSchedulePage.pageText6,
+        UploadAnOtherIncomeSchedulePage.continueButton
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    UploadAnOtherIncomeSchedulePage.verifyPageUrl(UploadAnOtherIncomeSchedulePage.pageUrl)
+    UploadAnOtherIncomeSchedulePage.verifyPageTitle(UploadAnOtherIncomeSchedulePage.pageTitle)
+    UploadAnOtherIncomeSchedulePage.verifyPageCaption(UploadAnOtherIncomeSchedulePage.pageCaption)
+    UploadAnOtherIncomeSchedulePage.verifyPageHeading(UploadAnOtherIncomeSchedulePage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    UploadAnOtherIncomeSchedulePage.verifyEntirePageContent(
+      UploadAnOtherIncomeSchedulePage.createSingleStringFromMany(
+        UploadAnOtherIncomeSchedulePage.pageCaption,
+        UploadAnOtherIncomeSchedulePage.pageHeading,
+        UploadAnOtherIncomeSchedulePage.pageTextAgent1,
         UploadAnOtherIncomeSchedulePage.pageText2,
         UploadAnOtherIncomeSchedulePage.pageText3,
         UploadAnOtherIncomeSchedulePage.pageText4,
