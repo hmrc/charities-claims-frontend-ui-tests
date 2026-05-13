@@ -30,7 +30,7 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
   def pageHeading: String = "Why is the charity not registered with a regulator?"
 
   def textCheckbox1: String = "Your charity is located in England or Wales and your income is less than £5,000 per year"
-  
+
   def textCheckbox2: String = "Your charity is excepted"
 
   def textCheckbox3: String = "Your charity is exempt"
