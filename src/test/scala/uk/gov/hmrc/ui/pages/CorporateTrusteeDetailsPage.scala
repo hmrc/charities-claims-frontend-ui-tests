@@ -51,7 +51,7 @@ object CorporateTrusteeDetailsPage extends BasePage {
     "Enter a corporate trustee name in the correct format"
 
   // Phone field
-  def inputPhoneMaxLength  = 36
+  def inputPhoneMaxLength  = 31
   val phoneInputLocator    = By.ById("corporateTrusteeDaytimeTelephoneNumber")
   val phoneErrorMsgLocator = By.ById("corporateTrusteeDaytimeTelephoneNumber-error")
 
@@ -59,7 +59,7 @@ object CorporateTrusteeDetailsPage extends BasePage {
     "Enter a corporate trustee phone number"
 
   def pageErrorMsgPhoneTooManyChars: String =
-    "Corporate trustee phone number must be 35 characters or less"
+    "Corporate trustee phone number must be 30 characters or less"
 
   def pageErrorMsgPhoneNonWesternChar =
     "Enter a corporate trustee phone number in the correct format"
