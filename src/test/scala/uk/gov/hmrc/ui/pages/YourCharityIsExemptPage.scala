@@ -23,11 +23,17 @@ object YourCharityIsExemptPage extends BasePage {
   override def pageTitle: String =
     "Your charity is exempt - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "The charity is exempt - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeading: String =
     "Your charity is exempt"
+
+  def pageHeadingAgent: String =
+    "The charity is exempt"
 
   def pageParagraph: String =
     "The charity is exempt from registering with a regulator because it is a:"
@@ -46,6 +52,13 @@ object YourCharityIsExemptPage extends BasePage {
     YourCharityIsExemptPage.verifyPageTitle(YourCharityIsExemptPage.pageTitle)
     YourCharityIsExemptPage.verifyPageCaption(YourCharityIsExemptPage.pageCaption)
     YourCharityIsExemptPage.verifyPageHeading(YourCharityIsExemptPage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    YourCharityIsExemptPage.verifyPageUrl(YourCharityIsExemptPage.pageUrl)
+    YourCharityIsExemptPage.verifyPageTitle(YourCharityIsExemptPage.pageTitleAgent)
+    YourCharityIsExemptPage.verifyPageCaption(YourCharityIsExemptPage.pageCaption)
+    YourCharityIsExemptPage.verifyPageHeading(YourCharityIsExemptPage.pageHeadingAgent)
   }
 
   def validateParagraph(): Unit = {
