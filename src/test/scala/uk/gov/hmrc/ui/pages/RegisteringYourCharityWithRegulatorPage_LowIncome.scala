@@ -25,7 +25,12 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
   override def pageTitle: String =
     "Registering your charity with a regulator - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Registering the charity with a regulator - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String = "Registering your charity with a regulator"
+
+  def pageHeadingAgent: String = "Registering the charity with a regulator"
 
   def pageWarningIcon: String =
     "!"
@@ -36,12 +41,20 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
   def pageWarningText: String =
     "You have made claims for Gift Aid repayments on donations of £5,000 or more in the last 12 months."
 
+  def pageWarningTextAgent: String =
+    "The charity has made claims for Gift Aid repayments on donations of £5,000 or more in the last 12 months."
+
   def textParagraph1: String =
     "If your annual income is £5,000 or more, you need to register your charity with a regulator (opens in new tab)."
+
+  def textParagraph1Agent: String =
+    "If the charity’s annual income is £5,000 or more, you need to register this charity with a regulator (opens in new tab)."
 
   def pageErrorMsg: String = "Select ‘Yes’ if you need to register with a regulator"
 
   def textRadioButtonQuestion: String = "Do you need to register your charity with a regulator?"
+
+  def textRadioButtonQuestionAgent: String = "Do you need to register this charity with a regulator?"
 
   def textRadioButtonYes: String = "Yes"
 
@@ -65,6 +78,18 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
     )
   }
 
+  def validateNavigationAgent(): Unit = {
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageUrl(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageUrl
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageTitle(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageTitleAgent
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageHeading(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.pageHeadingAgent
+    )
+  }
+
   def validatePageContent(): Unit = {
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageWarning(
       RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
@@ -79,6 +104,26 @@ object RegisteringYourCharityWithRegulatorPage_LowIncome extends BasePage {
     RegisteringYourCharityWithRegulatorPage_LowIncome.verifyFormFieldsetContent(
       RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
         RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestion,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonYes,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonNo
+      )
+    )
+  }
+
+  def validatePageContentAgent(): Unit = {
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyPageWarning(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningIcon,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningHeading,
+        RegisteringYourCharityWithRegulatorPage_LowIncome.pageWarningTextAgent
+      )
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyParagraphText(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.textParagraph1Agent
+    )
+    RegisteringYourCharityWithRegulatorPage_LowIncome.verifyFormFieldsetContent(
+      RegisteringYourCharityWithRegulatorPage_LowIncome.createSingleStringFromMany(
+        RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonQuestionAgent,
         RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonYes,
         RegisteringYourCharityWithRegulatorPage_LowIncome.textRadioButtonNo
       )
