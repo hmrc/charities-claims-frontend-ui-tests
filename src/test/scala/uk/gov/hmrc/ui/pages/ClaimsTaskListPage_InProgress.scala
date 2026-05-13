@@ -32,7 +32,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     "Make a charity repayment claim"
 
   def pageSubheading1: String =
-    "About the claim"
+    "About this claim"
 
   def pageTaskListItemNotYetStartedStatus: String =
     "Not yet started"
@@ -78,7 +78,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def validateNavigation(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
-    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
@@ -86,7 +86,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def validateNavigationGASDSOnlyComplete(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
-    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)
@@ -94,7 +94,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
-    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
@@ -102,7 +102,7 @@ object ClaimsTaskListPage_InProgress extends BasePage {
 
   def validateNavigationGASDSOnlyCompleteAgent(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
-    ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
+    // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)

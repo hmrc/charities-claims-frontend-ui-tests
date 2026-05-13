@@ -92,7 +92,7 @@ class GASDSPagesSpec
     }
 
     Scenario(
-      "User navigates to the 'About Gift Aid Small Donations Scheme schedule' page from the GASDS flow and validates the page elements"
+      "User navigates to the 'Adjustment Amount' page from the GASDS flow and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGE-TEST-S22")

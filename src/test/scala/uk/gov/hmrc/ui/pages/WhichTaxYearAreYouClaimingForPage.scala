@@ -25,9 +25,14 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
 
   override def pageTitle: String = "Which tax year are you claiming for? - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Which tax year is the charity claiming for? - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String = "Provide GASDS donation details"
 
   def pageHeading: String = "Which tax year are you claiming for?"
+
+  def pageHeadingAgent: String = "Which tax year is the charity claiming for?"
 
   def pageParagraph: String =
     "The tax year covers April to April. For example, tax year 2016 runs from 6 April 2015 to 5 April 2016."
@@ -38,6 +43,10 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     input(Locators.txtTaxYear, currentTaxYear)
     clickContinue()
   }
+
+  def inputDuplicateTaxYear(currentTaxYear: String): Unit =
+    input(Locators.txtTaxYear, currentTaxYear)
+    clickContinue()
 
   def inputMaxYearLength = 4
 
@@ -64,6 +73,9 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
   def pageErrorWrongFormat2: String = "Enter a second tax year in the correct format"
 
   def pageErrorWrongFormat3: String = "Enter a third tax year in the correct format"
+
+  def pageErrorDuplicateYear: String =
+    "Donations claimed for more than one tax year must be different to other tax years"
 
   /** Trigger Invalid Tax Year error message - <= 2023 */
   def triggerMoreThan3TaxYearsAgoError(
@@ -98,6 +110,13 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
+  def validateNavigation1Agent(): Unit = {
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/1")
+    WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitleAgent)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption)
+    WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeadingAgent)
+  }
+
   def validatePageProperties1(): Unit = {
     WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption)
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
@@ -111,6 +130,13 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
   }
 
+  def validateNavigation2Agent(): Unit = {
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/2")
+    WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitleAgent)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
+    WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeadingAgent)
+  }
+
   def validatePageProperties2(): Unit = {
     WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 2")
     WhichTaxYearAreYouClaimingForPage.verifyParagraphText(WhichTaxYearAreYouClaimingForPage.pageParagraph)
@@ -122,6 +148,13 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
     WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitle)
     WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
     WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeading)
+  }
+
+  def validateNavigation3Agent(): Unit = {
+    WhichTaxYearAreYouClaimingForPage.verifyPageUrl(WhichTaxYearAreYouClaimingForPage.pageUrl + "/3")
+    WhichTaxYearAreYouClaimingForPage.verifyPageTitle(WhichTaxYearAreYouClaimingForPage.pageTitleAgent)
+    WhichTaxYearAreYouClaimingForPage.verifyPageCaption(WhichTaxYearAreYouClaimingForPage.pageCaption + " - Tax year 3")
+    WhichTaxYearAreYouClaimingForPage.verifyPageHeading(WhichTaxYearAreYouClaimingForPage.pageHeadingAgent)
   }
 
   def validatePageProperties3(): Unit = {
@@ -210,4 +243,29 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
       WhichTaxYearAreYouClaimingForPage.yearInputLocator,
       WhichTaxYearAreYouClaimingForPage.yearInputErrorLocator
     )
+
+  def validateDuplicateErrorMessage(expectedErrorMessage: String, errorMsgLocatorValue: By): Unit = {
+    val errorMessage       = s"$expectedErrorMessage"
+    waitForVisibilityOfElement(By.xpath(Locators.btnContinue))
+    waitForVisibilityOfElement(Locators.errorSummary)
+    // Error title indicator
+    assert(
+      driver.getTitle.contains("Error:"),
+      s"Page title mismatch! Expected: Error: ${driver.getTitle} , Actual: ${driver.getTitle}"
+    )
+    // Error summary - top of page
+    val actualErrorSummary = driver.findElement(Locators.errorSummary).getText
+    assert(
+      actualErrorSummary contains errorMessage,
+      s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
+    )
+    println("Actual error summary is: " + actualErrorSummary)
+    // Error message - above erroring field
+    val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
+    assert(
+      actualErrorMsg contains errorMessage,
+      s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
+    )
+    println("Actual error message is: " + actualErrorMsg)
+  }
 }

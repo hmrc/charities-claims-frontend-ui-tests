@@ -23,13 +23,19 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   override def pageUrl: String = s"$hostname/donation-amount-you-are-claiming"
 
   override def pageTitle: String =
-    "What donation amount are you claiming under GASDS, in pounds? - Make a charity tax repayment claim - GOV.UK"
+    "What is the donation amount you are claiming, in pounds? - Make a charity tax repayment claim - GOV.UK"
+
+  def pageTitleAgent: String =
+    "What donation amount is being claimed under GASDS, in pounds? - Make a charity tax repayment claim - GOV.UK"
 
   def pageCaption: String =
     "Provide GASDS donation details"
 
   def pageHeading: String =
-    "What donation amount are you claiming under GASDS, in pounds?"
+    "What is the donation amount you are claiming, in pounds?"
+
+  def pageHeadingAgent: String =
+    "What donation amount is being claimed under GASDS, in pounds?"
 
   def pageHint: String =
     "This can be up to 2 decimal places, for example £1000.00"
@@ -107,6 +113,51 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
     )
     WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
       WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeading
+    )
+  }
+
+  def validateNavigationAgent_Year1(): Unit = {
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/1"
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitleAgent
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeadingAgent
+    )
+  }
+
+  def validateNavigationAgent_Year2(): Unit = {
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/2"
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitleAgent
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 2"
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeadingAgent
+    )
+  }
+
+  def validateNavigationAgent_Year3(): Unit = {
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageUrl(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageUrl + "/3"
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageTitle(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageTitleAgent
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageCaption(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageCaption + " - Tax year 3"
+    )
+    WhatDonationAmountAreYouClaimingUnderGASDSPage.verifyPageHeading(
+      WhatDonationAmountAreYouClaimingUnderGASDSPage.pageHeadingAgent
     )
   }
 
