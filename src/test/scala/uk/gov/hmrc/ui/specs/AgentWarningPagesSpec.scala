@@ -25,7 +25,7 @@ import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
 class AgentWarningPagesSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -33,7 +33,6 @@ class AgentWarningPagesSpec
     with BeforeAndAfterEach
     with Browser
     with ScreenshotOnFailure {
-
 
   Feature("Charities - Agent - Warning Pages Validations") {
     Scenario(
@@ -47,14 +46,16 @@ class AgentWarningPagesSpec
         "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
       )
       CharitiesManagementAgent.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigationAgent()
-      And("User clicks continue on 'Repayment claim details' page")
+      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
       RepaymentClaimDetailsPage.clickContinue()
+      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
+      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
       And(
@@ -65,7 +66,7 @@ class AgentWarningPagesSpec
       And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateNavigationAgent()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-      GASDSCheckboxPage.validatePageContent()
+      GASDSCheckboxPage.validatePageContentAgent()
       And("User selects 'GASDS Community Buildings' checkbox and clicks continue")
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
       GASDSCheckboxPage.clickContinue()
@@ -104,7 +105,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Community Buildings schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.validateNavigationAgent()
-      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.validatePageContent()
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
       )
@@ -124,7 +125,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Community Buildings schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.validateNavigationAgent()
-      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.validatePageContent()
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
       )
@@ -144,7 +145,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Community Buildings schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validateNavigationAgent()
-      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validatePageContent()
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Community Buildings schedule' page"
       )
@@ -160,19 +161,21 @@ class AgentWarningPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETES-WRN70-GAS")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-     CharitiesManagementAgent.validateNavigationAgent()
+      CharitiesManagementAgent.validateNavigationAgent()
       And(
         "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
       )
       CharitiesManagementAgent.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigationAgent()
-      And("User clicks continue on 'Repayment claim details' page")
+      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
       RepaymentClaimDetailsPage.clickContinue()
+      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
+      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
       And(
@@ -210,7 +213,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Gift Aid schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validateNavigationAgent()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContent()
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Gift Aid schedule' page"
       )
@@ -230,7 +233,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Gift Aid schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validateNavigationAgent()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validatePageContent()
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Gift Aid schedule' page"
       )
@@ -250,7 +253,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Gift Aid schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validateNavigationAgent()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContent()
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Gift Aid schedule' page"
       )
@@ -265,19 +268,21 @@ class AgentWarningPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETES-WRN70-OI")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-     CharitiesManagementAgent.validateNavigationAgent()
+      CharitiesManagementAgent.validateNavigationAgent()
       And(
         "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
       )
       CharitiesManagementAgent.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigationAgent()
-      And("User clicks continue on 'Repayment claim details' page")
+      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
       RepaymentClaimDetailsPage.clickContinue()
+      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
+      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
       And(
@@ -315,7 +320,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.validateNavigationAgent()
-      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.validatePageContent()
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )
@@ -335,7 +340,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.validateNavigationAgent()
-      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.validatePageContent()
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Reject.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )
@@ -355,7 +360,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.validateNavigationAgent()
-      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.validatePageContent()
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Unknown.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )
@@ -370,19 +375,21 @@ class AgentWarningPagesSpec
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "PAGETES-WRN70-CC")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-     CharitiesManagementAgent.validateNavigationAgent()
+      CharitiesManagementAgent.validateNavigationAgent()
       And(
         "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
       )
       CharitiesManagementAgent.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigationAgent()
-      And("User clicks continue on 'Repayment claim details' page")
+      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
       RepaymentClaimDetailsPage.clickContinue()
+      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
+      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigationAgent()
       And(
@@ -393,12 +400,10 @@ class AgentWarningPagesSpec
       And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
       GASDSCheckboxPage.validateNavigationAgent()
       Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-      GASDSCheckboxPage.validatePageContent()
+      GASDSCheckboxPage.validatePageContentAgent()
       And("User selects 'GASDS Other Income' checkbox and clicks continue")
       GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
       GASDSCheckboxPage.clickContinue()
-      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
-      GiftAidSmallDonationsSchemeClaimPage.validateNavigationAgent()
       And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
       GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
       GiftAidSmallDonationsSchemeClaimPage.clickContinue()
@@ -432,7 +437,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.validateNavigationAgent()
-      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.validatePageContent()
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Quarantine.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )
@@ -452,7 +457,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.validateNavigationAgent()
-      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.validatePageContent()
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Reject.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )
@@ -472,7 +477,7 @@ class AgentWarningPagesSpec
         "User navigates to 'There is a problem uploading your Other Income schedule' page and validates its contents"
       )
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.validateNavigationAgent()
-      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.validatePageContent()
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.validatePageContentAgent()
       Then(
         "User selects 'Upload a new schedule' button on the 'There is a problem uploading your Other Income schedule' page"
       )

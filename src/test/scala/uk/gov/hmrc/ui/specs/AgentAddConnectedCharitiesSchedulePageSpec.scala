@@ -326,7 +326,7 @@ class AgentAddConnectedCharitiesSchedulePageSpec
         "User clicks on 'Attach an updated Connected Charities schedule' that deletes the invalid ODS and navigates to" +
           " 'upload a Connected Charities schedule page CC1.1' "
       )
-      CheckYourConnectedCharitiesScheduleErrorPage.clickContinue()
+      CheckYourConnectedCharitiesScheduleErrorPage.clickAttach()
       Then("User validates navigation of 'upload a Connected Charities schedule page CC1.1' ")
       UploadAConnectedCharitiesSchedulePage.validateNavigationAgent()
     }

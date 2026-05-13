@@ -30,7 +30,7 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Quarantine ext
     "There is a problem uploading your Community Buildings schedule"
 
   def pageHeadingAgent: String =
-    "There is a problem uploading This Community Buildings schedule"
+    "There is a problem uploading this Community Buildings schedule"
 
   def listItem1: String =
     "Your file contains a virus, so it cannot be uploaded. Check the file for viruses or create a new version before uploading it again."
