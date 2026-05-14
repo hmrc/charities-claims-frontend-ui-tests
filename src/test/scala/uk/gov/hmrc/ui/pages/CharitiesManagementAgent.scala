@@ -36,8 +36,8 @@ object CharitiesManagementAgent extends BasePage {
 
   val lnkUseTheCharities: By             = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
   val lnkContinueClaim: By               = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
-  val lnkFirstUnsubmittedClaim: By       = By.xpath("//tr[1]//td[3]/a")
-  val lnkDeleteFirstUnsubmittedClaim: By = By.xpath("//tr[1]//td[4]/a")
+  val lnkRow1UnsubmittedClaim: By       = By.xpath("//tr[1]//td[3]/a")
+  val lnkRow1DeleteUnsubmittedClaim: By = By.xpath("//tr[1]//td[4]/a")
 
   def validateNavigationAgent(): Unit = {
     // CharitiesManagementAgent.verifyPageUrl(CharitiesManagementAgent.pageUrl)
