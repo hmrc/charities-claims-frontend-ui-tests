@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown extend
   override def pageTitle: String =
     "There is a problem uploading your Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Community Buildings schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Community Buildings schedule"
+
   def listItem1: String =
     "Your file could not be uploaded. You can try uploading the file again."
+
+  def listItem1Agent: String =
+    "This file could not be uploaded. You can try uploading the file again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown extend
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.createSingleStringFromMany(
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeading,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.listItem1,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageUrl(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageUrl
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageTitle(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyPageHeading(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.pageHeadingAgent,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.listItem1Agent,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.txtReturnToDashboard
       )

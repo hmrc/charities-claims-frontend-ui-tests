@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine extends Ba
   override def pageTitle: String =
     "There is a problem uploading your Other Income schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Other Income schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Other Income schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Other Income schedule"
+
   def listItem1: String =
     "Your file contains a virus, so it cannot be uploaded. Check the file for viruses or create a new version before uploading it again."
+
+  def listItem1Agent: String =
+    "This file contains a virus, so it cannot be uploaded. Check the file for viruses or create a new version before uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine extends Ba
       ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.createSingleStringFromMany(
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageHeading,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.listItem1,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageUrl(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageUrl
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageTitle(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyPageHeading(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.pageHeadingAgent,
+        ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.listItem1Agent,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourOtherIncomeSchedulePage_Quarantine.txtReturnToDashboard
       )

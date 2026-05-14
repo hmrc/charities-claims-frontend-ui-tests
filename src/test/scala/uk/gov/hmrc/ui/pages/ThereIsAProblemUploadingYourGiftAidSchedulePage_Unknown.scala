@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown extends BasePage 
   override def pageTitle: String =
     "There is a problem uploading your Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Gift Aid schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Gift Aid schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Gift Aid schedule"
+
   def listItem1: String =
     "Your file could not be uploaded. You can try uploading the file again."
+
+  def listItem1Agent: String =
+    "This file could not be uploaded. You can try uploading the file again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown extends BasePage 
       ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.createSingleStringFromMany(
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageHeading,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.listItem1,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.verifyPageUrl(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageUrl
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.verifyPageTitle(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.verifyPageHeading(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.pageHeadingAgent,
+        ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.listItem1Agent,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.txtReturnToDashboard
       )

@@ -25,6 +25,8 @@ object OtherIncomeUploadSuccessfulPage extends BasePage {
 
   def listText: String = "You have successfully attached your Other Income schedule."
 
+  def listTextAgent: String = "You have successfully attached this Other Income schedule."
+
   def validateNavigation(): Unit = {
     OtherIncomeUploadSuccessfulPage.verifyPageUrl(OtherIncomeUploadSuccessfulPage.pageUrl)
     OtherIncomeUploadSuccessfulPage.verifyPageTitle(OtherIncomeUploadSuccessfulPage.pageTitle)
@@ -33,4 +35,13 @@ object OtherIncomeUploadSuccessfulPage extends BasePage {
 
   def validatePageContent(): Unit =
     OtherIncomeUploadSuccessfulPage.verifyParagraphText(OtherIncomeUploadSuccessfulPage.listText)
+
+  def validateNavigationAgent(): Unit = {
+    OtherIncomeUploadSuccessfulPage.verifyPageUrl(OtherIncomeUploadSuccessfulPage.pageUrl)
+    OtherIncomeUploadSuccessfulPage.verifyPageTitle(OtherIncomeUploadSuccessfulPage.pageTitle)
+    OtherIncomeUploadSuccessfulPage.verifyPageHeading(OtherIncomeUploadSuccessfulPage.pageHeading)
+  }
+
+  def validatePageContentAgent(): Unit =
+    OtherIncomeUploadSuccessfulPage.verifyParagraphText(OtherIncomeUploadSuccessfulPage.listTextAgent)
 }

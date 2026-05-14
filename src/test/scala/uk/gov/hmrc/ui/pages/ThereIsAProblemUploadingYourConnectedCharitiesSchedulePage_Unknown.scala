@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown extend
   override def pageTitle: String =
     "There is a problem uploading your Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Connected Charities schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Connected Charities schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Connected Charities schedule"
+
   def listItem1: String =
     "Your file could not be uploaded. You can try uploading the file again."
+
+  def listItem1Agent: String =
+    "This file could not be uploaded. You can try uploading the file again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown extend
       ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.createSingleStringFromMany(
         ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageHeading,
         ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.listItem1,
+        ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageUrl(
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageUrl
+    )
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageTitle(
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyPageHeading(
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.pageHeadingAgent,
+        ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.listItem1Agent,
         ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourConnectedCharitiesSchedulePage_Unknown.txtReturnToDashboard
       )

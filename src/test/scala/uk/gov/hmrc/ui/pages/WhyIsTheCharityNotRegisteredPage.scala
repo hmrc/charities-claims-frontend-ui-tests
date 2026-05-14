@@ -29,6 +29,25 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def pageHeading: String = "Why is the charity not registered with a regulator?"
 
+  def textCheckbox1: String = "Your charity is located in England or Wales and your income is less than £5,000 per year"
+
+  def textCheckbox2: String = "Your charity is excepted"
+
+  def textCheckbox3: String = "Your charity is exempt"
+
+  def textCheckbox4: String =
+    "Your charity is based in Northern Ireland and you are awaiting registration with the Charity Commission for Northern Ireland (CCNI)"
+
+  def textCheckbox1Agent: String =
+    "The charity is located in England or Wales and its income is less than £5,000 per year"
+
+  def textCheckbox2Agent: String = "The charity is excepted"
+
+  def textCheckbox3Agent: String = "The charity is exempt"
+
+  def textCheckbox4Agent: String =
+    "The charity is based in Northern Ireland and it is awaiting registration with the Charity Commission for Northern Ireland (CCNI)"
+
   def pageErrorMsg: String = "Select why the charity is not registered with a regulator"
 
   val LowIncome: String  = "#value"
@@ -43,6 +62,28 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
     WhyIsTheCharityNotRegisteredPage.verifyPageHeading(WhyIsTheCharityNotRegisteredPage.pageHeading)
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
   }
+
+  def validateFormFieldset(): Unit =
+    WhyIsTheCharityNotRegisteredPage.verifyFormFieldsetContent(
+      WhyIsTheCharityNotRegisteredPage.createSingleStringFromMany(
+        WhyIsTheCharityNotRegisteredPage.pageHeading,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox1,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox2,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox3,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox4
+      )
+    )
+
+  def validateFormFieldsetAgent(): Unit =
+    WhyIsTheCharityNotRegisteredPage.verifyFormFieldsetContent(
+      WhyIsTheCharityNotRegisteredPage.createSingleStringFromMany(
+        WhyIsTheCharityNotRegisteredPage.pageHeading,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox1Agent,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox2Agent,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox3Agent,
+        WhyIsTheCharityNotRegisteredPage.textCheckbox4Agent
+      )
+    )
 
   def validateErrorMessage(): Unit =
     WhyIsTheCharityNotRegisteredPage.validateGenericPageError(

@@ -25,14 +25,23 @@ object YourOtherIncomeScheduleUploadPage extends BasePage {
   override def pageTitle: String =
     "Your Other Income schedule upload - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Other Income schedule upload - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Add Other Income schedule"
 
   def pageHeading: String =
     "Your Other Income schedule upload"
 
+  def pageHeadingAgent: String =
+    "Other Income schedule upload"
+
   def pageParagraph: String =
     "You can upload your Other Income schedule as a spreadsheet. The selected file must be smaller than 250KB."
+
+  def pageParagraphAgent: String =
+    "You can upload the Other Income schedule as a spreadsheet. The selected file must be smaller than 250KB."
 
   val linkRemoveUploadedFile: By = By.xpath("//a[@href='/charities-claims/your-other-income-schedule-upload/remove']")
 
@@ -59,6 +68,18 @@ object YourOtherIncomeScheduleUploadPage extends BasePage {
   def validateParagraph(): Unit =
     YourOtherIncomeScheduleUploadPage.verifyParagraphText(
       YourOtherIncomeScheduleUploadPage.pageParagraph
+    )
+
+  def validateNavigationAgent(): Unit = {
+    YourOtherIncomeScheduleUploadPage.verifyPageUrl(YourOtherIncomeScheduleUploadPage.pageUrl)
+    YourOtherIncomeScheduleUploadPage.verifyPageTitle(YourOtherIncomeScheduleUploadPage.pageTitleAgent)
+    YourOtherIncomeScheduleUploadPage.verifyPageCaption(YourOtherIncomeScheduleUploadPage.pageCaption)
+    YourOtherIncomeScheduleUploadPage.verifyPageHeading(YourOtherIncomeScheduleUploadPage.pageHeadingAgent)
+  }
+
+  def validateParagraphAgent(): Unit =
+    YourOtherIncomeScheduleUploadPage.verifyParagraphText(
+      YourOtherIncomeScheduleUploadPage.pageParagraphAgent
     )
 
   def waitForFileUpload(): Unit =

@@ -23,13 +23,22 @@ object YourCharityIsExemptPage extends BasePage {
   override def pageTitle: String =
     "Your charity is exempt - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "The charity is exempt - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeading: String =
     "Your charity is exempt"
 
+  def pageHeadingAgent: String =
+    "The charity is exempt"
+
   def pageParagraph: String =
+    "Your charity is exempt from registering with a regulator because it is a:"
+
+  def pageParagraphAgent: String =
     "The charity is exempt from registering with a regulator because it is a:"
 
   def pageListItem1: String =
@@ -48,9 +57,29 @@ object YourCharityIsExemptPage extends BasePage {
     YourCharityIsExemptPage.verifyPageHeading(YourCharityIsExemptPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    YourCharityIsExemptPage.verifyPageUrl(YourCharityIsExemptPage.pageUrl)
+    YourCharityIsExemptPage.verifyPageTitle(YourCharityIsExemptPage.pageTitleAgent)
+    YourCharityIsExemptPage.verifyPageCaption(YourCharityIsExemptPage.pageCaption)
+    YourCharityIsExemptPage.verifyPageHeading(YourCharityIsExemptPage.pageHeadingAgent)
+  }
+
   def validateParagraph(): Unit = {
     YourCharityIsExemptPage.verifyParagraphText(
       YourCharityIsExemptPage.pageParagraph
+    )
+    YourCharityIsExemptPage.verifyListText(
+      YourCharityIsExemptPage.createSingleStringFromMany(
+        YourCharityIsExemptPage.pageListItem1,
+        YourCharityIsExemptPage.pageListItem2,
+        YourCharityIsExemptPage.pageListItem3
+      )
+    )
+  }
+
+  def validateParagraphAgent(): Unit = {
+    YourCharityIsExemptPage.verifyParagraphText(
+      YourCharityIsExemptPage.pageParagraphAgent
     )
     YourCharityIsExemptPage.verifyListText(
       YourCharityIsExemptPage.createSingleStringFromMany(

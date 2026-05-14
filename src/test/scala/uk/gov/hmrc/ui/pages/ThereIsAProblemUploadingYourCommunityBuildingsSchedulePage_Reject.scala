@@ -23,11 +23,20 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject extends
   override def pageTitle: String =
     "There is a problem uploading your Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "There is a problem uploading this Community Buildings schedule - Make a charity tax repayment claim - GOV.UK"
+
   def pageHeading: String =
     "There is a problem uploading your Community Buildings schedule"
 
+  def pageHeadingAgent: String =
+    "There is a problem uploading this Community Buildings schedule"
+
   def listItem1: String =
     "Your file must be an ODS file. Save your schedule as an ODS file and try uploading it again."
+
+  def listItem1Agent: String =
+    "This file must be an ODS file. Save this schedule as an ODS file and try uploading it again."
 
   def btnUploadNewSchedule: String =
     "Upload a new schedule"
@@ -52,6 +61,28 @@ object ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject extends
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.createSingleStringFromMany(
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageHeading,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.listItem1,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.btnUploadNewSchedule,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.txtReturnToDashboard
+      )
+    )
+
+  def validateNavigationAgent(): Unit = {
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.verifyPageUrl(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageUrl
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.verifyPageTitle(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageTitleAgent
+    )
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.verifyPageHeading(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageHeadingAgent
+    )
+  }
+
+  def validatePageContentAgent(): Unit =
+    ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.verifyEntirePageContent(
+      ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.createSingleStringFromMany(
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.pageHeadingAgent,
+        ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.listItem1Agent,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.btnUploadNewSchedule,
         ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Reject.txtReturnToDashboard
       )
