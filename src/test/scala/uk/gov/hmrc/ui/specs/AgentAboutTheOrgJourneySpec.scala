@@ -130,6 +130,24 @@ class AgentAboutTheOrgJourneySpec
       WhatIsYourPostcodePage.validateNavigationAgent()
       And("User validates Error messages on 'What is your postcode?' page")
       WhatIsYourPostcodePage.validateErrorMessageAgent()
+      Then("User inputs a Postcode on 'What is your postcode?' page and clicks CONTINUE")
+      WhatIsYourPostcodePage.enterAgentPostcode("WG7 7FU")
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
+        "Charity regulator name"     -> "Charity is not registered with a regulator",
+        "Reason for not registering" -> "The charity is excepted. The charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
+        "Send payment to"            -> "Agent/Nominee"
+      )
+      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
+        "Telephone number"           -> "0044 (0123) 456-7890",
+        "UK address"                 -> "Yes",
+        "Postcode"                   -> "WG7 7FU"
+      )
+      And("User navigates to 'Make a charity repayment claim' task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
     }
   }
 }
