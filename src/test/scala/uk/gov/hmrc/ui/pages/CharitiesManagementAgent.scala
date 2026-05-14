@@ -34,8 +34,10 @@ object CharitiesManagementAgent extends BasePage {
   def pageSubHeading1: String =
     "Make a repayment claim"
 
-  val lnkUseTheCharities: By = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
-  val lnkContinueClaim: By   = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
+  val lnkUseTheCharities: By             = By.xpath("//a[@href and contains(text(),'Use the charities online service')]")
+  val lnkContinueClaim: By               = By.xpath("//a[@href and contains(text(),'Continue with draft claim')]")
+  val lnkFirstUnsubmittedClaim: By       = By.xpath("//tr[1]//td[3]/a")
+  val lnkDeleteFirstUnsubmittedClaim: By = By.xpath("//tr[1]//td[4]/a")
 
   def validateNavigationAgent(): Unit = {
     // CharitiesManagementAgent.verifyPageUrl(CharitiesManagementAgent.pageUrl)
@@ -51,6 +53,16 @@ object CharitiesManagementAgent extends BasePage {
 
   def clickContinueClaimLink(): Unit = {
     val element = waitForElementToBeClickable(lnkContinueClaim)
+    element.click()
+  }
+
+  def clickFirstUnsubmittedClaimLink(): Unit = {
+    val element = waitForElementToBeClickable(lnkFirstUnsubmittedClaim)
+    element.click()
+  }
+
+  def clickDeleteFirstUnsubmittedClaimLink(): Unit = {
+    val element = waitForElementToBeClickable(lnkDeleteFirstUnsubmittedClaim)
     element.click()
   }
 

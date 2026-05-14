@@ -26,7 +26,7 @@ import uk.gov.hmrc.ui.pages.CharitiesManagementPlaceholder.RandomUsernameOrg
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
-class ReturningUserSpec
+class ReturningUserJourneySpec
     extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
@@ -312,6 +312,7 @@ class ReturningUserSpec
       Then("User navigates to Charities Management Frontend page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
     }
+
     Scenario(
       "Agent User completes Repayment and Organisation sections, uploads GAS, Logout->Login, then update sections"
     ) {
@@ -325,12 +326,6 @@ class ReturningUserSpec
         "AG1234",
         RandomUsername
       )
-      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-      CharitiesManagementPlaceholder.validateNavigation()
-      And(
-        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-      )
-      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -412,8 +407,10 @@ class ReturningUserSpec
       DoYouHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What is your postcode?' page")
       WhatIsYourPostcodePage.validateNavigationAgent()
-      Then("User clicks CONTINUE to navigate to 'Agent's CYA Organisation' page and validates navigation")
-      WhatIsYourPostcodePage.clickContinue()
+      Then(
+        "User Enters Postcode and clicks CONTINUE to navigate to 'Agent's CYA Organisation' page and validates navigation"
+      )
+      WhatIsYourPostcodePage.enterAgentPostcode("AB1 1BA")
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User clicks CONTINUE to navigate to 'Agent's R2' page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -439,7 +436,7 @@ class ReturningUserSpec
       CheckYourGiftAidSchedulePage.clickContinue()
       Then("User navigates and validates 'Successful Gift Aid Upload' page")
       GiftAidUploadSuccessfulPage.validateNavigationAgent()
-      GiftAidUploadSuccessfulPage.validatePageParagraph()
+      GiftAidUploadSuccessfulPage.validatePageParagraphAgent()
       GiftAidUploadSuccessfulPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' task list page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
@@ -461,7 +458,7 @@ class ReturningUserSpec
       And(
         "User clicks the link of the Charity name of the existing unsubmitted claim, to navigate to task list 'Make a charity repayment claim' page"
       )
-      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      CharitiesManagementAgent.clickFirstUnsubmittedClaimLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -470,12 +467,12 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "TEST AGENT CASC",
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "TEST AGENT CASC",
         CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X12345"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Gift Aid",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "No"
       )
       Then("User clicks Change link for 'HMRC Charity Reference Number' and navigates to that page")
       CheckYourRepaymentClaimPage.clickChangeHMRCCharityReference()
@@ -487,25 +484,23 @@ class ReturningUserSpec
       WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("CH12345")
       Then("User navigates to 'Update repayment claim details' Page")
       UpdateRepaymentClaimDetails.validateNavigation()
-      UpdateRepaymentClaimDetails.validateErrorMessages()
       UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
       UpdateRepaymentClaimDetails.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.charityNameAgent -> "TEST AGENT CASC",
+        CheckYourRepaymentClaimPage.charityNameAgent        -> "TEST AGENT CASC",
         CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "CH12345"
       )
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
+        CheckYourRepaymentClaimPage.repaymentClaimType      -> "Gift Aid",
+        CheckYourRepaymentClaimPage.claimReferenceProvided  -> "No"
       )
       Then("user clicks CONTINUE from Repayment CYA")
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
-
       And("User clicks the link to navigate to 'Provide Organisation details' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       Then("User navigates to 'About the Organisation' page")

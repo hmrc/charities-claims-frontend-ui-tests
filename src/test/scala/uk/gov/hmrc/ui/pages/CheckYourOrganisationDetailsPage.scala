@@ -62,9 +62,9 @@ object CheckYourOrganisationDetailsPage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     CheckYourOrganisationDetailsPage.verifyPageUrl(CheckYourOrganisationDetailsPage.pageUrl)
-    //CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
+    // CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
     CheckYourOrganisationDetailsPage.verifyPageCaption(CheckYourOrganisationDetailsPage.pageCaption)
-    //CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
+    // CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
   }
 
   val linkChangeCharityRegulatorName: By      = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")

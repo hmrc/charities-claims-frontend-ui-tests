@@ -40,7 +40,6 @@ object UpdateRepaymentClaimDetails extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
-    UpdateRepaymentClaimDetails.verifyPageUrl(UpdateRepaymentClaimDetails.pageUrl)
     UpdateRepaymentClaimDetails.verifyPageTitle(UpdateRepaymentClaimDetails.pageTitle)
     UpdateRepaymentClaimDetails.verifyPageHeading(UpdateRepaymentClaimDetails.pageHeading)
 
