@@ -145,7 +145,6 @@ class AgentAboutTheOrgJourneySpec
         "UK address"                 -> "Yes",
         "Postcode"                   -> "WG7 7FU"
       )
-      Thread.sleep(60000)
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
