@@ -36,6 +36,9 @@ object YourCharityIsExemptPage extends BasePage {
     "The charity is exempt"
 
   def pageParagraph: String =
+    "Your charity is exempt from registering with a regulator because it is a:"
+
+  def pageParagraphAgent: String =
     "The charity is exempt from registering with a regulator because it is a:"
 
   def pageListItem1: String =
@@ -64,6 +67,19 @@ object YourCharityIsExemptPage extends BasePage {
   def validateParagraph(): Unit = {
     YourCharityIsExemptPage.verifyParagraphText(
       YourCharityIsExemptPage.pageParagraph
+    )
+    YourCharityIsExemptPage.verifyListText(
+      YourCharityIsExemptPage.createSingleStringFromMany(
+        YourCharityIsExemptPage.pageListItem1,
+        YourCharityIsExemptPage.pageListItem2,
+        YourCharityIsExemptPage.pageListItem3
+      )
+    )
+  }
+
+  def validateParagraphAgent(): Unit = {
+    YourCharityIsExemptPage.verifyParagraphText(
+      YourCharityIsExemptPage.pageParagraphAgent
     )
     YourCharityIsExemptPage.verifyListText(
       YourCharityIsExemptPage.createSingleStringFromMany(

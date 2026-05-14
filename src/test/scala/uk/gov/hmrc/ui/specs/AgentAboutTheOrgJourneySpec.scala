@@ -91,7 +91,7 @@ class AgentAboutTheOrgJourneySpec
       WhyIsTheCharityNotRegisteredPage.clickContinue()
       And("User navigates to 'The charity is exempt' page")
       YourCharityIsExemptPage.validateNavigationAgent()
-      YourCharityIsExemptPage.validateParagraph()
+      YourCharityIsExemptPage.validateParagraphAgent()
       And("User clicks back link to reach 'Why is the charity not registered with a regulator?' page")
       YourCharityIsExemptPage.clickBackLink()
       WhyIsTheCharityNotRegisteredPage.validateNavigation()
