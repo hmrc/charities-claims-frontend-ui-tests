@@ -412,11 +412,12 @@ class ReturningUserSpec
       DoYouHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What is your postcode?' page")
       WhatIsYourPostcodePage.validateNavigationAgent()
-
-
-
-      And("User navigates to 'Make a charity repayment claim' task list page")
+      Then("User clicks CONTINUE to navigate to 'Agent's CYA Organisation' page and validates navigation")
+      WhatIsYourPostcodePage.clickContinue()
+      CheckYourOrganisationDetailsPage.validateNavigation()
+      Then("User clicks CONTINUE to navigate to 'Agent's R2' page")
       CheckYourOrganisationDetailsPage.clickContinue()
+      And("User navigates to 'Make a charity repayment claim' task list page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
       And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
       ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
@@ -460,7 +461,7 @@ class ReturningUserSpec
       And(
         "User clicks the link of the Charity name of the existing unsubmitted claim, to navigate to task list 'Make a charity repayment claim' page"
       )
-      CharitiesManagementAgent.clickContinueClaimLink()
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
       And("User clicks the link to navigate to 'Repayment claim details' page")
@@ -469,19 +470,21 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
+        CheckYourRepaymentClaimPage.charityNameAgent -> "TEST AGENT CASC",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "X12345"
+      )
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
         CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
       )
-      Then("User clicks Change link for 'Repayment claim type' and navigates to that page")
-      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
-      RepaymentCheckboxPage.verifyPageUrl(RepaymentCheckboxPage.changePageUrl)
-      RepaymentCheckboxPage.verifyPageHeading(RepaymentCheckboxPage.pageHeading)
+      Then("User clicks Change link for 'HMRC Charity Reference Number' and navigates to that page")
+      CheckYourRepaymentClaimPage.clickChangeHMRCCharityReference()
+      WhatIsYourHMRCReferenceNumberPage.verifyPageUrl(WhatIsYourHMRCReferenceNumberPage.changePageUrl)
+      WhatIsYourHMRCReferenceNumberPage.verifyPageHeading(WhatIsYourHMRCReferenceNumberPage.pageHeadingAgent)
       Then(
-        "User unselects 'Tax repayments on Gift aid' checkbox and selects 'UK tax deducted from Other Income'checkbox and clicks continue"
+        "User updates the 'HMRC Charity Reference to CH/CF' clicks continue"
       )
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
-      RepaymentCheckboxPage.clickContinue()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("CH12345")
       Then("User navigates to 'Update repayment claim details' Page")
       UpdateRepaymentClaimDetails.validateNavigation()
       UpdateRepaymentClaimDetails.validateErrorMessages()
@@ -491,117 +494,33 @@ class ReturningUserSpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.charityNameAgent -> "TEST AGENT CASC",
+        CheckYourRepaymentClaimPage.charitiesReferenceAgent -> "CH12345"
+      )
+      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(1)(
+        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "No"
       )
-      Then("User clicks Change link for 'Claim reference number' and navigates to that page")
-      CheckYourRepaymentClaimPage.clickChangeClaimReference()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.verifyPageUrl(DoYouHaveAClaimReferenceNumberPage.changePageUrl)
-      DoYouHaveAClaimReferenceNumberPage.verifyPageHeading(DoYouHaveAClaimReferenceNumberPage.pageHeadingAgent)
-      And("User selects 'Yes' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'What is your claim reference number?' page")
-      WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.changePageUrl)
-      WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeadingAgent)
-      And("User enters their claim reference number and clicks continue")
-      WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("TESTREF123")
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigationAgent()
-      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
-      )
+      Then("user clicks CONTINUE from Repayment CYA")
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigationAgent()
-      Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123"
-      )
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
+
+      And("User clicks the link to navigate to 'Provide Organisation details' page")
+      ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
+      Then("User navigates to 'About the Organisation' page")
+      AboutTheOrganisationPage.validateNavigation()
+      And("User navigates to 'Make a charity repayment claim' task list page")
+      AboutTheOrganisationPage.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
       ClaimsTaskListPage_InProgress.validateNavigationAgent()
-      And("User clicks the link to navigate to 'Organisation details' page")
-      ClaimsTaskListPage_InProgress.clickCheckYourOrganisationDetails()
-      Then("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigationAgent()
-      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
-      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"                           -> "Charity Commission for England and Wales",
-        "Charity regulator number"                         -> "1234567890",
-        "Is the corporate trustee making this claim?"      -> "Yes"
-      )
-      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "UK address"                                       -> "Yes",
-        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 WG7 7FU"
-      )
-      Then("User clicks on Change Link for Corporate trustee and navigates to that page")
-      CheckYourOrganisationDetailsPage.clickChangeCorporateTrusteeClaim()
-      And("User navigates to 'Is a corporate trustee making this claim?' page")
-      IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.changePageUrl)
-      IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
-      And("User selects a corporate trustee is not making this claim")
-      IsACorporateTrusteeMakingThisClaimPage.radioButton(IsACorporateTrusteeMakingThisClaimPage.no)
-      IsACorporateTrusteeMakingThisClaimPage.clickContinue()
-      And("User navigates to 'Does the authorised official have a UK address?' page")
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(
-        DoesTheAuthorisedOfficialHaveAUKAddressPage.changePageUrl
-      )
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading(
-        DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeading
-      )
-      And("User selects a authorised official does have a UK address")
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
-      DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What are the authorised official details?' page")
-      AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.changePageUrl)
-      AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
-      And("User enters their UK Authorised Official details and clicks continue")
-      AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
-        "TEST",
-        "TESTFORENAME",
-        "TESTSURNAME",
-        "01632 960999",
-        "WG7 7FU"
-      )
-      CheckYourOrganisationDetailsPage.clickContinue()
-      And("User navigates to 'Make a charity repayment claim' task list page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      And("User clicks the link to navigate to 'Organisation details' page")
-      ClaimsTaskListPage_InProgress.clickCheckYourOrganisationDetails()
-      Then("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
-      Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
-      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"                           -> "Charity Commission for England and Wales",
-        "Charity regulator number"                         -> "1234567890",
-        "Is the corporate trustee making this claim?"      -> "No"
-      )
-      CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "UK address"                                       -> "Yes",
-        "Official’s details"                               -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
-      )
-      CheckYourOrganisationDetailsPage.clickContinue()
-      And("User navigates to 'Make a charity repayment claim' task list page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
-      Then("User navigates to 'Are you sure you want to delete this repayment claim?' page")
-      ClaimsTaskListPage_InProgress.clickDeleteClaim()
-      DeleteRepaymentClaimPage.validateNavigation()
+      Then("User navigates to 'Delete Charity Repayment claim' page")
+      ClaimsTaskListPage_InProgress.clickDeleteCharityClaim()
+      DeleteCharityRepaymentAgentPage.validateNavigationAgent()
       Then("User selects Yes and CONTINUE to delete the claim")
-      DeleteRepaymentClaimPage.radioButton(DeleteRepaymentClaimPage.yes)
-      DeleteRepaymentClaimPage.clickContinue()
-      Then("User navigates to Charities Management Frontend page and validates navigation")
-      CharitiesManagementPlaceholder.validateNavigation()
+      DeleteCharityRepaymentAgentPage.radioButton(DeleteCharityRepaymentAgentPage.yes)
+      DeleteCharityRepaymentAgentPage.clickContinue()
+      Then("User navigates to Charities Management Frontend Agent page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
     }
   }
 }
