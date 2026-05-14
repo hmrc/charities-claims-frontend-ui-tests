@@ -21,6 +21,8 @@ import org.openqa.selenium.By
 object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
   override def pageUrl: String = s"$hostname/authorised-official-address"
 
+  def changePageUrl: String = s"$hostname/change-authorised-official-address"
+
   override def pageTitle: String =
     "Does the authorised official have a UK address? - Make a charity tax repayment claim - GOV.UK"
 
