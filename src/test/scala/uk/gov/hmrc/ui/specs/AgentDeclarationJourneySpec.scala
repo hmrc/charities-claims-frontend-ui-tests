@@ -24,7 +24,7 @@ import uk.gov.hmrc.ui.pages.*
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 
-class AgentAboutTheOrgJourneySpec
+class AgentDeclarationJourneySpec
     extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
@@ -34,9 +34,9 @@ class AgentAboutTheOrgJourneySpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Agent - About the Organisation journeys") {
+  Feature("Charities - Agent - Declaration Page Validations") {
     Scenario(
-      "User navigates to the 'About the organisation', selects not registered radio button option, excepted and Agent/Trustee"
+      "User Agent navigates to the 'What adjustments have you made to this claim?' page from the Gift Aid flow and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
       AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "TESTAGENTORG")
@@ -85,53 +85,28 @@ class AgentAboutTheOrgJourneySpec
       WhatIsTheNameOfTheCharityRegulatorPage.clickContinue()
       And("User navigates to 'Why is the charity not registered with a regulator?' page")
       WhyIsTheCharityNotRegisteredPage.validateNavigation()
-      WhyIsTheCharityNotRegisteredPage.validateFormFieldsetAgent()
-      And("User selects they are exempt")
-      WhyIsTheCharityNotRegisteredPage.radioButton(WhyIsTheCharityNotRegisteredPage.Exempt)
-      WhyIsTheCharityNotRegisteredPage.clickContinue()
-      And("User navigates to 'The charity is exempt' page")
-      YourCharityIsExemptPage.validateNavigationAgent()
-      YourCharityIsExemptPage.validateParagraphAgent()
-      And("User clicks back link to reach 'Why is the charity not registered with a regulator?' page")
-      YourCharityIsExemptPage.clickBackLink()
-      WhyIsTheCharityNotRegisteredPage.validateNavigation()
       And("User selects they are excepted")
       WhyIsTheCharityNotRegisteredPage.radioButton(WhyIsTheCharityNotRegisteredPage.Excepted)
       WhyIsTheCharityNotRegisteredPage.clickContinue()
       And("User navigates to 'The charity is excepted' page")
       YourCharityIsExceptedPage.validateNavigationAgent()
-      YourCharityIsExceptedPage.validateParagraphAgent()
       Then("User selects continue on 'The charity is excepted' page")
       YourCharityIsExceptedPage.clickContinue()
       And("User navigates to 'Who should HMRC send payment to?' page")
       WhoShouldHMRCSendPaymentToPage.validateNavigationAgent()
-      WhoShouldHMRCSendPaymentToPage.validateFormFieldsetAgent()
-      And("User validates no input Error on 'Who should HMRC send payment to?' page")
-      WhoShouldHMRCSendPaymentToPage.validateErrorMessageAgent()
       And("User selects to send payment to Agent/Trustee")
       WhoShouldHMRCSendPaymentToPage.radioButton(WhoShouldHMRCSendPaymentToPage.AgtTtee)
       Then("User selects continue on 'Who should HMRC send payment to?' page")
       WhoShouldHMRCSendPaymentToPage.clickContinue()
       And("User navigates to 'What is your telephone number?' page")
       WhatIsYourTelephoneNumberPage.validateNavigationAgent()
-      WhatIsYourTelephoneNumberPage.validatePageContentAgent()
-      And("User validates Error messages on 'What is your telephone number?' page")
-      WhatIsYourTelephoneNumberPage.validateErrorMessageAgent()
       Then("User Inputs a Telephone Number on 'What is your telephone number?' page and clicks CONTINUE")
       WhatIsYourTelephoneNumberPage.enterAgentTelephoneNumber("0044 (0123) 456-7890")
       And("User navigates to 'Do you have a UK address?' page")
       DoYouHaveAUKAddressPage.validateNavigationAgent()
-      And("User validates no input Error on 'Do you have a UK address?' page")
-      DoYouHaveAUKAddressPage.validateErrorMessageAgent()
       And("User selects 'Yes' to 'Do you have a UK address'")
-      DoYouHaveAUKAddressPage.radioButton(DoYouHaveAUKAddressPage.yes)
+      DoYouHaveAUKAddressPage.radioButton(DoYouHaveAUKAddressPage.no)
       DoYouHaveAUKAddressPage.clickContinue()
-      And("User navigates to 'What is your postcode?' page")
-      WhatIsYourPostcodePage.validateNavigationAgent()
-      And("User validates Error messages on 'What is your postcode?' page")
-      WhatIsYourPostcodePage.validateErrorMessageAgent()
-      Then("User inputs a Postcode on 'What is your postcode?' page and clicks CONTINUE")
-      WhatIsYourPostcodePage.enterAgentPostcode("WG7 7FU")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
@@ -142,12 +117,47 @@ class AgentAboutTheOrgJourneySpec
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "Telephone number"           -> "0044 (0123) 456-7890",
-        "UK address"                 -> "Yes",
-        "Postcode"                   -> "WG7 7FU"
+        "UK address"                 -> "No"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation()
+      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+      Then("User navigates to 'About Gift Aid schedule' page")
+      AboutGiftAidSchedulePage.validateNavigationAgent()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validateNavigationAgent()
+      Then("User validates the elements on the 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.validatePageContentAgent()
+      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+      UploadAGiftAidSchedulePage.selectFile("GiftAidSpreadsheets/Gift-Aid-Schedule-SIMPLEPASS_MAX_ROWS")
+      UploadAGiftAidSchedulePage.clickContinue()
+      Then("User navigates to 'Your Gift Aid schedule upload' page")
+      YourGiftAidScheduleUploadPage.validateNavigationAgent()
+      YourGiftAidScheduleUploadPage.waitForFileUpload()
+      YourGiftAidScheduleUploadPage.clickContinue()
+      Then("User navigates to 'Check your Gift Aid schedule' page")
+      CheckYourGiftAidSchedulePage.validateNavigationAgent()
+      CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
+      CheckYourGiftAidSchedulePage.clickContinue()
+      Then("User navigates and validates 'Successful Gift Aid Upload' page")
+      GiftAidUploadSuccessfulPage.validateNavigationAgent()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      GiftAidUploadSuccessfulPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation()
+      Then("User navigates to 'What adjustments have you made to this claim?' page")
+      ClaimsTaskListPage_InProgress.clickReadDeclaration()
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.validateNavigation()
+      And("User enters details on adjustments page and navigates to Declaration Page")
+      WhatAdjustmentsHaveYouMadeToThisClaimPage.enterAdjustmentDetails("TEST ADJUSTMENT INPUT")
+      DeclarationPage.validateNavigation()
+      Then("User navigates to 'Claim complete' page")
+      DeclarationPage.clickConfirmAndSubmit()
+      ClaimCompletePage.validateNavigation()
+      And("User validates 'Claim complete' page elements")
+      ClaimCompletePage.validatePageContentAgent()
     }
   }
 }
