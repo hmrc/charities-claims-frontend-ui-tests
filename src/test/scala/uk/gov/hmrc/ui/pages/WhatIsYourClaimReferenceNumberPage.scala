@@ -22,6 +22,8 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/enter-claim-reference-number"
 
+  def changePageUrl: String = s"$hostname/change-enter-claim-reference-number"
+
   override def pageTitle: String =
     "What is your claim reference number? - Make a charity tax repayment claim - GOV.UK"
 

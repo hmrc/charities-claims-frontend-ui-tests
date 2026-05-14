@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import scala.util.Random
 
 object CharitiesManagementPlaceholder extends BasePage {
 
@@ -47,4 +48,9 @@ object CharitiesManagementPlaceholder extends BasePage {
     val element = waitForElementToBeClickable(lnkContinueClaim)
     element.click()
   }
+
+  def randomVarchar6(): String =
+    Random.alphanumeric.take(6).mkString
+
+  val RandomUsernameOrg = randomVarchar6()
 }

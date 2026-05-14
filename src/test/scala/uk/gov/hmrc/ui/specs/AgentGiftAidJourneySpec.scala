@@ -360,10 +360,10 @@ class AgentGiftAidJourneySpec
       RepaymentClaimDetailsPage.clickContinue()
       And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
       WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
-//      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
-//      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
-//      And("User Validates the duplicate Error message CONTINUE")
-//      WhatIsYourHMRCReferenceNumberPage.validateErrorMessageClaimAlreadyExists()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
+      And("User Validates the duplicate Error message that Reference Exists")
+      WhatIsYourHMRCReferenceNumberPage.validateErrorMessageClaimAlreadyExists()
     }
 
 //     TODO Real validation to check community building does not exist on GASDS page

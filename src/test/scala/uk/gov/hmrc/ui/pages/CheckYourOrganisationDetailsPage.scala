@@ -60,6 +60,13 @@ object CheckYourOrganisationDetailsPage extends BasePage {
     CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
   }
 
+  def validateNavigationAgent(): Unit = {
+    CheckYourOrganisationDetailsPage.verifyPageUrl(CheckYourOrganisationDetailsPage.pageUrl)
+    // CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
+    CheckYourOrganisationDetailsPage.verifyPageCaption(CheckYourOrganisationDetailsPage.pageCaption)
+    // CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
+  }
+
   val linkChangeCharityRegulatorName: By      = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")
   val linkChangeRegisteredWithRegulator: By   = By.xpath("//a[@href='/charities-claims/change-charity-not-registered']")
   val linkChangeCharityRegulatorNumber: By    = By.xpath("//a[@href='/charities-claims/change-charity-regulator-number']")
