@@ -133,7 +133,7 @@ class AgentAboutTheOrgJourneySpec
       Then("User inputs a Postcode on 'What is your postcode?' page and clicks CONTINUE")
       WhatIsYourPostcodePage.enterAgentPostcode("WG7 7FU")
       And("User navigates to 'Check your organisation details' page")
-      CheckYourOrganisationDetailsPage.validateNavigation()
+      CheckYourOrganisationDetailsPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"     -> "Charity is not registered with a regulator",

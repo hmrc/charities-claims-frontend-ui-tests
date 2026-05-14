@@ -25,11 +25,17 @@ object CheckYourOrganisationDetailsPage extends BasePage {
   override def pageTitle: String =
     "Check your organisation details - Make a charity tax repayment claim - GOV.UK"
 
+  def pageTitleAgent: String =
+    "Check the organisation details - Make a charity tax repayment claim - GOV.UK"
+
   def pageCaption: String =
     "Provide organisation details"
 
   def pageHeading: String =
     "Check your organisation details"
+
+  def pageHeadingAgent: String =
+    "Check the organisation details"
 
   def charityRegulatorName: String =
     "Charity regulator name"
@@ -58,6 +64,13 @@ object CheckYourOrganisationDetailsPage extends BasePage {
     CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitle)
     CheckYourOrganisationDetailsPage.verifyPageCaption(CheckYourOrganisationDetailsPage.pageCaption)
     CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeading)
+  }
+
+  def validateNavigationAgent(): Unit = {
+    CheckYourOrganisationDetailsPage.verifyPageUrl(CheckYourOrganisationDetailsPage.pageUrl)
+    CheckYourOrganisationDetailsPage.verifyPageTitle(CheckYourOrganisationDetailsPage.pageTitleAgent)
+    CheckYourOrganisationDetailsPage.verifyPageCaption(CheckYourOrganisationDetailsPage.pageCaption)
+    CheckYourOrganisationDetailsPage.verifyPageHeading(CheckYourOrganisationDetailsPage.pageHeadingAgent)
   }
 
   val linkChangeCharityRegulatorName: By      = By.xpath("//a[@href='/charities-claims/change-name-of-charity-regulator']")
