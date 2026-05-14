@@ -112,7 +112,7 @@ class AgentDeclarationJourneySpec
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"     -> "Charity is not registered with a regulator",
-        "Reason for not registering" -> "The charity is excepted. The charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
+        "Reason for not registering" -> "The charity is excepted The charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
         "Send payment to"            -> "Agent/Nominee"
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
