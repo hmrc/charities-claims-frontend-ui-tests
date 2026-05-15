@@ -39,11 +39,20 @@ object ClaimCompletePage extends BasePage {
   def txtParagraph1: String =
     "We’ve sent your charity repayment claim to HMRC."
 
+  def txtParagraph1Agent: String =
+    "We’ve sent this charity repayment claim to HMRC."
+
   def txtParagraph2: String =
     "They will contact you to confirm your repayment, or to ask for more information."
 
+  def txtParagraph2Agent: String =
+    "They will contact you to confirm your client’s repayment or to ask more for information."
+
   def txtPrintClaimSummaryLink: String =
     "Print a summary of your claim"
+
+  def txtPrintClaimSummaryLinkAgent: String =
+    "Print a summary of this claim"
 
   val lnkPrintClaimSummaryLink: By = By.xpath("//a[@href='/charities-claims/charity-repayment-claim-summary']")
 
@@ -64,6 +73,13 @@ object ClaimCompletePage extends BasePage {
     ClaimCompletePage.verifyPageContentBelowPanel1(ClaimCompletePage.txtParagraph1)
     ClaimCompletePage.verifyPageContentBelowPanel2(ClaimCompletePage.txtParagraph2)
     ClaimCompletePage.verifyPageContentBelowPanel3(ClaimCompletePage.txtPrintClaimSummaryLink)
+  }
+
+  def validatePageContentAgent(): Unit = {
+    ClaimCompletePage.verifyPageSubHeading1(ClaimCompletePage.pageSubHeading)
+    ClaimCompletePage.verifyPageContentBelowPanel1(ClaimCompletePage.txtParagraph1Agent)
+    ClaimCompletePage.verifyPageContentBelowPanel2(ClaimCompletePage.txtParagraph2Agent)
+    ClaimCompletePage.verifyPageContentBelowPanel3(ClaimCompletePage.txtPrintClaimSummaryLinkAgent)
   }
 
   def verifySubmissionReferenceBase32(): Unit = {
