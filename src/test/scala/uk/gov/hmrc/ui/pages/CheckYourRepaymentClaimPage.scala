@@ -92,9 +92,9 @@ object CheckYourRepaymentClaimPage extends BasePage {
   val linkChangeGASDSAdjustment: By      =
     By.xpath("//a[@href='/charities-claims/change-change-previous-gift-aid-small-donations-scheme-claim']")
   val linkChangeCharityName: By          =
-    By.xpath("//a[@href='/charities-claims/change-the-charity-name']")
+    By.xpath("//a[@href='/charities-claims/change-enter-the-charity-name']")
   val linkChangeHMRCCharityReference: By =
-    By.xpath("//a[@href='/charities-claims/change-charities-reference-number']")
+    By.xpath("//a[@href='/charities-claims/change-enter-charities-reference-number']")
 
   def clickChangeCharityName(): Unit = {
     val element = waitForElementToBeClickable(linkChangeCharityName)
