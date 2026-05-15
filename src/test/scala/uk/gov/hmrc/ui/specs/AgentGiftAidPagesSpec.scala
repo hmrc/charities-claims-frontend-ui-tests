@@ -52,7 +52,7 @@ class AgentGiftAidPagesSpec
     }
 
     Scenario(
-      "User Logs in with an Agent User and Creates N claims from a single Agent User:" + CharitiesManagementAgent.RandomUsername
+      "User Logs in with an Agent User and Creates N claims from a single Agent User:" + CharitiesManagementAgent.RandomUsernameAgentClaims
     ) {
       Given("the user logs in through the Authority Wizard page")
       CharitiesManagementAgent.runCreateNClaims(119)
