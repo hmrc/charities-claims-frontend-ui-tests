@@ -20,16 +20,16 @@ import org.openqa.selenium.By
 
 object DeleteGASDSCommunityBuildingsSchedulePage extends BasePage {
 
-  override def pageUrl: String = s"$hostname/delete-gasds-community-buildings-schedule"
+  override def pageUrl: String = s"$hostname/delete-community-buildings-schedule"
 
   override def pageTitle: String =
-    "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule? - Make a charity tax repayment claim - GOV.UK"
+    "Do you want to delete this Community Buildings schedule? - Make a charity tax repayment claim - GOV.UK"
 
   def pageHeading: String =
-    "Do you want to delete this Gift Aid Small Donations Scheme community buildings schedule?"
+    "Do you want to delete this Community Buildings schedule?"
 
   def pageErrorMsg: String =
-    "Select ‘Yes’ if you want to delete this Gift Aid Small Donations Scheme community buildings schedule"
+    "Select ‘Yes’ if you want to delete this Community Buildings schedule"
 
   val yes: String     = "#value"
   val no: String      = "#value-no"

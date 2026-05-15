@@ -59,10 +59,10 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     "Add other income schedule"
 
   def pageTaskList2_CommunityBuildings: String =
-    "Add community buildings schedule"
+    "Add Community Buildings schedule"
 
   def pageTaskList2_ConnectedCharities: String =
-    "Add connected charities schedule"
+    "Add Connected Charities schedule"
 
   def pageSubheading3: String =
     "Declaration"

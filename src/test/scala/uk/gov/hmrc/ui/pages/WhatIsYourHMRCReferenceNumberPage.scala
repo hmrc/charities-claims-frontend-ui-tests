@@ -22,7 +22,7 @@ object WhatIsYourHMRCReferenceNumberPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/enter-charities-reference-number"
 
-  def changePageUrl: String = s"$hostname/change-charities-reference-number"
+  def changePageUrl: String = s"$hostname/change-enter-charities-reference-number"
 
   override def pageTitle: String =
     "What is the HMRC charities reference number? - Make a charity tax repayment claim - GOV.UK"
