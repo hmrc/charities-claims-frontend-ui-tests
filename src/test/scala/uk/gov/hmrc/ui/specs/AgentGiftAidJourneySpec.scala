@@ -271,7 +271,7 @@ class AgentGiftAidJourneySpec
       )
       Then("User Clicks Continue from CYA page and navigates to R2 Task List page and validates Navigation")
       CheckYourRepaymentClaimPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigationAgent()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
     }
 
     Scenario(
@@ -344,7 +344,7 @@ class AgentGiftAidJourneySpec
       )
       Then("User Clicks Continue from CYA page and navigates to R2 Task List page and validates Navigation")
       CheckYourRepaymentClaimPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigationAgent()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
       Then(
         "User Clicks on Link to go back to Charity Management Agent Portal and Attempts to create a claim with same HMRC Charity Ref"
       )
