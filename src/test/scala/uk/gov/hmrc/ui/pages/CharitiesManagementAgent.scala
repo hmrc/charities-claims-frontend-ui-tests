@@ -69,7 +69,8 @@ object CharitiesManagementAgent extends BasePage {
   def randomVarchar6(): String =
     Random.alphanumeric.take(6).mkString
 
-  val RandomUsername = randomVarchar6()
+  val RandomUsernameAgentClaims = randomVarchar6()
+  val RandomUsername            = randomVarchar6()
 
   def createNClaims(n: Int): Unit = {
     val agentReferenceNumber   = "A" + n
@@ -82,7 +83,7 @@ object CharitiesManagementAgent extends BasePage {
       "HMRC-CHAR-AGENT",
       "AGENTCHARID",
       agentReferenceNumber,
-      RandomUsername
+      RandomUsernameAgentClaims
     )
     CharitiesManagementAgent.verifyPageHeading(CharitiesManagementAgent.pageHeading)
     CharitiesManagementAgent.clickUseTheCharitiesLink()
@@ -106,6 +107,6 @@ object CharitiesManagementAgent extends BasePage {
   def runCreateNClaims(n: Int): Unit =
     for (i <- 1 to n)
       createNClaims(i)
-      println(s"[DEBUG] using Agent Username:" + CharitiesManagementAgent.RandomUsername)
+      println(s"[DEBUG] using Agent Username:" + CharitiesManagementAgent.RandomUsernameAgentClaims)
 
 }
