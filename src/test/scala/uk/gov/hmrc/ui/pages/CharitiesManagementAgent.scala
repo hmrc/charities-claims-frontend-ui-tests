@@ -101,7 +101,7 @@ object CharitiesManagementAgent extends BasePage {
     DoYouHaveAClaimReferenceNumberPage.clickContinue()
     CheckYourRepaymentClaimPage.validateNavigationAgent()
     CheckYourRepaymentClaimPage.clickContinue()
-    ClaimsTaskListPage_InProgress.validateNavigationAgent()
+    ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
   }
 
   def runCreateNClaims(n: Int): Unit =

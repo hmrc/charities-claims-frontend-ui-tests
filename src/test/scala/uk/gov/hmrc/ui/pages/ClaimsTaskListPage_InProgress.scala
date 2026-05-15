@@ -76,15 +76,16 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageTaskList3Item3: String =
     "Cannot start yet"
 
-  def validateNavigation(): Unit = {
+  def validateNavigation_AllSubheadings(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
     // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading3(ClaimsTaskListPage_InProgress.pageSubheading3)
   }
 
-  def validateNavigationGASDSOnlyComplete(): Unit = {
+  def validateNavigation_AboutClaimAndDeclaration(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
     // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
@@ -92,15 +93,16 @@ object ClaimsTaskListPage_InProgress extends BasePage {
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading3)
   }
 
-  def validateNavigationAgent(): Unit = {
+  def validateNavigation_AllSubheadingsAgent(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
     // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading1(ClaimsTaskListPage_InProgress.pageSubheading1)
     ClaimsTaskListPage_InProgress.verifyPageSubHeading2(ClaimsTaskListPage_InProgress.pageSubheading2)
+    ClaimsTaskListPage_InProgress.verifyPageSubHeading3(ClaimsTaskListPage_InProgress.pageSubheading3)
   }
 
-  def validateNavigationGASDSOnlyCompleteAgent(): Unit = {
+  def validateNavigation_AboutClaimAndDeclarationAgent(): Unit = {
     ClaimsTaskListPage_InProgress.verifyPageTitle(ClaimsTaskListPage_InProgress.pageTitle)
     // ClaimsTaskListPage_InProgress.verifyDynamicPageCaption(ClaimsTaskListPage_InProgress.pageCaption)
     ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)

@@ -81,7 +81,7 @@ class AgentGASDSJourneySpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      ClaimsTaskListPage_InProgress.validateNavigation_AboutClaimAndDeclarationAgent()
       And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
       ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
@@ -194,7 +194,7 @@ class AgentGASDSJourneySpec
       Then("User clicks CONTINUE to reach task list: 'Make a repayment Claim' Page")
       CheckYourGASDSDonationDetailsPage.clickConfirmAndSubmit()
       And("User validates navigation to 'Make a repayment Claim' Page")
-      ClaimsTaskListPage_InProgress.validateNavigationGASDSOnlyComplete()
+      ClaimsTaskListPage_InProgress.validateNavigation_AboutClaimAndDeclarationAgent()
     }
 
     Scenario(
@@ -243,7 +243,7 @@ class AgentGASDSJourneySpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      ClaimsTaskListPage_InProgress.validateNavigation_AboutClaimAndDeclarationAgent()
       And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
       ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
@@ -359,7 +359,6 @@ class AgentGASDSJourneySpec
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "Number of tax years added"              -> "3"
       )
-
     }
   }
 }
