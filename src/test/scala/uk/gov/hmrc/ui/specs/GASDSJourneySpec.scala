@@ -138,7 +138,7 @@ class GASDSJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.verifyPageHeading(ClaimsTaskListPage_InProgress.pageHeading)
+      ClaimsTaskListPage_InProgress.validateNavigation_AboutClaimAndDeclaration()
       And("User clicks the link to navigate to 'About Gift Aid Small Donations Scheme schedule' page")
       ClaimsTaskListPage_InProgress.clickProvideGASDSDetails()
       And("User Validates the navigation to 'About Gift Aid Small Donations Scheme schedule' page")
@@ -251,7 +251,7 @@ class GASDSJourneySpec
       Then("User clicks CONTINUE to reach task list: 'Make a repayment Claim' Page")
       CheckYourGASDSDonationDetailsPage.clickConfirmAndSubmit()
       And("User validates navigation to 'Make a repayment Claim' Page")
-      ClaimsTaskListPage_InProgress.validateNavigationGASDSOnlyComplete()
+      ClaimsTaskListPage_InProgress.validateNavigation_AboutClaimAndDeclaration()
     }
   }
 }

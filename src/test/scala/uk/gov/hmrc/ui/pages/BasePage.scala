@@ -356,6 +356,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page sub-heading 2 is: " + driver.findElement(Locators.txtSubHeading2).getText)
   }
 
+  def verifyPageSubHeading3(expectedSubHeading3: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSubHeading3)
+    val actualSubHeading3 = driver.findElement(Locators.txtSubHeading3).getText
+    assert(
+      actualSubHeading3 == expectedSubHeading3,
+      s"Page sub-heading 3 mismatch! Expected: $expectedSubHeading3, Actual: $actualSubHeading3"
+    )
+    println("Actual page sub-heading 3 is: " + driver.findElement(Locators.txtSubHeading3).getText)
+  }
+
   /** Verify that a hint includes expected message */
   def verifyHintText(expectedText: String): Unit = {
     waitForVisibilityOfElement(Locators.hintText)

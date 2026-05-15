@@ -68,7 +68,7 @@ class AboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'About the organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -116,7 +116,7 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
 
     Scenario(
@@ -152,7 +152,7 @@ class AboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'About the organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -206,7 +206,7 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
 
     Scenario(
@@ -242,7 +242,7 @@ class AboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'About the organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -285,7 +285,7 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
 
     Scenario(
@@ -321,7 +321,7 @@ class AboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'About the organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -353,7 +353,7 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
 
     Scenario(
@@ -393,7 +393,7 @@ class AboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigation()
       CheckYourRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'About the organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -431,7 +431,7 @@ class AboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
   }
 }

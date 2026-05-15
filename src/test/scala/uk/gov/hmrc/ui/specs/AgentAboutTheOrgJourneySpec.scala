@@ -72,7 +72,7 @@ class AgentAboutTheOrgJourneySpec
       CheckYourRepaymentClaimPage.validateNavigationAgent()
       Then("User navigates and validates the 'Repayment claim details' page")
       CheckYourRepaymentClaimPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigationAgent()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
       Then("User clicks 'Provide Organisation Details' link and navigates to 'About the Organisation' page")
       ClaimsTaskListPage_InProgress.clickProvideOrganisationDetails()
       AboutTheOrganisationPage.validateNavigation()
@@ -147,7 +147,7 @@ class AgentAboutTheOrgJourneySpec
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
-      ClaimsTaskListPage_InProgress.validateNavigation()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
     }
   }
 }
