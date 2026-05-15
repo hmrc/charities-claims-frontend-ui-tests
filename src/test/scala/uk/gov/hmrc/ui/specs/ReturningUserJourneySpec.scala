@@ -411,7 +411,7 @@ class ReturningUserJourneySpec
         "User Enters Postcode and clicks CONTINUE to navigate to 'Agent's CYA Organisation' page and validates navigation"
       )
       WhatIsYourPostcodePage.enterAgentPostcode("AB1 1BA")
-      CheckYourOrganisationDetailsPage.validateNavigation()
+      CheckYourOrganisationDetailsPage.validateNavigationAgent()
       Then("User clicks CONTINUE to navigate to 'Agent's R2' page")
       CheckYourOrganisationDetailsPage.clickContinue()
       And("User navigates to 'Make a charity repayment claim' task list page")
