@@ -44,13 +44,13 @@ object WhatAdjustmentsHaveYouMadeToThisClaimPage extends BasePage {
     "You have 350 characters remaining"
 
   def pageErrorMsgRequiredValue: String =
-    "Enter an adjustment to Gift Aid, Other Income or a donation under the Gift Aid Small Donations Scheme"
+    "Provide an explanation for adjustments to Gift Aid, Other Income or a donation under the Gift Aid Small Donations Scheme"
 
   def pageErrorMsgTooManyChars: String =
-    "Adjustments must be 350 characters or less"
+    "Explanation to adjustments must be 350 characters or less"
 
   def pageErrorMsgNonWesternChar: String =
-    "Enter an adjustment in the correct format"
+    "Provide an explanation about the adjustment in the correct format"
 
   def btnContinue: String =
     "Continue"
