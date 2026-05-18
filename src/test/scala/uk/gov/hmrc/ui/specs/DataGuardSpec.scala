@@ -26,7 +26,7 @@ import uk.gov.hmrc.ui.util.Users.UserTypes.Agent
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
 class DataGuardSpec
-  extends AnyFeatureSpec
+    extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
     with ShouldVerb
@@ -35,7 +35,7 @@ class DataGuardSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation & Agent - Dataguard validations") {
+  Feature("Charities - Organisation - Declaration Page Validations") {
     Scenario(
       "User URL hops to 'Charity Name' page whilst being an org user"
     ) {
@@ -153,6 +153,25 @@ class DataGuardSpec
 
     }
     Scenario(
+      "User URL hops to 'Delete Repayment Claim ' page whilst being an org user"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-WRN10")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      Then("User URL hops to 'Agent Postcode' page")
+      DeleteCharityRepaymentAgentPage.navigateToPage(DeleteCharityRepaymentAgentPage.pageUrl)
+      Then("User validates the 'Claims task lisk' Page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+
+    }
+    Scenario(
       "User URL hops to 'Corporate trustee' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
@@ -250,6 +269,27 @@ class DataGuardSpec
       RepaymentClaimDetailsPage.validateParagraphAgent()
       Then("User URL hops to 'Authorised Official Details' page")
       AuthorisedOfficialDetailsPage.navigateToPage(AuthorisedOfficialDetailsPage.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+
+    }
+
+    Scenario(
+      "User URL hops to 'Delete Repayment Claim' page whilst being an agent user"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-10")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      Then("User URL hops to 'Delete Repayment Claim' page")
+      DeleteRepaymentClaimPage.navigateToPage(DeleteRepaymentClaimPage.pageUrl)
       Then("User validates the 'Charities Management' Page")
       CharitiesManagementAgent.validateNavigationAgent()
 
