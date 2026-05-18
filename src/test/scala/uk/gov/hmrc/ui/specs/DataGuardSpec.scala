@@ -35,7 +35,7 @@ class DataGuardSpec
     with Browser
     with ScreenshotOnFailure {
 
-  Feature("Charities - Organisation - Declaration Page Validations") {
+  Feature("Charities - Organisation&Agent - Dataguard checks") {
     Scenario(
       "User URL hops to 'Charity Name' page whilst being an org user"
     ) {
@@ -295,5 +295,279 @@ class DataGuardSpec
 
     }
 
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'about repayment' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'HMRC charities ref number' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'HMRC charities name' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'Repayment claim checkbox' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("X1")
+      Then("User navigates to 'Repayment claim checkbox' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'GASDS checkbox' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("X1")
+      Then("User navigates to 'Repayment claim checkbox' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS checkbox' page")
+      GASDSCheckboxPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'Do you have a reference number' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("X1")
+      Then("User navigates to 'Repayment claim checkbox' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS checkbox' page")
+      GASDSCheckboxPage.validateNavigationAgent()
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSTopUp, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
+      GASDSCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS adjustments' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'Enter reference number' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("X1")
+      Then("User navigates to 'Repayment claim checkbox' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS checkbox' page")
+      GASDSCheckboxPage.validateNavigationAgent()
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSTopUp, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
+      GASDSCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS adjustments' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigationAgent()
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigationAgent()
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Enter a claim reference number' page")
+      WhatIsYourClaimReferenceNumberPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
+
+    Scenario(
+      "User URL hops to 'Make a charity repayment claim' page whilst being on the 'About the org CYA' page"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-R2")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      RepaymentClaimDetailsPage.validateParagraphAgent()
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'HMRC charities ref number' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("XF101")
+      Then("User navigates to 'HMRC charities name' page")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("X1")
+      Then("User navigates to 'Repayment claim checkbox' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS checkbox' page")
+      GASDSCheckboxPage.validateNavigationAgent()
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSTopUp, true)
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
+      GASDSCheckboxPage.clickContinue()
+      Then("User navigates to 'GASDS adjustments' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigationAgent()
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.yes)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigationAgent()
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.yes)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Enter a claim reference number' page")
+      WhatIsYourClaimReferenceNumberPage.validateNavigationAgent()
+      WhatIsYourClaimReferenceNumberPage.enterClaimReferenceNumber("123")
+      Then("User navigates to 'About the org CYA ' page")
+      CheckYourRepaymentClaimPage.validateNavigationAgent()
+      Then("User URL hops to 'Claims task list' page")
+      ClaimsTaskListPage_InProgress.navigateToPage(ClaimsTaskListPage_InProgress.pageUrl)
+      Then("User validates the 'Charities Management' Page")
+      CharitiesManagementAgent.validateNavigationAgent()
+    }
   }
 }
