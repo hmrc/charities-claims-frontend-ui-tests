@@ -167,7 +167,7 @@ class GiftAidJourneySpec
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
         CheckYourRepaymentClaimPage.repaymentClaimType     -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "No",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Connected charity or CASC claim"
+        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Connected Charity or CASC claim"
       )
     }
 
@@ -227,7 +227,7 @@ class GiftAidJourneySpec
         CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS) UK tax deducted from Other Income",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
         CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "GASDS top-up payment Community buildings top-up payment Connected charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSClaimType         -> "GASDS top-up payment Community Buildings top-up payment Connected Charity or CASC claim",
         CheckYourRepaymentClaimPage.GASDSAdjustment        -> "Yes"
       )
     }
@@ -285,7 +285,7 @@ class GiftAidJourneySpec
         CheckYourRepaymentClaimPage.repaymentClaimType     -> "Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS)",
         CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
         CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Community buildings top-up payment Connected charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSClaimType         -> "Community Buildings top-up payment Connected Charity or CASC claim",
         CheckYourRepaymentClaimPage.GASDSAdjustment        -> "No"
       )
     }
