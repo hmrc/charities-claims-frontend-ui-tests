@@ -54,13 +54,13 @@ object GASDSCheckboxPage extends BasePage {
     "For donations of £30 or less that were not collected in a community building."
 
   def pageBullet2: String =
-    "Community buildings top-up payments"
+    "Community Buildings top-up payments"
 
   def pageHint2: String =
     "For donations of £30 or less that were collected in a community building during charitable activities."
 
   def pageBullet3: String =
-    "Connected charity or CASC claims"
+    "Connected Charity or CASC claims"
 
   def pageHint3: String =
     "If your client is connected to other charities or Community Amateur Sports Clubs (CASCs), the £2,000 payment limit is shared across all connected organisations."
@@ -78,10 +78,10 @@ object GASDSCheckboxPage extends BasePage {
     "GASDS top-up payment"
 
   def pageCheckbox2: String =
-    "Community buildings top-up payment"
+    "Community Buildings top-up payment"
 
   def pageCheckbox3: String =
-    "Connected charity or CASC claim"
+    "Connected Charity or CASC claim"
 
   def btnContinue: String =
     "Continue"
