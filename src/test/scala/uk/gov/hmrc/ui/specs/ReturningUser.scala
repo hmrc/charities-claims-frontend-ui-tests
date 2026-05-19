@@ -26,7 +26,7 @@ import uk.gov.hmrc.ui.pages.CharitiesManagementPlaceholder.RandomUsernameOrg
 import uk.gov.hmrc.ui.util.Users.LoginTypes.HASDIRECT
 import uk.gov.hmrc.ui.util.Users.UserTypes.Organisation
 
-class ReturningUserJourneySpec
+class ReturningUser
     extends AnyFeatureSpec
     with BaseSpec
     with GivenWhenThen
@@ -273,8 +273,7 @@ class ReturningUserJourneySpec
       DoesTheAuthorisedOfficialHaveAUKAddressPage.radioButton(DoesTheAuthorisedOfficialHaveAUKAddressPage.yes)
       DoesTheAuthorisedOfficialHaveAUKAddressPage.clickContinue()
       And("User navigates to 'What are the authorised official details?' page")
-      AuthorisedOfficialDetailsPage.verifyPageUrl(AuthorisedOfficialDetailsPage.changePageUrl)
-      AuthorisedOfficialDetailsPage.verifyPageHeading(AuthorisedOfficialDetailsPage.pageHeading)
+      AuthorisedOfficialDetailsPage.validateChangeNavigation()
       And("User enters their UK Authorised Official details and clicks continue")
       AuthorisedOfficialDetailsPage.enterUKAuthOfficialDetails(
         "TEST",
