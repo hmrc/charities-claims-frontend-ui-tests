@@ -27,7 +27,7 @@ object AccessDeniedErrorPage extends BasePage {
 
   def listItem1: String = "You do not have access to this service."
 
-  def listItem2: String = "Continue to your account."
+  def listItem2: String = "Continue to your account"
 
   def validateNavigation(): Unit = {
     AccessDeniedErrorPage.verifyPageUrl(AccessDeniedErrorPage.pageUrl)
