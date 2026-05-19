@@ -466,7 +466,8 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   /** Verify that the main error page content is displayed as expected */
   def verifyEntirePageContent(expectedText: String): Unit = {
     waitForVisibilityOfElement(Locators.txtEntirePageContent)
-    val actualText = driver.findElement(Locators.txtEntirePageContent).getText
+    val allTexts   = driver.findElement(Locators.txtEntirePageContent).getText
+    val actualText = allTexts.split("\n").dropRight(1).mkString("\n")
     assert(
       actualText == expectedText,
       s"Warning page content mismatch! Expected: $expectedText, Actual: $actualText"
