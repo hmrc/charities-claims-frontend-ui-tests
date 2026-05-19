@@ -40,7 +40,7 @@ class DataGuardSpec
       "User URL hops to 'Charity Name' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-R1.8")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -59,7 +59,7 @@ class DataGuardSpec
       "User URL hops to 'HMRC Charities ref number' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-R1.9")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -79,7 +79,7 @@ class DataGuardSpec
       "User URL hops to 'Who should we send the payment to' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-A2-18")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -99,7 +99,7 @@ class DataGuardSpec
       "User URL hops to 'Agent's telephone number' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-A2-19")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -118,7 +118,7 @@ class DataGuardSpec
       "User URL hops to 'Agent UK address' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-A2-20")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -137,7 +137,7 @@ class DataGuardSpec
       "User URL hops to 'Agent Postcode' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-A2-21")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -156,7 +156,7 @@ class DataGuardSpec
       "User URL hops to 'Delete Repayment Claim ' page whilst being an org user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT-WRN10")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "DATAGUARD-AGENT")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -175,7 +175,7 @@ class DataGuardSpec
       "User URL hops to 'Corporate trustee' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-6")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -196,7 +196,7 @@ class DataGuardSpec
       "User URL hops to 'Corporate trustee address' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-7")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -216,7 +216,7 @@ class DataGuardSpec
       "User URL hops to 'Authorised Official Details' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-8")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -236,7 +236,7 @@ class DataGuardSpec
       "User URL hops to 'Corporate trustee details' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-9")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -257,7 +257,7 @@ class DataGuardSpec
       "User URL hops to 'Authorised Details' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-10")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
@@ -278,7 +278,7 @@ class DataGuardSpec
       "User URL hops to 'Delete Repayment Claim' page whilst being an agent user"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION-A2-10")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "DATAGUARD-ORGANISATION")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
       And(
