@@ -39,7 +39,7 @@ class OrgE2EJourneySpecDetailed
       "User navigates through a full Org user journey - No Regulator - Excepted - Trustee - UK Address"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "ORGE2EJOURNEY1")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "IT00078")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(
@@ -207,7 +207,7 @@ class OrgE2EJourneySpecDetailed
       CheckYourGASDSAdjustmentAmountPage.validateNavigation()
       Then("User validates content on 'Check your GASDS adjustment amount' page")
       CheckYourGASDSAdjustmentAmountPage.assertAllSummaryPairsExactlyAt(0)(
-        "Amount of GASDS previously overclaimed" -> "£123.45"
+        "Amount of GASDS previously overclaimed"           -> "£123.45"
       )
       Then("User navigates to 'Which tax year are you claiming for?' year 1 page")
       CheckYourGASDSAdjustmentAmountPage.clickContinue()
@@ -235,8 +235,8 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Check your claim details for tax year 1' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year" -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
-        "Donation amount" -> "£1.11"
+        "Tax year"                                         -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
+        "Donation amount"                                  -> "£1.11"
       )
       Then("User navigates to 'You have added a claim for 1 tax year' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -276,8 +276,8 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Check your claim details for tax year 2' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year" -> WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear,
-        "Donation amount" -> "£2.22"
+        "Tax year"                                         -> WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear,
+        "Donation amount"                                  -> "£2.22"
       )
       Then("User navigates to 'You have added a claim for 2 tax years' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -324,10 +324,10 @@ class OrgE2EJourneySpecDetailed
       CheckYourGASDSDonationDetailsPage.validateGASDSClaimTaxHeading()
       Then("User Validates the Key and Value pairs on 'Check your GASDS Donation Details' Page")
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Amount of GASDS previously overclaimed" -> "£123.45"
+        "Amount of GASDS previously overclaimed"           -> "£123.45"
       )
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "Number of tax years added" -> "2"
+        "Number of tax years added"                        -> "2"
       )
       Then("User Clicks 'Change' Link of GASDS Previously overclaimed Adjustment Amount")
       CheckYourGASDSDonationDetailsPage.clickChangeGASDSAdjustmentAmount()
@@ -395,7 +395,7 @@ class OrgE2EJourneySpecDetailed
       YourGiftAidScheduleUploadPage.clickContinue()
       Then("User navigates to 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateNavigation()
-      //TODO no input error
+      // TODO no input error
       CheckYourGiftAidSchedulePage.radioButton(CheckYourGiftAidSchedulePage.no)
       CheckYourGiftAidSchedulePage.clickContinue()
       Then("User navigates to 'Successful Gift Aid Upload' page")
@@ -403,7 +403,7 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Make a charity repayment claim' page")
       GiftAidUploadSuccessfulPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
-      //TODO docs in progress
+      // TODO docs in progress
       ClaimsTaskListPage_InProgress.clickAddOtherIncomeSchedule()
       Then("User navigates to 'About Other Income schedule' page")
       AboutOtherIncomeSchedulePage.validateNavigation()
@@ -468,7 +468,7 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Make a charity repayment claim' page")
       OtherIncomeUploadSuccessfulPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
-      //TODO docs in progress
+      // TODO docs in progress
       And("User clicks the link to navigate to 'Add Community Buildings schedule' page")
       ClaimsTaskListPage_InProgress.clickAddCommunityBuildingsSchedule()
       Then("User navigates to 'About Community Buildings schedule' page")
@@ -644,14 +644,16 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Claim complete' page")
       DeclarationPage.clickConfirmAndSubmit()
       ClaimCompletePage.validateNavigation()
-//      And("User validates 'Claim complete' page elements")
-//      ClaimCompletePage.validatePageContent()
-//      And("User validates Submission Reference Number is in BASE32 format")
-//      ClaimCompletePage.verifySubmissionReferenceBase32()
-//      And("User validates Gift Aid, Other Income and Adjustment Headings on Page")
-//      CharityRepaymentClaimSummaryPage.validateGiftAidHeading()
-//      CharityRepaymentClaimSummaryPage.validateOtherIncomeHeading()
-//      CharityRepaymentClaimSummaryPage.validateAdjustmentHeading()
+      And("User validates 'Claim complete' page elements")
+      ClaimCompletePage.validatePageContent()
+      And("User validates Submission Reference Number is in BASE32 format")
+      ClaimCompletePage.verifySubmissionReferenceBase32()
+      Then("User navigates to 'Charity repayment claim summary' page")
+      ClaimCompletePage.clickPrintClaimSummaryLink()
+      And("User validates Gift Aid, Other Income and Adjustment Headings on Page")
+      CharityRepaymentClaimSummaryPage.validateGiftAidHeading()
+      CharityRepaymentClaimSummaryPage.validateOtherIncomeHeading()
+      CharityRepaymentClaimSummaryPage.validateAdjustmentHeading()
 //      Then("User Validates the Gift aid data extracted from GA ODS")
 //      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(1)(
 //        "Number of Gift Aid donations" -> "1000",
