@@ -101,6 +101,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")
     val txtBelowConfirmationPanel3: By = By.xpath("//main//p[3]")
     val linkReturnToDashboard          = "//a[@href='/charities-claims/make-a-charity-repayment-claim']"
+    val linkServiceNavigation          = By.ByClassName("govuk-service-navigation__link")
 
     val dlLocator: By  = By.className("govuk-summary-list")
     val rowLocator: By = By.className("govuk-summary-list__row")
@@ -236,6 +237,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def clickDeleteScheduleLink(): Unit    = click(By.xpath(Locators.lnkDeleteSchedule))
   def clickReturnToDashboard(): Unit     = click(By.xpath(Locators.linkReturnToDashboard))
   def signOut(): Unit                    = click(By.xpath(Locators.lnkSignOut))
+  def clickServiceNavLink(): Unit        = click(Locators.linkServiceNavigation)
 
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)

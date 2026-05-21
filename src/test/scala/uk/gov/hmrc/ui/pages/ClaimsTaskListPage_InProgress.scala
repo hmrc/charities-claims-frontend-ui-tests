@@ -209,6 +209,24 @@ object ClaimsTaskListPage_InProgress extends BasePage {
       )
     )
 
+  def validateTaskList1_RC_OI_GI(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList1Text(
+      ClaimsTaskListPage_InProgress.createSingleStringFromMany(
+        ClaimsTaskListPage_InProgress.pageTaskList1_RepaymentClaimDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_GASDSDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+      )
+    )
+
+  def validateTaskList1_RC_OC_GI(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList1Text(
+      ClaimsTaskListPage_InProgress.createSingleStringFromMany(
+        ClaimsTaskListPage_InProgress.pageTaskList1_RepaymentClaimDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_OrganisationDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList1_GASDSDetails + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+      )
+    )
+
   def validateTaskList1_RC_OC(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList1Text(
       ClaimsTaskListPage_InProgress.createSingleStringFromMany(
@@ -225,6 +243,16 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def validateTaskList2_OI(): Unit =
     ClaimsTaskListPage_InProgress.verifyTaskList2Text(
       ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+    )
+
+  def validateTaskList2_GA_OI_CB_CC(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+      ClaimsTaskListPage_InProgress.createSingleStringFromMany(
+        ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_CommunityBuildings + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_ConnectedCharities + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+      )
     )
 
   def validateTaskList3_NoDeclaration(): Unit =

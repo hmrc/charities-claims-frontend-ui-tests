@@ -46,6 +46,10 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
   def pageLegend: String =
     "Do you want to add a claim for another tax year?"
 
+  def textRadioButtonYes: String = "Yes"
+
+  def textRadioButtonNo: String = "No"
+
   def pageHint: String =
     "You can only make claims for up to 3 tax years."
 
@@ -144,6 +148,25 @@ object YouHaveAddedAClaimForXTaxYearPage extends BasePage {
     YouHaveAddedAClaimForXTaxYearPage.verifyPageCaption(YouHaveAddedAClaimForXTaxYearPage.pageCaption)
     YouHaveAddedAClaimForXTaxYearPage.verifyPageHeading(YouHaveAddedAClaimForXTaxYearPage.pageHeading3)
   }
+
+  def validateFormFieldset_Year1(): Unit =
+    YouHaveAddedAClaimForXTaxYearPage.verifyFormFieldsetContent(
+      YouHaveAddedAClaimForXTaxYearPage.createSingleStringFromMany(
+        YouHaveAddedAClaimForXTaxYearPage.pageLegend,
+        YouHaveAddedAClaimForXTaxYearPage.textRadioButtonYes,
+        YouHaveAddedAClaimForXTaxYearPage.textRadioButtonNo
+      )
+    )
+
+  def validateFormFieldset_Year2(): Unit =
+    YouHaveAddedAClaimForXTaxYearPage.verifyFormFieldsetContent(
+      YouHaveAddedAClaimForXTaxYearPage.createSingleStringFromMany(
+        YouHaveAddedAClaimForXTaxYearPage.pageLegend,
+        YouHaveAddedAClaimForXTaxYearPage.pageHint,
+        YouHaveAddedAClaimForXTaxYearPage.textRadioButtonYes,
+        YouHaveAddedAClaimForXTaxYearPage.textRadioButtonNo
+      )
+    )
 
   def validateErrorMessage(): Unit =
     YouHaveAddedAClaimForXTaxYearPage.validateGenericPageError(
