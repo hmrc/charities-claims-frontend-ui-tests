@@ -37,6 +37,9 @@ object ClaimsTaskListPage_InProgress extends BasePage {
   def pageTaskListItemNotYetStartedStatus: String =
     "Not yet started"
 
+  def pageTaskListItemInProgressStatus: String =
+    "In progress"
+
   def pageTaskListItemCompletedStatus: String =
     "Completed"
 
@@ -251,6 +254,26 @@ object ClaimsTaskListPage_InProgress extends BasePage {
         ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
         ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
         ClaimsTaskListPage_InProgress.pageTaskList2_CommunityBuildings + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_ConnectedCharities + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+      )
+    )
+
+  def validateTaskList2_GAP_OI_CB_CC(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+      ClaimsTaskListPage_InProgress.createSingleStringFromMany(
+        ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemInProgressStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_CommunityBuildings + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_ConnectedCharities + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
+      )
+    )
+
+  def validateTaskList2_GAC_OIC_CBP_CCN(): Unit =
+    ClaimsTaskListPage_InProgress.verifyTaskList2Text(
+      ClaimsTaskListPage_InProgress.createSingleStringFromMany(
+        ClaimsTaskListPage_InProgress.pageTaskList2_GiftAid + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_OtherIncome + " " + ClaimsTaskListPage_InProgress.pageTaskListItemCompletedStatus,
+        ClaimsTaskListPage_InProgress.pageTaskList2_CommunityBuildings + " " + ClaimsTaskListPage_InProgress.pageTaskListItemInProgressStatus,
         ClaimsTaskListPage_InProgress.pageTaskList2_ConnectedCharities + " " + ClaimsTaskListPage_InProgress.pageTaskListItemNotYetStartedStatus
       )
     )
