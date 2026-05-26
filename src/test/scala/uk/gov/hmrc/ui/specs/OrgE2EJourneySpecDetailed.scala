@@ -106,11 +106,11 @@ class OrgE2EJourneySpecDetailed
       CheckYourRepaymentClaimPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'Check your repayment claim' page")
       CheckYourRepaymentClaimPage.assertAllSummaryPairsExactlyAt(0)(
-        CheckYourRepaymentClaimPage.repaymentClaimType     -> "Gift Aid Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS) UK tax deducted from Other Income",
-        CheckYourRepaymentClaimPage.claimReferenceProvided -> "Yes",
-        CheckYourRepaymentClaimPage.claimReferenceNumber   -> "TESTREF123",
-        CheckYourRepaymentClaimPage.GASDSClaimType         -> "GASDS top-up payment Community Buildings top-up payment Connected Charity or CASC claim",
-        CheckYourRepaymentClaimPage.GASDSAdjustment        -> "Yes"
+        CheckYourRepaymentClaimPage.repaymentClaimType                           -> "Gift Aid Top-up payments for small cash donations under Gift Aid Small Donations Scheme (GASDS) UK tax deducted from Other Income",
+        CheckYourRepaymentClaimPage.claimReferenceProvided                       -> "Yes",
+        CheckYourRepaymentClaimPage.claimReferenceNumber                         -> "TESTREF123",
+        CheckYourRepaymentClaimPage.GASDSClaimType                               -> "GASDS top-up payment Community Buildings top-up payment Connected Charity or CASC claim",
+        CheckYourRepaymentClaimPage.GASDSAdjustment                              -> "Yes"
       )
       Then("User navigates to 'Make a charity repayment claim' page")
       CheckYourRepaymentClaimPage.clickContinue()
@@ -176,13 +176,13 @@ class OrgE2EJourneySpecDetailed
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Charity regulator name"                           -> "Charity is not registered with a regulator",
-        "Registered with regulator"                        -> "Your charity is excepted Your charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
-        "Is the corporate trustee making this claim?"      -> "Yes"
+        "Charity regulator name"                                                 -> "Charity is not registered with a regulator",
+        "Registered with regulator"                                              -> "Your charity is excepted Your charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
+        "Is the corporate trustee making this claim?"                            -> "Yes"
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "UK address"                                       -> "Yes",
-        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "UK address"                                                             -> "Yes",
+        "Trustee’s details"                                                      -> "TEST TRUSTEE 01632 960999 WG7 7FU"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -207,7 +207,7 @@ class OrgE2EJourneySpecDetailed
       CheckYourGASDSAdjustmentAmountPage.validateNavigation()
       Then("User validates content on 'Check your GASDS adjustment amount' page")
       CheckYourGASDSAdjustmentAmountPage.assertAllSummaryPairsExactlyAt(0)(
-        "Amount of GASDS previously overclaimed"           -> "£123.45"
+        "Amount of GASDS previously overclaimed"                                 -> "£123.45"
       )
       Then("User navigates to 'Which tax year are you claiming for?' year 1 page")
       CheckYourGASDSAdjustmentAmountPage.clickContinue()
@@ -235,8 +235,8 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Check your claim details for tax year 1' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year"                                         -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
-        "Donation amount"                                  -> "£1.11"
+        "Tax year"                                                               -> WhichTaxYearAreYouClaimingForPage.earliestTaxYear,
+        "Donation amount"                                                        -> "£1.11"
       )
       Then("User navigates to 'You have added a claim for 1 tax year' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -276,8 +276,8 @@ class OrgE2EJourneySpecDetailed
       Then("User navigates to 'Check your claim details for tax year 2' page")
       CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
       CheckYourClaimDetailsForTaxYearPage.assertAllSummaryPairsExactlyAt(0)(
-        "Tax year"                                         -> WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear,
-        "Donation amount"                                  -> "£2.22"
+        "Tax year"                                                               -> WhichTaxYearAreYouClaimingForPage.secondEarliestTaxYear,
+        "Donation amount"                                                        -> "£2.22"
       )
       Then("User navigates to 'You have added a claim for 2 tax years' page")
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
@@ -324,10 +324,10 @@ class OrgE2EJourneySpecDetailed
       CheckYourGASDSDonationDetailsPage.validateGASDSClaimTaxHeading()
       Then("User Validates the Key and Value pairs on 'Check your GASDS Donation Details' Page")
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
-        "Amount of GASDS previously overclaimed"           -> "£123.45"
+        "Amount of GASDS previously overclaimed"                                 -> "£123.45"
       )
       CheckYourGASDSDonationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
-        "Number of tax years added"                        -> "2"
+        "Number of tax years added"                                              -> "2"
       )
       Then("User Clicks 'Change' Link of GASDS Previously overclaimed Adjustment Amount")
       CheckYourGASDSDonationDetailsPage.clickChangeGASDSAdjustmentAmount()
@@ -653,25 +653,34 @@ class OrgE2EJourneySpecDetailed
       And("User validates Gift Aid, Other Income and Adjustment Headings on Page")
       CharityRepaymentClaimSummaryPage.validateGiftAidHeading()
       CharityRepaymentClaimSummaryPage.validateOtherIncomeHeading()
+      CharityRepaymentClaimSummaryPage.validateGASDSHeading()
       CharityRepaymentClaimSummaryPage.validateAdjustmentHeading()
-//      Then("User Validates the Gift aid data extracted from GA ODS")
-//      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(1)(
-//        "Number of Gift Aid donations" -> "1000",
-//        "Total value of Gift Aid donations claimed" -> "£1000.00"
-//      )
-//      Then("User Validates the Other Income data extracted from OI ODS")
-//      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(2)(
-//        "Number of Other Income items" -> "5",
-//        "Total value of Other Income claimed" -> "£126.00"
-//      )
-//      And("User Validates the Adjustment overclaimed amount summation of GA and OI")
-//      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(3)(
-//        "Total tax relief overclaimed in Gift Aid and Other Income" -> "£1000000000.00"
-//      )
-//      Then(
-//        "User Validates the 3 links: 'Print Summary', 'Log out and go back HMRC online services' and 'Go to Your HMRC services exist'"
-//      )
-//      CharityRepaymentClaimSummaryPage.validateSummaryPageLinks()
+      Then("User Validates the Gift aid data extracted from GA ODS")
+      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(1)(
+        "Number of Gift Aid donations"                                           -> "1000",
+        "Total value of Gift Aid donations claimed"                              -> "£1000.00"
+      )
+      Then("User Validates the Other Income data extracted from OI ODS")
+      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(2)(
+        "Number of Other Income items"                                           -> "1",
+        "Total value of Other Income claimed"                                    -> "£56.00"
+      )
+      And("User Validates the Other Income data extracted from CB and CC ODS")
+      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(3)(
+        "Total value of GASDS donations (not collected in a Community Building)" -> "£4.44",
+        "Number of Community Buildings"                                          -> "500",
+        "Total value of GASDS donations collected in a Community Building"       -> "£1000000.00",
+        "Number of Connected Charities"                                          -> "1"
+      )
+      And("User Validates the Adjustment overclaimed amount summation of GA and OI")
+      CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(4)(
+        "Total tax relief overclaimed in Gift Aid and Other Income"              -> "£79.00",
+        "Amount of GASDS previously overclaimed"                                 -> "£123.45"
+      )
+      Then(
+        "User Validates the 3 links: 'Print Summary', 'Log out and go back HMRC online services' and 'Go to Your HMRC services exist'"
+      )
+      CharityRepaymentClaimSummaryPage.validateSummaryPageLinks()
     }
   }
 }
