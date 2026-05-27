@@ -22,6 +22,8 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/name-of-charity-regulator"
 
+  def changePageUrl: String = s"$hostname/change-name-of-charity-regulator"
+
   override def pageTitle: String =
     "What is the name of the charity regulator? - Make a charity tax repayment claim - GOV.UK"
 
@@ -42,6 +44,13 @@ object WhatIsTheNameOfTheCharityRegulatorPage extends BasePage {
 
   def validateNavigation(): Unit = {
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage.pageUrl)
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageTitle(WhatIsTheNameOfTheCharityRegulatorPage.pageTitle)
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageCaption(WhatIsTheNameOfTheCharityRegulatorPage.pageCaption)
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageHeading(WhatIsTheNameOfTheCharityRegulatorPage.pageHeading)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    WhatIsTheNameOfTheCharityRegulatorPage.verifyPageUrl(WhatIsTheNameOfTheCharityRegulatorPage.changePageUrl)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageTitle(WhatIsTheNameOfTheCharityRegulatorPage.pageTitle)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageCaption(WhatIsTheNameOfTheCharityRegulatorPage.pageCaption)
     WhatIsTheNameOfTheCharityRegulatorPage.verifyPageHeading(WhatIsTheNameOfTheCharityRegulatorPage.pageHeading)
