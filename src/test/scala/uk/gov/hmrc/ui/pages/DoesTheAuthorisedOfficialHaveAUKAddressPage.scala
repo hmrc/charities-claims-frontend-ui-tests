@@ -51,6 +51,17 @@ object DoesTheAuthorisedOfficialHaveAUKAddressPage extends BasePage {
     )
   }
 
+  def validateChangeNavigation(): Unit = {
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageUrl(DoesTheAuthorisedOfficialHaveAUKAddressPage.changePageUrl)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageTitle(DoesTheAuthorisedOfficialHaveAUKAddressPage.pageTitle)
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageHeading(
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageHeading
+    )
+    DoesTheAuthorisedOfficialHaveAUKAddressPage.verifyPageCaption(
+      DoesTheAuthorisedOfficialHaveAUKAddressPage.pageCaption
+    )
+  }
+
   def validateErrorMessage(): Unit =
     DoesTheAuthorisedOfficialHaveAUKAddressPage.validateGenericPageError(
       DoesTheAuthorisedOfficialHaveAUKAddressPage.pageErrorMsg,
