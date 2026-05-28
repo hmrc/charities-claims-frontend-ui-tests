@@ -23,7 +23,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
   override def pageUrl: String = s"$hostname/donation-amount-you-are-claiming"
 
   override def pageTitle: String =
-    "What is the donation amount you are claiming, in pounds? - Make a charity tax repayment claim - GOV.UK"
+    "What donation amount are you claiming under GASDS, in pounds? - Make a charity tax repayment claim - GOV.UK"
 
   def pageTitleAgent: String =
     "What donation amount is being claimed under GASDS, in pounds? - Make a charity tax repayment claim - GOV.UK"
@@ -32,7 +32,7 @@ object WhatDonationAmountAreYouClaimingUnderGASDSPage extends BasePage {
     "Provide GASDS donation details"
 
   def pageHeading: String =
-    "What is the donation amount you are claiming, in pounds?"
+    "What donation amount are you claiming under GASDS, in pounds?"
 
   def pageHeadingAgent: String =
     "What donation amount is being claimed under GASDS, in pounds?"
