@@ -39,7 +39,7 @@ class OrgE2EJourneySpecDetailed
       "User navigates through a full Org user journey - No Regulator - Trustee - UK Address - All ODS - Submit"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "EE00001")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "IT00071")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       CharitiesManagementPlaceholder.validatePageContent()
@@ -800,7 +800,7 @@ class OrgE2EJourneySpecDetailed
       "User navigates through a full Org user journey - No Regulator - Exempt - Official - UK Address - GA ODS - Delete Claim"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "EE00002")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "IT00072")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       CharitiesManagementPlaceholder.validatePageContent()
@@ -956,7 +956,7 @@ class OrgE2EJourneySpecDetailed
       "User navigates through a full Org user journey - Regulator - Auth Official - UK Address - GA ODS - Delete Claim"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "EE00003")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "IT00073")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       CharitiesManagementPlaceholder.validatePageContent()
@@ -1150,7 +1150,7 @@ class OrgE2EJourneySpecDetailed
       "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
     ) {
       Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "WR00003")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "IT00074")
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementPlaceholder.validateNavigation()
       And(

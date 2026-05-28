@@ -28,6 +28,8 @@ object CharitiesManagementPlaceholder extends BasePage {
 
   def pageCaption: String = "Organisation"
 
+  def pageCaption2: String = "HMRC Charities reference:"
+
   def pageHeading: String =
     "Manage charity repayment claim"
 
@@ -46,7 +48,7 @@ object CharitiesManagementPlaceholder extends BasePage {
   def validateNavigation(): Unit = {
     // CharitiesManagementPlaceholder.verifyPageUrl(CharitiesManagementPlaceholder.pageUrl)
     CharitiesManagementPlaceholder.verifyPageTitle(CharitiesManagementPlaceholder.pageTitle)
-    CharitiesManagementPlaceholder.verifyDynamicPageCaption(CharitiesManagementPlaceholder.pageCaption)
+    CharitiesManagementPlaceholder.verifyDynamicPageCaption2(CharitiesManagementPlaceholder.pageCaption2)
     CharitiesManagementPlaceholder.verifyPageHeading(CharitiesManagementPlaceholder.pageHeading)
   }
 
