@@ -107,7 +107,7 @@ class AboutTheOrgJourneySpec
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"                      -> "Charity is not registered with a regulator",
-        "Registered with regulator"                   -> "Your charity is excepted Your charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
+        "Reason for not registering"                  -> "Your charity is excepted Your charity is excepted as the charity’s annual income is £100,000 or less and is classed as one of the following: a church or chapel a charity that provides premises for schools a scout or guide group a charitable service of the armed forces a students’ union",
         "Is the corporate trustee making this claim?" -> "Yes"
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
@@ -197,7 +197,7 @@ class AboutTheOrgJourneySpec
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"                      -> "Charity is not registered with a regulator",
-        "Registered with regulator"                   -> "Your charity is exempt Your charity is exempt from registering with a regulator because it is a: university or school museum or gallery housing association",
+        "Reason for not registering"                  -> "Your charity is exempt Your charity is exempt from registering with a regulator because it is a: university or school museum or gallery housing association",
         "Is the corporate trustee making this claim?" -> "No"
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
