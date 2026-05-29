@@ -61,6 +61,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val rdoNo                          = "#value_1"
     val txtFileName                    = ".govuk-body"
     val txtCaption                     = By.ByClassName("govuk-caption-l")
+    val txtCaption2: By                = By.xpath("//span[@class='govuk-caption-l'][2]")
     val txtHeading: By                 = By.xpath("//h1")
     val txtWarning                     = By.ByClassName("govuk-warning-text")
     val txtSubHeading1: By             = By.xpath("//main//h2[1]")
@@ -101,6 +102,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val txtBelowConfirmationPanel2: By = By.xpath("//main//p[2]")
     val txtBelowConfirmationPanel3: By = By.xpath("//main//p[3]")
     val linkReturnToDashboard          = "//a[@href='/charities-claims/make-a-charity-repayment-claim']"
+    val linkServiceNavigation          = By.ByClassName("govuk-service-navigation__link")
 
     val dlLocator: By  = By.className("govuk-summary-list")
     val rowLocator: By = By.className("govuk-summary-list__row")
@@ -236,6 +238,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def clickDeleteScheduleLink(): Unit    = click(By.xpath(Locators.lnkDeleteSchedule))
   def clickReturnToDashboard(): Unit     = click(By.xpath(Locators.linkReturnToDashboard))
   def signOut(): Unit                    = click(By.xpath(Locators.lnkSignOut))
+  def clickServiceNavLink(): Unit        = click(Locators.linkServiceNavigation)
 
   /** Navigation methods */
   def navigateToPage(url: String): Unit = driver.navigate().to(url)
@@ -314,6 +317,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Page caption mismatch! Expected: $expectedCaption, Actual: $actualCaption"
     )
     println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
+  }
+
+  def verifyDynamicPageCaption2(expectedCaption2: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtCaption2)
+    val actualCaption2 = driver.findElement(Locators.txtCaption2).getText
+    assert(
+      actualCaption2 contains expectedCaption2,
+      s"Page caption 2 mismatch! Expected: $expectedCaption2, Actual: $actualCaption2"
+    )
+    println("Actual page caption 2 is: " + driver.findElement(Locators.txtCaption2).getText)
   }
 
   def verifyPageHeading(expectedHeading: String): Unit = {

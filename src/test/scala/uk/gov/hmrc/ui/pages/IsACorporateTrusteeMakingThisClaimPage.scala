@@ -46,6 +46,13 @@ object IsACorporateTrusteeMakingThisClaimPage extends BasePage {
     IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
   }
 
+  def validateChangeNavigation(): Unit = {
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageUrl(IsACorporateTrusteeMakingThisClaimPage.changePageUrl)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageTitle(IsACorporateTrusteeMakingThisClaimPage.pageTitle)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageCaption(IsACorporateTrusteeMakingThisClaimPage.pageCaption)
+    IsACorporateTrusteeMakingThisClaimPage.verifyPageHeading(IsACorporateTrusteeMakingThisClaimPage.pageHeading)
+  }
+
   def validateErrorMessage(): Unit =
     IsACorporateTrusteeMakingThisClaimPage.validateGenericPageError(
       IsACorporateTrusteeMakingThisClaimPage.pageErrorMsg,

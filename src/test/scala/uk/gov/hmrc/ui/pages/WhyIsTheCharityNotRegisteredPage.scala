@@ -22,6 +22,8 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   override def pageUrl: String = s"$hostname/charity-not-registered"
 
+  def changePageUrl: String = s"$hostname/change-charity-not-registered"
+
   override def pageTitle: String =
     "Why is the charity not registered with a regulator? - Make a charity tax repayment claim - GOV.UK"
 
@@ -58,6 +60,13 @@ object WhyIsTheCharityNotRegisteredPage extends BasePage {
 
   def validateNavigation(): Unit = {
     WhyIsTheCharityNotRegisteredPage.verifyPageUrl(WhyIsTheCharityNotRegisteredPage.pageUrl)
+    WhyIsTheCharityNotRegisteredPage.verifyPageTitle(WhyIsTheCharityNotRegisteredPage.pageTitle)
+    WhyIsTheCharityNotRegisteredPage.verifyPageHeading(WhyIsTheCharityNotRegisteredPage.pageHeading)
+    WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
+  }
+
+  def validateChangeNavigation(): Unit = {
+    WhyIsTheCharityNotRegisteredPage.verifyPageUrl(WhyIsTheCharityNotRegisteredPage.changePageUrl)
     WhyIsTheCharityNotRegisteredPage.verifyPageTitle(WhyIsTheCharityNotRegisteredPage.pageTitle)
     WhyIsTheCharityNotRegisteredPage.verifyPageHeading(WhyIsTheCharityNotRegisteredPage.pageHeading)
     WhyIsTheCharityNotRegisteredPage.verifyPageCaption(WhyIsTheCharityNotRegisteredPage.pageCaption)
