@@ -155,7 +155,6 @@ class WarningPagesSpec
       And("User selects 'Delete Schedule' 'There is a problem with the data in your Other Income schedule' page")
       CheckYourOtherIncomeScheduleErrorPage.clickDeleteScheduleLink()
       Then("User navigates to 'Do you want to delete this Other Income schedule?' page")
-      DeleteOtherIncomeSchedulePage.navigateToPage(DeleteOtherIncomeSchedulePage.pageUrl)
       DeleteOtherIncomeSchedulePage.validateNavigation()
       Then("User validates the 'no input' error on the 'Do you want to delete this Other Income schedule?' page")
       DeleteOtherIncomeSchedulePage.validateErrorMessage()

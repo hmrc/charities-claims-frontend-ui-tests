@@ -34,7 +34,7 @@ object CharitiesManagementPlaceholder extends BasePage {
     "Manage charity repayment claim"
 
   def txtParagraph1: String =
-    "Complete any Gift Aid, Other Income or Community Building (opens in new tab) schedule spreadsheets before making a new claim."
+    "Complete any Gift Aid, Other Income or Community Buildings (opens in new tab) schedule spreadsheets before making a new claim."
 
   def pageSubHeading: String = "Make a repayment claim"
 

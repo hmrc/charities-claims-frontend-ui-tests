@@ -420,7 +420,7 @@ class AddConnectedCharitiesSchedulePageSpec
       CheckYourConnectedCharitiesSchedulePage.validateNavigation()
       CheckYourConnectedCharitiesSchedulePage.radioButton(CheckYourConnectedCharitiesSchedulePage.no)
       CheckYourConnectedCharitiesSchedulePage.clickContinue()
-      Then("User navigates and validates 'Successful Connected Charities Upload' page ")
+      Then("User navigates and validates 'Successful Connected Charities Upload' page")
       ConnectedCharitiesUploadSuccessfulPage.validateNavigation()
       ConnectedCharitiesUploadSuccessfulPage.validatePageParagraph()
     }

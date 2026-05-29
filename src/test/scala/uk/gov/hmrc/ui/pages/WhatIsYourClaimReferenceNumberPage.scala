@@ -71,6 +71,13 @@ object WhatIsYourClaimReferenceNumberPage extends BasePage {
     WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeading)
   }
 
+  def validateChangeNavigation(): Unit = {
+    WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.changePageUrl)
+    WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitle)
+    WhatIsYourClaimReferenceNumberPage.verifyPageCaption(WhatIsYourClaimReferenceNumberPage.pageCaption)
+    WhatIsYourClaimReferenceNumberPage.verifyPageHeading(WhatIsYourClaimReferenceNumberPage.pageHeading)
+  }
+
   def validateNavigationAgent(): Unit = {
     WhatIsYourClaimReferenceNumberPage.verifyPageUrl(WhatIsYourClaimReferenceNumberPage.pageUrl)
     WhatIsYourClaimReferenceNumberPage.verifyPageTitle(WhatIsYourClaimReferenceNumberPage.pageTitleAgent)
