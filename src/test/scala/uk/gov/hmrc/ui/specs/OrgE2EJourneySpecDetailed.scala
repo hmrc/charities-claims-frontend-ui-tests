@@ -688,7 +688,7 @@ class OrgE2EJourneySpecDetailed
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(0)(
         "Charity regulator name"                                                 -> "Charity is not registered with a regulator",
-        "Registered with regulator"                                              -> "Your charity is located in England or Wales and your income is less than £5,000 per year",
+        "Reason for not registering"                                             -> "Your charity is located in England or Wales and your income is less than £5,000 per year",
         "Is the corporate trustee making this claim?"                            -> "Yes"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
