@@ -282,8 +282,10 @@ class ReturningUser
         "01632 960999",
         "WG7 7FU"
       )
-      CheckYourOrganisationDetailsPage.clickContinue()
+      And("User navigates to 'Check your organisation details' page")
+      CheckYourOrganisationDetailsPage.validateNavigation()
       And("User navigates to 'Make a charity repayment claim' task list page")
+      CheckYourOrganisationDetailsPage.clickContinue()
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       And("User clicks the link to navigate to 'Organisation details' page")
       ClaimsTaskListPage_InProgress.clickCheckYourOrganisationDetails()
