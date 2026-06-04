@@ -148,7 +148,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val errorMessage       = s"$expectedErrorMessage"
     fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(Locators.btnContinue)))
     clickContinue()
-    waitForVisibilityOfElement(Locators.errorSummary)
+    waitForElementToContain(Locators.errorSummary, expectedErrorMessage, 3)
     // Error title indicator
     assert(
       driver.getTitle.contains("Error:"),

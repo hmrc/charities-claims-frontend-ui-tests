@@ -1958,6 +1958,7 @@ class WarningPagesSpec
       CheckYourClaimDetailsForTaxYearPage.validateNavigation1()
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
       Then("User navigates to 'You have added a claim for Tax year' page ")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation1()
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
@@ -1974,6 +1975,7 @@ class WarningPagesSpec
       CheckYourClaimDetailsForTaxYearPage.validateNavigation2()
       CheckYourClaimDetailsForTaxYearPage.clickContinue()
       Then("User navigates to 'You have added a claim for X tax year' page and creates a 3rd year of claims")
+      YouHaveAddedAClaimForXTaxYearPage.validateNavigation2()
       YouHaveAddedAClaimForXTaxYearPage.radioButton(YouHaveAddedAClaimForXTaxYearPage.yes)
       YouHaveAddedAClaimForXTaxYearPage.clickContinue()
       Then(
