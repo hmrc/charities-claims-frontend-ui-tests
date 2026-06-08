@@ -856,7 +856,7 @@ class DeclarationJourneySpec
       Then("User Validates the Gift aid data extracted from GA ODS")
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(1)(
         "Number of Gift Aid donations"                              -> "1000",
-        "Total value of Gift Aid donations claimed"                 -> "£1000.00"
+        "Total value of Gift Aid donations claimed"                 -> "£1,000.00"
       )
       Then("User Validates the Other Income data extracted from OI ODS")
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(2)(
@@ -865,7 +865,7 @@ class DeclarationJourneySpec
       )
       And("User Validates the Adjustment overclaimed amount summation of GA and OI")
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(3)(
-        "Total tax relief overclaimed in Gift Aid and Other Income" -> "£1000000000.00"
+        "Total tax relief overclaimed in Gift Aid and Other Income" -> "£1,000,000,000.00"
       )
       Then(
         "User Validates the 3 links: 'Print Summary', 'Log out and go back HMRC online services' and 'Go to Your HMRC services exist'"
