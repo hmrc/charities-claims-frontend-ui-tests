@@ -771,7 +771,7 @@ class OrgE2EJourneySpecDetailed
       Then("User Validates the Gift aid data extracted from GA ODS")
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(1)(
         "Number of Gift Aid donations"                                           -> "1000",
-        "Total value of Gift Aid donations claimed"                              -> "£5000.00"
+        "Total value of Gift Aid donations claimed"                              -> "£5,000.00"
       )
       Then("User Validates the Other Income data extracted from OI ODS")
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(2)(
@@ -782,7 +782,7 @@ class OrgE2EJourneySpecDetailed
       CharityRepaymentClaimSummaryPage.assertAllSummaryPairsExactlyAt(3)(
         "Total value of GASDS donations (not collected in a Community Building)" -> "£4.44",
         "Number of Community Buildings"                                          -> "500",
-        "Total value of GASDS donations collected in a Community Building"       -> "£1000000.00",
+        "Total value of GASDS donations collected in a Community Building"       -> "£1,000,000.00",
         "Number of Connected Charities"                                          -> "1"
       )
       And("User Validates the Adjustment overclaimed amount summation of GA and OI")
