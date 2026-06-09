@@ -61,7 +61,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val rdoNo                          = "#value_1"
     val txtFileName                    = ".govuk-body"
     val txtCaption                     = By.ByClassName("govuk-caption-l")
-    val txtCaption2: By                = By.xpath("//span[@class='govuk-caption-l'][2]")
+    val txtCaption2: By                = By.xpath("//span[@class='govuk-caption-l']")
     val txtHeading: By                 = By.xpath("//h1")
     val txtWarning                     = By.ByClassName("govuk-warning-text")
     val txtSubHeading1: By             = By.xpath("//main//h2[1]")
