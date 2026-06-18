@@ -85,6 +85,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     val checkYouAnswersSummaryList     = By.ByClassName("govuk-summary-list__row")
     val txtEntirePageContent           = By.ByClassName("govuk-grid-row")
     val txtSummaryCardContent          = By.ByClassName("govuk-summary-card")
+    val txtSummaryCardTitle            = By.ByClassName("govuk-summary-card__title")
     val txtTrusteeName                 = By.ById("nameOfCorporateTrustee")
     val txtTrusteePhoneNo              = By.ById("corporateTrusteeDaytimeTelephoneNumber")
     val txtTrusteePostcode             = By.ById("corporateTrusteePostcode")
@@ -486,6 +487,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       s"Warning page content mismatch! Expected: $expectedText, Actual: $actualText"
     )
     println("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
+  }
+
+  def verifySummaryCardTitle(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.txtSummaryCardTitle)
+    val actualText = driver.findElement(Locators.txtSummaryCardTitle).getText
+    assert(
+      actualText == expectedText,
+      s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardTitle).getText)
   }
 
   def verifySummaryCardContent(expectedText: String): Unit = {

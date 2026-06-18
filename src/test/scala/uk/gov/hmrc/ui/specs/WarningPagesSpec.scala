@@ -247,22 +247,74 @@ class WarningPagesSpec
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
     }
 
-    //    // TODO enhance with additional steps
-    //    Scenario(
-    //      "User navigates to the 'Do you want to delete this GASDS connected charities schedule?' page and validates the page elements and error messages"
-    //    ) {
-    //      Given("the user logs in through the Authority Wizard page")
-    //      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST - WRN1.3")
-    //      Then("User navigates to 'Make a charity repayment claim' page")
-    //      ClaimsTaskListPage_Empty.validateNavigation()
-    //      Then("User navigates to 'Do you want to delete this GASDS connected charities schedule?' page")
-    //      DeleteGASDSConnectedCharitiesSchedulePage.navigateToPage(DeleteGASDSConnectedCharitiesSchedulePage.pageUrl)
-    //      DeleteGASDSConnectedCharitiesSchedulePage.validateNavigation()
-    //      Then(
-    //        "User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page"
-    //      )
-    //      DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
-    //    }
+    Scenario(
+      "User navigates to the 'Do you want to delete this GASDS connected charities schedule?' page and validates the page elements and error messages"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGTEST-WRN1-3")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And(
+        "User selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.validateNavigation()
+      And("User selects 'GASDS Connected Charities' checkbox and clicks continue")
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
+      GASDSCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickContinue()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+      And("User clicks the link to navigate to 'Add Connected Charities schedule' page")
+      ClaimsTaskListPage_InProgress.clickAddConnectedCharitiesSchedule()
+      Then("User navigates to 'About Connected Charities schedule' page")
+      AboutConnectedCharitiesSchedulePage.validateNavigation()
+      AboutConnectedCharitiesSchedulePage.clickContinue()
+      Then("User navigates to 'Upload a Connected Charities schedule' page")
+      UploadAConnectedCharitiesSchedulePage.validateNavigation()
+      Then("User selects a file to upload in the 'Upload a Connected Charities schedule' page")
+      UploadAConnectedCharitiesSchedulePage.selectFile(
+        "ConnectedCharitiesSpreadsheets/Connected-Charities-schedule-Excel-BadData"
+      )
+      UploadAConnectedCharitiesSchedulePage.clickContinue()
+      Then("User navigates to 'Your Connected Charities schedule upload' page")
+      YourConnectedCharitiesScheduleUploadPage.validateNavigation()
+      YourConnectedCharitiesScheduleUploadPage.waitForFileUpload()
+      YourConnectedCharitiesScheduleUploadPage.clickContinue()
+      Then("User navigates to 'Problem with your Connected Charities schedule data' page and validates page")
+      CheckYourConnectedCharitiesScheduleErrorPage.validateNavigation()
+      Then("User clicks on the Delete Schedule link and reaches the Delete Schedule WRN 1.3 page")
+      CheckYourConnectedCharitiesScheduleErrorPage.clickDeleteScheduleLink()
+      Then("User validates navigation of Delete Schedule WRN 1.3 page")
+      DeleteGASDSConnectedCharitiesSchedulePage.validateNavigation()
+      Then(
+        "User validates the 'no input' error on the 'Do you want to delete this GASDS connected charities schedule?' page"
+      )
+      DeleteGASDSConnectedCharitiesSchedulePage.validateErrorMessage()
+    }
 
     Scenario(
       "User navigates to the 'Are you sure you want to delete this repayment claim?' page and validates the page elements and error messages"
@@ -310,53 +362,71 @@ class WarningPagesSpec
       )
       DeleteRepaymentClaimPage.radioButton(DeleteRepaymentClaimPage.yes)
       DeleteRepaymentClaimPage.clickContinue()
-      // TODO Charities Management dashboard
+      Then("User navigates to 'Manage charity repayment claim' page")
+      CharitiesManagementPlaceholder.validateNavigation()
     }
 
-//    Scenario(
-//      "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
-//    ) {
-//      Given("the user logs in through the Authority Wizard page")
-//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN3")
-//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-//      CharitiesManagementPlaceholder.validateNavigation()
-//      And(
-//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-//      )
-//      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
-//      Then("User navigates to 'Make a charity repayment claim' page")
-//      ClaimsTaskListPage_Empty.validateNavigation()
-//      And("User clicks the link to navigate to 'Repayment claim details' page")
-//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-//      Then("User validates the 'Repayment claim details' page")
-//      RepaymentClaimDetailsPage.validateNavigation()
-//      And("User clicks continue on 'Repayment claim details' page")
-//      RepaymentClaimDetailsPage.clickContinue()
-//      Then("User navigates to 'Repayment claim Type?' page")
-//      RepaymentCheckboxPage.validateNavigation()
-//      And("User selects 'Other Income' and 'Gift Aid' checkboxes and clicks continue")
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-//      RepaymentCheckboxPage.clickContinue()
-//      Then("User navigates to 'Do you have a claim reference number?' page")
-//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-//      Then("User navigates to 'Check your repayment claim' page")
-//      CheckYourRepaymentClaimPage.validateNavigation()
-//      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
-//      Then("User navigates to 'Repayment claim type' page and un selects 'Gift Aid' checkbox and clicks continue")
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
-//      RepaymentCheckboxPage.clickContinue()
-//      Then("User navigates to 'Update repayment claim details' Page")
-//      UpdateRepaymentClaimDetails.validateNavigation()
-//      UpdateRepaymentClaimDetails.validateErrorMessages()
-//      UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
-//      UpdateRepaymentClaimDetails.clickContinue()
-//      Then("User navigates to 'Check your repayment claim' page")
-//      CheckYourRepaymentClaimPage.validateNavigation()
-//    }
+    Scenario(
+      "User navigates to the 'Update Repayment Claim Details' page and validates the page elements"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN3")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Repayment claim Type?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Other Income' and 'Gift Aid' checkboxes and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.validateNavigation()
+      And("User selects 'GASDS top-up' checkbox and clicks continue")
+      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSTopUp, true)
+      GASDSCheckboxPage.clickContinue()
+      Then("User navigates to 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Gift Aid Small Donations Scheme claim' page")
+      GiftAidSmallDonationsSchemeClaimPage.radioButton(GiftAidSmallDonationsSchemeClaimPage.no)
+      GiftAidSmallDonationsSchemeClaimPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      CheckYourRepaymentClaimPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+      And("User clicks the link to navigate back to 'Provide repayment claim details' page")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      Then("User navigates to 'Repayment claim type' page and un selects 'GASDS' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, false)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Update repayment claim details' Page")
+      UpdateRepaymentClaimDetails.validateNavigation()
+      UpdateRepaymentClaimDetails.validateErrorMessages()
+      UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
+      UpdateRepaymentClaimDetails.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+    }
 
     Scenario(
       "User navigates to the 'Do you need to register your charity with a regulator?' Low Income page from the Gift Aid flow and validates the page elements"
@@ -690,61 +760,63 @@ class WarningPagesSpec
       ThisClaimCannotBeSetupPage_Organisation.validatePageContent()
     }
 
-//    Scenario(
-//      "User navigates to the 'Check your repayment claim' page with missing information and validates correct warning screen is displayed on submission"
-//    ) {
-//      Given("the user logs in through the Authority Wizard page")
-//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-RepaymentWRN6")
-//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-//      CharitiesManagementPlaceholder.validateNavigation()
-//      And(
-//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-//      )
-//      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
-//      Then("User navigates to 'Make a charity repayment claim' page")
-//      ClaimsTaskListPage_Empty.validateNavigation()
-//      And("User clicks the link to navigate to 'Repayment claim details' page")
-//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-//      Then("User validates the 'Repayment claim details' page")
-//      RepaymentClaimDetailsPage.validateNavigation()
-//      And("User clicks continue on 'Repayment claim details' page")
-//      RepaymentClaimDetailsPage.clickContinue()
-//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-//      RepaymentCheckboxPage.validateNavigation()
-//      And("User selects 'Gift Aid' checkbox and clicks continue")
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-//      RepaymentCheckboxPage.clickContinue()
-//      Then("User navigates to 'Do you have a claim reference number?' page")
-//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-//      Then("User navigates to 'Check your repayment claim' page")
-//      CheckYourRepaymentClaimPage.validateNavigation()
-//      Then("User then changes details on 'Check your organisation details' page")
-//      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
-//      And(
-//        "User unselects 'Tax repayments on Gift Aid donations' checkbox selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
-//      )
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
-//      RepaymentCheckboxPage.clickContinue()
-//      Then("User navigates to 'Do you want to update this repayment claim?' page")
-//      UpdateRepaymentClaimDetails.validateNavigation()
-//      And("User selects to update repayment claim")
-//      UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
-//      UpdateRepaymentClaimDetails.clickContinue()
-//      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page in change mode")
-//      GASDSCheckboxPage.validateChangeNavigation()
-//      And("User does not enter the required values and jumps to the 'Check your repayment details' page")
-//      CheckYourRepaymentClaimPage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
-//      Then("User attempts to submit with missing details on 'Check your repayment details' page")
-//      CheckYourRepaymentClaimPage.clickContinue()
-//      And("User navigates to 'This claim cannot be setup' page")
-//      ThisClaimCannotBeSetupPage_Repayment.validateNavigation()
-//      Then("User validates the expected missing info on the 'This claim cannot be setup' page")
-//      ThisClaimCannotBeSetupPage_Repayment.validatePageContent()
-//    }
+    Scenario(
+      "User navigates to the 'Check your repayment claim' page with missing information and validates correct warning screen is displayed on submission"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-RepaymentWRN6")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementPlaceholder.validateNavigation()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      ClaimsTaskListPage_Empty.validateNavigation()
+      And("User clicks the link to navigate to 'Repayment claim details' page")
+      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+      Then("User validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigation()
+      And("User clicks continue on 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigation()
+      And("User selects 'Gift Aid' checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+      RepaymentCheckboxPage.clickContinue()
+      Then("User navigates to 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User navigates to 'Make a charity repayment claim' page")
+      CheckYourRepaymentClaimPage.clickContinue()
+      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+      And("User clicks the link to navigate back to 'Provide repayment claim details' page")
+      ClaimsTaskListPage_InProgress.clickCheckYourRepaymentClaimDetails()
+      Then("User navigates to 'Check your repayment claim' page")
+      CheckYourRepaymentClaimPage.validateNavigation()
+      Then("User then changes details on 'Check your organisation details' page")
+      CheckYourRepaymentClaimPage.clickChangeRepaymentClaimType()
+      And(
+        "User unselects 'Tax repayments on Gift Aid donations' checkbox selects 'Top up payments for donations under the Gift Aid Small Donations Scheme' checkbox and clicks continue"
+      )
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, false)
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page in change mode")
+      GASDSCheckboxPage.validateChangeNavigation()
+      And("User does not enter the required values and jumps to the 'Check your repayment details' page")
+      CheckYourRepaymentClaimPage.navigateToPage(CheckYourRepaymentClaimPage.pageUrl)
+      Then("User attempts to submit with missing details on 'Check your repayment details' page")
+      CheckYourRepaymentClaimPage.clickContinue()
+      And("User navigates to 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Repayment.validateNavigation()
+      Then("User validates the expected missing info on the 'This claim cannot be setup' page")
+      ThisClaimCannotBeSetupPage_Repayment.validatePageContent()
+    }
 
     Scenario(
       "User navigates to the 'Your Community Buildings schedule upload' page and attempt to upload a quarantined file,then a rejected file, then an unknown file"
@@ -859,195 +931,200 @@ class WarningPagesSpec
       ThereIsAProblemUploadingYourCommunityBuildingsSchedulePage_Unknown.clickUploadANewSchedule()
       Then("User navigates to 'Upload a Community Buildings schedule' page")
       UploadACommunityBuildingsSchedulePage.validateNavigation()
-
     }
 
-    Scenario(
-      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a quarantined file"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN70-GA")
-      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-      CharitiesManagementPlaceholder.validateNavigation()
-      And(
-        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-      )
-      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile(
-        "WarningPagesSpreadsheets/infected.WRN7-0"
-      )
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then(
-        "User navigates to 'There is a problem uploading your Gift Aid schedule' quarantine page and validates its contents"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validateNavigation()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContent()
-      Then(
-        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.clickReturnToDashboard()
-      // TODO Charities management dashboard
-    }
-
-    Scenario(
-      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a rejected file"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN71-GA")
-      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-      CharitiesManagementPlaceholder.validateNavigation()
-      And(
-        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-      )
-      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile(
-        "WarningPagesSpreadsheets/rejected.WRN7-1"
-      )
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then(
-        "User navigates to 'There is a problem uploading your Gift Aid schedule' rejected page and validates its contents"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validateNavigation()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validatePageContent()
-      Then(
-        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.clickReturnToDashboard()
-      // TODO Charities management dashboard
-    }
-
-    Scenario(
-      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload an unknown file"
-    ) {
-      Given("the user logs in through the Authority Wizard page")
-      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN72-GA")
-      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-      CharitiesManagementPlaceholder.validateNavigation()
-      And(
-        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-      )
-      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_Empty.validateNavigation()
-      And("User clicks the link to navigate to 'Repayment claim details' page")
-      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
-      Then("User validates the 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.validateNavigation()
-      And("User clicks continue on 'Repayment claim details' page")
-      RepaymentClaimDetailsPage.clickContinue()
-      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-      RepaymentCheckboxPage.validateNavigation()
-      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
-      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      RepaymentCheckboxPage.clickContinue()
-      Then("User navigates to 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
-      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
-      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
-      DoYouHaveAClaimReferenceNumberPage.clickContinue()
-      Then("User navigates to 'Check your repayment claim' page")
-      CheckYourRepaymentClaimPage.validateNavigation()
-      CheckYourRepaymentClaimPage.clickContinue()
-      Then("User navigates to 'Make a charity repayment claim' page")
-      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
-      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
-      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
-      Then("User navigates to 'About Gift Aid schedule' page")
-      AboutGiftAidSchedulePage.validateNavigation()
-      AboutGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.validateNavigation()
-      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
-      UploadAGiftAidSchedulePage.selectFile(
-        "WarningPagesSpreadsheets/unknown.WRN7-2"
-      )
-      UploadAGiftAidSchedulePage.clickContinue()
-      Then("User navigates to 'Your Gift Aid schedule upload' page")
-      YourGiftAidScheduleUploadPage.validateNavigation()
-      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
-      YourGiftAidScheduleUploadPage.clickContinue()
-      Then(
-        "User navigates to 'There is a problem uploading your Gift Aid schedule' unknown page and validates its contents"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validateNavigation()
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContent()
-      Then(
-        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
-      )
-      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.clickReturnToDashboard()
-      // TODO Charities management dashboard
-    }
-
+//    //TODO
+//    Scenario(
+//      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a quarantined file"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN70-GA")
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//      And(
+//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+//      )
+//      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      And("User clicks the link to navigate to 'Repayment claim details' page")
+//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+//      Then("User validates the 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.validateNavigation()
+//      And("User clicks continue on 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.clickContinue()
+//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+//      RepaymentCheckboxPage.validateNavigation()
+//      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
+//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+//      RepaymentCheckboxPage.clickContinue()
+//      Then("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//      Then("User navigates to 'Check your repayment claim' page")
+//      CheckYourRepaymentClaimPage.validateNavigation()
+//      CheckYourRepaymentClaimPage.clickContinue()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+//      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+//      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+//      Then("User navigates to 'About Gift Aid schedule' page")
+//      AboutGiftAidSchedulePage.validateNavigation()
+//      AboutGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.validateNavigation()
+//      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.selectFile(
+//        "WarningPagesSpreadsheets/infected.WRN7-0"
+//      )
+//      UploadAGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Your Gift Aid schedule upload' page")
+//      YourGiftAidScheduleUploadPage.validateNavigation()
+//      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
+//      YourGiftAidScheduleUploadPage.clickContinue()
+//      Then(
+//        "User navigates to 'There is a problem uploading your Gift Aid schedule' quarantine page and validates its contents"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validateNavigation()
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.validatePageContent()
+//      Then(
+//        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Quarantine.clickReturnToDashboard()
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//    }
+//
+//    //TODO
+//    Scenario(
+//      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload a rejected file"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN71-GA")
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//      And(
+//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+//      )
+//      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      And("User clicks the link to navigate to 'Repayment claim details' page")
+//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+//      Then("User validates the 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.validateNavigation()
+//      And("User clicks continue on 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.clickContinue()
+//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+//      RepaymentCheckboxPage.validateNavigation()
+//      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
+//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+//      RepaymentCheckboxPage.clickContinue()
+//      Then("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//      Then("User navigates to 'Check your repayment claim' page")
+//      CheckYourRepaymentClaimPage.validateNavigation()
+//      CheckYourRepaymentClaimPage.clickContinue()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+//      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+//      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+//      Then("User navigates to 'About Gift Aid schedule' page")
+//      AboutGiftAidSchedulePage.validateNavigation()
+//      AboutGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.validateNavigation()
+//      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.selectFile(
+//        "WarningPagesSpreadsheets/rejected.WRN7-1"
+//      )
+//      UploadAGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Your Gift Aid schedule upload' page")
+//      YourGiftAidScheduleUploadPage.validateNavigation()
+//      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
+//      YourGiftAidScheduleUploadPage.clickContinue()
+//      Then(
+//        "User navigates to 'There is a problem uploading your Gift Aid schedule' rejected page and validates its contents"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validateNavigation()
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.validatePageContent()
+//      Then(
+//        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Reject.clickReturnToDashboard()
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//    }
+//
+    // TODO
+//    Scenario(
+//      "User navigates to the 'Your Gift Aid schedule upload' page and attempt to upload an unknown file"
+//    ) {
+//      Given("the user logs in through the Authority Wizard page")
+//      AuthWizard.login(HASDIRECT, Organisation, "Organisation", "HMRC-CHAR-ORG", "CHARID", "PAGETEST-WRN72-GA")
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//      And(
+//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+//      )
+//      CharitiesManagementPlaceholder.clickUseTheCharitiesLink()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_Empty.validateNavigation()
+//      And("User clicks the link to navigate to 'Repayment claim details' page")
+//      ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
+//      Then("User validates the 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.validateNavigation()
+//      And("User clicks continue on 'Repayment claim details' page")
+//      RepaymentClaimDetailsPage.clickContinue()
+//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+//      RepaymentCheckboxPage.validateNavigation()
+//      And("User selects 'Tax repayments on Gift Aid donations' checkbox and clicks continue")
+//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
+//      RepaymentCheckboxPage.clickContinue()
+//      Then("User navigates to 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.validateNavigation()
+//      And("User selects 'No' and clicks continue on 'Do you have a claim reference number?' page")
+//      DoYouHaveAClaimReferenceNumberPage.radioButton(DoYouHaveAClaimReferenceNumberPage.no)
+//      DoYouHaveAClaimReferenceNumberPage.clickContinue()
+//      Then("User navigates to 'Check your repayment claim' page")
+//      CheckYourRepaymentClaimPage.validateNavigation()
+//      CheckYourRepaymentClaimPage.clickContinue()
+//      Then("User navigates to 'Make a charity repayment claim' page")
+//      ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
+//      And("User clicks the link to navigate to 'Add Gift Aid schedule' page")
+//      ClaimsTaskListPage_InProgress.clickAddGiftAidSchedule()
+//      Then("User navigates to 'About Gift Aid schedule' page")
+//      AboutGiftAidSchedulePage.validateNavigation()
+//      AboutGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.validateNavigation()
+//      Then("User selects a file to upload in the 'Upload a Gift Aid schedule' page")
+//      UploadAGiftAidSchedulePage.selectFile(
+//        "WarningPagesSpreadsheets/unknown.WRN7-2"
+//      )
+//      UploadAGiftAidSchedulePage.clickContinue()
+//      Then("User navigates to 'Your Gift Aid schedule upload' page")
+//      YourGiftAidScheduleUploadPage.validateNavigation()
+//      YourGiftAidScheduleUploadPage.waitForFileUploadFail()
+//      YourGiftAidScheduleUploadPage.clickContinue()
+//      Then(
+//        "User navigates to 'There is a problem uploading your Gift Aid schedule' unknown page and validates its contents"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validateNavigation()
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.validatePageContent()
+//      Then(
+//        "User selects 'No, return to manage charity repayment claims' link on the 'There is a problem uploading your Gift Aid schedule' page"
+//      )
+//      ThereIsAProblemUploadingYourGiftAidSchedulePage_Unknown.clickReturnToDashboard()
+//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+//      CharitiesManagementPlaceholder.validateNavigation()
+//    }
+//
     Scenario(
       "User navigates to the 'Your Connected Charities schedule upload' page and attempt to upload a quarantined file"
     ) {

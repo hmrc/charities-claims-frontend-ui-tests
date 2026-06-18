@@ -43,23 +43,14 @@ object CheckYourGiftAidSchedulePage extends BasePage {
   def textSummaryCardTitle: String =
     "Gift Aid schedule details"
 
-  def textSummaryRow1Col1: String =
+  def textEarliestDonationDate: String =
     "Earliest donation date"
 
-  def textSummaryRow1Col2: String =
-    "1 January 2025"
-
-  def textSummaryRow2Col1: String =
+  def textAdjForGAOverclaimed: String =
     "Adjustment for Gift Aid previously over-claimed"
 
-  def textSummaryRow2Col2: String =
-    "£0.00"
-
-  def textSummaryRow3Col1: String =
+  def textTotalDonations: String =
     "Total donations"
-
-  def textSummaryRow3Col2: String =
-    "£599,500.00"
 
   def textRadioButtonQuestion: String =
     "Do you need to update this Gift Aid schedule?"
@@ -81,15 +72,9 @@ object CheckYourGiftAidSchedulePage extends BasePage {
     CheckYourGiftAidSchedulePage.verifyPageHeading(CheckYourGiftAidSchedulePage.pageHeading)
   }
 
-  // TODO Hardcoded values, needs improved
-  def validateSummaryCard(): Unit =
-    CheckYourGiftAidSchedulePage.verifySummaryCardContent(
-      CheckYourGiftAidSchedulePage.createSingleStringFromMany(
-        CheckYourGiftAidSchedulePage.textSummaryCardTitle,
-        CheckYourGiftAidSchedulePage.textSummaryRow1Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow1Col2,
-        CheckYourGiftAidSchedulePage.textSummaryRow2Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow2Col2,
-        CheckYourGiftAidSchedulePage.textSummaryRow3Col1 + " " + CheckYourGiftAidSchedulePage.textSummaryRow3Col2
-      )
+  def validateSummaryCardTitle(): Unit =
+    CheckYourGiftAidSchedulePage.verifySummaryCardTitle(
+      CheckYourGiftAidSchedulePage.textSummaryCardTitle
     )
 
   def validateFormFieldset(): Unit =

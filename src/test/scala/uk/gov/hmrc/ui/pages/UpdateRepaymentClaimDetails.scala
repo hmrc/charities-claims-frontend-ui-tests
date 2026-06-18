@@ -23,6 +23,8 @@ object UpdateRepaymentClaimDetails extends BasePage {
 
   override def pageUrl: String = s"$hostname/change-select-repayment-claim-type"
 
+  def changeRefPageUrl: String = s"$hostname/change-enter-charities-reference-number"
+
   override def pageTitle: String =
     "Do you want to update this repayment claim? - Make a charity tax repayment claim - GOV.UK"
 
@@ -40,9 +42,15 @@ object UpdateRepaymentClaimDetails extends BasePage {
   val errorMsgLocator = By.ById("value-error")
 
   def validateNavigation(): Unit = {
+    UpdateRepaymentClaimDetails.verifyPageUrl(UpdateRepaymentClaimDetails.pageUrl)
     UpdateRepaymentClaimDetails.verifyPageTitle(UpdateRepaymentClaimDetails.pageTitle)
     UpdateRepaymentClaimDetails.verifyPageHeading(UpdateRepaymentClaimDetails.pageHeading)
+  }
 
+  def validateRefNavigation(): Unit = {
+    UpdateRepaymentClaimDetails.verifyPageUrl(UpdateRepaymentClaimDetails.changeRefPageUrl)
+    UpdateRepaymentClaimDetails.verifyPageTitle(UpdateRepaymentClaimDetails.pageTitle)
+    UpdateRepaymentClaimDetails.verifyPageHeading(UpdateRepaymentClaimDetails.pageHeading)
   }
 
   def validateErrorMessages(): Unit =

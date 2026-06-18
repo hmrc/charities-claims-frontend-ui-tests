@@ -280,7 +280,10 @@ class AgentAddCommunityBuildingsSchedulePageSpec
       Then("User navigates to 'Check your Community Buildings schedule' page")
       CheckYourCommunityBuildingsSchedulePage.validateNavigationAgent()
       Then("User validates content on 'Check your Community Buildings schedule' page")
-      CheckYourCommunityBuildingsSchedulePage.validateSummaryCard()
+      CheckYourCommunityBuildingsSchedulePage.validateSummaryCardTitle()
+      CheckYourCommunityBuildingsSchedulePage.assertAllSummaryPairsExactlyAt(0)(
+        CheckYourCommunityBuildingsSchedulePage.textTotalDonations -> "£1,000,000.00"
+      )
       CheckYourCommunityBuildingsSchedulePage.validateFormFieldset()
       Then("User validates the 'no input' error on the 'Check your Community Buildings schedule' page")
       CheckYourCommunityBuildingsSchedulePage.validateErrorMessage()
