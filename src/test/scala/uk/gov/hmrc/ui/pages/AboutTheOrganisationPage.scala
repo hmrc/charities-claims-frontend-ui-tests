@@ -35,6 +35,9 @@ object AboutTheOrganisationPage extends BasePage {
   def listItem2: String =
     "The person making this claim must be an approved official or corporate trustee recognised by HM Revenue & Customs."
 
+  def listItem2Agent: String =
+    "The agent making this claim must provide a phone number so HM Revenue & Customs can get in touch about this claim."
+
   def listItem3: String =
     "Continue"
 
@@ -52,6 +55,17 @@ object AboutTheOrganisationPage extends BasePage {
         AboutTheOrganisationPage.pageHeading,
         AboutTheOrganisationPage.listItem1,
         AboutTheOrganisationPage.listItem2,
+        AboutTheOrganisationPage.listItem3
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    AboutTheOrganisationPage.verifyEntirePageContent(
+      AboutTheOrganisationPage.createSingleStringFromMany(
+        AboutTheOrganisationPage.pageCaption,
+        AboutTheOrganisationPage.pageHeading,
+        AboutTheOrganisationPage.listItem1,
+        AboutTheOrganisationPage.listItem2Agent,
         AboutTheOrganisationPage.listItem3
       )
     )
