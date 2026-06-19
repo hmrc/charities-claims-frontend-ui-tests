@@ -366,43 +366,38 @@ class AgentGiftAidJourneySpec
       WhatIsYourHMRCReferenceNumberPage.validateErrorMessageClaimAlreadyExists()
     }
 
-//     TODO Real validation to check community building does not exist on GASDS page
-//    Scenario(
-//      "User Creates claim with CH or CF HMRC Charity Reference and validates GASDS Page does not have community building section"
-//    ) {
-//      Given("the user logs in through the Authority Wizard page")
-//      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "TESTR14")
-//      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
-//      CharitiesManagementAgent.validateNavigationAgent()
-//      And(
-//        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
-//      )
-//      CharitiesManagementAgent.clickUseTheCharitiesLink()
-//      Then("User navigates and validates the 'Repayment claim details' page")
-//      RepaymentClaimDetailsPage.validateNavigationAgent()
-//      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
-//      RepaymentClaimDetailsPage.clickContinue()
-//      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
-//      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
-//      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
-//      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("X1")
-//      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
-//      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
-//      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
-//      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
-//      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
-//      RepaymentCheckboxPage.validateNavigationAgent()
-//      And("User selects GASDS Checkbox and clicks continue")
-//      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
-//      RepaymentCheckboxPage.clickContinue()
-//      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-//      GASDSCheckboxPage.validateNavigationAgent()
-//      Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-//      GASDSCheckboxPage.validatePageContentAgent()
-//      And("User selects 'Community Building' and 'Connected Charities' checkbox and clicks continue")
-//      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSBuilding, true)
-//      GASDSCheckboxPage.checkbox(GASDSCheckboxPage.GASDSConnected, true)
-//      GASDSCheckboxPage.clickContinue()
-//    }
+    Scenario(
+      "User Creates claim with CH or CF HMRC Charity Reference and validates GASDS Page does not have community building section"
+    ) {
+      Given("the user logs in through the Authority Wizard page")
+      AuthWizard.loginAgent(HASDIRECT, Agent, "Agent", "HMRC-CHAR-AGENT", "AGENTCHARID", "TESTR14")
+      Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
+      CharitiesManagementAgent.validateNavigationAgent()
+      And(
+        "User clicks the link 'Use the charities online service' to navigate to task list 'Make a charity repayment claim' page"
+      )
+      CharitiesManagementAgent.clickUseTheCharitiesLink()
+      Then("User navigates and validates the 'Repayment claim details' page")
+      RepaymentClaimDetailsPage.validateNavigationAgent()
+      Then("User Clicks Continue and navigates to 'Enter HMRC Charities Reference' page")
+      RepaymentClaimDetailsPage.clickContinue()
+      And("User Validates Navigation/hint for the 'Enter HMRC Charities Reference' page")
+      WhatIsYourHMRCReferenceNumberPage.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("CH00001")
+      And("User Navigates to 'What is the Name of your Charity or CASC' page and validates the page elements and text")
+      WhatIsTheNameOfCharityOrCASC.validateNavigationAgent()
+      Then("User Inputs a Charity Reference Number on 'Enter HMRC Charities Reference' page and clicks CONTINUE")
+      WhatIsTheNameOfCharityOrCASC.enterCharityName("Charity of X1")
+      Then("User navigates to 'Which type of repayment claim do you want to make?' page")
+      RepaymentCheckboxPage.validateNavigationAgent()
+      And("User selects GASDS Checkbox and clicks continue")
+      RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
+      RepaymentCheckboxPage.clickContinue()
+      And("User navigates to 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.validateNavigationAgent()
+      Then("User validates entire page content on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.validatePageContentCASCAgent()
+    }
   }
 }

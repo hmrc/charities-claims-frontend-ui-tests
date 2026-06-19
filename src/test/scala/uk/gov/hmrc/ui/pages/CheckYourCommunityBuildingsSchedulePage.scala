@@ -43,11 +43,8 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
   def textSummaryCardTitle: String =
     "Community Buildings schedule details"
 
-  def textSummaryRow1Col1: String =
+  def textTotalDonations: String =
     "Total donations"
-
-  def textSummaryRow1Col2: String =
-    "£1,000,000.00"
 
   def textRadioButtonQuestion: String =
     "Do you need to update this Community Buildings schedule?"
@@ -76,13 +73,9 @@ object CheckYourCommunityBuildingsSchedulePage extends BasePage {
     CheckYourCommunityBuildingsSchedulePage.verifyPageHeading(CheckYourCommunityBuildingsSchedulePage.pageHeadingAgent)
   }
 
-  // TODO Hardcoded values, needs improved
-  def validateSummaryCard(): Unit =
-    CheckYourCommunityBuildingsSchedulePage.verifySummaryCardContent(
-      CheckYourCommunityBuildingsSchedulePage.createSingleStringFromMany(
-        CheckYourCommunityBuildingsSchedulePage.textSummaryCardTitle,
-        CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col1 + " " + CheckYourCommunityBuildingsSchedulePage.textSummaryRow1Col2
-      )
+  def validateSummaryCardTitle(): Unit =
+    CheckYourCommunityBuildingsSchedulePage.verifySummaryCardTitle(
+      CheckYourCommunityBuildingsSchedulePage.textSummaryCardTitle
     )
 
   def validateFormFieldset(): Unit =

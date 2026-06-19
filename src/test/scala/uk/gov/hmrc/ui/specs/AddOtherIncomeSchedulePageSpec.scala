@@ -249,7 +249,12 @@ class AddOtherIncomeSchedulePageSpec
       Then("User navigates to 'Check your Other Income schedule' page")
       CheckYourOtherIncomeSchedulePage.validateNavigation()
       Then("User validates content on 'Check your Other Income schedule' page")
-      CheckYourOtherIncomeSchedulePage.validateSummaryCard()
+      CheckYourOtherIncomeSchedulePage.validateSummaryCardTitle()
+      CheckYourOtherIncomeSchedulePage.assertAllSummaryPairsExactlyAt(0)(
+        CheckYourOtherIncomeSchedulePage.textAdjForOIOverclaimed -> "£78.00",
+        CheckYourOtherIncomeSchedulePage.textTotalGrossPayment   -> "£1,234.00",
+        CheckYourOtherIncomeSchedulePage.textTotalTaxDeducted    -> "£56.00"
+      )
       CheckYourOtherIncomeSchedulePage.validateFormFieldset()
       Then("User validates the 'no input' error on the 'Check your Other Income schedule' page")
       CheckYourOtherIncomeSchedulePage.validateErrorMessage()

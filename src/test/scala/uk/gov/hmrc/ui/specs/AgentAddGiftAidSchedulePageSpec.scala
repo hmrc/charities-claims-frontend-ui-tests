@@ -254,7 +254,12 @@ class AgentAddGiftAidSchedulePageSpec
       Then("User navigates to 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateNavigationAgent()
       Then("User validates content on 'Check your Gift Aid schedule' page")
-      CheckYourGiftAidSchedulePage.validateSummaryCard()
+      CheckYourGiftAidSchedulePage.validateSummaryCardTitle()
+      CheckYourGiftAidSchedulePage.assertAllSummaryPairsExactlyAt(0)(
+        CheckYourGiftAidSchedulePage.textEarliestDonationDate -> "1 January 2025",
+        CheckYourGiftAidSchedulePage.textAdjForGAOverclaimed  -> "£0.00",
+        CheckYourGiftAidSchedulePage.textTotalDonations       -> "£599,500.00"
+      )
       CheckYourGiftAidSchedulePage.validateFormFieldset()
       Then("User validates the 'no input' error on the 'Check your Gift Aid schedule' page")
       CheckYourGiftAidSchedulePage.validateErrorMessage()

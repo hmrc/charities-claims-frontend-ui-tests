@@ -33,6 +33,7 @@ class AgentAddOtherIncomeSchedulePageSpec
     with BeforeAndAfterEach
     with Browser
     with ScreenshotOnFailure {
+
   Feature("Charities - Organisation - Other Income Page Validations") {
     Scenario("User navigates to the 'About Other Income Schedule' page and validates the page elements") {
       Given("the user logs in through the Authority Wizard page")
@@ -230,7 +231,12 @@ class AgentAddOtherIncomeSchedulePageSpec
       Then("User navigates to 'Check your Other Income schedule' page")
       CheckYourOtherIncomeSchedulePage.validateNavigationAgent()
       Then("User validates content on 'Check your Other Income schedule' page")
-      CheckYourOtherIncomeSchedulePage.validateSummaryCard()
+      CheckYourOtherIncomeSchedulePage.validateSummaryCardTitle()
+      CheckYourOtherIncomeSchedulePage.assertAllSummaryPairsExactlyAt(0)(
+        CheckYourOtherIncomeSchedulePage.textAdjForOIOverclaimed -> "£78.00",
+        CheckYourOtherIncomeSchedulePage.textTotalGrossPayment   -> "£1,234.00",
+        CheckYourOtherIncomeSchedulePage.textTotalTaxDeducted    -> "£56.00"
+      )
       CheckYourOtherIncomeSchedulePage.validateFormFieldset()
       Then("User validates the 'no input' error on the 'Check your Other Income schedule' page")
       CheckYourOtherIncomeSchedulePage.validateErrorMessage()

@@ -36,17 +36,11 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
 
   def textSummaryCardTitle: String = "Other Income schedule details"
 
-  def textSummaryRow1Col1: String = "Adjustment for Other Income previously over-claimed"
+  def textAdjForOIOverclaimed: String = "Adjustment for Other Income previously over-claimed"
 
-  def textSummaryRow1Col2: String = "£78.00"
+  def textTotalGrossPayment: String = "Total gross payment"
 
-  def textSummaryRow2Col1: String = "Total gross payment"
-
-  def textSummaryRow2Col2: String = "£1,234.00"
-
-  def textSummaryRow3Col1: String = "Total tax deducted"
-
-  def textSummaryRow3Col2: String = "£56.00"
+  def textTotalTaxDeducted: String = "Total tax deducted"
 
   def textRadioButtonQuestion: String = "Do you need to update this Other Income schedule?"
 
@@ -72,15 +66,9 @@ object CheckYourOtherIncomeSchedulePage extends BasePage {
     CheckYourOtherIncomeSchedulePage.verifyPageHeading(CheckYourOtherIncomeSchedulePage.pageHeadingAgent)
   }
 
-  // TODO Hardcoded values, needs improved
-  def validateSummaryCard(): Unit =
-    CheckYourOtherIncomeSchedulePage.verifySummaryCardContent(
-      CheckYourOtherIncomeSchedulePage.createSingleStringFromMany(
-        CheckYourOtherIncomeSchedulePage.textSummaryCardTitle,
-        CheckYourOtherIncomeSchedulePage.textSummaryRow1Col1 + " " + CheckYourOtherIncomeSchedulePage.textSummaryRow1Col2,
-        CheckYourOtherIncomeSchedulePage.textSummaryRow2Col1 + " " + CheckYourOtherIncomeSchedulePage.textSummaryRow2Col2,
-        CheckYourOtherIncomeSchedulePage.textSummaryRow3Col1 + " " + CheckYourOtherIncomeSchedulePage.textSummaryRow3Col2
-      )
+  def validateSummaryCardTitle(): Unit =
+    CheckYourOtherIncomeSchedulePage.verifySummaryCardTitle(
+      CheckYourOtherIncomeSchedulePage.textSummaryCardTitle
     )
 
   def validateFormFieldset(): Unit =

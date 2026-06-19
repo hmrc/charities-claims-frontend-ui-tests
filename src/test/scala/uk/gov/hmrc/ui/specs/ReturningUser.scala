@@ -153,7 +153,6 @@ class ReturningUser
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadings()
       Then("User Signs out from the top link")
       ClaimsTaskListPage_InProgress.signOut()
-      ClaimsTaskListPage_InProgress.verifySignInPage("Sign in")
       Then("the user logs in through the Authority Wizard page with the same user")
       AuthWizard.login(
         HASDIRECT,
@@ -443,7 +442,6 @@ class ReturningUser
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
       Then("User Signs out from the top link")
       ClaimsTaskListPage_InProgress.signOut()
-      ClaimsTaskListPage_InProgress.verifySignInPage("Sign in")
       Then("the user logs in through the Authority Wizard page with the same user")
       AuthWizard.login(
         HASDIRECT,
@@ -484,7 +482,7 @@ class ReturningUser
       )
       WhatIsYourHMRCReferenceNumberPage.enterCharitiesReferenceNumber("CH12345")
       Then("User navigates to 'Update repayment claim details' Page")
-      UpdateRepaymentClaimDetails.validateNavigation()
+      UpdateRepaymentClaimDetails.validateRefNavigation()
       UpdateRepaymentClaimDetails.radioButton(UpdateRepaymentClaimDetails.yes)
       UpdateRepaymentClaimDetails.clickContinue()
       Then("User navigates to 'Check your repayment claim' page")

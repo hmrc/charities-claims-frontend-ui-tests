@@ -127,10 +127,6 @@ class AgentGiftAidPagesSpec
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
       RepaymentCheckboxPage.validateNavigationAgent()
       RepaymentCheckboxPage.validateHint()
-      // And("user selects all 3 types of checkboxes")
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
       Then(
         "User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page"
       )

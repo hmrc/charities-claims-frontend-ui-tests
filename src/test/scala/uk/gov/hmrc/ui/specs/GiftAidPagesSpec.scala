@@ -88,10 +88,6 @@ class GiftAidPagesSpec
       RepaymentCheckboxPage.navigateToPage(RepaymentCheckboxPage.pageUrl)
       RepaymentCheckboxPage.validateNavigation()
       RepaymentCheckboxPage.validateHint()
-      // And("user selects all 3 types of checkboxes")
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GiftAid, true)
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.GASDSclaim, true)
-      // RepaymentCheckboxPage.checkbox(RepaymentCheckboxPage.OtherIncome, true)
       Then(
         "User validates the 'no input' error on the 'Which type of repayment claim do you want to make?' checkbox page"
       )
@@ -257,10 +253,9 @@ class GiftAidPagesSpec
       Then(
         "User validates entire page content (without Community Building Details) on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page"
       )
-      // TODO real validation to check no CB on page and error message does not have CB
       GASDSCheckboxPage.validatePageContentCASC()
-//      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
-//      GASDSCheckboxPage.validateErrorMessage()
+      Then("User validates the 'no input' error on the 'Gift Aid Small Donations Scheme (GASDS) details' checkbox page")
+      GASDSCheckboxPage.validateErrorMessage()
     }
   }
 }
