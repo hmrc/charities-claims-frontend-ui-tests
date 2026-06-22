@@ -22,6 +22,8 @@ object WhatIsYourPostcodePage extends BasePage {
 
   override def pageUrl: String = s"$hostname/what-is-your-postcode"
 
+  def changePageUrl: String = s"$hostname/change-what-is-your-postcode"
+
   override def pageTitle: String =
     "What is your postcode? - Make a charity tax repayment claim - GOV.UK"
 
@@ -47,6 +49,13 @@ object WhatIsYourPostcodePage extends BasePage {
 
   def validateNavigationAgent(): Unit = {
     WhatIsYourPostcodePage.verifyPageUrl(WhatIsYourPostcodePage.pageUrl)
+    WhatIsYourPostcodePage.verifyPageTitle(WhatIsYourPostcodePage.pageTitle)
+    WhatIsYourPostcodePage.verifyPageCaption(WhatIsYourPostcodePage.pageCaption)
+    WhatIsYourPostcodePage.verifyPageHeading(WhatIsYourPostcodePage.pageHeading)
+  }
+
+  def validateChangeNavigationAgent(): Unit = {
+    WhatIsYourPostcodePage.verifyPageUrl(WhatIsYourPostcodePage.changePageUrl)
     WhatIsYourPostcodePage.verifyPageTitle(WhatIsYourPostcodePage.pageTitle)
     WhatIsYourPostcodePage.verifyPageCaption(WhatIsYourPostcodePage.pageCaption)
     WhatIsYourPostcodePage.verifyPageHeading(WhatIsYourPostcodePage.pageHeading)

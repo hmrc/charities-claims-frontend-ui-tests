@@ -41,6 +41,9 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
   def linkGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
+  def linkGoBackToProvideMissingInfoAgent: String =
+    "Go back to provide the missing details for this claim"
+
   def textConfirmTopUpPaymentUnderGASDS: String =
     "confirm if you are claiming a top-up payment under the Gift Aid Small Donations Scheme"
 
@@ -75,6 +78,19 @@ object ThisClaimCannotBeSetupPage_Repayment extends BasePage {
         ThisClaimCannotBeSetupPage_Repayment.textParagraph1,
         ThisClaimCannotBeSetupPage_Repayment.textConfirmWhichTypeOfGASDS,
         ThisClaimCannotBeSetupPage_Repayment.linkGoBackToProvideMissingInfo
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    ThisClaimCannotBeSetupPage_Repayment.verifyEntirePageContent(
+      ThisClaimCannotBeSetupPage_Repayment.createSingleStringFromMany(
+        ThisClaimCannotBeSetupPage_Repayment.pageHeading,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningIcon,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningHeading,
+        ThisClaimCannotBeSetupPage_Repayment.pageWarningText,
+        ThisClaimCannotBeSetupPage_Repayment.textParagraph1,
+        ThisClaimCannotBeSetupPage_Repayment.textConfirmWhichTypeOfGASDS,
+        ThisClaimCannotBeSetupPage_Repayment.linkGoBackToProvideMissingInfoAgent
       )
     )
 }

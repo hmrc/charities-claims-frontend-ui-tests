@@ -41,17 +41,29 @@ object ThisClaimCannotBeSetupPage_GASDS extends BasePage {
   def linkGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
+  def linkGoBackToProvideMissingInfoAgent: String =
+    "Go back to provide the missing details for this claim"
+
   def textConfirmAmountOfGASDSOverclaimed: String =
     "confirm the amount of GASDS previously overclaimed"
 
   def textConfirmGASDSDonationAmountTaxYear1: String =
     "confirm the donation amount you are claiming for tax year 1"
 
+  def textConfirmGASDSDonationAmountTaxYear1Agent: String =
+    "confirm the donation amount the charity is claiming for tax year 1"
+
   def textConfirmGASDSDonationAmountTaxYear2: String =
     "confirm the donation amount you are claiming for tax year 2"
 
+  def textConfirmGASDSDonationAmountTaxYear2Agent: String =
+    "confirm the donation amount the charity is claiming for tax year 2"
+
   def textConfirmGASDSDonationAmountTaxYear3: String =
     "confirm the donation amount you are claiming for tax year 3"
+
+  def textConfirmGASDSDonationAmountTaxYear3Agent: String =
+    "confirm the donation amount the charity is claiming for tax year 3"
 
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_GASDS.verifyPageUrl(ThisClaimCannotBeSetupPage_GASDS.pageUrl)
@@ -69,6 +81,19 @@ object ThisClaimCannotBeSetupPage_GASDS extends BasePage {
         ThisClaimCannotBeSetupPage_GASDS.textParagraph1,
         ThisClaimCannotBeSetupPage_GASDS.textConfirmGASDSDonationAmountTaxYear3,
         ThisClaimCannotBeSetupPage_GASDS.linkGoBackToProvideMissingInfo
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    ThisClaimCannotBeSetupPage_GASDS.verifyEntirePageContent(
+      ThisClaimCannotBeSetupPage_GASDS.createSingleStringFromMany(
+        ThisClaimCannotBeSetupPage_GASDS.pageHeading,
+        ThisClaimCannotBeSetupPage_GASDS.pageWarningIcon,
+        ThisClaimCannotBeSetupPage_GASDS.pageWarningHeading,
+        ThisClaimCannotBeSetupPage_GASDS.pageWarningText,
+        ThisClaimCannotBeSetupPage_GASDS.textParagraph1,
+        ThisClaimCannotBeSetupPage_GASDS.textConfirmGASDSDonationAmountTaxYear3Agent,
+        ThisClaimCannotBeSetupPage_GASDS.linkGoBackToProvideMissingInfoAgent
       )
     )
 }

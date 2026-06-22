@@ -79,7 +79,11 @@ object CheckYourOrganisationDetailsPage extends BasePage {
     By.xpath("//a[@href='/charities-claims/change-corporate-trustee-details']")
   val linkChangeAuthOfficialUKAddress: By     =
     By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
-  val linkChangeAuthOfficialDetails: By       = By.xpath("//a[@href='/charities-claims/change-authorised-official-address']")
+  val linkChangeAuthOfficialDetails: By       = By.xpath("//a[@href='/charities-claims/change-authorised-official-details']")
+  val linkChangeSendPaymentTo: By             = By.xpath("//a[@href='/charities-claims/change-who-should-we-send-the-payment-to']")
+  val linkChangeAgentTelephoneNum: By         = By.xpath("//a[@href='/charities-claims/change-enter-a-telephone-number']")
+  val linkChangeAgentUKAddress: By            = By.xpath("//a[@href='/charities-claims/change-do-you-have-a-uk-address']")
+  val linkChangeAgentPostcode: By             = By.xpath("//a[@href='/charities-claims/change-what-is-your-postcode']")
 
   def clickChangeCharityRegulatorName(): Unit = {
     val element = waitForElementToBeClickable(linkChangeCharityRegulatorName)
@@ -118,6 +122,26 @@ object CheckYourOrganisationDetailsPage extends BasePage {
 
   def clickChangeAuthOfficialDetails(): Unit = {
     val element = waitForElementToBeClickable(linkChangeAuthOfficialDetails)
+    element.click()
+  }
+
+  def clickChangeSendPaymentTo(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeSendPaymentTo)
+    element.click()
+  }
+
+  def clickChangeAgentTelephoneNum(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeAgentTelephoneNum)
+    element.click()
+  }
+
+  def clickChangeAgentUKAddress(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeAgentUKAddress)
+    element.click()
+  }
+
+  def clickChangeAgentPostcode(): Unit = {
+    val element = waitForElementToBeClickable(linkChangeAgentPostcode)
     element.click()
   }
 }
