@@ -1221,16 +1221,16 @@ class AgtE2EJourneySpecDetailed
       ClaimsTaskListPage_InProgress.validateNavigation_AllSubheadingsAgent()
       Then("User navigates to 'Are you sure you want to delete this repayment claim?' page")
       ClaimsTaskListPage_InProgress.clickDeleteCharityClaim()
-      DeleteCharityRepaymentAgentPage.validateNavigationAgent()
+      AgentDeleteRepaymentClaimPage.validateNavigationAgent()
       Then(
         "User validates the 'no input' error on the 'Are you sure you want to delete this repayment claim?' page"
       )
-      DeleteCharityRepaymentAgentPage.validateErrorMessage()
+      AgentDeleteRepaymentClaimPage.validateErrorMessage()
       And(
         "User selects 'Yes' and clicks continue on 'Are you sure you want to delete this repayment claim?' page"
       )
-      DeleteCharityRepaymentAgentPage.radioButton(DeleteRepaymentClaimPage.yes)
-      DeleteCharityRepaymentAgentPage.clickContinue()
+      AgentDeleteRepaymentClaimPage.radioButton(DeleteRepaymentClaimPage.yes)
+      AgentDeleteRepaymentClaimPage.clickContinue()
       Then("User navigates to 'Manage charity repayment claims' page and validates navigation")
       CharitiesManagementAgent.validateNavigationAgent()
     }
