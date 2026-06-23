@@ -41,6 +41,9 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
   def textGoBackToProvideMissingInfo: String =
     "Go back to provide the missing details for your claim"
 
+  def textGoBackToProvideMissingInfoAgent: String =
+    "Go back to provide the missing details for this claim"
+
   def textConfirmRegulatorName: String =
     "confirm your charity regulator name"
 
@@ -49,6 +52,9 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
 
   def textConfirmCorporateTrusteeDetails: String =
     "confirm the corporate trustee details"
+
+  def textConfirmIfYouHaveAPostcode: String =
+    "confirm if you have a postcode"
 
   def validateNavigation(): Unit = {
     ThisClaimCannotBeSetupPage_Organisation.verifyPageUrl(ThisClaimCannotBeSetupPage_Organisation.pageUrl)
@@ -66,6 +72,19 @@ object ThisClaimCannotBeSetupPage_Organisation extends BasePage {
         ThisClaimCannotBeSetupPage_Organisation.textParagraph1,
         ThisClaimCannotBeSetupPage_Organisation.textConfirmCorporateTrusteeDetails,
         ThisClaimCannotBeSetupPage_Organisation.textGoBackToProvideMissingInfo
+      )
+    )
+
+  def validatePageContentAgent(): Unit =
+    ThisClaimCannotBeSetupPage_Organisation.verifyEntirePageContent(
+      ThisClaimCannotBeSetupPage_Organisation.createSingleStringFromMany(
+        ThisClaimCannotBeSetupPage_Organisation.pageHeading,
+        ThisClaimCannotBeSetupPage_Organisation.pageWarningIcon,
+        ThisClaimCannotBeSetupPage_Organisation.pageWarningHeading,
+        ThisClaimCannotBeSetupPage_Organisation.pageWarningText,
+        ThisClaimCannotBeSetupPage_Organisation.textParagraph1,
+        ThisClaimCannotBeSetupPage_Organisation.textConfirmIfYouHaveAPostcode,
+        ThisClaimCannotBeSetupPage_Organisation.textGoBackToProvideMissingInfoAgent
       )
     )
 }

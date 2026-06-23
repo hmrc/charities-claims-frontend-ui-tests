@@ -412,6 +412,16 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
     println("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
   }
 
+  def verifyDynamicParagraphText(expectedText: String): Unit = {
+    waitForVisibilityOfElement(Locators.paragraphText)
+    val actualText = driver.findElement(Locators.paragraphText).getText
+    assert(
+      actualText contains expectedText,
+      s"Page paragraph mismatch! Expected: $expectedText, Actual: $actualText"
+    )
+    println("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
+  }
+
   /** Verify elements of a list are the expected messages */
   def verifyListText(expectedText: String): Unit = {
     waitForVisibilityOfElement(Locators.listText)
