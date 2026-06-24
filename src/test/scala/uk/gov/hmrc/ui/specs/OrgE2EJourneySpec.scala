@@ -52,7 +52,7 @@ class OrgE2EJourneySpec
       ClaimsTaskListPage_Empty.clickProvideRepaymentClaimDetails()
       Then("User validates the 'Repayment claim details' page")
       RepaymentClaimDetailsPage.validateNavigation()
-        And("User clicks continue on 'Repayment claim details' page")
+      And("User clicks continue on 'Repayment claim details' page")
       RepaymentClaimDetailsPage.clickContinue()
       Then("User navigates to 'Which type of repayment claim do you want to make?' page")
       RepaymentCheckboxPage.validateNavigation()
