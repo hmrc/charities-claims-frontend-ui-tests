@@ -63,6 +63,9 @@ object GASDSCheckboxPage extends BasePage {
     "Connected Charity or CASC claims"
 
   def pageHint3: String =
+    "If your charity is connected to other charities or Community Amateur Sports Clubs (CASCs), the £2,000 payment limit is shared across all connected organisations."
+
+  def pageHint3Agent: String =
     "If your client is connected to other charities or Community Amateur Sports Clubs (CASCs), the £2,000 payment limit is shared across all connected organisations."
 
   def pageSubHeading2: String =
@@ -175,7 +178,7 @@ object GASDSCheckboxPage extends BasePage {
         GASDSCheckboxPage.pageBullet2,
         GASDSCheckboxPage.pageHint2,
         GASDSCheckboxPage.pageBullet3,
-        GASDSCheckboxPage.pageHint3,
+        GASDSCheckboxPage.pageHint3Agent,
         GASDSCheckboxPage.pageSubHeading2Agent,
         GASDSCheckboxPage.pageHintSelectAtLeastOne,
         GASDSCheckboxPage.pageCheckbox1,
@@ -195,7 +198,7 @@ object GASDSCheckboxPage extends BasePage {
         GASDSCheckboxPage.pageBullet1,
         GASDSCheckboxPage.pageHint1,
         GASDSCheckboxPage.pageBullet3,
-        GASDSCheckboxPage.pageHint3,
+        GASDSCheckboxPage.pageHint3Agent,
         GASDSCheckboxPage.pageSubHeading2Agent,
         GASDSCheckboxPage.pageHintSelectAtLeastOne,
         GASDSCheckboxPage.pageCheckbox1,
