@@ -502,7 +502,7 @@ class WarningPagesSpec
         "TESTFORENAME",
         "TESTSURNAME",
         "01632 960999",
-        "WG7 7FU"
+        "TE57 0AA"
       )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
