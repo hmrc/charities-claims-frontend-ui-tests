@@ -111,7 +111,7 @@ class ReturningUser
       And("User navigates to 'What are the corporate trustee details?' page")
       CorporateTrusteeDetailsPage.validateNavigation()
       And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
+      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "TE57 0AA")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
@@ -122,7 +122,7 @@ class ReturningUser
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "UK address"                                       -> "Yes",
-        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -251,7 +251,7 @@ class ReturningUser
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "UK address"                                       -> "Yes",
-        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Trustee’s details"                                -> "TEST TRUSTEE 01632 960999 TE57 0AA"
       )
       Then("User clicks on Change Link for Corporate trustee and navigates to that page")
       CheckYourOrganisationDetailsPage.clickChangeCorporateTrusteeClaim()
@@ -279,7 +279,7 @@ class ReturningUser
         "TESTFORENAME",
         "TESTSURNAME",
         "01632 960999",
-        "WG7 7FU"
+        "TE57 0AA"
       )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
@@ -298,7 +298,7 @@ class ReturningUser
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "UK address"                                       -> "Yes",
-        "Official’s details"                               -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Official’s details"                               -> "TEST TESTFORENAME TESTSURNAME 01632 960999 TE57 0AA"
       )
       CheckYourOrganisationDetailsPage.clickContinue()
       And("User navigates to 'Make a charity repayment claim' task list page")

@@ -121,7 +121,7 @@ class OrgE2EJourneySpec
       And("User navigates to 'What are the corporate trustee details?' page")
       CorporateTrusteeDetailsPage.validateNavigation()
       And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
+      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "TE57 0AA")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
       And("User navigates to 'Make a charity repayment claim' task list page")
@@ -616,7 +616,7 @@ class OrgE2EJourneySpec
         "TESTFORENAME",
         "TESTSURNAME",
         "01632 960999",
-        "WG7 7FU"
+        "TE57 0AA"
       )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()

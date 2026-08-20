@@ -175,7 +175,7 @@ class OrgE2EJourneySpecDetailed
       Then("User validates the postcode errors on the 'What are the corporate trustee details?' page")
       CorporateTrusteeDetailsPage.validateCorporateTrusteePostcodeErrorMessages()
       And("User enters their Non UK Trustee details and clicks continue")
-      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "WG7 7FU")
+      CorporateTrusteeDetailsPage.enterUKTrusteeDetails("TEST TRUSTEE", "01632 960999", "TE57 0AA")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
@@ -186,7 +186,7 @@ class OrgE2EJourneySpecDetailed
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "UK address"                                                             -> "Yes",
-        "Trustee’s details"                                                      -> "TEST TRUSTEE 01632 960999 WG7 7FU"
+        "Trustee’s details"                                                      -> "TEST TRUSTEE 01632 960999 TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -931,7 +931,7 @@ class OrgE2EJourneySpecDetailed
         "TESTFORENAME",
         "TESTSURNAME",
         "01632 960999",
-        "WG7 7FU"
+        "TE57 0AA"
       )
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigation()
@@ -943,7 +943,7 @@ class OrgE2EJourneySpecDetailed
       )
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "UK address"                                       -> "Yes",
-        "Official’s details"                               -> "TEST TESTFORENAME TESTSURNAME 01632 960999 WG7 7FU"
+        "Official’s details"                               -> "TEST TESTFORENAME TESTSURNAME 01632 960999 TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()

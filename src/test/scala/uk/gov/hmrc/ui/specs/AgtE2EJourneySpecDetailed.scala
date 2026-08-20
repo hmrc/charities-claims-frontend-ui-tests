@@ -193,7 +193,7 @@ class AgtE2EJourneySpecDetailed
       And("User validates Error messages on 'What is your postcode?' page")
       WhatIsYourPostcodePage.validateErrorMessageAgent()
       Then("User inputs a Postcode on 'What is your postcode?' page and clicks CONTINUE")
-      WhatIsYourPostcodePage.enterAgentPostcode("WG7 7FU")
+      WhatIsYourPostcodePage.enterAgentPostcode("TE57 0AA")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
@@ -205,7 +205,7 @@ class AgtE2EJourneySpecDetailed
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "Telephone number"                                                       -> "0044 (0123) 456-7890",
         "UK address"                                                             -> "Yes",
-        "Postcode"                                                               -> "WG7 7FU"
+        "Postcode"                                                               -> "TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -725,7 +725,7 @@ class AgtE2EJourneySpecDetailed
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "Telephone number"                                                       -> "0044 (0123) 456-7890",
         "UK address"                                                             -> "Yes",
-        "Postcode"                                                               -> "WG7 7FU"
+        "Postcode"                                                               -> "TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
@@ -997,7 +997,7 @@ class AgtE2EJourneySpecDetailed
       And("User validates Error messages on 'What is your postcode?' page")
       WhatIsYourPostcodePage.validateErrorMessageAgent()
       Then("User inputs a Postcode on 'What is your postcode?' page and clicks CONTINUE")
-      WhatIsYourPostcodePage.enterAgentPostcode("WG7 7FU")
+      WhatIsYourPostcodePage.enterAgentPostcode("TE57 0AA")
       And("User navigates to 'Check your organisation details' page")
       CheckYourOrganisationDetailsPage.validateNavigationAgent()
       Then("User Validates the Key and Value pairs on 'CYA Organisation Details' page and Submits")
@@ -1009,7 +1009,7 @@ class AgtE2EJourneySpecDetailed
       CheckYourOrganisationDetailsPage.assertAllSummaryPairsExactlyAt(1)(
         "Telephone number"                                  -> "0044 (0123) 456-7890",
         "UK address"                                        -> "Yes",
-        "Postcode"                                          -> "WG7 7FU"
+        "Postcode"                                          -> "TE57 0AA"
       )
       And("User navigates to 'Make a charity repayment claim' task list page")
       CheckYourOrganisationDetailsPage.clickContinue()
