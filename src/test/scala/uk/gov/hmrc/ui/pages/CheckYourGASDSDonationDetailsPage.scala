@@ -80,7 +80,7 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(GASDSAdjustmentAmountH2).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(GASDSAdjustmentAmountH2).getText)
   }
 
   def verifyGASDSClaimsH2(expectedSubHeading: String): Unit = {
@@ -90,7 +90,7 @@ object CheckYourGASDSDonationDetailsPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(GASDSClaimsH2).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(GASDSClaimsH2).getText)
   }
 
   def validateGASDSAdjustmentHeading(): Unit =

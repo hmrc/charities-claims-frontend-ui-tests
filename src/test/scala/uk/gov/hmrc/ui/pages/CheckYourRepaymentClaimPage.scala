@@ -138,7 +138,7 @@ object CheckYourRepaymentClaimPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(CharityDetailsAgent).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(CharityDetailsAgent).getText)
   }
 
   def verifyClaimDetailsH2Agent(expectedSubHeading: String): Unit = {
@@ -148,7 +148,7 @@ object CheckYourRepaymentClaimPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(ClaimDetailsAgent).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(ClaimDetailsAgent).getText)
   }
 
 }

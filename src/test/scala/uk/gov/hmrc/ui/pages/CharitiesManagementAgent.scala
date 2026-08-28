@@ -107,6 +107,6 @@ object CharitiesManagementAgent extends BasePage {
   def runCreateNClaims(n: Int): Unit =
     for (i <- 1 to n)
       createNClaims(i)
-      println(s"[DEBUG] using Agent Username:" + CharitiesManagementAgent.RandomUsernameAgentClaims)
+      logger.info(s"[DEBUG] using Agent Username:" + CharitiesManagementAgent.RandomUsernameAgentClaims)
 
 }
