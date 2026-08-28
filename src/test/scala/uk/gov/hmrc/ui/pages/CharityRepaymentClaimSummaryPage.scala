@@ -69,7 +69,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(GiftAidDetails).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(GiftAidDetails).getText)
   }
 
   def verifyOtherIncomeDetailsH2(expectedSubHeading: String): Unit = {
@@ -79,7 +79,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(OtherIncomeDetails).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(OtherIncomeDetails).getText)
   }
 
   def verifyGASDSDetailsH2(expectedSubHeading: String): Unit = {
@@ -89,7 +89,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(GASDSDetails).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(GASDSDetails).getText)
   }
 
   def verifyAdjustmentDetailsH2(expectedSubHeading: String): Unit = {
@@ -99,7 +99,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualSubHeading == expectedSubHeading,
       s"Page sub-heading mismatch! Expected: $expectedSubHeading, Actual: $actualSubHeading"
     )
-    println("Actual page sub-heading is: " + driver.findElement(AdjustmentDetails).getText)
+    logger.info("Actual page sub-heading is: " + driver.findElement(AdjustmentDetails).getText)
   }
 
   def verifySubmissionReferenceBase32(): Unit = {
@@ -108,9 +108,9 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
     val isValid         = isUpperCaseBase32Unpadded(actualReference)
 
     if (isValid) {
-      println(s"[PASS] Valid Base32: $actualReference")
+      logger.info(s"[PASS] Valid Base32: $actualReference")
     } else {
-      println(s"[FAIL] Invalid Base32: $actualReference")
+      logger.info(s"[FAIL] Invalid Base32: $actualReference")
     }
 
     assert(isValid, s"Expected Base32 but got: $actualReference")
@@ -146,7 +146,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualLinkText == expectedLink,
       s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
     )
-    println("Actual page Link is: " + driver.findElement(linkPrintSummary).getText.trim)
+    logger.info("Actual page Link is: " + driver.findElement(linkPrintSummary).getText.trim)
 
   def validateLogOutAndGoBackLink(expectedLink: String): Unit =
     waitForVisibilityOfElement(linkLogOutHMRC)
@@ -155,7 +155,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualLinkText == expectedLink,
       s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
     )
-    println("Actual page Link is: " + driver.findElement(linkLogOutHMRC).getText.trim)
+    logger.info("Actual page Link is: " + driver.findElement(linkLogOutHMRC).getText.trim)
 
   def validateGoToYourHMRCServicesLink(expectedLink: String): Unit =
     waitForVisibilityOfElement(linkGoToYourHMRCServices)
@@ -164,7 +164,7 @@ object CharityRepaymentClaimSummaryPage extends BasePage {
       actualLinkText == expectedLink,
       s"Page Link mismatch! Expected: $expectedLink, Actual: $actualLinkText"
     )
-    println("Actual page Link is: " + driver.findElement(linkGoToYourHMRCServices).getText.trim)
+    logger.info("Actual page Link is: " + driver.findElement(linkGoToYourHMRCServices).getText.trim)
 
   def validateSummaryPageLinks(): Unit = {
     CharityRepaymentClaimSummaryPage.validatePrintSummaryLink(CharityRepaymentClaimSummaryPage.printSummaryLink)

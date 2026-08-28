@@ -48,7 +48,7 @@ object RepaymentCheckboxPage extends BasePage {
       actualText == expectedText,
       s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page hint is: " + driver.findElement(By.ById("value_1-item-hint")).getText)
+    logger.info("Actual page hint is: " + driver.findElement(By.ById("value_1-item-hint")).getText)
   }
 
   val GiftAid: String     = "#value"

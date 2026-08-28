@@ -259,13 +259,13 @@ object WhichTaxYearAreYouClaimingForPage extends BasePage {
       actualErrorSummary contains errorMessage,
       s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
     )
-    println("Actual error summary is: " + actualErrorSummary)
+    logger.info("Actual error summary is: " + actualErrorSummary)
     // Error message - above erroring field
     val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
     assert(
       actualErrorMsg contains errorMessage,
       s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
     )
-    println("Actual error message is: " + actualErrorMsg)
+    logger.info("Actual error message is: " + actualErrorMsg)
   }
 }

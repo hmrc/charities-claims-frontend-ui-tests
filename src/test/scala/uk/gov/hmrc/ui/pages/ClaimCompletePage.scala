@@ -88,9 +88,9 @@ object ClaimCompletePage extends BasePage {
     val isValid         = isUpperCaseBase32Unpadded(actualReference)
 
     if (isValid) {
-      println(s"[PASS] Valid Base32: $actualReference")
+      logger.info(s"[PASS] Valid Base32: $actualReference")
     } else {
-      println(s"[FAIL] Invalid Base32: $actualReference")
+      logger.info(s"[FAIL] Invalid Base32: $actualReference")
     }
   }
 }

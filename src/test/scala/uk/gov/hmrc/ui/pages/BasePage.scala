@@ -161,14 +161,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualErrorSummary contains errorMessage,
       s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
     )
-    println("Actual error summary is: " + actualErrorSummary)
+    logger.info("Actual error summary is: " + actualErrorSummary)
     // Error message - above erroring field
     val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
     assert(
       actualErrorMsg contains errorMessage,
       s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
     )
-    println("Actual error message is: " + actualErrorMsg)
+    logger.info("Actual error message is: " + actualErrorMsg)
   }
 
   /** Trigger too many characters error message */
@@ -275,10 +275,10 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
   def clickLinkById(linkId: String): Unit =
     try {
       click(By.id(linkId))
-      println(s"Successfully clicked the link with ID: $linkId")
+      logger.info(s"Successfully clicked the link with ID: $linkId")
     } catch {
       case e: Exception =>
-        println(s"Failed to click the link with ID: $linkId. Error: ${e.getMessage}")
+        logger.info(s"Failed to click the link with ID: $linkId. Error: ${e.getMessage}")
     }
 
   /** Verify that the URL Endpoint is a substring of the current URL */
@@ -288,7 +288,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       driver.getCurrentUrl.contains(expectedUrl),
       s"Page URL mismatch! Expected: $expectedUrl, Actual: ${driver.getCurrentUrl}"
     )
-    println("Actual URL is: " + driver.getCurrentUrl)
+    logger.info("Actual URL is: " + driver.getCurrentUrl)
   }
 
   def verifyPageTitle(expectedTitle: String): Unit = {
@@ -297,7 +297,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       driver.getTitle == expectedTitle,
       s"Page title mismatch! Expected: $expectedTitle, Actual: ${driver.getTitle}"
     )
-    println("Actual page title is: " + driver.getTitle)
+    logger.info("Actual page title is: " + driver.getTitle)
   }
 
   def verifyPageCaption(expectedCaption: String): Unit = {
@@ -307,7 +307,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualCaption == expectedCaption,
       s"Page caption mismatch! Expected: $expectedCaption, Actual: $actualCaption"
     )
-    println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
+    logger.info("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
 
   def verifyDynamicPageCaption(expectedCaption: String): Unit = {
@@ -317,7 +317,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualCaption contains expectedCaption,
       s"Page caption mismatch! Expected: $expectedCaption, Actual: $actualCaption"
     )
-    println("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
+    logger.info("Actual page caption is: " + driver.findElement(Locators.txtCaption).getText)
   }
 
   def verifyDynamicPageCaption2(expectedCaption2: String): Unit = {
@@ -327,7 +327,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualCaption2 contains expectedCaption2,
       s"Page caption 2 mismatch! Expected: $expectedCaption2, Actual: $actualCaption2"
     )
-    println("Actual page caption 2 is: " + driver.findElement(Locators.txtCaption2).getText)
+    logger.info("Actual page caption 2 is: " + driver.findElement(Locators.txtCaption2).getText)
   }
 
   def verifyPageHeading(expectedHeading: String): Unit = {
@@ -337,7 +337,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualHeading == expectedHeading,
       s"Page heading mismatch! Expected: $expectedHeading, Actual: $actualHeading"
     )
-    println("Actual page heading is: " + driver.findElement(Locators.txtHeading).getText)
+    logger.info("Actual page heading is: " + driver.findElement(Locators.txtHeading).getText)
   }
 
   def verifyPageWarning(expectedWarning: String): Unit = {
@@ -347,7 +347,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualWarning contains expectedWarning,
       s"Page warning mismatch! Expected: $expectedWarning, Actual: $actualWarning"
     )
-    println("Actual page warning is: " + driver.findElement(Locators.txtWarning).getText)
+    logger.info("Actual page warning is: " + driver.findElement(Locators.txtWarning).getText)
   }
 
   def verifyPageSubHeading1(expectedSubHeading1: String): Unit = {
@@ -357,7 +357,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualSubHeading1 == expectedSubHeading1,
       s"Page sub-heading 1 mismatch! Expected: $expectedSubHeading1, Actual: $actualSubHeading1"
     )
-    println("Actual page sub-heading 1 is: " + driver.findElement(Locators.txtSubHeading1).getText)
+    logger.info("Actual page sub-heading 1 is: " + driver.findElement(Locators.txtSubHeading1).getText)
   }
 
   def verifyPageSubHeading2(expectedSubHeading2: String): Unit = {
@@ -367,7 +367,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualSubHeading2 == expectedSubHeading2,
       s"Page sub-heading 2 mismatch! Expected: $expectedSubHeading2, Actual: $actualSubHeading2"
     )
-    println("Actual page sub-heading 2 is: " + driver.findElement(Locators.txtSubHeading2).getText)
+    logger.info("Actual page sub-heading 2 is: " + driver.findElement(Locators.txtSubHeading2).getText)
   }
 
   def verifyPageSubHeading3(expectedSubHeading3: String): Unit = {
@@ -377,7 +377,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualSubHeading3 == expectedSubHeading3,
       s"Page sub-heading 3 mismatch! Expected: $expectedSubHeading3, Actual: $actualSubHeading3"
     )
-    println("Actual page sub-heading 3 is: " + driver.findElement(Locators.txtSubHeading3).getText)
+    logger.info("Actual page sub-heading 3 is: " + driver.findElement(Locators.txtSubHeading3).getText)
   }
 
   /** Verify that a hint includes expected message */
@@ -388,7 +388,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page hint is: " + driver.findElement(Locators.hintText).getText)
+    logger.info("Actual page hint is: " + driver.findElement(Locators.hintText).getText)
   }
 
   def verifyAmountHintText(expectedText: String): Unit = {
@@ -398,7 +398,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page hint mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page hint is: " + driver.findElement(Locators.amountHintText).getText)
+    logger.info("Actual page hint is: " + driver.findElement(Locators.amountHintText).getText)
   }
 
   /** Verify that a paragraph includes expected message */
@@ -409,7 +409,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page paragraph mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
+    logger.info("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
   }
 
   def verifyDynamicParagraphText(expectedText: String): Unit = {
@@ -419,7 +419,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText contains expectedText,
       s"Page paragraph mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
+    logger.info("Actual page paragraph is: " + driver.findElement(Locators.paragraphText).getText)
   }
 
   /** Verify elements of a list are the expected messages */
@@ -430,7 +430,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page list mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page list is: " + driver.findElement(Locators.listText).getText)
+    logger.info("Actual page list is: " + driver.findElement(Locators.listText).getText)
   }
 
   /** Verify elements of a list are the expected messages */
@@ -441,7 +441,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page task list 1 mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page task list 1 is: " + driver.findElement(Locators.taskList1Text).getText)
+    logger.info("Actual page task list 1 is: " + driver.findElement(Locators.taskList1Text).getText)
   }
 
   /** Verify elements of a list are the expected messages */
@@ -452,7 +452,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page task list 2 mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page task list 2 is: " + driver.findElement(Locators.taskList2Text).getText)
+    logger.info("Actual page task list 2 is: " + driver.findElement(Locators.taskList2Text).getText)
   }
 
   /** Verify elements of a list are the expected messages */
@@ -463,7 +463,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page task list 3 mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page task list 3 is: " + driver.findElement(Locators.taskList3Text).getText)
+    logger.info("Actual page task list 3 is: " + driver.findElement(Locators.taskList3Text).getText)
   }
 
   def verifyScheduleErrorHelpList(expectedText: String): Unit = {
@@ -473,7 +473,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page list mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page list is: " + driver.findElement(Locators.scheduleErrorHelpList).getText)
+    logger.info("Actual page list is: " + driver.findElement(Locators.scheduleErrorHelpList).getText)
   }
 
   /** Verify that the text within a legend includes the expected text */
@@ -484,7 +484,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Page legend mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page legend is: " + driver.findElement(Locators.legendText).getText)
+    logger.info("Actual page legend is: " + driver.findElement(Locators.legendText).getText)
   }
 
   /** Verify that the main error page content is displayed as expected */
@@ -496,7 +496,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning page content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
+    logger.info("Actual page not found content is: " + driver.findElement(Locators.txtEntirePageContent).getText)
   }
 
   def verifySummaryCardTitle(expectedText: String): Unit = {
@@ -506,7 +506,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardTitle).getText)
+    logger.info("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardTitle).getText)
   }
 
   def verifySummaryCardContent(expectedText: String): Unit = {
@@ -516,7 +516,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning summary card content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardContent).getText)
+    logger.info("Actual summary card content is: " + driver.findElement(Locators.txtSummaryCardContent).getText)
   }
 
   def verifyFormFieldsetContent(expectedText: String): Unit = {
@@ -526,7 +526,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
+    logger.info("Actual form content is: " + driver.findElement(Locators.txtFormFieldset).getText)
   }
 
   def verifyPageContentBelowPanel1(expectedText: String): Unit = {
@@ -536,7 +536,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel1).getText)
+    logger.info("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel1).getText)
   }
 
   def verifyPageContentBelowPanel2(expectedText: String): Unit = {
@@ -546,7 +546,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel2).getText)
+    logger.info("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel2).getText)
   }
 
   def verifyPageContentBelowPanel3(expectedText: String): Unit = {
@@ -556,7 +556,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel3).getText)
+    logger.info("Actual page content is: " + driver.findElement(Locators.txtBelowConfirmationPanel3).getText)
   }
 
   def verifySignInPage(expectedText: String): Unit = {
@@ -566,7 +566,7 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualText == expectedText,
       s"Warning form content mismatch! Expected: $expectedText, Actual: $actualText"
     )
-    println("Actual form content is: " + driver.findElement(By.xpath(Locators.buttonSignIn)).getText)
+    logger.info("Actual form content is: " + driver.findElement(By.xpath(Locators.buttonSignIn)).getText)
   }
 
   /** Helper method for passing one string to verify list text instead of multiple */
@@ -592,14 +592,14 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       actualErrorSummary contains errorMessage,
       s"Page error summary mismatch! Expected: $errorMessage, Actual: $actualErrorSummary"
     )
-    println("Actual error summary is: " + actualErrorSummary)
+    logger.info("Actual error summary is: " + actualErrorSummary)
     // Error message - above erroring field
     val actualErrorMsg     = driver.findElement(errorMsgLocatorValue).getText
     assert(
       actualErrorMsg contains errorMessage,
       s"Page error message mismatch! Expected: $errorMessage, Actual: $actualErrorMsg"
     )
-    println("Actual error message is: " + actualErrorMsg)
+    logger.info("Actual error message is: " + actualErrorMsg)
   }
 
   /** Helper methods for validating Check your Answers Page's field and value pairs */
