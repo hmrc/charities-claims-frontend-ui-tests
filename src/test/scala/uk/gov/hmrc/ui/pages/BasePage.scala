@@ -255,9 +255,19 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
 
   /** Radio button interaction */
   def radioButton(optionalValue: String): Unit = {
-    val element: WebElement    = driver.findElement(By.cssSelector(optionalValue))
-    val ex: JavascriptExecutor = driver.asInstanceOf[JavascriptExecutor]
-    ex.executeScript("arguments[0].click()", element)
+    val selector = By.cssSelector(optionalValue)
+    val wait     = new WebDriverWait(driver, Duration.ofSeconds(30))
+
+    wait
+      .ignoring(classOf[org.openqa.selenium.StaleElementReferenceException])
+      .until(new org.openqa.selenium.support.ui.ExpectedCondition[Boolean] {
+        override def apply(webDriver: WebDriver): Boolean = {
+          val element = webDriver.findElement(selector)
+          val ex      = webDriver.asInstanceOf[JavascriptExecutor]
+          ex.executeScript("arguments[0].click()", element)
+          true
+        }
+      })
   }
 
   /** Checkbox interaction */
