@@ -263,9 +263,11 @@ trait BasePage extends PageObject with Eventually with Matchers with LazyLogging
       .until(new org.openqa.selenium.support.ui.ExpectedCondition[Boolean] {
         override def apply(webDriver: WebDriver): Boolean = {
           val element = webDriver.findElement(selector)
-          val ex      = webDriver.asInstanceOf[JavascriptExecutor]
-          ex.executeScript("arguments[0].click()", element)
-          true
+          if (!element.isSelected) {
+            val ex = webDriver.asInstanceOf[JavascriptExecutor]
+            ex.executeScript("arguments[0].click()", element)
+          }
+          webDriver.findElement(selector).isSelected
         }
       })
   }
